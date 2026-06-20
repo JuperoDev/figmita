@@ -130,6 +130,77 @@ function removeLink(i, j, k) {
       <button class="feat-add-row" style="margin-top:8px;" @click="addMenuItem"><i class="pi pi-plus" /> Add menu item</button>
     </div>
   </template>
+
+  <template v-else-if="activeElement.type === 'confirmdialog'">
+    <p class="prop-section">Header</p>
+    <div class="ce-field">
+      <input class="ce-input" v-model="activeElement.config.header" />
+    </div>
+
+    <div class="prop-hr" />
+    <p class="prop-section">Message</p>
+    <div class="ce-field">
+      <textarea class="ce-textarea" v-model="activeElement.config.message" rows="3" />
+    </div>
+
+    <div class="prop-hr" />
+    <p class="prop-section">Icon</p>
+    <div class="ce-field">
+      <input class="ce-input" v-model="activeElement.config.icon" placeholder="pi pi-exclamation-triangle" />
+    </div>
+
+    <div class="prop-hr" />
+    <p class="prop-section">Buttons</p>
+    <div class="ce-field">
+      <div style="display:flex;gap:6px;">
+        <div style="flex:1;">
+          <label class="ce-label">Accept label</label>
+          <input class="ce-input" v-model="activeElement.config.acceptLabel" />
+        </div>
+        <div style="flex:1;">
+          <label class="ce-label">Accept icon</label>
+          <input class="ce-input" v-model="activeElement.config.acceptIcon" placeholder="pi pi-check" />
+        </div>
+      </div>
+    </div>
+    <div class="ce-field">
+      <div style="display:flex;gap:6px;">
+        <div style="flex:1;">
+          <label class="ce-label">Reject label</label>
+          <input class="ce-input" v-model="activeElement.config.rejectLabel" />
+        </div>
+        <div style="flex:1;">
+          <label class="ce-label">Reject icon</label>
+          <input class="ce-input" v-model="activeElement.config.rejectIcon" placeholder="pi pi-times" />
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template v-else-if="activeElement.type === 'button'">
+    <p class="prop-section">Label</p>
+    <div class="ce-field">
+      <input class="ce-input" v-model="activeElement.config.label" />
+    </div>
+
+    <div class="prop-hr" />
+    <p class="prop-section">Icon</p>
+    <div class="ce-field">
+      <input class="ce-input" v-model="activeElement.config.icon" placeholder="pi pi-check" />
+    </div>
+
+    <div class="prop-hr" />
+    <p class="prop-section">Badge</p>
+    <div class="ce-field">
+      <div style="display:flex;gap:4px;">
+        <input class="ce-input" v-model="activeElement.config.badge" style="flex:1;" placeholder="e.g. 3" />
+        <select v-model="activeElement.config.badgeSeverity" class="dark-select" style="width:84px;">
+          <option :value="null">default</option>
+          <option v-for="s in severityOptions" :key="s" :value="s">{{ s }}</option>
+        </select>
+      </div>
+    </div>
+  </template>
   </div>
 </template>
 

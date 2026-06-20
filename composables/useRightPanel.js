@@ -12,5 +12,9 @@ export function useRightPanel() {
     screens.value.filter(s => s.id !== (selectedEl.value?.screenId ?? activeScreenId.value))
   )
 
-  return { rightTab, otherScreens }
+  const confirmDialogElements = computed(() =>
+    screens.value.flatMap(s => s.elements.filter(e => e.type === 'confirmdialog'))
+  )
+
+  return { rightTab, otherScreens, confirmDialogElements }
 }

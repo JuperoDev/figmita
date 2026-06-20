@@ -3,6 +3,11 @@ import { SCREEN_W } from '~/composables/useConstants.js'
 
 const { selectedEl } = useElements()
 const { activeElement, deleteEl } = useElements()
+
+const { severityOptions } = useEditor()
+
+const COMPONENT_NAME = { megamenu: 'MegaMenu', confirmdialog: 'ConfirmDialog', button: 'Button' }
+const COMPONENT_W     = { megamenu: SCREEN_W, confirmdialog: 380, button: 'auto' }
 </script>
 
 <template>
@@ -15,7 +20,7 @@ const { activeElement, deleteEl } = useElements()
     <div class="prop-hr" />
     <p class="prop-section">Layout</p>
     <div class="prop-grid">
-      <div class="prop-field"><label>W</label><input class="prop-inp" :value="activeElement.type === 'megamenu' ? SCREEN_W : '360'" readonly /></div>
+      <div class="prop-field"><label>W</label><input class="prop-inp" :value="COMPONENT_W[activeElement.type] ?? '360'" readonly /></div>
       <div class="prop-field"><label>H</label><input class="prop-inp" value="auto" readonly /></div>
       <div class="prop-field"><label>X</label><input class="prop-inp" :value="activeElement.pos.x" readonly /></div>
       <div class="prop-field"><label>Y</label><input class="prop-inp" :value="activeElement.pos.y" readonly /></div>
@@ -25,7 +30,7 @@ const { activeElement, deleteEl } = useElements()
     <p class="prop-section">Component</p>
     <div class="component-badge">
       <i class="pi pi-box" />
-      <span>PrimeVue / {{ activeElement.type === 'megamenu' ? 'MegaMenu' : 'Card' }}</span>
+      <span>PrimeVue / {{ COMPONENT_NAME[activeElement.type] ?? 'Card' }}</span>
     </div>
 
     <template v-if="activeElement.type === 'megamenu'">
@@ -58,6 +63,114 @@ const { activeElement, deleteEl } = useElements()
       </div>
     </template>
 
+    <template v-else-if="activeElement.type === 'confirmdialog'">
+      <div class="prop-hr" />
+      <p class="prop-section">PrimeVue Props</p>
+      <div class="ce-field">
+        <label class="ce-label">position</label>
+        <select class="dark-select" v-model="activeElement.config.position">
+          <option v-for="p in ['center','top','bottom','left','right','topleft','topright','bottomleft','bottomright']" :key="p" :value="p">{{ p }}</option>
+        </select>
+      </div>
+      <div class="ce-field">
+        <label class="ce-label">defaultFocus</label>
+        <select class="dark-select" v-model="activeElement.config.defaultFocus">
+          <option value="accept">accept</option>
+          <option value="reject">reject</option>
+        </select>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.modal" />
+          <span class="ce-label" style="margin:0;">modal</span>
+        </label>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.blockScroll" />
+          <span class="ce-label" style="margin:0;">blockScroll</span>
+        </label>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.draggable" />
+          <span class="ce-label" style="margin:0;">draggable</span>
+        </label>
+        <p class="hint-text">No effect on the canvas preview — affects the real component's behavior conceptually.</p>
+      </div>
+    </template>
+
+    <template v-else-if="activeElement.type === 'button'">
+      <div class="prop-hr" />
+      <p class="prop-section">PrimeVue Props</p>
+      <div class="ce-field">
+        <label class="ce-label">severity</label>
+        <select class="dark-select" v-model="activeElement.config.severity">
+          <option :value="null">default (primary)</option>
+          <option v-for="s in severityOptions" :key="s" :value="s">{{ s }}</option>
+        </select>
+      </div>
+      <div class="ce-field">
+        <label class="ce-label">size</label>
+        <select class="dark-select" v-model="activeElement.config.size">
+          <option :value="null">normal</option>
+          <option value="small">small</option>
+          <option value="large">large</option>
+        </select>
+      </div>
+      <div class="ce-field">
+        <label class="ce-label">iconPos</label>
+        <select class="dark-select" v-model="activeElement.config.iconPos">
+          <option value="left">left</option>
+          <option value="right">right</option>
+          <option value="top">top</option>
+          <option value="bottom">bottom</option>
+        </select>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.raised" />
+          <span class="ce-label" style="margin:0;">raised</span>
+        </label>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.rounded" />
+          <span class="ce-label" style="margin:0;">rounded</span>
+        </label>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.text" />
+          <span class="ce-label" style="margin:0;">text</span>
+        </label>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.outlined" />
+          <span class="ce-label" style="margin:0;">outlined</span>
+        </label>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.fluid" />
+          <span class="ce-label" style="margin:0;">fluid</span>
+        </label>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.loading" />
+          <span class="ce-label" style="margin:0;">loading</span>
+        </label>
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.disabled" />
+          <span class="ce-label" style="margin:0;">disabled</span>
+        </label>
+      </div>
+    </template>
+
     <div class="prop-hr" />
     <div class="ce-field">
       <button class="danger-btn" @click="deleteEl(selectedEl.screenId, selectedEl.elId)">
@@ -77,6 +190,7 @@ const { activeElement, deleteEl } = useElements()
 .component-badge { display:flex; align-items:center; gap:8px; padding:6px 8px; margin:0 12px; background:rgba(52,211,153,.08); border:1px solid rgba(52,211,153,.25); border-radius:4px; font-size:12px; color:#34d399; }
 .ce-field { padding:0 12px 8px; }
 .ce-label { display:block; font-size:10px; color:#666; margin-bottom:4px; }
+.hint-text { font-size:11px; color:#555; margin:4px 0 0; }
 .ce-input { width:100%; box-sizing:border-box; background:#1e1e1e; border:1px solid #333; border-radius:4px; color:#d0d0d0; font-size:12px; padding:5px 8px; outline:none; font-family:inherit; user-select:text; }
 .ce-input:focus { border-color:#7c5cfc; }
 .dark-select { background:#1e1e1e; border:1px solid #333; color:#d0d0d0; border-radius:4px; padding:5px 8px; font-size:12px; cursor:pointer; outline:none; width:100%; user-select:text; }

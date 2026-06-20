@@ -54,17 +54,61 @@ export function makeMegaMenuConfig() {
   }
 }
 
+export function makeConfirmDialogConfig() {
+  return {
+    header:      'Are you sure?',
+    message:     'This action cannot be undone.',
+    icon:        'pi pi-exclamation-triangle',
+    acceptLabel: 'Yes',
+    rejectLabel: 'No',
+    acceptIcon:  '',
+    rejectIcon:  '',
+    position:    'center',
+    modal:       true,
+    blockScroll: false,
+    defaultFocus: 'accept',
+    draggable:   true,
+  }
+}
+
+export function makeButtonConfig() {
+  return {
+    label:         'Button',
+    icon:          '',
+    iconPos:       'left',
+    severity:      null,
+    size:          null,
+    raised:        false,
+    rounded:       false,
+    text:          false,
+    outlined:      false,
+    fluid:         false,
+    loading:       false,
+    disabled:      false,
+    badge:         '',
+    badgeSeverity: null,
+  }
+}
+
+const ELEMENT_NAMES = { card: 'Card', megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button' }
+
 export function makeElement(type) {
   return {
     id:   `el-${uid()}`,
     type,
-    name: type === 'card' ? 'Card' : type === 'megamenu' ? 'Mega Menu' : 'Element',
+    name: ELEMENT_NAMES[type] ?? 'Element',
     pos:  type === 'megamenu' ? { x: 0, y: 0 } : { x: Math.round((SCREEN_W - CARD_W) / 2), y: 160 },
-    config: type === 'card' ? makeCardConfig() : type === 'megamenu' ? makeMegaMenuConfig() : {},
+    config: type === 'card' ? makeCardConfig()
+      : type === 'megamenu' ? makeMegaMenuConfig()
+      : type === 'confirmdialog' ? makeConfirmDialogConfig()
+      : type === 'button' ? makeButtonConfig()
+      : {},
     interaction: {
-      action:     'alert',
-      alertText:  'Hello! 👋',
-      navigateTo: null,
+      action:                 'alert',
+      alertText:              'Hello! 👋',
+      navigateTo:             null,
+      confirmTarget:          null,
+      confirmAcceptNavigateTo: null,
     },
   }
 }

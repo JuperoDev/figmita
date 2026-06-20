@@ -13,6 +13,9 @@ const { panToIdx } = useCanvas()
 
 const vFocus = { mounted: el => nextTick(() => el.focus()) }
 
+const EL_ICON = { megamenu: 'pi-bars', confirmdialog: 'pi-shield', button: 'pi-mouse' }
+const EL_NAME = { megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button' }
+
 function setActiveScreen(id) {
   activeScreenId.value = id
   clearSelection()
@@ -68,8 +71,8 @@ function setActiveScreen(id) {
           :class="{ selected: isElSel(sc.id, el.id) && !selectedSub }"
           @click="clickEl(sc.id, el.id)"
         >
-          <i :class="['pi', el.type === 'megamenu' ? 'pi-bars' : 'pi-id-card', 'layer-ico', 'component-ico']" />
-          <span class="layer-name">{{ el.name || (el.type === 'megamenu' ? 'Mega Menu' : 'Card') }}</span>
+          <i :class="['pi', EL_ICON[el.type] ?? 'pi-id-card', 'layer-ico', 'component-ico']" />
+          <span class="layer-name">{{ el.name || EL_NAME[el.type] || 'Card' }}</span>
           <button class="layer-del" @click.stop="deleteEl(sc.id, el.id)">
             <i class="pi pi-times" />
           </button>

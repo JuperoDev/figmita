@@ -1,7 +1,7 @@
 <script setup>
 import { SCREEN_W, SCREEN_H } from '~/composables/useConstants.js'
 
-const { playMode, playScreenId, playScreen, playScale, transitionDir, handlePlayBtn, goTo } = usePlayMode()
+const { playMode, playScreenId, playScreen, playScale, transitionDir, handlePlayBtn, goTo, confirmOverlay } = usePlayMode()
 const { screens } = useScreens()
 </script>
 
@@ -34,7 +34,10 @@ const { screens } = useScreens()
                 class="play-screen"
                 :style="{ width: SCREEN_W + 'px', height: SCREEN_H + 'px' }"
               >
-                <div class="play-screen-scroll">
+                <div
+                  class="play-screen-scroll"
+                  :style="{ overflowY: confirmOverlay.visible && confirmOverlay.blockScroll ? 'hidden' : 'auto' }"
+                >
                   <div
                     class="play-screen-content"
                     :style="{ width: SCREEN_W + 'px', height: (playScreen.height ?? SCREEN_H) + 'px', background: playScreen.bg }"
@@ -59,11 +62,18 @@ const { screens } = useScreens()
                         v-else-if="el.type === 'megamenu'"
                         :config="el.config"
                       />
+                      <ButtonMock
+                        v-else-if="el.type === 'button'"
+                        :config="el.config"
+                        :play-mode="true"
+                        @click="handlePlayBtn(el)"
+                      />
                     </div>
                   </div>
                 </div>
 
                 <FakeAlert />
+                <ConfirmOverlay />
               </div>
             </Transition>
           </div>

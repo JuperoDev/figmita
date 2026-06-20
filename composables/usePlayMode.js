@@ -7,6 +7,7 @@ const playMode      = ref(false)
 const playScreenId  = ref(null)
 const transitionDir = ref('left')
 const fakeAlert     = ref({ visible: false, text: '' })
+const confirmOverlay = ref({ visible: false })
 const pendingNav    = ref(null)
 const playScale     = ref(0.6)
 
@@ -27,11 +28,12 @@ export function usePlayMode() {
   }
 
   function startPlay() {
-    playScreenId.value = startScreenId.value
-    fakeAlert.value    = { visible: false, text: '' }
-    pendingNav.value   = null
-    selectedEl.value   = null
-    selectedSub.value  = null
+    playScreenId.value   = startScreenId.value
+    fakeAlert.value      = { visible: false, text: '' }
+    confirmOverlay.value = { visible: false }
+    pendingNav.value     = null
+    selectedEl.value     = null
+    selectedSub.value    = null
     computePlayScale()
     playMode.value = true
   }
@@ -54,6 +56,11 @@ export function usePlayMode() {
     } else if (ia.action === 'alert+navigate') {
       pendingNav.value = ia.navigateTo
       fakeAlert.value  = { visible: true, text: ia.alertText }
+    } else if (ia.action === 'confirm') {
+      const target = screens.value.flatMap(s => s.elements).find(e => e.id === ia.confirmTarget)
+      if (!target) return
+      pendingNav.value     = ia.confirmAcceptNavigateTo ?? null
+      confirmOverlay.value = { visible: true, ...target.config }
     }
   }
 
@@ -62,8 +69,18 @@ export function usePlayMode() {
     if (pendingNav.value) { goTo(pendingNav.value); pendingNav.value = null }
   }
 
+  function acceptConfirm() {
+    confirmOverlay.value.visible = false
+    if (pendingNav.value) { goTo(pendingNav.value); pendingNav.value = null }
+  }
+
+  function rejectConfirm() {
+    confirmOverlay.value.visible = false
+    pendingNav.value = null
+  }
+
   return {
-    playMode, playScreenId, transitionDir, fakeAlert, playScale, playScreen,
-    computePlayScale, startPlay, goTo, handlePlayBtn, closeAlert,
+    playMode, playScreenId, transitionDir, fakeAlert, confirmOverlay, playScale, playScreen,
+    computePlayScale, startPlay, goTo, handlePlayBtn, closeAlert, acceptConfirm, rejectConfirm,
   }
 }

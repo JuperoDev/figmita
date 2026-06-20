@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 
-const { activeScreen, startScreenId } = useScreens()
+const { screens, activeScreen, startScreenId } = useScreens()
 const { addElement } = useElements()
 
 const showMegaMenuDialog = ref(false)
@@ -22,6 +22,24 @@ function confirmAddMegaMenu() {
     items: megaMenuItemLines.value.map(label => ({ label, icon: '', columns: [] })),
   })
   showMegaMenuDialog.value = false
+}
+
+const showButtonDialog = ref(false)
+const buttonLabelText   = ref('')
+
+function nextButtonNumber() {
+  return screens.value.flatMap(s => s.elements).filter(e => e.type === 'button').length + 1
+}
+
+function openButtonDialog() {
+  buttonLabelText.value = ''
+  showButtonDialog.value = true
+}
+
+function confirmAddButton() {
+  const label = buttonLabelText.value.trim() || `Button ${nextButtonNumber()}`
+  addElement('button', { label })
+  showButtonDialog.value = false
 }
 </script>
 
@@ -69,9 +87,17 @@ function confirmAddMegaMenu() {
       <i class="pi pi-id-card" style="font-size:1.3rem;" />
       <span>Card</span>
     </button>
+    <button class="comp-btn" @click="openButtonDialog">
+      <i class="pi pi-mouse" style="font-size:1.3rem;" />
+      <span>Button</span>
+    </button>
     <button class="comp-btn" @click="openMegaMenuDialog">
       <i class="pi pi-bars" style="font-size:1.3rem;" />
       <span>Mega Menu</span>
+    </button>
+    <button class="comp-btn" @click="addElement('confirmdialog')">
+      <i class="pi pi-shield" style="font-size:1.3rem;" />
+      <span>Confirm Dialog</span>
     </button>
     <button class="comp-btn comp-btn-soon" disabled title="Coming soon">
       <i class="pi pi-image" style="font-size:1.3rem;" />
@@ -108,6 +134,26 @@ function confirmAddMegaMenu() {
       <button class="dlg-btn primary" :disabled="megaMenuItemLines.length === 0" @click="confirmAddMegaMenu">
         Create ({{ megaMenuItemLines.length }})
       </button>
+    </template>
+  </Dialog>
+
+  <Dialog
+    v-model:visible="showButtonDialog"
+    header="Add Button"
+    modal
+    :style="{ width: '280px' }"
+  >
+    <p class="dlg-hint">What should the button say? Leave blank to use "Button {{ nextButtonNumber() }}".</p>
+    <input
+      class="ce-input"
+      v-model="buttonLabelText"
+      :placeholder="`Button ${nextButtonNumber()}`"
+      autofocus
+      @keydown.enter="confirmAddButton"
+    />
+    <template #footer>
+      <button class="dlg-btn secondary" @click="showButtonDialog = false">Cancel</button>
+      <button class="dlg-btn primary" @click="confirmAddButton">Create</button>
     </template>
   </Dialog>
 </template>

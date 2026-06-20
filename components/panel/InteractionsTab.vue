@@ -1,6 +1,6 @@
 <script setup>
 const { selectedSub, activeElement } = useElements()
-const { otherScreens } = useRightPanel()
+const { otherScreens, confirmDialogElements } = useRightPanel()
 const { actionOptions } = useEditor()
 const { playMode, startPlay, handlePlayBtn } = usePlayMode()
 </script>
@@ -8,9 +8,12 @@ const { playMode, startPlay, handlePlayBtn } = usePlayMode()
 <template>
   <template v-if="activeElement">
     <div class="breadcrumb">
-      <span class="bc-link" @click="selectedSub = null">{{ activeElement.config.title }}</span>
-      <i class="pi pi-angle-right bc-sep" />
-      <span class="bc-current">{{ activeElement.config.primaryBtn }}</span>
+      <template v-if="selectedSub === 'btn'">
+        <span class="bc-link" @click="selectedSub = null">{{ activeElement.config.title }}</span>
+        <i class="pi pi-angle-right bc-sep" />
+        <span class="bc-current">{{ activeElement.config.primaryBtn }}</span>
+      </template>
+      <span v-else class="bc-current">{{ activeElement.name || 'Button' }}</span>
     </div>
 
     <p class="prop-section">Trigger</p>
@@ -43,6 +46,27 @@ const { playMode, startPlay, handlePlayBtn } = usePlayMode()
           <option v-for="s in otherScreens" :key="s.id" :value="s.id">{{ s.name }}</option>
         </select>
         <p v-if="otherScreens.length === 0" class="hint-text">Add another screen first</p>
+      </div>
+    </template>
+
+    <template v-if="activeElement.interaction.action === 'confirm'">
+      <div class="prop-hr" />
+      <p class="prop-section">Confirm dialog</p>
+      <div class="ce-field">
+        <select class="dark-select" v-model="activeElement.interaction.confirmTarget">
+          <option :value="null" disabled>Choose dialog…</option>
+          <option v-for="d in confirmDialogElements" :key="d.id" :value="d.id">{{ d.name }}</option>
+        </select>
+        <p v-if="confirmDialogElements.length === 0" class="hint-text">Add a Confirm Dialog component first</p>
+      </div>
+
+      <div class="prop-hr" />
+      <p class="prop-section">On accept, navigate to</p>
+      <div class="ce-field">
+        <select class="dark-select" v-model="activeElement.interaction.confirmAcceptNavigateTo">
+          <option :value="null">Stay on this screen</option>
+          <option v-for="s in otherScreens" :key="s.id" :value="s.id">{{ s.name }}</option>
+        </select>
       </div>
     </template>
 

@@ -42,6 +42,17 @@ const { isDraggingEl, dragElId, onElMouseDown } = useCanvas()
       v-else-if="el.type === 'megamenu'"
       :config="el.config"
     />
+
+    <ConfirmDialogMock
+      v-else-if="el.type === 'confirmdialog'"
+      :config="el.config"
+    />
+
+    <ButtonMock
+      v-else-if="el.type === 'button'"
+      :config="el.config"
+      :play-mode="false"
+    />
   </div>
 </template>
 
@@ -50,6 +61,8 @@ const { isDraggingEl, dragElId, onElMouseDown } = useCanvas()
 .el-anchor.el-sel  :deep(.p-card) { outline:2px solid #7c5cfc; outline-offset:2px; }
 .el-anchor.sub-sel :deep(.p-card) { outline:2px solid #7c5cfc; outline-offset:2px; }
 .el-anchor.el-sel  :deep(.p-megamenu) { outline:2px dashed #ef4444; outline-offset:4px; }
+.el-anchor.el-sel  :deep(.confirm-mock) { outline:2px dashed #ef4444; outline-offset:4px; }
+.el-anchor.el-sel  :deep(.button-mock .p-button) { outline:2px solid #7c5cfc; outline-offset:2px; }
 .handle { position:absolute; width:8px; height:8px; background:white; border:2px solid #7c5cfc; border-radius:1px; z-index:10; pointer-events:none; transform:translate(-50%,-50%); }
 .handle.tl{top:0;left:0}    .handle.tr{top:0;left:100%}
 .handle.bl{top:100%;left:0} .handle.br{top:100%;left:100%}

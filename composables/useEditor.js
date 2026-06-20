@@ -18,9 +18,10 @@ export const iconOptions = [
 export const severityOptions = ['success', 'info', 'warn', 'danger', 'secondary', 'contrast']
 
 export const actionOptions = [
-  { value: 'alert',          label: 'Show Alert'       },
-  { value: 'navigate',       label: 'Navigate'         },
-  { value: 'alert+navigate', label: 'Alert → Navigate' },
+  { value: 'alert',          label: 'Show Alert'         },
+  { value: 'navigate',       label: 'Navigate'           },
+  { value: 'alert+navigate', label: 'Alert → Navigate'   },
+  { value: 'confirm',        label: 'Show Confirm Dialog' },
 ]
 
 export function useEditor() {
