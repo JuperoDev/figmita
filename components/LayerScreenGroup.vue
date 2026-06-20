@@ -68,14 +68,15 @@ function setActiveScreen(id) {
           :class="{ selected: isElSel(sc.id, el.id) && !selectedSub }"
           @click="clickEl(sc.id, el.id)"
         >
-          <i class="pi pi-id-card layer-ico component-ico" />
-          <span class="layer-name">{{ el.config.title }}</span>
+          <i :class="['pi', el.type === 'megamenu' ? 'pi-bars' : 'pi-id-card', 'layer-ico', 'component-ico']" />
+          <span class="layer-name">{{ el.name || (el.type === 'megamenu' ? 'Mega Menu' : 'Card') }}</span>
           <button class="layer-del" @click.stop="deleteEl(sc.id, el.id)">
             <i class="pi pi-times" />
           </button>
         </div>
 
         <div
+          v-if="el.type === 'card'"
           class="layer-row child child2"
           :class="{ selected: isSubSel(sc.id, el.id) }"
           @click="clickSub(sc.id, el.id)"

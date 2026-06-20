@@ -1,4 +1,4 @@
-import { SCREEN_W, CARD_W } from './useConstants.js'
+import { SCREEN_W, SCREEN_H, CARD_W } from './useConstants.js'
 
 export function uid() {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 6)}`
@@ -21,12 +21,46 @@ export function makeCardConfig() {
   }
 }
 
+export function makeMegaMenuConfig() {
+  return {
+    orientation:  'horizontal',
+    breakpoint:   '960px',
+    scrollHeight: '20rem',
+    disabled:     false,
+    ariaLabel:    '',
+    items: [
+      { label: 'Home',     icon: 'pi pi-home', columns: [] },
+      {
+        label: 'Products', icon: 'pi pi-box',
+        columns: [
+          {
+            label: 'Overview',
+            items: [
+              { label: 'Features',  icon: 'pi pi-eye'  },
+              { label: 'Pricing',   icon: 'pi pi-tag'  },
+            ],
+          },
+          {
+            label: 'Resources',
+            items: [
+              { label: 'Docs',      icon: 'pi pi-book'    },
+              { label: 'Support',   icon: 'pi pi-headphones' },
+            ],
+          },
+        ],
+      },
+      { label: 'About',    icon: 'pi pi-info-circle', columns: [] },
+    ],
+  }
+}
+
 export function makeElement(type) {
   return {
     id:   `el-${uid()}`,
     type,
-    pos:  { x: Math.round((SCREEN_W - CARD_W) / 2), y: 160 },
-    config: type === 'card' ? makeCardConfig() : {},
+    name: type === 'card' ? 'Card' : type === 'megamenu' ? 'Mega Menu' : 'Element',
+    pos:  type === 'megamenu' ? { x: 0, y: 0 } : { x: Math.round((SCREEN_W - CARD_W) / 2), y: 160 },
+    config: type === 'card' ? makeCardConfig() : type === 'megamenu' ? makeMegaMenuConfig() : {},
     interaction: {
       action:     'alert',
       alertText:  'Hello! 👋',
@@ -40,6 +74,7 @@ export function makeScreen(name) {
     id:       `sc-${uid()}`,
     name,
     bg:       '#f3f4f6',
+    height:   SCREEN_H,
     elements: [],
   }
 }

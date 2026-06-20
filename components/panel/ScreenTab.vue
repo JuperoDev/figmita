@@ -1,6 +1,28 @@
 <script setup>
+import { ref, computed } from 'vue'
+
 const { activeScreen, startScreenId } = useScreens()
 const { addElement } = useElements()
+
+const showMegaMenuDialog = ref(false)
+const megaMenuItemsText  = ref('')
+
+const megaMenuItemLines = computed(() =>
+  megaMenuItemsText.value.split('\n').map(s => s.trim()).filter(Boolean)
+)
+
+function openMegaMenuDialog() {
+  megaMenuItemsText.value = ''
+  showMegaMenuDialog.value = true
+}
+
+function confirmAddMegaMenu() {
+  if (megaMenuItemLines.value.length === 0) return
+  addElement('megamenu', {
+    items: megaMenuItemLines.value.map(label => ({ label, icon: '', columns: [] })),
+  })
+  showMegaMenuDialog.value = false
+}
 </script>
 
 <template>
@@ -47,6 +69,10 @@ const { addElement } = useElements()
       <i class="pi pi-id-card" style="font-size:1.3rem;" />
       <span>Card</span>
     </button>
+    <button class="comp-btn" @click="openMegaMenuDialog">
+      <i class="pi pi-bars" style="font-size:1.3rem;" />
+      <span>Mega Menu</span>
+    </button>
     <button class="comp-btn comp-btn-soon" disabled title="Coming soon">
       <i class="pi pi-image" style="font-size:1.3rem;" />
       <span>Image</span>
@@ -60,6 +86,30 @@ const { addElement } = useElements()
       <span>Table</span>
     </button>
   </div>
+
+  <Dialog
+    v-model:visible="showMegaMenuDialog"
+    header="Add Mega Menu"
+    modal
+    :style="{ width: '300px' }"
+  >
+    <p class="dlg-hint">What should this menu include? One item per line — it won't be created blank.</p>
+    <textarea
+      class="ce-textarea"
+      v-model="megaMenuItemsText"
+      rows="5"
+      placeholder="Home&#10;Products&#10;About&#10;Contact"
+      autofocus
+      @keydown.enter.meta="confirmAddMegaMenu"
+      @keydown.enter.ctrl="confirmAddMegaMenu"
+    />
+    <template #footer>
+      <button class="dlg-btn secondary" @click="showMegaMenuDialog = false">Cancel</button>
+      <button class="dlg-btn primary" :disabled="megaMenuItemLines.length === 0" @click="confirmAddMegaMenu">
+        Create ({{ megaMenuItemLines.length }})
+      </button>
+    </template>
+  </Dialog>
 </template>
 
 <style scoped>
@@ -89,4 +139,13 @@ const { addElement } = useElements()
 .comp-btn:hover { border-color:#7c5cfc; color:#a78bfa; background:rgba(124,92,252,.08); }
 .comp-btn-soon { opacity:.35; cursor:not-allowed !important; }
 .comp-btn-soon:hover { border-color:#333; color:#ccc; background:#1e1e1e; }
+.dlg-hint { font-size:12px; color:#999; margin:0 0 10px; line-height:1.5; }
+.ce-textarea { width:100%; box-sizing:border-box; resize:vertical; background:#1e1e1e; border:1px solid #333; border-radius:4px; color:#d0d0d0; font-size:12px; padding:6px 8px; outline:none; font-family:inherit; line-height:1.5; user-select:text; }
+.ce-textarea:focus { border-color:#7c5cfc; }
+.dlg-btn { padding:7px 14px; border-radius:6px; border:none; cursor:pointer; font-size:12px; font-family:inherit; transition:all .15s; }
+.dlg-btn.secondary { background:#2a2a2a; color:#ccc; border:1px solid #3a3a3a; }
+.dlg-btn.secondary:hover { background:#333; color:#fff; }
+.dlg-btn.primary { background:#7c5cfc; color:white; margin-left:8px; }
+.dlg-btn.primary:hover { background:#6d4fe0; }
+.dlg-btn.primary:disabled { background:#3a3a3a; color:#666; cursor:not-allowed; }
 </style>

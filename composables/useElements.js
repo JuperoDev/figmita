@@ -40,11 +40,12 @@ export function useElements() {
     selectedSub.value    = 'btn'
   }
 
-  function addElement(type) {
+  function addElement(type, configOverrides) {
     const sc = activeScreen.value
     if (!sc) return
     const el = makeElement(type)
-    if (sc.elements.length > 0) {
+    if (configOverrides) Object.assign(el.config, configOverrides)
+    if (type !== 'megamenu' && sc.elements.length > 0) {
       el.pos.x += sc.elements.length * 20
       el.pos.y += sc.elements.length * 20
     }

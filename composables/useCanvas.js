@@ -9,11 +9,15 @@ const panX         = ref(0)
 const panY         = ref(0)
 const isPanning    = ref(false)
 const isSpaceDown  = ref(false)
+const isHandTool   = ref(false)
 const lastMouse    = ref({ x: 0, y: 0 })
 const isDraggingEl = ref(false)
 const dragScId     = ref(null)
 const dragElId     = ref(null)
 const dragStart    = ref({ x: 0, y: 0, ox: 0, oy: 0 })
+const isResizingScreen = ref(false)
+const resizeScId        = ref(null)
+const resizeStart       = ref({ y: 0, oh: 0 })
 
 export function useCanvas() {
   const { screens, activeScreenId } = useScreens()
@@ -33,7 +37,8 @@ export function useCanvas() {
 
   const zoomLabel   = computed(() => `${Math.round(zoom.value * 100)}%`)
   const cursorClass = computed(() =>
-    isPanning.value ? 'cursor-grabbing' : isSpaceDown.value ? 'cursor-grab' : ''
+    isResizingScreen.value ? 'cursor-ns-resize' :
+    isPanning.value ? 'cursor-grabbing' : (isSpaceDown.value || isHandTool.value) ? 'cursor-grab' : ''
   )
 
   const arrows = computed(() => {
@@ -100,7 +105,7 @@ export function useCanvas() {
   }
 
   function onCanvasMouseDown(e) {
-    if (e.button === 1 || (e.button === 0 && isSpaceDown.value)) {
+    if (e.button === 1 || (e.button === 0 && (isSpaceDown.value || isHandTool.value))) {
       isPanning.value = true
       lastMouse.value = { x: e.clientX, y: e.clientY }
       e.preventDefault()
@@ -111,7 +116,7 @@ export function useCanvas() {
   }
 
   function onElMouseDown(e, scId, elId) {
-    if (e.button !== 0 || isSpaceDown.value) return
+    if (e.button !== 0 || isSpaceDown.value || isHandTool.value) return
     const sc = screens.value.find(s => s.id === scId)
     const el = sc?.elements.find(el => el.id === elId)
     if (!el) return
@@ -122,6 +127,17 @@ export function useCanvas() {
     dragScId.value       = scId
     dragElId.value       = elId
     dragStart.value      = { x: e.clientX, y: e.clientY, ox: el.pos.x, oy: el.pos.y }
+    e.stopPropagation()
+    e.preventDefault()
+  }
+
+  function onResizeHandleMouseDown(e, scId) {
+    if (e.button !== 0) return
+    const sc = screens.value.find(s => s.id === scId)
+    if (!sc) return
+    isResizingScreen.value = true
+    resizeScId.value       = scId
+    resizeStart.value      = { y: e.clientY, oh: sc.height ?? SCREEN_H }
     e.stopPropagation()
     e.preventDefault()
   }
@@ -138,16 +154,23 @@ export function useCanvas() {
         el.pos.x = Math.round(dragStart.value.ox + (e.clientX - dragStart.value.x) / zoom.value)
         el.pos.y = Math.round(dragStart.value.oy + (e.clientY - dragStart.value.y) / zoom.value)
       }
+    } else if (isResizingScreen.value) {
+      const sc = screens.value.find(s => s.id === resizeScId.value)
+      if (sc) {
+        const dy = (e.clientY - resizeStart.value.y) / zoom.value
+        sc.height = Math.max(SCREEN_H, Math.round(resizeStart.value.oh + dy))
+      }
     }
   }
 
-  function onMouseUp() { isPanning.value = false; isDraggingEl.value = false }
+  function onMouseUp() { isPanning.value = false; isDraggingEl.value = false; isResizingScreen.value = false }
 
   return {
-    canvasRef, zoom, panX, panY, isPanning, isSpaceDown,
+    canvasRef, zoom, panX, panY, isPanning, isSpaceDown, isHandTool,
     isDraggingEl, dragElId,
     totalCanvasW, transformStyle, zoomLabel, cursorClass, arrows,
     screenLeft, handleWheel, zoomIn, zoomOut, fitToView, panToIdx,
     onCanvasMouseDown, onElMouseDown, onMouseMove, onMouseUp,
+    isResizingScreen, onResizeHandleMouseDown,
   }
 }

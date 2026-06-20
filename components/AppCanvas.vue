@@ -27,6 +27,7 @@ const { screens } = useScreens()
 
 <style scoped>
 .canvas-area { flex:1; overflow:hidden; position:relative; background-color:#1a1a1a; background-image:radial-gradient(circle,#2e2e2e 1.5px,transparent 1.5px); background-size:24px 24px; }
-.cursor-grab     { cursor:grab !important; }
-.cursor-grabbing { cursor:grabbing !important; }
+.cursor-grab      { cursor:grab !important; }
+.cursor-grabbing  { cursor:grabbing !important; }
+.cursor-ns-resize { cursor:ns-resize !important; }
 </style>

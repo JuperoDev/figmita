@@ -1,13 +1,21 @@
 <script setup>
+import { SCREEN_W } from '~/composables/useConstants.js'
+
 const { selectedEl } = useElements()
 const { activeElement, deleteEl } = useElements()
 </script>
 
 <template>
   <template v-if="activeElement">
+    <p class="prop-section">Name</p>
+    <div class="ce-field">
+      <input class="ce-input" v-model="activeElement.name" placeholder="Layer name" />
+    </div>
+
+    <div class="prop-hr" />
     <p class="prop-section">Layout</p>
     <div class="prop-grid">
-      <div class="prop-field"><label>W</label><input class="prop-inp" value="360" readonly /></div>
+      <div class="prop-field"><label>W</label><input class="prop-inp" :value="activeElement.type === 'megamenu' ? SCREEN_W : '360'" readonly /></div>
       <div class="prop-field"><label>H</label><input class="prop-inp" value="auto" readonly /></div>
       <div class="prop-field"><label>X</label><input class="prop-inp" :value="activeElement.pos.x" readonly /></div>
       <div class="prop-field"><label>Y</label><input class="prop-inp" :value="activeElement.pos.y" readonly /></div>
@@ -15,7 +23,40 @@ const { activeElement, deleteEl } = useElements()
 
     <div class="prop-hr" />
     <p class="prop-section">Component</p>
-    <div class="component-badge"><i class="pi pi-box" /><span>PrimeVue / Card</span></div>
+    <div class="component-badge">
+      <i class="pi pi-box" />
+      <span>PrimeVue / {{ activeElement.type === 'megamenu' ? 'MegaMenu' : 'Card' }}</span>
+    </div>
+
+    <template v-if="activeElement.type === 'megamenu'">
+      <div class="prop-hr" />
+      <p class="prop-section">PrimeVue Props</p>
+      <div class="ce-field">
+        <label class="ce-label">orientation</label>
+        <select class="dark-select" v-model="activeElement.config.orientation">
+          <option value="horizontal">horizontal</option>
+          <option value="vertical">vertical</option>
+        </select>
+      </div>
+      <div class="ce-field">
+        <label class="ce-label">breakpoint</label>
+        <input class="ce-input" v-model="activeElement.config.breakpoint" placeholder="960px" />
+      </div>
+      <div class="ce-field">
+        <label class="ce-label">scrollHeight</label>
+        <input class="ce-input" v-model="activeElement.config.scrollHeight" placeholder="20rem" />
+      </div>
+      <div class="ce-field">
+        <label class="ce-label">ariaLabel</label>
+        <input class="ce-input" v-model="activeElement.config.ariaLabel" placeholder="(optional)" />
+      </div>
+      <div class="ce-field">
+        <label class="ce-check-row">
+          <input type="checkbox" v-model="activeElement.config.disabled" />
+          <span class="ce-label" style="margin:0;">disabled</span>
+        </label>
+      </div>
+    </template>
 
     <div class="prop-hr" />
     <div class="ce-field">
@@ -35,6 +76,12 @@ const { activeElement, deleteEl } = useElements()
 .prop-inp { flex:1; background:transparent; border:none; outline:none; color:#d0d0d0; font-size:12px; padding:5px 5px 5px 0; width:0; font-variant-numeric:tabular-nums; }
 .component-badge { display:flex; align-items:center; gap:8px; padding:6px 8px; margin:0 12px; background:rgba(52,211,153,.08); border:1px solid rgba(52,211,153,.25); border-radius:4px; font-size:12px; color:#34d399; }
 .ce-field { padding:0 12px 8px; }
+.ce-label { display:block; font-size:10px; color:#666; margin-bottom:4px; }
+.ce-input { width:100%; box-sizing:border-box; background:#1e1e1e; border:1px solid #333; border-radius:4px; color:#d0d0d0; font-size:12px; padding:5px 8px; outline:none; font-family:inherit; user-select:text; }
+.ce-input:focus { border-color:#7c5cfc; }
+.dark-select { background:#1e1e1e; border:1px solid #333; color:#d0d0d0; border-radius:4px; padding:5px 8px; font-size:12px; cursor:pointer; outline:none; width:100%; user-select:text; }
+.dark-select:focus { border-color:#7c5cfc; }
+.ce-check-row { display:flex; align-items:center; gap:6px; cursor:pointer; }
 .danger-btn { width:100%; display:flex; align-items:center; justify-content:center; gap:8px; padding:8px; background:transparent; border:1px solid #5a2020; color:#f87171; border-radius:6px; cursor:pointer; font-size:12px; font-family:inherit; transition:all .15s; }
 .danger-btn:hover { background:#3a1e1e; border-color:#f87171; }
 </style>

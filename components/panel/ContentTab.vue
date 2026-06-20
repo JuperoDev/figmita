@@ -1,10 +1,30 @@
 <script setup>
 const { activeElement } = useElements()
 const { newFeature, iconOptions, severityOptions, addFeature, removeFeature, updateFeature } = useEditor()
+
+function addMenuItem() {
+  activeElement.value.config.items.push({ label: 'New item', icon: '', columns: [] })
+}
+function removeMenuItem(i) {
+  activeElement.value.config.items.splice(i, 1)
+}
+function addColumn(i) {
+  activeElement.value.config.items[i].columns.push({ label: 'New column', items: [] })
+}
+function removeColumn(i, j) {
+  activeElement.value.config.items[i].columns.splice(j, 1)
+}
+function addLink(i, j) {
+  activeElement.value.config.items[i].columns[j].items.push({ label: 'New link', icon: '' })
+}
+function removeLink(i, j, k) {
+  activeElement.value.config.items[i].columns[j].items.splice(k, 1)
+}
 </script>
 
 <template>
   <div v-if="activeElement" class="content-editor">
+  <template v-if="activeElement.type === 'card'">
     <p class="prop-section">Hero</p>
     <div class="ce-field">
       <label class="ce-label">Gradient from</label>
@@ -75,6 +95,41 @@ const { newFeature, iconOptions, severityOptions, addFeature, removeFeature, upd
       <label class="ce-label">Primary label</label>
       <input class="ce-input" v-model="activeElement.config.primaryBtn" />
     </div>
+  </template>
+
+  <template v-else-if="activeElement.type === 'megamenu'">
+    <p class="prop-section">Menu Items</p>
+    <div class="ce-field">
+      <div v-for="(item, i) in activeElement.config.items" :key="i" class="menu-item-block">
+        <div class="feature-row">
+          <input class="ce-input" v-model="item.label" placeholder="Label" style="flex:1;" />
+          <input class="ce-input" v-model="item.icon" placeholder="pi pi-home" style="width:96px;" />
+          <button class="feat-del" @click="removeMenuItem(i)"><i class="pi pi-times" /></button>
+        </div>
+
+        <div class="sub-items">
+          <div v-for="(col, j) in item.columns" :key="j" class="column-block">
+            <div class="feature-row">
+              <input class="ce-input" v-model="col.label" placeholder="Column label" style="flex:1;" />
+              <button class="feat-del" @click="removeColumn(i, j)"><i class="pi pi-times" /></button>
+            </div>
+
+            <div class="links-list">
+              <div v-for="(link, k) in col.items" :key="k" class="feature-row sub-row">
+                <input class="ce-input" v-model="link.label" placeholder="Link label" style="flex:1;" />
+                <input class="ce-input" v-model="link.icon" placeholder="pi pi-tag" style="width:90px;" />
+                <button class="feat-del" @click="removeLink(i, j, k)"><i class="pi pi-times" /></button>
+              </div>
+              <button class="feat-add-row" @click="addLink(i, j)"><i class="pi pi-plus" /> Add link</button>
+            </div>
+          </div>
+          <button class="feat-add-row" @click="addColumn(i)"><i class="pi pi-plus" /> Add column</button>
+        </div>
+      </div>
+
+      <button class="feat-add-row" style="margin-top:8px;" @click="addMenuItem"><i class="pi pi-plus" /> Add menu item</button>
+    </div>
+  </template>
   </div>
 </template>
 
@@ -100,4 +155,11 @@ const { newFeature, iconOptions, severityOptions, addFeature, removeFeature, upd
 .feat-del:hover { background:#3a1e1e; color:#f87171; }
 .feat-add { width:24px; height:24px; display:flex; align-items:center; justify-content:center; background:transparent; border:1px solid #3a3a3a; color:#666; cursor:pointer; border-radius:3px; flex-shrink:0; }
 .feat-add:hover { background:#2a2a2a; color:#a78bfa; border-color:#7c5cfc; }
+.menu-item-block { border:1px solid #2e2e2e; border-radius:6px; padding:8px; margin-bottom:8px; background:#1a1a1a; }
+.sub-items { margin:4px 0 0 12px; padding-left:8px; border-left:1px solid #2e2e2e; }
+.sub-row { margin-bottom:4px; }
+.column-block { border:1px solid #2a2a2a; border-radius:5px; padding:6px; margin-bottom:6px; background:#161616; }
+.links-list { margin:4px 0 0 10px; padding-left:8px; border-left:1px solid #2a2a2a; }
+.feat-add-row { width:100%; display:flex; align-items:center; justify-content:center; gap:6px; padding:6px; background:transparent; border:1px dashed #3a3a3a; color:#666; cursor:pointer; border-radius:4px; font-size:11px; font-family:inherit; transition:all .15s; }
+.feat-add-row:hover { background:#1a1a2e; color:#a78bfa; border-color:#7c5cfc; }
 </style>

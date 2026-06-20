@@ -32,24 +32,35 @@ const { screens } = useScreens()
               <div
                 :key="playScreenId"
                 class="play-screen"
-                :style="{ width: SCREEN_W + 'px', height: SCREEN_H + 'px', background: playScreen.bg }"
+                :style="{ width: SCREEN_W + 'px', height: SCREEN_H + 'px' }"
               >
-                <div v-if="playScreen.elements.length === 0" class="play-empty">
-                  <i class="pi pi-layout" style="font-size:2rem;opacity:.3;" />
-                  <p>This screen has no elements</p>
-                </div>
+                <div class="play-screen-scroll">
+                  <div
+                    class="play-screen-content"
+                    :style="{ width: SCREEN_W + 'px', height: (playScreen.height ?? SCREEN_H) + 'px', background: playScreen.bg }"
+                  >
+                    <div v-if="playScreen.elements.length === 0" class="play-empty">
+                      <i class="pi pi-layout" style="font-size:2rem;opacity:.3;" />
+                      <p>This screen has no elements</p>
+                    </div>
 
-                <div
-                  v-for="el in playScreen.elements"
-                  :key="el.id"
-                  :style="{ position: 'absolute', left: el.pos.x + 'px', top: el.pos.y + 'px' }"
-                >
-                  <CardMock
-                    v-if="el.type === 'card'"
-                    :config="el.config"
-                    :play-mode="true"
-                    @btn-click="handlePlayBtn(el)"
-                  />
+                    <div
+                      v-for="el in playScreen.elements"
+                      :key="el.id"
+                      :style="{ position: 'absolute', left: el.pos.x + 'px', top: el.pos.y + 'px' }"
+                    >
+                      <CardMock
+                        v-if="el.type === 'card'"
+                        :config="el.config"
+                        :play-mode="true"
+                        @btn-click="handlePlayBtn(el)"
+                      />
+                      <MegaMenuMock
+                        v-else-if="el.type === 'megamenu'"
+                        :config="el.config"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <FakeAlert />
@@ -88,6 +99,8 @@ const { screens } = useScreens()
 .play-viewport { flex:1; display:flex; align-items:center; justify-content:center; overflow:hidden; }
 .play-scaler { position:relative; }
 .play-screen { position:relative; overflow:hidden; box-shadow:0 0 0 1px rgba(255,255,255,.08), 0 40px 120px rgba(0,0,0,.8); }
+.play-screen-scroll { position:absolute; inset:0; overflow-y:auto; overflow-x:hidden; }
+.play-screen-content { position:relative; }
 .play-empty { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; color:#9ca3af; font-size:14px; }
 .play-dots { display:flex; justify-content:center; gap:6px; padding:12px 0; flex-shrink:0; }
 .play-dot { width:6px; height:6px; border-radius:50%; background:#333; cursor:pointer; transition:all .2s; }
