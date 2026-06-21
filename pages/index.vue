@@ -6,12 +6,14 @@ const { playMode, computePlayScale } = usePlayMode()
 const { setupKeyboard, teardownKeyboard } = useKeyboard()
 const { screens, activeScreenId, startScreenId } = useScreens()
 const { playScreenId } = usePlayMode()
+const { loadAutosave, setupAutosave } = useAutosave()
 
 onMounted(() => {
   setupKeyboard()
   window.addEventListener('resize', computePlayScale)
   nextTick(() => fitToView())
 
+  let loadedFromLink = false
   try {
     const enc = new URLSearchParams(window.location.search).get('proto')
     if (enc) {
@@ -22,9 +24,17 @@ onMounted(() => {
         startScreenId.value  = d.startScreenId ?? d.screens[0].id
         playScreenId.value   = startScreenId.value
         nextTick(() => fitToView())
+        loadedFromLink = true
       }
     }
   } catch {}
+
+  if (!loadedFromLink && loadAutosave()) {
+    playScreenId.value = startScreenId.value
+    nextTick(() => fitToView())
+  }
+
+  setupAutosave()
 })
 
 onUnmounted(() => {
