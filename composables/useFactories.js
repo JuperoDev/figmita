@@ -73,20 +73,24 @@ export function makeConfirmDialogConfig() {
 
 export function makeButtonConfig() {
   return {
-    label:         'Button',
-    icon:          '',
-    iconPos:       'left',
-    severity:      null,
-    size:          null,
-    raised:        false,
-    rounded:       false,
-    text:          false,
-    outlined:      false,
-    fluid:         false,
-    loading:       false,
-    disabled:      false,
-    badge:         '',
-    badgeSeverity: null,
+    label:          'Button',
+    icon:           '',
+    iconPos:        'left',
+    severity:       null,
+    size:           null,
+    raised:         false,
+    rounded:        false,
+    text:           false,
+    outlined:       false,
+    fluid:          false,
+    loading:        false,
+    disabled:       false,
+    badge:          '',
+    badgeSeverity:  null,
+    bgColor:        '',
+    textColor:      '',
+    hoverBgColor:   '',
+    hoverTextColor: '',
   }
 }
 

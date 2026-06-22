@@ -29,7 +29,7 @@ const { isDraggingEl, dragElId, onElMouseDown } = useCanvas()
       <span class="handle ml"/><span class="handle mr"/>
     </template>
 
-    <CardMock
+    <ElementsCardMock
       v-if="el.type === 'card'"
       :config="el.config"
       :play-mode="false"
@@ -38,17 +38,17 @@ const { isDraggingEl, dragElId, onElMouseDown } = useCanvas()
       @btn-click="() => {}"
     />
 
-    <MegaMenuMock
+    <ElementsMegaMenuMock
       v-else-if="el.type === 'megamenu'"
       :config="el.config"
     />
 
-    <ConfirmDialogMock
+    <ElementsConfirmDialogMock
       v-else-if="el.type === 'confirmdialog'"
       :config="el.config"
     />
 
-    <ButtonMock
+    <ElementsButtonMock
       v-else-if="el.type === 'button'"
       :config="el.config"
       :play-mode="false"

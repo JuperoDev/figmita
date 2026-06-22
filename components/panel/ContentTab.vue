@@ -186,7 +186,42 @@ function removeLink(i, j, k) {
     <div class="prop-hr" />
     <p class="prop-section">Icon</p>
     <div class="ce-field">
-      <input class="ce-input" v-model="activeElement.config.icon" placeholder="pi pi-check" />
+      <IconPicker v-model="activeElement.config.icon" />
+    </div>
+
+    <div class="prop-hr" />
+    <p class="prop-section">Colors</p>
+    <div class="ce-field">
+      <label class="ce-label">Background</label>
+      <div class="color-input-row">
+        <input type="color" v-model="activeElement.config.bgColor" class="color-native" />
+        <span class="color-hex-val">{{ activeElement.config.bgColor || 'theme default' }}</span>
+        <button v-if="activeElement.config.bgColor" class="color-clear" @click="activeElement.config.bgColor = ''"><i class="pi pi-times" /></button>
+      </div>
+    </div>
+    <div class="ce-field">
+      <label class="ce-label">Text</label>
+      <div class="color-input-row">
+        <input type="color" v-model="activeElement.config.textColor" class="color-native" />
+        <span class="color-hex-val">{{ activeElement.config.textColor || 'theme default' }}</span>
+        <button v-if="activeElement.config.textColor" class="color-clear" @click="activeElement.config.textColor = ''"><i class="pi pi-times" /></button>
+      </div>
+    </div>
+    <div class="ce-field">
+      <label class="ce-label">Hover background</label>
+      <div class="color-input-row">
+        <input type="color" v-model="activeElement.config.hoverBgColor" class="color-native" />
+        <span class="color-hex-val">{{ activeElement.config.hoverBgColor || 'theme default' }}</span>
+        <button v-if="activeElement.config.hoverBgColor" class="color-clear" @click="activeElement.config.hoverBgColor = ''"><i class="pi pi-times" /></button>
+      </div>
+    </div>
+    <div class="ce-field">
+      <label class="ce-label">Hover text</label>
+      <div class="color-input-row">
+        <input type="color" v-model="activeElement.config.hoverTextColor" class="color-native" />
+        <span class="color-hex-val">{{ activeElement.config.hoverTextColor || 'theme default' }}</span>
+        <button v-if="activeElement.config.hoverTextColor" class="color-clear" @click="activeElement.config.hoverTextColor = ''"><i class="pi pi-times" /></button>
+      </div>
     </div>
 
     <div class="prop-hr" />
@@ -220,7 +255,9 @@ function removeLink(i, j, k) {
 .color-native { width:28px; height:28px; padding:0; border:1px solid #444; border-radius:4px; cursor:pointer; background:none; -webkit-appearance:none; }
 .color-native::-webkit-color-swatch-wrapper { padding:2px; }
 .color-native::-webkit-color-swatch { border:none; border-radius:3px; }
-.color-hex-val { font-size:12px; color:#aaa; font-family:monospace; }
+.color-hex-val { font-size:12px; color:#aaa; font-family:monospace; flex:1; }
+.color-clear { width:20px; height:20px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#555; cursor:pointer; border-radius:3px; font-size:10px; flex-shrink:0; }
+.color-clear:hover { background:#3a1e1e; color:#f87171; }
 .feature-row { display:flex; align-items:center; gap:4px; margin-bottom:4px; }
 .feat-del { width:24px; height:24px; display:flex; align-items:center; justify-content:center; background:transparent; border:none; color:#555; cursor:pointer; border-radius:3px; flex-shrink:0; }
 .feat-del:hover { background:#3a1e1e; color:#f87171; }

@@ -27,7 +27,7 @@ const layoutStyle = computed(() => POSITIONS[confirmOverlay.value.position] ?? P
       :style="layoutStyle"
       @click.self="confirmOverlay.modal === false && rejectConfirm()"
     >
-      <ConfirmDialogCard :config="confirmOverlay" @accept="acceptConfirm" @reject="rejectConfirm" />
+      <ElementsConfirmDialogCard :config="confirmOverlay" @accept="acceptConfirm" @reject="rejectConfirm" />
     </div>
   </Transition>
 </template>

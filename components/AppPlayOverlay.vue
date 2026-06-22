@@ -52,17 +52,17 @@ const { screens } = useScreens()
                       :key="el.id"
                       :style="{ position: 'absolute', left: el.pos.x + 'px', top: el.pos.y + 'px' }"
                     >
-                      <CardMock
+                      <ElementsCardMock
                         v-if="el.type === 'card'"
                         :config="el.config"
                         :play-mode="true"
                         @btn-click="handlePlayBtn(el)"
                       />
-                      <MegaMenuMock
+                      <ElementsMegaMenuMock
                         v-else-if="el.type === 'megamenu'"
                         :config="el.config"
                       />
-                      <ButtonMock
+                      <ElementsButtonMock
                         v-else-if="el.type === 'button'"
                         :config="el.config"
                         :play-mode="true"

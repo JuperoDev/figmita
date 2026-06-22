@@ -7,7 +7,7 @@ defineProps({
 <template>
   <div class="confirm-mock">
     <span class="confirm-mock-label">Preview — shown when triggered</span>
-    <ConfirmDialogCard :config="config" />
+    <ElementsConfirmDialogCard :config="config" />
   </div>
 </template>
 
