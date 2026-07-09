@@ -38,10 +38,12 @@ watch([selectedEl, selectedSub, activeScreenId], () => {
     <template v-else-if="activeElement?.type === 'prime'">
       <div class="panel-tabs">
         <button :class="['ptab', rightTab === 'props' && 'active']" @click="rightTab = 'props'">Props</button>
+        <button :class="['ptab', rightTab === 'interactions' && 'active']" @click="rightTab = 'interactions'">Interact</button>
         <button :class="['ptab', rightTab === 'json'  && 'active']" @click="rightTab = 'json'">JSON</button>
       </div>
-      <PanelPropsTab v-if="rightTab === 'props'" />
-      <PanelJsonTab  v-if="rightTab === 'json'" />
+      <PanelPropsTab        v-if="rightTab === 'props'" />
+      <PanelInteractionsTab v-if="rightTab === 'interactions'" />
+      <PanelJsonTab         v-if="rightTab === 'json'" />
     </template>
 
     <!-- Top-level element tabs (Design / Content / Interactions / JSON) -->

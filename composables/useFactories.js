@@ -116,7 +116,9 @@ export function makeElement(type) {
       : type === 'prime' ? makePrimeConfig()
       : {},
     interaction: {
-      action:                 'alert',
+      // Prime elements are often interactive by themselves (dropdowns,
+      // sliders...), so they start with no click interaction
+      action:                 type === 'prime' ? 'none' : 'alert',
       alertText:              'Hello! 👋',
       navigateTo:             null,
       confirmTarget:          null,

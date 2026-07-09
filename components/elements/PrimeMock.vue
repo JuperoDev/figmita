@@ -7,6 +7,12 @@ const props = defineProps({
   playMode: { type: Boolean, default: false },
 })
 
+const emit = defineEmits(['click'])
+
+function onClick() {
+  if (props.playMode) emit('click')
+}
+
 const name = computed(() => props.config.component)
 const pg = computed(() => playgrounds[name.value] || null)
 
@@ -40,7 +46,7 @@ const wrapStyle = computed(() => {
 </script>
 
 <template>
-  <div class="prime-mock" :class="{ 'pm-static': !playMode }" :style="wrapStyle">
+  <div class="prime-mock" :class="{ 'pm-static': !playMode }" :style="wrapStyle" @click="onClick">
     <template v-if="comp">
       <component :is="comp" v-if="pg?.content" v-bind="bindings">{{ pg.content }}</component>
       <component :is="comp" v-else v-bind="bindings" />

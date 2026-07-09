@@ -18,6 +18,7 @@ export const iconOptions = [
 export const severityOptions = ['success', 'info', 'warn', 'danger', 'secondary', 'contrast']
 
 export const actionOptions = [
+  { value: 'none',           label: 'None'               },
   { value: 'alert',          label: 'Show Alert'         },
   { value: 'navigate',       label: 'Navigate'           },
   { value: 'alert+navigate', label: 'Alert → Navigate'   },

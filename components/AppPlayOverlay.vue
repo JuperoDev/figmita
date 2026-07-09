@@ -72,6 +72,7 @@ const { screens } = useScreens()
                         v-else-if="el.type === 'prime'"
                         :config="el.config"
                         :play-mode="true"
+                        @click="handlePlayBtn(el)"
                       />
                     </div>
                   </div>
