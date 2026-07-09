@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, watch, defineAsyncComponent, onMounted, onBeforeUnmount } from 'vue'
 import { categories, allComponents, slugOf, findBySlug, docUrl } from '~/components/catalog/registry'
+import { playgrounds } from '~/components/catalog/playground'
 
 const route = useRoute()
 const slug = computed(() => String(route.params.slug || ''))
@@ -33,6 +34,64 @@ const { data: api } = await useAsyncData('catalog-api', async () => {
 const visibleProps = computed(() => (api.value?.props || []).filter(p => !p.deprecated))
 const visibleEvents = computed(() => (api.value?.events || []).filter(e => !e.deprecated))
 const visibleSlots = computed(() => (api.value?.slots || []).filter(s => !s.deprecated))
+
+// Interactive playground: renders the bare component with live prop controls
+// auto-generated from the extracted API types
+const pg = computed(() => (entry.value && playgrounds[entry.value.name]) || null)
+const pgComp = computed(() => (pg.value ? defineAsyncComponent(pg.value.load) : null))
+
+const edits = ref({})
+const pgModel = ref(undefined)
+watch(pg, (p) => {
+  edits.value = {}
+  pgModel.value = p && 'model' in p ? p.model : undefined
+}, { immediate: true })
+
+const pgBindings = computed(() => {
+  const b = { ...(pg.value?.seed || {}), ...edits.value }
+  if (pg.value && 'model' in pg.value) {
+    b.modelValue = pgModel.value
+    b['onUpdate:modelValue'] = (v) => { pgModel.value = v }
+  }
+  return b
+})
+
+// Maps an extracted TypeScript prop type to an editable control, if possible
+function controlFor(p) {
+  const t = p.type.trim()
+  if (t === 'boolean') return { kind: 'bool' }
+  if (t === 'number') return { kind: 'number' }
+  if (t === 'string' || t === 'string | number' || t === 'number | string') return { kind: 'text' }
+  const hinted = t.match(/^HintedString<(.+)>$/)
+  const parts = (hinted ? hinted[1] : t).split('|').map(s => s.trim())
+  if (parts.length > 1 && parts.every(s => /^'[^']*'$/.test(s))) {
+    return { kind: 'select', options: parts.map(s => s.slice(1, -1)), editable: !!hinted }
+  }
+  return null
+}
+
+const controls = computed(() => {
+  if (!pg.value) return []
+  return visibleProps.value
+    .filter(p => p.name !== 'modelValue')
+    .map(p => ({ ...p, control: controlFor(p) }))
+    .filter(p => p.control)
+})
+
+const curValue = p => edits.value[p.name] ?? pg.value?.seed?.[p.name]
+const boolValue = (p) => {
+  const v = curValue(p)
+  return v !== undefined ? !!v : p.default === 'true'
+}
+const setValue = (name, v) => {
+  if (v === '' || v === null || v === undefined) delete edits.value[name]
+  else edits.value[name] = v
+}
+const touched = computed(() => Object.keys(edits.value).length > 0)
+const resetEdits = () => {
+  edits.value = {}
+  pgModel.value = pg.value && 'model' in pg.value ? pg.value.model : undefined
+}
 
 // Prev / next component navigation
 const index = computed(() => allComponents.findIndex(c => slugOf(c.name) === slug.value))
@@ -126,6 +185,54 @@ onBeforeUnmount(() => document.documentElement.classList.remove('dark'))
           </header>
           <p v-if="api?.description" class="comp-desc">{{ api.description }}</p>
 
+          <section v-if="pg" class="pg-section">
+            <div class="pg-head">
+              <h2>Playground</h2>
+              <button v-if="touched" class="ghost-btn" @click="resetEdits">
+                <i class="pi pi-refresh" /> Reset
+              </button>
+            </div>
+            <div class="pg-grid">
+              <div class="pg-stage">
+                <div class="pg-stage-inner" :style="pg.stageStyle">
+                  <component :is="pgComp" v-if="pg.content" v-bind="pgBindings">{{ pg.content }}</component>
+                  <component :is="pgComp" v-else v-bind="pgBindings" />
+                </div>
+                <div v-if="'model' in pg" class="pg-model">
+                  v-model: <code>{{ JSON.stringify(pgModel) }}</code>
+                </div>
+              </div>
+              <div class="pg-controls">
+                <div v-for="p in controls" :key="p.name" class="pg-row" :title="p.description">
+                  <label class="pg-label">{{ p.name }}</label>
+                  <div class="pg-input">
+                    <ToggleSwitch
+                      v-if="p.control.kind === 'bool'"
+                      :model-value="boolValue(p)" @update:model-value="v => setValue(p.name, v)"
+                    />
+                    <InputNumber
+                      v-else-if="p.control.kind === 'number'"
+                      :model-value="curValue(p)" :placeholder="p.default" size="small" fluid
+                      @update:model-value="v => setValue(p.name, v)"
+                    />
+                    <Select
+                      v-else-if="p.control.kind === 'select'"
+                      :model-value="curValue(p)" :options="p.control.options" :editable="p.control.editable"
+                      :placeholder="p.default ?? 'default'" show-clear size="small" fluid
+                      @update:model-value="v => setValue(p.name, v)"
+                    />
+                    <InputText
+                      v-else
+                      :model-value="curValue(p) ?? ''" :placeholder="p.default ?? ''" size="small" fluid
+                      @update:model-value="v => setValue(p.name, v)"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <h2 class="examples-title">Examples</h2>
           <section class="preview-wrap">
             <div class="preview">
               <component :is="demo" v-if="demo" />
@@ -326,8 +433,54 @@ onBeforeUnmount(() => document.documentElement.classList.remove('dark'))
 .comp-doclink:hover { border-color: var(--p-primary-color, #10b981); }
 .comp-desc { max-width: 1080px; margin: 10px 0 0; font-size: 15px; opacity: .8; }
 
+/* ---- playground ---- */
+.pg-section { max-width: 1080px; margin-top: 24px; }
+.pg-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.pg-head h2 { font-size: 18px; font-weight: 700; margin: 0; }
+.pg-grid {
+  display: grid; grid-template-columns: 1fr 320px; gap: 14px;
+  align-items: stretch;
+}
+@media (max-width: 900px) { .pg-grid { grid-template-columns: 1fr; } }
+.pg-stage {
+  border: 1px solid var(--p-content-border-color, #e2e8f0);
+  border-radius: 10px;
+  background: var(--p-content-background, #fff);
+  display: flex; flex-direction: column;
+  min-height: 220px;
+}
+.pg-stage-inner {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 28px 24px; margin: 0 auto;
+}
+.pg-model {
+  border-top: 1px dashed var(--p-content-border-color, #e2e8f0);
+  padding: 8px 14px; font-size: 12px; opacity: .7;
+}
+.pg-model code { font-family: ui-monospace, Menlo, monospace; user-select: text; }
+.pg-controls {
+  border: 1px solid var(--p-content-border-color, #e2e8f0);
+  border-radius: 10px;
+  background: var(--p-content-background, #fff);
+  padding: 8px 14px;
+  max-height: 420px; overflow-y: auto;
+}
+.pg-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--p-content-border-color, #e2e8f0);
+}
+.pg-row:last-child { border-bottom: none; }
+.pg-label {
+  font-size: 12.5px; font-weight: 600; flex-shrink: 0;
+  font-family: ui-monospace, Menlo, monospace;
+  cursor: help;
+}
+.pg-input { width: 150px; flex-shrink: 0; display: flex; justify-content: flex-end; }
+
 /* ---- preview + code ---- */
-.preview-wrap { max-width: 1080px; margin-top: 20px; }
+.examples-title { max-width: 1080px; font-size: 18px; font-weight: 700; margin: 32px 0 0; }
+.preview-wrap { max-width: 1080px; margin-top: 10px; }
 .preview {
   border: 1px solid var(--p-content-border-color, #e2e8f0);
   border-radius: 10px;
