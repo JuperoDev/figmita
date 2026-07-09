@@ -245,6 +245,14 @@ function confirmAddButton() {
       <i class="pi pi-shield" style="font-size:1.3rem;" />
       <span>Confirm Dialog</span>
     </button>
+    <button class="comp-btn" title="Or press R and draw" @click="addElement('box')">
+      <i class="pi pi-stop" style="font-size:1.3rem;" />
+      <span>Box</span>
+    </button>
+    <button class="comp-btn" @click="addElement('text')">
+      <i class="pi pi-align-left" style="font-size:1.3rem;" />
+      <span>Text</span>
+    </button>
   </div>
 
   <div class="prop-hr" />

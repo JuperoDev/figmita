@@ -120,7 +120,20 @@ export function makeBoxConfig() {
   }
 }
 
-const ELEMENT_NAMES = { card: 'Card', megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box' }
+export function makeTextConfig() {
+  return {
+    text:          'Heading',
+    tag:           'h1',
+    fontSize:      36,
+    weight:        800,
+    color:         '#111827',
+    align:         'left',
+    italic:        false,
+    letterSpacing: 0,
+  }
+}
+
+const ELEMENT_NAMES = { card: 'Card', megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box', text: 'Text' }
 
 export function makeElement(type) {
   return {
@@ -134,12 +147,13 @@ export function makeElement(type) {
       : type === 'button' ? makeButtonConfig()
       : type === 'prime' ? makePrimeConfig()
       : type === 'box' ? makeBoxConfig()
+      : type === 'text' ? makeTextConfig()
       : {},
     interaction: {
       // Prime elements are often interactive by themselves (dropdowns,
-      // sliders...) and boxes are usually decoration, so they start
-      // with no click interaction
-      action:                 type === 'prime' || type === 'box' ? 'none' : 'alert',
+      // sliders...) and boxes/text are usually decoration, so they
+      // start with no click interaction
+      action:                 ['prime', 'box', 'text'].includes(type) ? 'none' : 'alert',
       alertText:              'Hello! 👋',
       navigateTo:             null,
       confirmTarget:          null,

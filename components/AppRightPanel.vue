@@ -13,7 +13,7 @@ const hasOwnInteractions = computed(() => activeElement.value?.type === 'button'
 watch([selectedEl, selectedSub, activeScreenId], () => {
   if (selectedSub.value === 'btn')  rightTab.value = 'interactions'
   else if (activeElement.value?.type === 'prime') rightTab.value = 'props'
-  else if (activeElement.value?.type === 'box')   rightTab.value = 'design'
+  else if (['box', 'text'].includes(activeElement.value?.type)) rightTab.value = 'design'
   else if (selectedEl.value)        rightTab.value = hasOwnInteractions.value ? 'interactions' : 'design'
   else                              rightTab.value = 'screen'
 })
@@ -49,14 +49,15 @@ watch([selectedEl, selectedSub, activeScreenId], () => {
       <PanelJsonTab         v-if="rightTab === 'json'" />
     </template>
 
-    <!-- Box element: Design / Interact / JSON -->
-    <template v-else-if="activeElement?.type === 'box'">
+    <!-- Box / Text elements: Design / Interact / JSON -->
+    <template v-else-if="['box', 'text'].includes(activeElement?.type)">
       <div class="panel-tabs">
         <button :class="['ptab', rightTab === 'design' && 'active']" @click="rightTab = 'design'">Design</button>
         <button :class="['ptab', rightTab === 'interactions' && 'active']" @click="rightTab = 'interactions'">Interact</button>
         <button :class="['ptab', rightTab === 'json'  && 'active']" @click="rightTab = 'json'">JSON</button>
       </div>
-      <PanelBoxTab          v-if="rightTab === 'design'" />
+      <PanelBoxTab          v-if="rightTab === 'design' && activeElement.type === 'box'" />
+      <PanelTextTab         v-if="rightTab === 'design' && activeElement.type === 'text'" />
       <PanelInteractionsTab v-if="rightTab === 'interactions'" />
       <PanelJsonTab         v-if="rightTab === 'json'" />
     </template>

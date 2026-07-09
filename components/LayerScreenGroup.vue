@@ -13,8 +13,8 @@ const { panToIdx } = useCanvas()
 
 const vFocus = { mounted: el => nextTick(() => el.focus()) }
 
-const EL_ICON = { megamenu: 'pi-bars', confirmdialog: 'pi-shield', button: 'pi-mouse', prime: 'pi-prime', box: 'pi-stop' }
-const EL_NAME = { megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box' }
+const EL_ICON = { megamenu: 'pi-bars', confirmdialog: 'pi-shield', button: 'pi-mouse', prime: 'pi-prime', box: 'pi-stop', text: 'pi-align-left' }
+const EL_NAME = { megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box', text: 'Text' }
 
 const renamingElId = ref(null)
 

@@ -83,6 +83,12 @@ const { screens } = useScreens()
                         :play-mode="true"
                         @click="handlePlayBtn(el)"
                       />
+                      <ElementsTextMock
+                        v-else-if="el.type === 'text'"
+                        :config="el.config"
+                        :play-mode="true"
+                        @click="handlePlayBtn(el)"
+                      />
                     </div>
                   </div>
                 </div>
