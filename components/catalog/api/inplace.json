@@ -1,0 +1,69 @@
+{
+ "name": "Inplace",
+ "category": "Misc",
+ "description": "Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.",
+ "docUrl": "https://primevue.org/inplace/",
+ "props": [
+  {
+   "name": "active",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the content is displayed or not.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the element should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "displayProps",
+   "optional": true,
+   "type": "HTMLAttributes",
+   "description": "Used to pass all properties of the HTMLDivElement to display container."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:active",
+   "optional": false,
+   "type": "(value: boolean): void",
+   "description": "Emitted when the active changes."
+  },
+  {
+   "name": "open",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when inplace is opened."
+  },
+  {
+   "name": "close",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when inplace is closed."
+  }
+ ],
+ "slots": [
+  {
+   "name": "display",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom display template."
+  },
+  {
+   "name": "content",
+   "optional": false,
+   "type": "(scope: { /** * Close message function. */ closeCallback: () => void; }): VNode[]",
+   "description": "Custom content template."
+  }
+ ]
+}

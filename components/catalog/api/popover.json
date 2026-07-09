@@ -1,0 +1,84 @@
+{
+ "name": "Popover",
+ "category": "Overlay",
+ "description": "Popover is a container component positioned as connected to its target.",
+ "docUrl": "https://primevue.org/popover/",
+ "props": [
+  {
+   "name": "dismissable",
+   "optional": true,
+   "type": "boolean",
+   "description": "Enables to hide the overlay when outside is clicked.",
+   "default": "true"
+  },
+  {
+   "name": "appendTo",
+   "optional": true,
+   "type": "HintedString<'body' | 'self'> | undefined | HTMLElement",
+   "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.",
+   "default": "body"
+  },
+  {
+   "name": "baseZIndex",
+   "optional": true,
+   "type": "number",
+   "description": "Base zIndex value to use in layering.",
+   "default": "0"
+  },
+  {
+   "name": "autoZIndex",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to automatically manage layering.",
+   "default": "true"
+  },
+  {
+   "name": "breakpoints",
+   "optional": true,
+   "type": "PopoverBreakpoints",
+   "description": "Object literal to define widths per screen size."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  },
+  {
+   "name": "closeOnEscape",
+   "optional": true,
+   "type": "boolean",
+   "description": "Specifies if pressing escape key should hide the dialog.",
+   "default": "true"
+  }
+ ],
+ "events": [
+  {
+   "name": "show",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when the overlay is shown."
+  },
+  {
+   "name": "hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when the overlay is hidden."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom content template."
+  },
+  {
+   "name": "container",
+   "optional": false,
+   "type": "(scope: { /** * Close overlay panel function. */ closeCallback: () => void; /** * Close button keydown function. * @param {Event} event - Browser event */ keydownCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom container slot."
+  }
+ ]
+}

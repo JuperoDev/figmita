@@ -1,0 +1,191 @@
+{
+ "name": "DataView",
+ "category": "Data",
+ "description": "DataView displays data in grid or list layout with pagination and sorting features.",
+ "docUrl": "https://primevue.org/dataview/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "T[] | null",
+   "description": "An array of objects to display."
+  },
+  {
+   "name": "layout",
+   "optional": true,
+   "type": "HintedString<'list' | 'grid'>",
+   "description": "Layout of the items, valid values are 'list' and 'grid'.",
+   "default": "list"
+  },
+  {
+   "name": "rows",
+   "optional": true,
+   "type": "number",
+   "description": "Number of rows to display per page.",
+   "default": "0"
+  },
+  {
+   "name": "first",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the first record to render.",
+   "default": "0"
+  },
+  {
+   "name": "totalRecords",
+   "optional": true,
+   "type": "number",
+   "description": "Number of total records, defaults to length of value when not defined."
+  },
+  {
+   "name": "paginator",
+   "optional": true,
+   "type": "boolean",
+   "description": "When specified as true, enables the pagination.",
+   "default": "false"
+  },
+  {
+   "name": "paginatorPosition",
+   "optional": true,
+   "type": "HintedString<'top' | 'bottom' | 'both'>",
+   "description": "Position of the paginator, options are 'top','bottom' or 'both'.",
+   "default": "bottom"
+  },
+  {
+   "name": "alwaysShowPaginator",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show it even there is only one page.",
+   "default": "true"
+  },
+  {
+   "name": "paginatorTemplate",
+   "optional": true,
+   "type": "string",
+   "description": "Template of the paginator. It can be customized using the template property using the predefined keys, - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport",
+   "default": "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+  },
+  {
+   "name": "pageLinkSize",
+   "optional": true,
+   "type": "number",
+   "description": "Number of page links to display.",
+   "default": "5"
+  },
+  {
+   "name": "rowsPerPageOptions",
+   "optional": true,
+   "type": "number[]",
+   "description": "Array of integer values to display inside rows per page dropdown."
+  },
+  {
+   "name": "currentPageReportTemplate",
+   "optional": true,
+   "type": "string",
+   "description": "Template of the current page report element. It displays information about the pagination state. - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords}",
+   "default": "'({currentPage} of {totalPages})'"
+  },
+  {
+   "name": "sortField",
+   "optional": true,
+   "type": "string | ((item: any) => string) | null",
+   "description": "Property name or a getter function of data to use in sorting by default."
+  },
+  {
+   "name": "sortOrder",
+   "optional": true,
+   "type": "number | null",
+   "description": "Order to sort the data by default."
+  },
+  {
+   "name": "lazy",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines if data is loaded and interacted with in lazy manner.",
+   "default": "false"
+  },
+  {
+   "name": "dataKey",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the data that uniquely identifies the a record in the data."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:first",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the first changes."
+  },
+  {
+   "name": "update:rows",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the rows changes."
+  },
+  {
+   "name": "page",
+   "optional": false,
+   "type": "(event: DataViewPageEvent): void",
+   "description": "Callback to invoke when page changes, the event object contains information about the new state."
+  }
+ ],
+ "slots": [
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom header template."
+  },
+  {
+   "name": "footer",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom footer template."
+  },
+  {
+   "name": "empty",
+   "optional": false,
+   "type": "(scope: { /** * Layout of the items. */ layout?: string | undefined; }): VNode[]",
+   "description": "Custom empty template."
+  },
+  {
+   "name": "paginatorcontainer",
+   "optional": false,
+   "type": "(scope: { /** * Index of first record */ first: number; /** * Index of last record */ last: number; /** * Number of rows to display in new page */ rows: number; /** * New page number */ page: number; /** * Total number of pages */ pageCount?: number; /** * Direct page links */ pageLinks?: number; /** * Total records */ totalRecords?: number; /** * First page function. * @param {Event} event - Browser event */ firstPageCallback: (event: Event) => void; /** * Last page function. * @param {Event} event - Browser event */ lastPageCallback: (event: Event) => void; /** * Previous page function. * @param {Event} event - Browser event */ prevPageCallback: (event: Event) => void; /** * Next page function. * @param {Event} event - Browser event */ nextPageCallback: (event: Event) => void; /** * Row change function. */ rowChangeCallback: (value: number) => void; /** * Page change function. */ changePageCallback: (value: number) => void; }): VNode[]",
+   "description": "Custom paginator container template."
+  },
+  {
+   "name": "paginatorstart",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom paginator start template."
+  },
+  {
+   "name": "paginatorend",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom paginator end template."
+  },
+  {
+   "name": "list",
+   "optional": false,
+   "type": "(scope: { /** * Value of the component */ items: any; }): VNode[]",
+   "description": "Custom list template."
+  },
+  {
+   "name": "grid",
+   "optional": false,
+   "type": "(scope: { /** * Value of the component */ items: any; }): VNode[]",
+   "description": "Custom list template."
+  }
+ ]
+}

@@ -1,0 +1,330 @@
+{
+ "name": "PickList",
+ "category": "Data",
+ "description": "PickList is used to reorder items between different lists.",
+ "docUrl": "https://primevue.org/picklist/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "any[][]",
+   "description": "Value of the component as a multidimensional array."
+  },
+  {
+   "name": "selection",
+   "optional": true,
+   "type": "any[][]",
+   "description": "Selected items in the list as a multidimensional array."
+  },
+  {
+   "name": "dataKey",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the field that uniquely identifies the a record in the data."
+  },
+  {
+   "name": "metaKeySelection",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+   "default": "false"
+  },
+  {
+   "name": "autoOptionFocus",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to focus on the first visible or selected element.",
+   "default": "true"
+  },
+  {
+   "name": "focusOnHover",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, the focus is placed on the hovered option.",
+   "default": "true"
+  },
+  {
+   "name": "listStyle",
+   "optional": true,
+   "type": "any",
+   "description": "Inline style of the the list element."
+  },
+  {
+   "name": "responsive",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the list optimizes layout based on screen size.",
+   "default": "true"
+  },
+  {
+   "name": "breakpoint",
+   "optional": true,
+   "type": "string",
+   "description": "The breakpoint to define the maximum width boundary when responsiveness is enabled.",
+   "default": "960px"
+  },
+  {
+   "name": "scrollHeight",
+   "optional": true,
+   "type": "string",
+   "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value.",
+   "default": "14rem"
+  },
+  {
+   "name": "striped",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to displays rows with alternating colors.",
+   "default": "false"
+  },
+  {
+   "name": "showSourceControls",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show buttons of source list.",
+   "default": "true"
+  },
+  {
+   "name": "showTargetControls",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show buttons of target list.",
+   "default": "true"
+  },
+  {
+   "name": "buttonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move up button inside the component.",
+   "default": "{ severity: 'secondary' }"
+  },
+  {
+   "name": "moveUpButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move up button inside the component."
+  },
+  {
+   "name": "moveTopButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move top button inside the component."
+  },
+  {
+   "name": "moveDownButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move down button inside the component."
+  },
+  {
+   "name": "moveBottomButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move bottom button inside the component."
+  },
+  {
+   "name": "moveToTargetProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move to target button inside the component."
+  },
+  {
+   "name": "moveAllToTargetProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move all to target button inside the component."
+  },
+  {
+   "name": "moveToSourceProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move to source button inside the component."
+  },
+  {
+   "name": "moveAllToSourceProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move all to source button inside the component."
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number | string",
+   "description": "Index of the list element in tabbing order."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: any[][]): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "update:selection",
+   "optional": false,
+   "type": "(value: any[][]): void",
+   "description": "Emitted when the selection changes."
+  },
+  {
+   "name": "reorder",
+   "optional": false,
+   "type": "(event: PickListReorderEvent): void",
+   "description": "Callback to invoke when the list is reordered."
+  },
+  {
+   "name": "selection-change",
+   "optional": false,
+   "type": "(event: PickListSelectionChangeEvent): void",
+   "description": "Callback to invoke when one or more items are moved to the other list."
+  },
+  {
+   "name": "move-to-target",
+   "optional": false,
+   "type": "(event: PickListMoveToTargetEvent): void",
+   "description": "Callback to invoke when one or more items are moved to the target list."
+  },
+  {
+   "name": "move-all-to-target",
+   "optional": false,
+   "type": "(event: PickListMoveAllToTargetEvent): void",
+   "description": "Callback to invoke when all items are moved to the target list."
+  },
+  {
+   "name": "move-to-source",
+   "optional": false,
+   "type": "(event: PickListMoveToSourceEvent): void",
+   "description": "Callback to invoke when one or more items are moved to the source list."
+  },
+  {
+   "name": "move-all-to-source",
+   "optional": false,
+   "type": "(event: PickListMoveAllToSourceEvent): void",
+   "description": "Callback to invoke when all items are moved to the source list."
+  }
+ ],
+ "slots": [
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom header template."
+  },
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Item of the component */ item: any; /** * Selection state */ selected: boolean; /** * Index of the item. */ index: number; }): VNode[]",
+   "description": "Custom item template.",
+   "deprecated": true
+  },
+  {
+   "name": "option",
+   "optional": false,
+   "type": "(scope: { /** * Option of the component */ option: any; /** * Selection state */ selected: boolean; /** * Index of the option. */ index: number; }): VNode[]",
+   "description": "Custom option template."
+  },
+  {
+   "name": "sourceheader",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom source header template."
+  },
+  {
+   "name": "targetheader",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom target header template."
+  },
+  {
+   "name": "sourcecontrolsstart",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom source controls start template."
+  },
+  {
+   "name": "sourcecontrolsend",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom source controls end template."
+  },
+  {
+   "name": "movecontrolsstart",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move controls start template."
+  },
+  {
+   "name": "movecontrolsend",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move controls end template."
+  },
+  {
+   "name": "targetcontrolsstart",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom target controls start template."
+  },
+  {
+   "name": "targetcontrolsend",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom target controls end template."
+  },
+  {
+   "name": "moveupicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move up icon template."
+  },
+  {
+   "name": "movetopicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move top icon template."
+  },
+  {
+   "name": "movedownicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move down icon template."
+  },
+  {
+   "name": "movebottomicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move bottom icon template."
+  },
+  {
+   "name": "movetotargeticon",
+   "optional": false,
+   "type": "(scope: { /** * Whether view change. */ viewChanged: boolean; }): VNode[]",
+   "description": "Custom move to target icon template."
+  },
+  {
+   "name": "movealltotargeticon",
+   "optional": false,
+   "type": "(scope: { /** * Whether view change. */ viewChanged: boolean; }): VNode[]",
+   "description": "Custom move all to target icon template."
+  },
+  {
+   "name": "movetosourceicon",
+   "optional": false,
+   "type": "(scope: { /** * Whether view change. */ viewChanged: boolean; }): VNode[]",
+   "description": "Custom move to source icon template."
+  },
+  {
+   "name": "movealltosourceicon",
+   "optional": false,
+   "type": "(scope: { /** * Whether view change. */ viewChanged: boolean; }): VNode[]",
+   "description": "Custom move all to source icon template."
+  }
+ ]
+}

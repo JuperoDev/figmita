@@ -1,0 +1,24 @@
+{
+ "name": "InputGroup",
+ "category": "Form",
+ "description": "InputGroup displays text, icon, buttons and other content can be grouped next to an input.",
+ "docUrl": "https://primevue.org/inputgroup/",
+ "props": [
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom default template."
+  }
+ ]
+}

@@ -1,0 +1,220 @@
+{
+ "name": "OrderList",
+ "category": "Data",
+ "description": "OrderList is used to managed the order of a collection.",
+ "docUrl": "https://primevue.org/orderlist/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "any[]",
+   "description": "Value of the component."
+  },
+  {
+   "name": "dataKey",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the field that uniquely identifies the a record in the data."
+  },
+  {
+   "name": "selection",
+   "optional": true,
+   "type": "any[]",
+   "description": "Selected items in the list."
+  },
+  {
+   "name": "metaKeySelection",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines whether metaKey is required or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+   "default": "false"
+  },
+  {
+   "name": "autoOptionFocus",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to focus on the first visible or selected element.",
+   "default": "true"
+  },
+  {
+   "name": "focusOnHover",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, the focus is placed on the hovered option.",
+   "default": "true"
+  },
+  {
+   "name": "listStyle",
+   "optional": true,
+   "type": "any",
+   "description": "Inline style of the the list element."
+  },
+  {
+   "name": "responsive",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the list optimizes layout based on screen size.",
+   "default": "true"
+  },
+  {
+   "name": "breakpoint",
+   "optional": true,
+   "type": "string",
+   "description": "The breakpoint to define the maximum width boundary when responsiveness is enabled.",
+   "default": "960px"
+  },
+  {
+   "name": "striped",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to displays rows with alternating colors.",
+   "default": "false"
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number | string",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "scrollHeight",
+   "optional": true,
+   "type": "string",
+   "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value.",
+   "default": "14rem"
+  },
+  {
+   "name": "buttonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the button inside the component.",
+   "default": "{ severity: 'secondary' }"
+  },
+  {
+   "name": "moveUpButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move up button inside the component."
+  },
+  {
+   "name": "moveTopButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move top button inside the component."
+  },
+  {
+   "name": "moveDownButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move down button inside the component."
+  },
+  {
+   "name": "moveBottomButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the move bottom button inside the component."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Defines a string value that labels an interactive list element."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying list element."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: any[]): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "update:selection",
+   "optional": false,
+   "type": "(value: any[]): void",
+   "description": "Emitted when the selection changes."
+  },
+  {
+   "name": "reorder",
+   "optional": false,
+   "type": "(event: OrderListReorderEvent): void",
+   "description": "Callback to invoke when the list is reordered."
+  },
+  {
+   "name": "selection-change",
+   "optional": false,
+   "type": "(event: OrderListSelectionChangeEvent): void",
+   "description": "Callback to invoke when selection changes."
+  }
+ ],
+ "slots": [
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom header template."
+  },
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Item of the component */ item: any; /** * Selection state */ selected: boolean; /** * Index of the item. */ index: number; }): VNode[]",
+   "description": "Custom item template.",
+   "deprecated": true
+  },
+  {
+   "name": "option",
+   "optional": false,
+   "type": "(scope: { /** * Option of the component */ option: any; /** * Selection state */ selected: boolean; /** * Index of the option. */ index: number; }): VNode[]",
+   "description": "Custom option template."
+  },
+  {
+   "name": "controlsstart",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom controls start template."
+  },
+  {
+   "name": "controlsend",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom controls end template."
+  },
+  {
+   "name": "moveupicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move up icon template."
+  },
+  {
+   "name": "movetopicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move top icon template."
+  },
+  {
+   "name": "movedownicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move down icon template."
+  },
+  {
+   "name": "movebottomicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom move bottom icon template."
+  }
+ ]
+}

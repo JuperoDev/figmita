@@ -1,0 +1,89 @@
+{
+ "name": "Textarea",
+ "category": "Form",
+ "description": "Textarea is a multi-line text input element.",
+ "docUrl": "https://primevue.org/textarea/",
+ "extends": "TextareaHTMLAttributes",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "Nullable<string>",
+   "description": "Value of the component."
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "Nullable<string>",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "The name attribute for the element, typically used in form submissions."
+  },
+  {
+   "name": "autoResize",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, height of textarea changes as being typed.",
+   "default": "false"
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large'>",
+   "description": "Defines the size of the component."
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "variant",
+   "optional": true,
+   "type": "HintedString<'outlined' | 'filled'> | undefined | null",
+   "description": "Specifies the input variant of the component.",
+   "default": "null"
+  },
+  {
+   "name": "fluid",
+   "optional": true,
+   "type": "boolean",
+   "description": "Spans 100% width of the container when enabled.",
+   "default": "null"
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "modelValue': (value: string) => void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: string): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  }
+ ],
+ "slots": []
+}

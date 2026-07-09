@@ -1,0 +1,48 @@
+{
+ "name": "Card",
+ "category": "Panel",
+ "description": "Card is a flexible container component.",
+ "docUrl": "https://primevue.org/card/",
+ "props": [
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom header template."
+  },
+  {
+   "name": "title",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom title template."
+  },
+  {
+   "name": "subtitle",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom subtitle template."
+  },
+  {
+   "name": "content",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom content template."
+  },
+  {
+   "name": "footer",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom footer template."
+  }
+ ]
+}

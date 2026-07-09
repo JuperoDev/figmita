@@ -1,0 +1,316 @@
+{
+ "name": "Tree",
+ "category": "Data",
+ "description": "Tree is used to display hierarchical data.",
+ "docUrl": "https://primevue.org/tree/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "TreeNode[]",
+   "description": "An array of treenodes."
+  },
+  {
+   "name": "expandedKeys",
+   "optional": true,
+   "type": "TreeExpandedKeys",
+   "description": "A map of keys to represent the expansion state in controlled mode."
+  },
+  {
+   "name": "selectionKeys",
+   "optional": true,
+   "type": "TreeSelectionKeys",
+   "description": "A map of keys to control the selection state."
+  },
+  {
+   "name": "selectionMode",
+   "optional": true,
+   "type": "HintedString<'single' | 'multiple' | 'checkbox'>",
+   "description": "Defines the selection mode."
+  },
+  {
+   "name": "metaKeySelection",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+   "default": "false"
+  },
+  {
+   "name": "loading",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to display loading indicator.",
+   "default": "false"
+  },
+  {
+   "name": "loadingIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display when tree is loading."
+  },
+  {
+   "name": "loadingMode",
+   "optional": true,
+   "type": "HintedString<'mask' | 'icon'>",
+   "description": "Loading mode display.",
+   "default": "mask"
+  },
+  {
+   "name": "filter",
+   "optional": true,
+   "type": "boolean",
+   "description": "When specified, displays an input field to filter the items.",
+   "default": "false"
+  },
+  {
+   "name": "filterBy",
+   "optional": true,
+   "type": "string | ((node: TreeNode) => string)",
+   "description": "When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names.",
+   "default": "label"
+  },
+  {
+   "name": "filterMode",
+   "optional": true,
+   "type": "HintedString<'lenient' | 'strict'>",
+   "description": "Mode for filtering.",
+   "default": "lenient"
+  },
+  {
+   "name": "filterPlaceholder",
+   "optional": true,
+   "type": "string",
+   "description": "Placeholder text to show when filter input is empty."
+  },
+  {
+   "name": "filterLocale",
+   "optional": true,
+   "type": "string",
+   "description": "Locale to use in filtering. The default locale is the host environment's current locale."
+  },
+  {
+   "name": "highlightOnSelect",
+   "optional": true,
+   "type": "boolean",
+   "description": "Highlights automatically the first item. @defaultValue false",
+   "default": "false"
+  },
+  {
+   "name": "scrollHeight",
+   "optional": true,
+   "type": "HintedString<'flex'>",
+   "description": "Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size."
+  },
+  {
+   "name": "draggableNodes",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the nodes are draggable.",
+   "default": "null"
+  },
+  {
+   "name": "droppableNodes",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the nodes are droppable.",
+   "default": "null"
+  },
+  {
+   "name": "draggableScope",
+   "optional": true,
+   "type": "string | string[]",
+   "description": "Scope of the draggable nodes to match a droppableScope.",
+   "default": "null"
+  },
+  {
+   "name": "droppableScope",
+   "optional": true,
+   "type": "string | string[]",
+   "description": "Scope of the droppable nodes to match a draggableScope.",
+   "default": "null"
+  },
+  {
+   "name": "validateDrop",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, drop can be accepted or rejected based on condition defined at node-drop.",
+   "default": "false"
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Defines a string value that labels an interactive element."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying menu element."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:value",
+   "optional": false,
+   "type": "(value: TreeNode[]): void",
+   "description": "Emitted when the value change."
+  },
+  {
+   "name": "update:expandedKeys",
+   "optional": false,
+   "type": "(value: TreeExpandedKeys): void",
+   "description": "Emitted when the expanded keys change."
+  },
+  {
+   "name": "update:selectionKeys",
+   "optional": false,
+   "type": "(value: TreeSelectionKeys): void",
+   "description": "Emitted when the selection keys change."
+  },
+  {
+   "name": "node-select",
+   "optional": false,
+   "type": "(node: TreeNode): void",
+   "description": "Callback to invoke when a node is selected."
+  },
+  {
+   "name": "node-unselect",
+   "optional": false,
+   "type": "(node: TreeNode): void",
+   "description": "Callback to invoke when a node is unselected."
+  },
+  {
+   "name": "node-expand",
+   "optional": false,
+   "type": "(node: TreeNode): void",
+   "description": "Callback to invoke when a node is expanded."
+  },
+  {
+   "name": "node-collapse",
+   "optional": false,
+   "type": "(node: TreeNode): void",
+   "description": "Callback to invoke when a node is collapsed."
+  },
+  {
+   "name": "node-drop",
+   "optional": false,
+   "type": "(event: TreeNodeDropEvent): void",
+   "description": "Callback to invoke when a node is collapsed."
+  },
+  {
+   "name": "node-dragenter",
+   "optional": false,
+   "type": "(node: TreeNode): void",
+   "description": "Callback to invoke when a dragged element enters a node."
+  },
+  {
+   "name": "node-dragleave",
+   "optional": false,
+   "type": "(node: TreeNode): void",
+   "description": "Callback to invoke when a dragged element leaves a node."
+  },
+  {
+   "name": "filter",
+   "optional": false,
+   "type": "(event: TreeFilterEvent): void",
+   "description": "Callback to invoke on filter input."
+  },
+  {
+   "name": "drag-enter",
+   "optional": false,
+   "type": "(event: TreeDragEnterEvent): void",
+   "description": "Callback to invoke on drag enter."
+  },
+  {
+   "name": "drag-leave",
+   "optional": false,
+   "type": "(event: TreeDragLeaveEvent): void",
+   "description": "Callback to invoke on drag leave."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(scope: { /** * Tree node instance */ node: TreeNode; /** * Selection state */ selected: boolean; /** * Expanded state */ expanded: boolean; }): VNode[]",
+   "description": "Default content slot."
+  },
+  {
+   "name": "loadingicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom loading icon template."
+  },
+  {
+   "name": "searchicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom search icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "filtericon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom search icon template."
+  },
+  {
+   "name": "togglericon",
+   "optional": false,
+   "type": "(scope: { /** * Tree node instance */ node: TreeNode; /** * Expanded state of the node */ expanded: boolean; }): VNode[]",
+   "description": "Custom toggle icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "nodetogglericon",
+   "optional": false,
+   "type": "(scope: { /** * Tree node instance */ node: TreeNode; /** * Expanded state of the node */ expanded: boolean; }): VNode[]",
+   "description": "Custom node toggle icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "nodetoggleicon",
+   "optional": false,
+   "type": "(scope: { /** * Tree node instance */ node: TreeNode; /** * Expanded state of the node */ expanded: boolean; }): VNode[]",
+   "description": "Custom node toggle icon template."
+  },
+  {
+   "name": "nodeicon",
+   "optional": false,
+   "type": "(scope: { /** * Tree node instance */ node: TreeNode; /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom node icon template."
+  },
+  {
+   "name": "checkboxicon",
+   "optional": false,
+   "type": "(scope: { /** * Check state of the node */ checked: boolean; /** * Partial check state of the node */ partialChecked: boolean; }): VNode[]",
+   "description": "Custom checkbox icon"
+  },
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(scope: { /** * Current value */ value: TreeNode[]; /** * Current expanded key */ expandedKeys: TreeExpandedKeys; /** * Current selected keys */ selectionKeys: TreeSelectionKeys; }): VNode[]",
+   "description": "Custom header"
+  },
+  {
+   "name": "footer",
+   "optional": false,
+   "type": "(scope: { /** * Current value */ value: TreeNode[]; /** * Current expanded key */ expandedKeys: TreeExpandedKeys; /** * Current selected keys */ selectionKeys: TreeSelectionKeys; }): VNode[]",
+   "description": "Custom footer"
+  },
+  {
+   "name": "empty",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom empty template."
+  }
+ ]
+}

@@ -1,0 +1,310 @@
+{
+ "name": "FileUpload",
+ "category": "File",
+ "description": "FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations.",
+ "docUrl": "https://primevue.org/fileupload/",
+ "props": [
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the request parameter to identify the files at backend."
+  },
+  {
+   "name": "url",
+   "optional": true,
+   "type": "string",
+   "description": "Remote url to upload the files."
+  },
+  {
+   "name": "mode",
+   "optional": true,
+   "type": "HintedString<'advanced' | 'basic'>",
+   "description": "Defines the UI of the component, possible values are 'advanced' and 'basic'.",
+   "default": "advanced"
+  },
+  {
+   "name": "multiple",
+   "optional": true,
+   "type": "boolean",
+   "description": "Used to select multiple files at once from file dialog.",
+   "default": "false"
+  },
+  {
+   "name": "accept",
+   "optional": true,
+   "type": "string",
+   "description": "Pattern to restrict the allowed file types such as 'image/*'."
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "Disables the upload functionality.",
+   "default": "false"
+  },
+  {
+   "name": "auto",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, upload begins automatically after selection is completed.",
+   "default": "false"
+  },
+  {
+   "name": "maxFileSize",
+   "optional": true,
+   "type": "number",
+   "description": "Maximum file size allowed in bytes."
+  },
+  {
+   "name": "invalidFileSizeMessage",
+   "optional": true,
+   "type": "string",
+   "description": "Message of the invalid fize size.",
+   "default": "{0}: Invalid file size, file size should be smaller than {1.}"
+  },
+  {
+   "name": "invalidFileLimitMessage",
+   "optional": true,
+   "type": "string",
+   "description": "Message to display when number of files to be uploaded exceeeds the limit.",
+   "default": "Maximum number of files to be uploaded is {0.}"
+  },
+  {
+   "name": "invalidFileTypeMessage",
+   "optional": true,
+   "type": "string",
+   "description": "Message of the invalid fize type.",
+   "default": "'{0}: Invalid file type.'"
+  },
+  {
+   "name": "fileLimit",
+   "optional": true,
+   "type": "number",
+   "description": "Maximum number of files that can be uploaded."
+  },
+  {
+   "name": "withCredentials",
+   "optional": true,
+   "type": "boolean",
+   "description": "Cross-site Access-Control requests should be made using credentials such as cookies, authorization headers or TLS client certificates.",
+   "default": "false"
+  },
+  {
+   "name": "previewWidth",
+   "optional": true,
+   "type": "number",
+   "description": "Width of the image thumbnail in pixels.",
+   "default": "50"
+  },
+  {
+   "name": "chooseLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Label of the choose button. Defaults to PrimeVue Locale configuration."
+  },
+  {
+   "name": "uploadLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Label of the upload button. Defaults to PrimeVue Locale configuration."
+  },
+  {
+   "name": "cancelLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Label of the cancel button. Defaults to PrimeVue Locale configuration.",
+   "default": "Cancel"
+  },
+  {
+   "name": "customUpload",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue Locale configuration."
+  },
+  {
+   "name": "showUploadButton",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show the upload button.",
+   "default": "true"
+  },
+  {
+   "name": "showCancelButton",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show the cancel button.",
+   "default": "true"
+  },
+  {
+   "name": "chooseIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon of the choose button."
+  },
+  {
+   "name": "uploadIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon of the upload button."
+  },
+  {
+   "name": "cancelIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon of the cancel button."
+  },
+  {
+   "name": "style",
+   "optional": true,
+   "type": "any",
+   "description": "Inline style of the component."
+  },
+  {
+   "name": "class",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the component."
+  },
+  {
+   "name": "chooseButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the choose button inside the component.",
+   "default": "null"
+  },
+  {
+   "name": "uploadButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the upload button inside the component.",
+   "default": "{ severity: 'secondary' }"
+  },
+  {
+   "name": "cancelButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the cancel button inside the component.",
+   "default": "{ severity: 'secondary' }"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "select",
+   "optional": false,
+   "type": "(event: FileUploadSelectEvent): void",
+   "description": "Callback to invoke when files are selected."
+  },
+  {
+   "name": "before-upload",
+   "optional": false,
+   "type": "(event: FileUploadBeforeUploadEvent): void",
+   "description": "Callback to invoke before file upload begins to customize the request such as post parameters before the files."
+  },
+  {
+   "name": "progress",
+   "optional": false,
+   "type": "(event: FileUploadProgressEvent): void",
+   "description": "Callback to invoke when files are being uploaded."
+  },
+  {
+   "name": "upload",
+   "optional": false,
+   "type": "(event: FileUploadUploadEvent): void",
+   "description": "Callback to invoke when file upload is complete."
+  },
+  {
+   "name": "uploader",
+   "optional": false,
+   "type": "(event: FileUploadUploaderEvent): void",
+   "description": "Callback to invoke to implement a custom upload."
+  },
+  {
+   "name": "error",
+   "optional": false,
+   "type": "(event: FileUploadErrorEvent): void",
+   "description": "Callback to invoke if file upload fails."
+  },
+  {
+   "name": "before-send",
+   "optional": false,
+   "type": "(event: FileUploadBeforeSendEvent): void",
+   "description": "Callback to invoke before file send begins to customize the request such as adding headers."
+  },
+  {
+   "name": "clear",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when files in queue are removed without uploading."
+  },
+  {
+   "name": "remove",
+   "optional": false,
+   "type": "(event: FileUploadRemoveEvent): void",
+   "description": "Callback to invoke when a singe file is removed from the list."
+  },
+  {
+   "name": "removeUploadedFile",
+   "optional": false,
+   "type": "(event: FileUploadRemoveUploadedFile): void",
+   "description": "Callback to invoke when a single uploaded file is removed from the uploaded file list."
+  }
+ ],
+ "slots": [
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(scope: { /** * Files to upload. */ files: File[]; /** * Uploaded files. */ uploadedFiles: File[]; /** * Choose function */ chooseCallback: () => void; /** * Upload function */ uploadCallback: () => void; /** * Clear function */ clearCallback: () => void; }): VNode[]",
+   "description": "Custom header content template."
+  },
+  {
+   "name": "content",
+   "optional": false,
+   "type": "(scope: { /** * Files to upload. */ files: File[]; /** * Uploaded files. */ uploadedFiles: File[]; /** * Function to remove an uploaded file. * @param {number} index - Index of the uploaded file */ removeUploadedFileCallback: (index: number) => void; /** * Function to remove a file. * @param {number} index - Index of the removed file */ removeFileCallback: (index: number) => void; /** * Uploaded progress as number. */ progress: number; /** * Status messages about upload process. */ messages: string[] | null; }): VNode[]",
+   "description": "Custom uploaded content template."
+  },
+  {
+   "name": "empty",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom content when there is no selected file."
+  },
+  {
+   "name": "chooseicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom choose icon template."
+  },
+  {
+   "name": "uploadicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom upload icon template."
+  },
+  {
+   "name": "cancelicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom cancel icon template."
+  },
+  {
+   "name": "fileremoveicon",
+   "optional": false,
+   "type": "(scope: { /** * File to upload. */ file: File; /** * The index of file */ index: number; }): VNode[]",
+   "description": "Custom remove icon template for each file."
+  },
+  {
+   "name": "filelabel",
+   "optional": false,
+   "type": "(scope: { /** * File to upload. */ files: File[]; }): VNode[]",
+   "description": "Custom file label template."
+  }
+ ]
+}

@@ -1,0 +1,829 @@
+{
+ "name": "DataTable",
+ "category": "Data",
+ "description": "DataTable displays data in tabular format.",
+ "docUrl": "https://primevue.org/datatable/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "readonly T[] | undefined | null",
+   "description": "An array of objects to display."
+  },
+  {
+   "name": "dataKey",
+   "optional": true,
+   "type": "keyof T | ((item: NoInfer<T>) => string)",
+   "description": "Name of the field that uniquely identifies the a record in the data."
+  },
+  {
+   "name": "rows",
+   "optional": true,
+   "type": "number",
+   "description": "Number of rows to display per page.",
+   "default": "0"
+  },
+  {
+   "name": "first",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the first row to be displayed.",
+   "default": "0"
+  },
+  {
+   "name": "totalRecords",
+   "optional": true,
+   "type": "number",
+   "description": "Number of total records, defaults to length of value when not defined.",
+   "default": "0"
+  },
+  {
+   "name": "paginator",
+   "optional": true,
+   "type": "boolean",
+   "description": "When specified as true, enables the pagination.",
+   "default": "false"
+  },
+  {
+   "name": "paginatorPosition",
+   "optional": true,
+   "type": "HintedString<'top' | 'bottom' | 'both'>",
+   "description": "Position of the paginator, options are 'top','bottom' or 'both'.",
+   "default": "bottom"
+  },
+  {
+   "name": "alwaysShowPaginator",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show it even there is only one page.",
+   "default": "true"
+  },
+  {
+   "name": "paginatorTemplate",
+   "optional": true,
+   "type": "any | string",
+   "description": "Template of the paginator. It can be customized using the template property using the predefined keys. - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport",
+   "default": "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+  },
+  {
+   "name": "pageLinkSize",
+   "optional": true,
+   "type": "number",
+   "description": "Number of page links to display.",
+   "default": "5"
+  },
+  {
+   "name": "rowsPerPageOptions",
+   "optional": true,
+   "type": "number[]",
+   "description": "Array of integer values to display inside rows per page dropdown."
+  },
+  {
+   "name": "currentPageReportTemplate",
+   "optional": true,
+   "type": "string",
+   "description": "Template of the current page report element. It displays information about the pagination state. Available placeholders are the following; - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords}",
+   "default": "'({currentPage} of {totalPages})'"
+  },
+  {
+   "name": "lazy",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines if data is loaded and interacted with in lazy manner.",
+   "default": "false"
+  },
+  {
+   "name": "loading",
+   "optional": true,
+   "type": "boolean",
+   "description": "Displays a loader to indicate data load is in progress.",
+   "default": "false"
+  },
+  {
+   "name": "loadingIcon",
+   "optional": true,
+   "type": "string",
+   "description": "The icon to show while indicating data load is in progress."
+  },
+  {
+   "name": "sortField",
+   "optional": true,
+   "type": "keyof T | ((item: NoInfer<T>) => string)",
+   "description": "Property name or a getter function of a row data used for sorting by default"
+  },
+  {
+   "name": "sortOrder",
+   "optional": true,
+   "type": "number",
+   "description": "Order to sort the data by default."
+  },
+  {
+   "name": "nullSortOrder",
+   "optional": true,
+   "type": "number",
+   "description": "Determines how null values are sorted.",
+   "default": "1"
+  },
+  {
+   "name": "defaultSortOrder",
+   "optional": true,
+   "type": "number",
+   "description": "Default sort order of an unsorted column.",
+   "default": "1"
+  },
+  {
+   "name": "multiSortMeta",
+   "optional": true,
+   "type": "DataTableSortMeta[]",
+   "description": "An array of SortMeta objects to sort the data."
+  },
+  {
+   "name": "sortMode",
+   "optional": true,
+   "type": "HintedString<'single' | 'multiple'>",
+   "description": "Defines whether sorting works on single column or on multiple columns.",
+   "default": "single"
+  },
+  {
+   "name": "removableSort",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, columns can have an un-sorted state.",
+   "default": "false"
+  },
+  {
+   "name": "filters",
+   "optional": true,
+   "type": "DataTableFilterMeta",
+   "description": "Filters object with key-value pairs to define the filters."
+  },
+  {
+   "name": "filterDisplay",
+   "optional": true,
+   "type": "HintedString<'menu' | 'row'>",
+   "description": "Layout of the filter elements."
+  },
+  {
+   "name": "globalFilterFields",
+   "optional": true,
+   "type": "(keyof T | ((data: NoInfer<T>) => string))[]",
+   "description": "An array of fields as string or function to use in global filtering."
+  },
+  {
+   "name": "filterLocale",
+   "optional": true,
+   "type": "string",
+   "description": "Locale to use in filtering. The default locale is the host environment's current locale."
+  },
+  {
+   "name": "selection",
+   "optional": true,
+   "type": "NoInfer<T>[] | NoInfer<T>",
+   "description": "Selected row in single mode or an array of values in multiple mode."
+  },
+  {
+   "name": "selectionMode",
+   "optional": true,
+   "type": "HintedString<'single' | 'multiple'>",
+   "description": "Specifies the selection mode."
+  },
+  {
+   "name": "compareSelectionBy",
+   "optional": true,
+   "type": "HintedString<'equals' | 'deepEquals'>",
+   "description": "Algorithm to define if a row is selected.",
+   "default": "deepEquals"
+  },
+  {
+   "name": "metaKeySelection",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.",
+   "default": "false"
+  },
+  {
+   "name": "contextMenu",
+   "optional": true,
+   "type": "boolean",
+   "description": "Enables context menu integration.",
+   "default": "false"
+  },
+  {
+   "name": "contextMenuSelection",
+   "optional": true,
+   "type": "NoInfer<T> | NoInfer<T>[]",
+   "description": "Selected row instance with the ContextMenu."
+  },
+  {
+   "name": "selectAll",
+   "optional": true,
+   "type": "Nullable<boolean>",
+   "description": "Whether all data is selected."
+  },
+  {
+   "name": "rowHover",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, background of the rows change on hover.",
+   "default": "false"
+  },
+  {
+   "name": "csvSeparator",
+   "optional": true,
+   "type": "string",
+   "description": "Character to use as the csv separator.",
+   "default": ","
+  },
+  {
+   "name": "exportFilename",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the exported file.",
+   "default": "download"
+  },
+  {
+   "name": "exportFunction",
+   "optional": true,
+   "type": "(options: DataTableExportFunctionOptions) => any",
+   "description": "Custom function to export data."
+  },
+  {
+   "name": "resizableColumns",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, columns can be resized using drag and drop.",
+   "default": "false"
+  },
+  {
+   "name": "columnResizeMode",
+   "optional": true,
+   "type": "HintedString<'fit' | 'expand'>",
+   "description": "Defines whether the overall table width.",
+   "default": "fit"
+  },
+  {
+   "name": "reorderableColumns",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, columns can be reordered using drag and drop.",
+   "default": "false"
+  },
+  {
+   "name": "expandedRows",
+   "optional": true,
+   "type": "NoInfer<T>[] | DataTableExpandedRows | null",
+   "description": "A collection of row data display as expanded."
+  },
+  {
+   "name": "expandedRowIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon of the row toggler to display the row as expanded."
+  },
+  {
+   "name": "collapsedRowIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon of the row toggler to display the row as collapsed."
+  },
+  {
+   "name": "rowGroupMode",
+   "optional": true,
+   "type": "HintedString<'subheader' | 'rowspan'>",
+   "description": "Defines the row group mode."
+  },
+  {
+   "name": "groupRowsBy",
+   "optional": true,
+   "type": "((field: NoInfer<T>) => object) | (keyof T)[] | keyof T",
+   "description": "One or more field names to use in row grouping."
+  },
+  {
+   "name": "expandableRowGroups",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the row groups can be expandable.",
+   "default": "false"
+  },
+  {
+   "name": "expandedRowGroups",
+   "optional": true,
+   "type": "NoInfer<T>[] | DataTableExpandedRows",
+   "description": "An array of group field values whose groups would be rendered as expanded."
+  },
+  {
+   "name": "stateStorage",
+   "optional": true,
+   "type": "HintedString<'session' | 'local'>",
+   "description": "Defines where a stateful table keeps its state.",
+   "default": "session"
+  },
+  {
+   "name": "stateKey",
+   "optional": true,
+   "type": "string",
+   "description": "Unique identifier of a stateful table to use in state storage."
+  },
+  {
+   "name": "editMode",
+   "optional": true,
+   "type": "HintedString<'cell' | 'row'>",
+   "description": "Defines the incell editing mode."
+  },
+  {
+   "name": "editingRows",
+   "optional": true,
+   "type": "NoInfer<T>[] | DataTableEditingRows",
+   "description": "A collection of rows to represent the current editing data in row edit mode."
+  },
+  {
+   "name": "rowClass",
+   "optional": true,
+   "type": "(data: NoInfer<T>) => string | object",
+   "description": "A function that takes the row data as a parameter and returns a string to apply a particular class for the row. The return value is added to the row's :classes array (see Vue.js class bindings)."
+  },
+  {
+   "name": "rowStyle",
+   "optional": true,
+   "type": "(data: NoInfer<T>) => object | object[]",
+   "description": "A function that takes the row data as a parameter and returns the inline style object for the corresponding row. The function may also return an array of style objects which will be merged. The return value of this function is directly applied as a Vue.js style-binding on the table row."
+  },
+  {
+   "name": "scrollable",
+   "optional": true,
+   "type": "boolean",
+   "description": "When specified, enables horizontal and/or vertical scrolling.",
+   "default": "false"
+  },
+  {
+   "name": "scrollHeight",
+   "optional": true,
+   "type": "HintedString<'flex'>",
+   "description": "Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size."
+  },
+  {
+   "name": "virtualScrollerOptions",
+   "optional": true,
+   "type": "VirtualScrollerProps",
+   "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. Note: Currently only vertical orientation mode is supported."
+  },
+  {
+   "name": "frozenValue",
+   "optional": true,
+   "type": "NoInfer<T>[] | undefined | null",
+   "description": "Items of the frozen part in scrollable DataTable."
+  },
+  {
+   "name": "breakpoint",
+   "optional": true,
+   "type": "string",
+   "description": "The breakpoint to define the maximum width boundary when using stack responsive layout.",
+   "default": "960px"
+  },
+  {
+   "name": "showHeaders",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to display table headers",
+   "default": "true"
+  },
+  {
+   "name": "showGridlines",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show grid lines between cells.",
+   "default": "false"
+  },
+  {
+   "name": "stripedRows",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to displays rows with alternating colors.",
+   "default": "false"
+  },
+  {
+   "name": "highlightOnSelect",
+   "optional": true,
+   "type": "boolean",
+   "description": "Highlights automatically the first item. @defaultValue false",
+   "default": "false"
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large'>",
+   "description": "Defines the size of the table."
+  },
+  {
+   "name": "tableStyle",
+   "optional": true,
+   "type": "string | object",
+   "description": "Inline style of the table element."
+  },
+  {
+   "name": "tableClass",
+   "optional": true,
+   "type": "string | object",
+   "description": "Style class of the table element."
+  },
+  {
+   "name": "tableProps",
+   "optional": true,
+   "type": "TableHTMLAttributes",
+   "description": "Used to pass all properties of the TableHTMLAttributes to table element inside the component."
+  },
+  {
+   "name": "filterInputProps",
+   "optional": true,
+   "type": "InputHTMLAttributes",
+   "description": "Used to pass all properties of the HTMLInputElement to the focusable filter input element inside the component."
+  },
+  {
+   "name": "filterButtonProps",
+   "optional": true,
+   "type": "Partial<DataTableFilterButtonPropsOptions>",
+   "description": "Used to pass all filter button property object filter: { severity: 'secondary', text: true, rounded: true }, inline: { clear: { severity: 'secondary', text: true, rounded: true } }, popover: { addRule: { severity: 'info', text: true, size: 'small' }, removeRule: { severity: 'danger', text: true, size: 'small' }, apply: { size: 'small' }, clear: { outlined: true, size: 'small' } } }",
+   "default": "{"
+  },
+  {
+   "name": "editButtonProps",
+   "optional": true,
+   "type": "DataTableEditButtonPropsOptions",
+   "description": "Used to pass all edit button property object init: { severity: 'secondary', text: true, rounded: true }, save: { severity: 'secondary', text: true, rounded: true }, cancel: { severity: 'secondary', text: true, rounded: true } }",
+   "default": "{"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:first",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the first changes."
+  },
+  {
+   "name": "update:rows",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the rows changes."
+  },
+  {
+   "name": "update:sortField",
+   "optional": false,
+   "type": "(value: string): void",
+   "description": "Emitted when the sortField changes."
+  },
+  {
+   "name": "update:sortOrder",
+   "optional": false,
+   "type": "(value: number | undefined): void",
+   "description": "Emitted when the sortOrder changes."
+  },
+  {
+   "name": "update:multiSortMeta",
+   "optional": false,
+   "type": "(value: DataTableSortMeta[] | undefined | null): void",
+   "description": "Emitted when the multiSortMeta changes."
+  },
+  {
+   "name": "update:selection",
+   "optional": false,
+   "type": "(value: T[] | T | undefined): void",
+   "description": "Emitted when the selection changes."
+  },
+  {
+   "name": "update:contextMenuSelection",
+   "optional": false,
+   "type": "(value: any[] | any | undefined): void",
+   "description": "Emitted when the contextMenuSelection changes."
+  },
+  {
+   "name": "update:expandedRows",
+   "optional": false,
+   "type": "(value: T[] | DataTableExpandedRows): void",
+   "description": "Emitted when the expandedRows changes."
+  },
+  {
+   "name": "update:expandedRowGroups",
+   "optional": false,
+   "type": "(value: T[] | DataTableExpandedRows): void",
+   "description": "Emitted when the expandedRowGroups changes."
+  },
+  {
+   "name": "update:filters",
+   "optional": false,
+   "type": "(value: DataTableFilterMeta): void",
+   "description": "Emitted when the filters changes."
+  },
+  {
+   "name": "update:editingRows",
+   "optional": false,
+   "type": "(value: T[] | DataTableEditingRows): void",
+   "description": "Emitted when the editingRows changes."
+  },
+  {
+   "name": "page",
+   "optional": false,
+   "type": "(event: DataTablePageEvent): void",
+   "description": "Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation."
+  },
+  {
+   "name": "sort",
+   "optional": false,
+   "type": "(event: DataTableSortEvent): void",
+   "description": "Callback to invoke on sort. Page and Filter information is also available for lazy loading implementation."
+  },
+  {
+   "name": "filter",
+   "optional": false,
+   "type": "(event: DataTableFilterEvent): void",
+   "description": "Event to emit after filtering, not triggered in lazy mode."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: T[]): void",
+   "description": "Callback to invoke after filtering, sorting, pagination and cell editing to pass the rendered value."
+  },
+  {
+   "name": "row-click",
+   "optional": false,
+   "type": "(event: DataTableRowClickEvent): void",
+   "description": "Callback to invoke when a row is clicked."
+  },
+  {
+   "name": "row-dblclick",
+   "optional": false,
+   "type": "(event: DataTableRowDoubleClickEvent): void",
+   "description": "Callback to invoke when a row is double clicked."
+  },
+  {
+   "name": "row-contextmenu",
+   "optional": false,
+   "type": "(event: DataTableRowContextMenuEvent): void",
+   "description": "Callback to invoke when a row is selected with a ContextMenu."
+  },
+  {
+   "name": "row-select",
+   "optional": false,
+   "type": "(event: DataTableRowSelectEvent): void",
+   "description": "Callback to invoke when a row is selected."
+  },
+  {
+   "name": "row-select-all",
+   "optional": false,
+   "type": "(event: DataTableRowSelectAllEvent): void",
+   "description": "Fired when header checkbox is checked."
+  },
+  {
+   "name": "row-unselect-all",
+   "optional": false,
+   "type": "(event: DataTableRowUnselectAllEvent): void",
+   "description": "Fired when header checkbox is unchecked."
+  },
+  {
+   "name": "row-unselect",
+   "optional": false,
+   "type": "(event: DataTableRowUnselectEvent): void",
+   "description": "Callback to invoke when a row is unselected."
+  },
+  {
+   "name": "select-all-change",
+   "optional": false,
+   "type": "(event: DataTableSelectAllChangeEvent): void",
+   "description": "Callback to invoke when all data is selected."
+  },
+  {
+   "name": "column-resize-end",
+   "optional": false,
+   "type": "(event: DataTableColumnResizeEndEvent): void",
+   "description": "Callback to invoke when a column is resized."
+  },
+  {
+   "name": "column-reorder",
+   "optional": false,
+   "type": "(event: DataTableColumnReorderEvent): void",
+   "description": "Callback to invoke when a column is reordered."
+  },
+  {
+   "name": "row-reorder",
+   "optional": false,
+   "type": "(event: DataTableRowReorderEvent): void",
+   "description": "Callback to invoke when a row is reordered."
+  },
+  {
+   "name": "row-expand",
+   "optional": false,
+   "type": "(event: DataTableRowExpandEvent): void",
+   "description": "Callback to invoke when a row is expanded."
+  },
+  {
+   "name": "row-collapse",
+   "optional": false,
+   "type": "(event: DataTableRowCollapseEvent): void",
+   "description": "Callback to invoke when a row is collapsed."
+  },
+  {
+   "name": "rowgroup-expand",
+   "optional": false,
+   "type": "(event: DataTableRowExpandEvent): void",
+   "description": "Callback to invoke when a row group is expanded."
+  },
+  {
+   "name": "rowgroup-collapse",
+   "optional": false,
+   "type": "(event: DataTableRowCollapseEvent): void",
+   "description": "Callback to invoke when a row group is collapsed."
+  },
+  {
+   "name": "cell-edit-init",
+   "optional": false,
+   "type": "(event: DataTableCellEditInitEvent): void",
+   "description": "Callback to invoke when cell edit is initiated."
+  },
+  {
+   "name": "cell-edit-complete",
+   "optional": false,
+   "type": "(event: DataTableCellEditCompleteEvent): void",
+   "description": "Callback to invoke when cell edit is completed."
+  },
+  {
+   "name": "cell-edit-cancel",
+   "optional": false,
+   "type": "(event: DataTableCellEditCancelEvent): void",
+   "description": "Callback to invoke when cell edit is cancelled with escape key."
+  },
+  {
+   "name": "row-edit-init",
+   "optional": false,
+   "type": "(event: DataTableRowEditInitEvent): void",
+   "description": "Callback to invoke when row edit is initiated."
+  },
+  {
+   "name": "row-edit-save",
+   "optional": false,
+   "type": "(event: DataTableRowEditSaveEvent): void",
+   "description": "Callback to invoke when row edit is saved."
+  },
+  {
+   "name": "row-edit-cancel",
+   "optional": false,
+   "type": "(event: DataTableRowEditCancelEvent): void",
+   "description": "Callback to invoke when row edit is cancelled."
+  },
+  {
+   "name": "state-restore",
+   "optional": false,
+   "type": "(event: DataTableStateEvent<T>): void",
+   "description": "Invoked when a stateful table restores the state."
+  },
+  {
+   "name": "state-save",
+   "optional": false,
+   "type": "(event: DataTableStateEvent<T>): void",
+   "description": "Invoked when a stateful table saves the state."
+  }
+ ],
+ "slots": [
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom header template."
+  },
+  {
+   "name": "footer",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom footer template."
+  },
+  {
+   "name": "empty",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom empty template."
+  },
+  {
+   "name": "groupheader",
+   "optional": false,
+   "type": "(scope: { /** * Row data */ data: T; /** * Row index */ index: number; }): VNode[]",
+   "description": "Custom group header template."
+  },
+  {
+   "name": "groupfooter",
+   "optional": false,
+   "type": "(scope: { /** * Row data */ data: T; /** * Row index */ index: number; }): VNode[]",
+   "description": "Custom group footer template."
+  },
+  {
+   "name": "loading",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom loading template."
+  },
+  {
+   "name": "expansion",
+   "optional": false,
+   "type": "(scope: { /** * Row data */ data: T; /** * Row index */ index: number; }): VNode[]",
+   "description": "Custom expansion template."
+  },
+  {
+   "name": "loadingicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom loading icon template."
+  },
+  {
+   "name": "reorderindicatorupicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom row reorder indicator up icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "rowreorderindicatorupicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom row reorder indicator up icon template."
+  },
+  {
+   "name": "reorderindicatordownicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom reorder indicator down icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "rowreorderindicatordownicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom reorder indicator down icon template."
+  },
+  {
+   "name": "rowgrouptogglericon",
+   "optional": false,
+   "type": "(scope: { /** * Current rowgroup's expanded state. */ expanded: boolean; }): VNode[]",
+   "description": "Custom rowgroup toggler icon template."
+  },
+  {
+   "name": "paginatorcontainer",
+   "optional": false,
+   "type": "(scope: { /** * Index of first record */ first: number; /** * Index of last record */ last: number; /** * Number of rows to display in new page */ rows: number; /** * New page number */ page: number; /** * Total number of pages */ pageCount?: number; /** * Direct page links */ pageLinks?: number; /** * Total records */ totalRecords?: number; /** * First page function. * @param {Event} event - Browser event */ firstPageCallback: (event: Event) => void; /** * Last page function. * @param {Event} event - Browser event */ lastPageCallback: (event: Event) => void; /** * Previous page function. * @param {Event} event - Browser event */ prevPageCallback: (event: Event) => void; /** * Next page function. * @param {Event} event - Browser event */ nextPageCallback: (event: Event) => void; /** * Row change function. */ rowChangeCallback: (value: number) => void; /** * Page change function. */ changePageCallback: (value: number) => void; }): VNode[]",
+   "description": "Custom paginator container template."
+  },
+  {
+   "name": "paginatorstart",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom paginator start template."
+  },
+  {
+   "name": "paginatorend",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom paginator end template."
+  },
+  {
+   "name": "paginatorfirstpagelinkicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the paginator first page link icon. * @param {Object} scope - paginatorfirstpagelinkicon's params. */ class: string; }): VNode[]",
+   "description": "Custom paginator first page link icon template."
+  },
+  {
+   "name": "paginatorprevpagelinkicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the paginator prev page link icon. * @param {Object} scope - paginatorprevpagelinkicon's params. */ class: string; }): VNode[]",
+   "description": "Custom paginator previous page link icon template."
+  },
+  {
+   "name": "paginatornextpagelinkicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the paginator next page link icon. * @param {Object} scope - paginatornextpagelinkicon's params. */ class: string; }): VNode[]",
+   "description": "Custom paginator next page link icon template."
+  },
+  {
+   "name": "paginatorlastpagelinkicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the paginator last page link icon. * @param {Object} scope - paginatorlastpagelinkicon's params. */ class: string; }): VNode[]",
+   "description": "Custom paginator last page link icon template."
+  },
+  {
+   "name": "paginatorrowsperpagedropdownicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the paginator rows per page dropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom paginatorrowsperpagedropdownicon template."
+  },
+  {
+   "name": "paginatorjumptopagedropdownicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the paginator jump to page dropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom paginatorjumptopagedropdownicon template."
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "name": "Panel",
+ "category": "Panel",
+ "description": "Panel is a container with the optional content toggle feature.",
+ "docUrl": "https://primevue.org/panel/",
+ "props": [
+  {
+   "name": "header",
+   "optional": true,
+   "type": "string",
+   "description": "Header text of the panel."
+  },
+  {
+   "name": "toggleable",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines if content of panel can be expanded and collapsed.",
+   "default": "false"
+  },
+  {
+   "name": "collapsed",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines the initial state of panel content.",
+   "default": "false"
+  },
+  {
+   "name": "toggleButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass the custom value to read for the button inside the component.",
+   "default": "{ severity: 'secondary', text: true, rounded: true }"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:collapsed",
+   "optional": false,
+   "type": "(value: boolean): void",
+   "description": "Emitted when the collapsed changes."
+  },
+  {
+   "name": "toggle",
+   "optional": false,
+   "type": "(event: PanelToggleEvent): void",
+   "description": "Callback to invoke when a tab toggle."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom content template."
+  },
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(scope: { /** * Current id state as a string */ id: string; /** * Style class of the icon */ class: string; /** * Collapsed state as a boolean */ collapsed: boolean; }): VNode[]",
+   "description": "Custom header template."
+  },
+  {
+   "name": "icons",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom icons template."
+  },
+  {
+   "name": "togglebutton",
+   "optional": false,
+   "type": "(scope: { /** * Collapsed state as a boolean */ collapsed: boolean; /** * Toggle function. * @param {Event} event - Browser event */ toggleCallback: (event: Event) => void; /** * Keydown function. * @param {Event} event - Browser event */ keydownCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom toggle button template of panel."
+  },
+  {
+   "name": "togglericon",
+   "optional": false,
+   "type": "(scope: { /** * Collapsed state as a boolean */ collapsed: boolean; }): VNode[]",
+   "description": "Custom toggler icon template of panel.",
+   "deprecated": true
+  },
+  {
+   "name": "toggleicon",
+   "optional": false,
+   "type": "(scope: { /** * Collapsed state as a boolean */ collapsed: boolean; }): VNode[]",
+   "description": "Custom toggle icon template of panel."
+  },
+  {
+   "name": "footer",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom footer template."
+  }
+ ]
+}

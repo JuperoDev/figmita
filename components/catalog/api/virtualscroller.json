@@ -1,0 +1,220 @@
+{
+ "name": "VirtualScroller",
+ "category": "Data",
+ "description": "VirtualScroller is a performant approach to handle huge data efficiently.",
+ "docUrl": "https://primevue.org/virtualscroller/",
+ "props": [
+  {
+   "name": "id",
+   "optional": true,
+   "type": "string",
+   "description": "Unique identifier of the element."
+  },
+  {
+   "name": "style",
+   "optional": true,
+   "type": "any",
+   "description": "Inline style of the component."
+  },
+  {
+   "name": "class",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the component."
+  },
+  {
+   "name": "items",
+   "optional": true,
+   "type": "any[] | any[][] | undefined | null",
+   "description": "An array of objects to display."
+  },
+  {
+   "name": "itemSize",
+   "optional": true,
+   "type": "number | number[]",
+   "description": "The height/width of item according to orientation."
+  },
+  {
+   "name": "scrollHeight",
+   "optional": true,
+   "type": "string",
+   "description": "Height of the scroll viewport."
+  },
+  {
+   "name": "scrollWidth",
+   "optional": true,
+   "type": "string",
+   "description": "Width of the scroll viewport."
+  },
+  {
+   "name": "orientation",
+   "optional": true,
+   "type": "HintedString<'vertical' | 'horizontal' | 'both'>",
+   "description": "The orientation of scrollbar.",
+   "default": "vertical"
+  },
+  {
+   "name": "numToleratedItems",
+   "optional": true,
+   "type": "number",
+   "description": "Determines how many additional elements to add to the DOM outside of the view. According to the scrolls made up and down, extra items are added in a certain algorithm in the form of multiples of this number.",
+   "default": "half the number of items shown in the view."
+  },
+  {
+   "name": "delay",
+   "optional": true,
+   "type": "number",
+   "description": "Delay in scroll before new data is loaded.",
+   "default": "0"
+  },
+  {
+   "name": "resizeDelay",
+   "optional": true,
+   "type": "number",
+   "description": "Delay after window's resize finishes.",
+   "default": "10"
+  },
+  {
+   "name": "lazy",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines if data is loaded and interacted with in lazy manner.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "If disabled, the VirtualScroller feature is eliminated and the content is displayed directly.",
+   "default": "false"
+  },
+  {
+   "name": "loaderDisabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "Used to implement a custom loader instead of using the loader feature in the VirtualScroller.",
+   "default": "false"
+  },
+  {
+   "name": "showLoader",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show loader.",
+   "default": "false"
+  },
+  {
+   "name": "showSpacer",
+   "optional": true,
+   "type": "boolean",
+   "description": "Used to implement a custom spacer instead of using the spacer feature in the VirtualScroller.",
+   "default": "true"
+  },
+  {
+   "name": "loading",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to load items.",
+   "default": "false"
+  },
+  {
+   "name": "onLazyLoad",
+   "optional": true,
+   "type": "?(event: VirtualScrollerLazyEvent): void",
+   "description": "Callback to invoke in lazy mode to load new data."
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number | string",
+   "description": "Index of the element in tabbing order.",
+   "default": "0"
+  },
+  {
+   "name": "inline",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, positions the content as inline.",
+   "default": "false"
+  },
+  {
+   "name": "step",
+   "optional": true,
+   "type": "number",
+   "description": "Used to specify how many items to load in each load method in lazy mode.",
+   "default": "0"
+  },
+  {
+   "name": "appendOnly",
+   "optional": true,
+   "type": "boolean",
+   "description": "Used to append each loaded item to top without removing any items from the DOM. Using very large data may cause the browser to crash.",
+   "default": "false"
+  },
+  {
+   "name": "autoSize",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to dynamically change the height or width of scrollable container.",
+   "default": "false"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:numToleratedItems",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the numToleratedItems changes."
+  },
+  {
+   "name": "scroll",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when scroll position changes."
+  },
+  {
+   "name": "scroll-index-change",
+   "optional": false,
+   "type": "(event: VirtualScrollerScrollIndexChangeEvent): void",
+   "description": "Callback to invoke when scroll position and item's range in view changes."
+  },
+  {
+   "name": "lazy-load",
+   "optional": false,
+   "type": "(event: VirtualScrollerLazyEvent): void",
+   "description": "Callback to invoke in lazy mode to load new data."
+  }
+ ],
+ "slots": [
+  {
+   "name": "content",
+   "optional": false,
+   "type": "(scope: { /** * An array of objects to display for virtualscroller */ items: any; /** * Style class of the content */ styleClass: string; /** * Referance of the content * @param {HTMLElement} el - Element of 'ref' property */ contentRef: (el: any) => void; /** * Options of the items * @param {number} index - Rendered index * @return {@link VirtualScrollerItemOptions} */ getItemOptions: (index: number) => VirtualScrollerItemOptions; /** * Whether the data is loaded. */ loading: boolean; /** * Loader options of the items while the data is loading. * @param {number} index - Rendered index * @param {*} [ext] - Extra options * @return {@link VirtualScrollerItemOptions} */ getLoaderOptions: (index: number, ext?: any) => VirtualScrollerLoaderOptions; /** * The height/width of item according to orientation. */ itemSize: number | number[] | undefined; /** * The number of the rendered rows. */ rows: number | undefined; /** * The number of the rendered columns. */ columns: number | undefined; /** * The style of spacer element. */ spacerStyle: any; /** * The style of content element. */ contentStyle: any; /** * Whether the orientation is vertical. */ vertical: boolean; /** * Whether the orientation is horizontal. */ horizontal: boolean; /** * Whether the orientation is both. */ both: boolean; }): VNode[]",
+   "description": "Custom content template."
+  },
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Item data. */ item: any; /** * Item options. */ options: VirtualScrollerItemOptions; }): VNode[]",
+   "description": "Custom item template."
+  },
+  {
+   "name": "loader",
+   "optional": false,
+   "type": "(scope: { /** * Loader options. */ options: VirtualScrollerLoaderOptions; }): VNode[]",
+   "description": "Custom loader template."
+  },
+  {
+   "name": "loadingicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom loading icon template."
+  }
+ ]
+}

@@ -1,0 +1,156 @@
+{
+ "name": "SelectButton",
+ "category": "Form",
+ "description": "SelectButton is used to choose single or multiple items from a list using buttons.",
+ "docUrl": "https://primevue.org/selectbutton/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "any",
+   "description": "Value of the component."
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "any",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "The name attribute for the element, typically used in form submissions."
+  },
+  {
+   "name": "options",
+   "optional": true,
+   "type": "any[]",
+   "description": "An array of selectitems to display as the available options."
+  },
+  {
+   "name": "optionLabel",
+   "optional": true,
+   "type": "string | ((data: any) => string)",
+   "description": "Property name or getter function to use as the label of an option."
+  },
+  {
+   "name": "optionValue",
+   "optional": true,
+   "type": "string | ((data: any) => any)",
+   "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined."
+  },
+  {
+   "name": "optionDisabled",
+   "optional": true,
+   "type": "string | ((data: any) => boolean)",
+   "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
+  },
+  {
+   "name": "multiple",
+   "optional": true,
+   "type": "boolean",
+   "description": "When specified, allows selecting multiple values.",
+   "default": "false"
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the element should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "fluid",
+   "optional": true,
+   "type": "boolean",
+   "description": "Spans 100% width of the container when enabled.",
+   "default": "null"
+  },
+  {
+   "name": "dataKey",
+   "optional": true,
+   "type": "string",
+   "description": "A property to uniquely identify an option."
+  },
+  {
+   "name": "allowEmpty",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether selection can be cleared.",
+   "default": "true"
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying element."
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large'>",
+   "description": "Defines the size of the component."
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "change",
+   "optional": false,
+   "type": "(event: SelectButtonChangeEvent): void",
+   "description": "Callback to invoke on value change."
+  },
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke on focus."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke on blur."
+  }
+ ],
+ "slots": [
+  {
+   "name": "option",
+   "optional": false,
+   "type": "(scope: { /** * Option instance */ option: any; /** * Index of the option */ index: number; }): VNode[]",
+   "description": "Custom content for each option."
+  }
+ ]
+}

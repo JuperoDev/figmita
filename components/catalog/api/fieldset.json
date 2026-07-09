@@ -1,0 +1,82 @@
+{
+ "name": "Fieldset",
+ "category": "Panel",
+ "description": "Fieldset is a grouping component with the optional content toggle feature.",
+ "docUrl": "https://primevue.org/fieldset/",
+ "props": [
+  {
+   "name": "legend",
+   "optional": true,
+   "type": "string",
+   "description": "Header text of the fieldset."
+  },
+  {
+   "name": "toggleable",
+   "optional": true,
+   "type": "boolean",
+   "description": "When specified, content can toggled by clicking the legend.",
+   "default": "false"
+  },
+  {
+   "name": "collapsed",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines the default visibility state of the content.",
+   "default": "false"
+  },
+  {
+   "name": "toggleButtonProps",
+   "optional": true,
+   "type": "AnchorHTMLAttributes",
+   "description": "Used to pass the custom value to read for the AnchorHTMLAttributes inside the component."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:collapsed",
+   "optional": false,
+   "type": "(value: boolean): void",
+   "description": "Emitted when the collapsed changes."
+  },
+  {
+   "name": "toggle",
+   "optional": false,
+   "type": "(event: FieldsetToggleEvent): void",
+   "description": "Callback to invoke when a tab gets expanded or collapsed."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "() => VNode[]",
+   "description": "Default content slot."
+  },
+  {
+   "name": "legend",
+   "optional": false,
+   "type": "(scope: { /** * Toggle function. * @param {Event} event - Browser event */ toggleCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom legend template."
+  },
+  {
+   "name": "togglericon",
+   "optional": false,
+   "type": "(scope: { /** * Collapsed state as a boolean */ collapsed: boolean; /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom toggler icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "toggleicon",
+   "optional": false,
+   "type": "(scope: { /** * Collapsed state as a boolean */ collapsed: boolean; /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom toggler icon template."
+  }
+ ]
+}

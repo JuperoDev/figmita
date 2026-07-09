@@ -1,0 +1,534 @@
+{
+ "name": "Select",
+ "category": "Form",
+ "description": "Select is used to choose an item from a collection of options.",
+ "docUrl": "https://primevue.org/select/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "any",
+   "description": "Value of the component."
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "any",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "The name attribute for the element, typically used in form submissions."
+  },
+  {
+   "name": "options",
+   "optional": true,
+   "type": "any[]",
+   "description": "An array of select items to display as the available options."
+  },
+  {
+   "name": "optionLabel",
+   "optional": true,
+   "type": "string | ((data: any) => string)",
+   "description": "Property name or getter function to use as the label of an option."
+  },
+  {
+   "name": "optionValue",
+   "optional": true,
+   "type": "string | ((data: any) => any)",
+   "description": "Property name or getter function to use as the value of an option, defaults to the option itself when not defined."
+  },
+  {
+   "name": "optionDisabled",
+   "optional": true,
+   "type": "string | ((data: any) => boolean)",
+   "description": "Property name or getter function to use as the disabled flag of an option, defaults to false when not defined."
+  },
+  {
+   "name": "optionGroupLabel",
+   "optional": true,
+   "type": "string | ((data: any) => string)",
+   "description": "Property name or getter function to use as the label of an option group."
+  },
+  {
+   "name": "optionGroupChildren",
+   "optional": true,
+   "type": "string | ((data: any) => any[])",
+   "description": "Property name or getter function that refers to the children options of option group."
+  },
+  {
+   "name": "scrollHeight",
+   "optional": true,
+   "type": "string",
+   "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value.",
+   "default": "14rem"
+  },
+  {
+   "name": "filter",
+   "optional": true,
+   "type": "boolean",
+   "description": "When specified, displays a filter input at header.",
+   "default": "false"
+  },
+  {
+   "name": "filterPlaceholder",
+   "optional": true,
+   "type": "string",
+   "description": "Placeholder text to show when filter input is empty."
+  },
+  {
+   "name": "filterLocale",
+   "optional": true,
+   "type": "string",
+   "description": "Locale to use in filtering. The default locale is the host environment's current locale."
+  },
+  {
+   "name": "filterMatchMode",
+   "optional": true,
+   "type": "HintedString<'contains' | 'startsWith' | 'endsWith'>",
+   "description": "Defines the filtering algorithm to use when searching the options.",
+   "default": "contains"
+  },
+  {
+   "name": "filterFields",
+   "optional": true,
+   "type": "string[]",
+   "description": "Fields used when filtering the options, defaults to optionLabel."
+  },
+  {
+   "name": "editable",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, custom value instead of predefined options can be entered using the editable input field.",
+   "default": "false"
+  },
+  {
+   "name": "placeholder",
+   "optional": true,
+   "type": "string",
+   "description": "Default text to display when no option is selected."
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large'>",
+   "description": "Defines the size of the component."
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "variant",
+   "optional": true,
+   "type": "HintedString<'outlined' | 'filled'> | undefined | null",
+   "description": "Specifies the input variant of the component.",
+   "default": "null"
+  },
+  {
+   "name": "dataKey",
+   "optional": true,
+   "type": "string",
+   "description": "A property to uniquely identify an option."
+  },
+  {
+   "name": "showClear",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, a clear icon is displayed to clear the value.",
+   "default": "false"
+  },
+  {
+   "name": "fluid",
+   "optional": true,
+   "type": "boolean",
+   "description": "Spans 100% width of the container when enabled.",
+   "default": "null"
+  },
+  {
+   "name": "inputId",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying input element.",
+   "deprecated": true
+  },
+  {
+   "name": "inputStyle",
+   "optional": true,
+   "type": "object",
+   "description": "Inline style of the input field.",
+   "deprecated": true
+  },
+  {
+   "name": "inputClass",
+   "optional": true,
+   "type": "string | object",
+   "description": "Style class of the input field.",
+   "deprecated": true
+  },
+  {
+   "name": "labelId",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying label element."
+  },
+  {
+   "name": "labelStyle",
+   "optional": true,
+   "type": "object",
+   "description": "Inline style of the label field."
+  },
+  {
+   "name": "labelClass",
+   "optional": true,
+   "type": "string | object",
+   "description": "Style class of the label field."
+  },
+  {
+   "name": "panelStyle",
+   "optional": true,
+   "type": "object",
+   "description": "Inline style of the overlay panel.",
+   "deprecated": true
+  },
+  {
+   "name": "panelClass",
+   "optional": true,
+   "type": "string | object",
+   "description": "Style class of the overlay panel.",
+   "deprecated": true
+  },
+  {
+   "name": "overlayStyle",
+   "optional": true,
+   "type": "object",
+   "description": "Inline style of the overlay."
+  },
+  {
+   "name": "overlayClass",
+   "optional": true,
+   "type": "string | object",
+   "description": "Style class of the overlay."
+  },
+  {
+   "name": "appendTo",
+   "optional": true,
+   "type": "HintedString<'body' | 'self'> | undefined | HTMLElement",
+   "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.",
+   "default": "body"
+  },
+  {
+   "name": "loading",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the select is in loading state.",
+   "default": "false"
+  },
+  {
+   "name": "clearIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in clear button."
+  },
+  {
+   "name": "dropdownIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the select."
+  },
+  {
+   "name": "filterIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in filter input."
+  },
+  {
+   "name": "loadingIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in loading state."
+  },
+  {
+   "name": "resetFilterOnHide",
+   "optional": true,
+   "type": "boolean",
+   "description": "Clears the filter value when hiding the select.",
+   "default": "false"
+  },
+  {
+   "name": "resetFilterOnClear",
+   "optional": true,
+   "type": "boolean",
+   "description": "Clears the filter value when clicking on the clear icon.",
+   "default": "false"
+  },
+  {
+   "name": "virtualScrollerOptions",
+   "optional": true,
+   "type": "VirtualScrollerProps",
+   "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it."
+  },
+  {
+   "name": "autoOptionFocus",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to focus on the first visible or selected element when the overlay panel is shown.",
+   "default": "false"
+  },
+  {
+   "name": "autoFilterFocus",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to focus on the filter element when the overlay panel is shown.",
+   "default": "false"
+  },
+  {
+   "name": "selectOnFocus",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, the focused option is selected.",
+   "default": "false"
+  },
+  {
+   "name": "focusOnHover",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, the focus is placed on the hovered option.",
+   "default": "true"
+  },
+  {
+   "name": "highlightOnSelect",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the selected option will be add highlight class. @defaultValue true",
+   "default": "true"
+  },
+  {
+   "name": "checkmark",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the selected option will be shown with a check mark. @defaultValue false",
+   "default": "false"
+  },
+  {
+   "name": "filterMessage",
+   "optional": true,
+   "type": "string",
+   "description": "Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.",
+   "default": "'{0} results are available'"
+  },
+  {
+   "name": "selectionMessage",
+   "optional": true,
+   "type": "string",
+   "description": "Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.",
+   "default": "'{0} items selected'"
+  },
+  {
+   "name": "emptySelectionMessage",
+   "optional": true,
+   "type": "string",
+   "description": "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.",
+   "default": "No selected item"
+  },
+  {
+   "name": "emptyFilterMessage",
+   "optional": true,
+   "type": "string",
+   "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.",
+   "default": "No results found"
+  },
+  {
+   "name": "emptyMessage",
+   "optional": true,
+   "type": "string",
+   "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.",
+   "default": "No available options"
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number | string",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Defines a string value that labels an interactive element."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying input element."
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "change",
+   "optional": false,
+   "type": "(event: SelectChangeEvent): void",
+   "description": "Callback to invoke on value change."
+  },
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component receives focus."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component loses focus."
+  },
+  {
+   "name": "before-show",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke before the overlay is shown."
+  },
+  {
+   "name": "before-hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke before the overlay is hidden."
+  },
+  {
+   "name": "show",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when the overlay is shown."
+  },
+  {
+   "name": "hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when the overlay is hidden."
+  },
+  {
+   "name": "filter",
+   "optional": false,
+   "type": "(event: SelectFilterEvent): void",
+   "description": "Callback to invoke on filter input."
+  }
+ ],
+ "slots": [
+  {
+   "name": "value",
+   "optional": false,
+   "type": "(scope: { /** * Value of the component */ value: any; /** * Placeholder prop value */ placeholder: string; }): VNode[]",
+   "description": "Custom value template."
+  },
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(scope: { /** * Value of the component */ value: any; /** * Displayed options */ options: any[]; }): VNode[]",
+   "description": "Custom header template of panel."
+  },
+  {
+   "name": "footer",
+   "optional": false,
+   "type": "(scope: { /** * Value of the component */ value: any; /** * Displayed options */ options: any[]; }): VNode[]",
+   "description": "Custom footer template of panel."
+  },
+  {
+   "name": "option",
+   "optional": false,
+   "type": "(scope: { /** * Option instance */ option: any; /** * Selection state */ selected: boolean; /** * Index of the option */ index: number; }): VNode[]",
+   "description": "Custom option template."
+  },
+  {
+   "name": "optiongroup",
+   "optional": false,
+   "type": "(scope: { /** * Option instance */ option: any; /** * Index of the option */ index: number; }): VNode[]",
+   "description": "Custom option group template."
+  },
+  {
+   "name": "emptyfilter",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom empty filter template."
+  },
+  {
+   "name": "empty",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom empty template."
+  },
+  {
+   "name": "content",
+   "optional": false,
+   "type": "(scope: { /** * An array of objects to display for virtualscroller */ items: any; /** * Style class of the component */ styleClass: string; /** * Referance of the content * @param {HTMLElement} el - Element of 'ref' property */ contentRef: (el: any) => void; /** * Options of the items * @param {number} index - Rendered index * @return {@link VirtualScrollerItemOptions} */ getItemOptions: (index: number) => VirtualScrollerItemOptions; }): VNode[]",
+   "description": "Custom content template."
+  },
+  {
+   "name": "loader",
+   "optional": false,
+   "type": "(scope: { /** * Options of the loader items for virtualscroller */ options: any[]; }): VNode[]",
+   "description": "Custom loader template."
+  },
+  {
+   "name": "clearicon",
+   "optional": false,
+   "type": "(scope: { /** * Clear icon click function. * @param {Event} event - Browser event */ clearCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom clear icon template."
+  },
+  {
+   "name": "dropdownicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the select icon */ class: any; }): VNode[]",
+   "description": "Custom select icon template."
+  },
+  {
+   "name": "loadingicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the loading icon */ class: any; }): VNode[]",
+   "description": "Custom loading icon template."
+  },
+  {
+   "name": "filtericon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the filter icon */ class: any; }): VNode[]",
+   "description": "Custom filter icon template."
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "name": "Tag",
+ "category": "Misc",
+ "description": "Tag component is used to categorize content.",
+ "docUrl": "https://primevue.org/tag/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "any",
+   "description": "Value to display inside the tag."
+  },
+  {
+   "name": "severity",
+   "optional": true,
+   "type": "HintedString<'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contrast'>",
+   "description": "Severity type of the tag."
+  },
+  {
+   "name": "rounded",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the corners of the tag are rounded.",
+   "default": "false"
+  },
+  {
+   "name": "icon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon of the tag to display next to the value."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom content template"
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom icon template"
+  }
+ ]
+}

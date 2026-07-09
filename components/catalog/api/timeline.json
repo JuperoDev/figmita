@@ -1,0 +1,68 @@
+{
+ "name": "Timeline",
+ "category": "Data",
+ "description": "Timeline visualizes a series of chained events.",
+ "docUrl": "https://primevue.org/timeline/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "any[]",
+   "description": "An array of events to display."
+  },
+  {
+   "name": "align",
+   "optional": true,
+   "type": "HintedString<'left' | 'right' | 'alternate' | 'top' | 'bottom'>",
+   "description": "Position of the timeline bar relative to the content.",
+   "default": "left"
+  },
+  {
+   "name": "layout",
+   "optional": true,
+   "type": "HintedString<'vertical' | 'horizontal'>",
+   "description": "Orientation of the timeline.",
+   "default": "horizontal"
+  },
+  {
+   "name": "dataKey",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the field that uniquely identifies the a record in the data."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "content",
+   "optional": false,
+   "type": "(scope: { /** * Item data */ item: any; /** * Index of item */ index: number; }): VNode[]",
+   "description": "Custom content template"
+  },
+  {
+   "name": "opposite",
+   "optional": false,
+   "type": "(scope: { /** * Item data */ item: any; /** * Index of item */ index: number; }): VNode[]",
+   "description": "Custom opposite template."
+  },
+  {
+   "name": "marker",
+   "optional": false,
+   "type": "(scope: { /** * Item data */ item: any; /** * Index of item */ index: number; }): VNode[]",
+   "description": "Custom marker template."
+  },
+  {
+   "name": "connector",
+   "optional": false,
+   "type": "(scope: { /** * Item data */ item: any; /** * Index of item */ index: number; }): VNode[]",
+   "description": "Custom connector template."
+  }
+ ]
+}

@@ -1,0 +1,84 @@
+{
+ "name": "Tabs",
+ "category": "Panel",
+ "description": "Tabs facilitates seamless switching between different views.",
+ "docUrl": "https://primevue.org/tabs/",
+ "props": [
+  {
+   "name": "value",
+   "optional": false,
+   "type": "string | number",
+   "description": "Value of the active tab."
+  },
+  {
+   "name": "lazy",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.",
+   "default": "false"
+  },
+  {
+   "name": "scrollable",
+   "optional": true,
+   "type": "boolean",
+   "description": "When specified, enables horizontal and/or vertical scrolling.",
+   "default": "false"
+  },
+  {
+   "name": "showNavigators",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to display navigation buttons in container when scrollable is enabled.",
+   "default": "true"
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the element in tabbing order.",
+   "default": "0"
+  },
+  {
+   "name": "selectOnFocus",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, the focused tab is activated.",
+   "default": "false"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:value",
+   "optional": false,
+   "type": "(value: string | number): void",
+   "description": "Emitted when the value changes."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Default slot to detect TabPanel components."
+  },
+  {
+   "name": "previcon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Previous button icon template for the scrollable component."
+  },
+  {
+   "name": "nexticon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Next button icon template for the scrollable component."
+  }
+ ]
+}

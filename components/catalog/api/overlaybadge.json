@@ -1,0 +1,42 @@
+{
+ "name": "OverlayBadge",
+ "category": "Misc",
+ "description": "OverlayBadge represents people using icon, label, image and badge.",
+ "docUrl": "https://primevue.org/overlaybadge/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "string | number",
+   "description": "Value to display inside the badge."
+  },
+  {
+   "name": "severity",
+   "optional": true,
+   "type": "HintedString<'secondary' | 'info' | 'success' | 'warn' | 'danger' | 'contrast'> | null",
+   "description": "Severity type of the badge."
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large' | 'xlarge'> | null",
+   "description": "Size of the badge, valid options are 'small', 'large', and 'xlarge'."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Content can easily be customized with the default slot instead of using the built-in display."
+  }
+ ]
+}

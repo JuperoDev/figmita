@@ -1,0 +1,168 @@
+{
+ "name": "Carousel",
+ "category": "Media",
+ "description": "Carousel is a content slider featuring various customization options.",
+ "docUrl": "https://primevue.org/carousel/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "any",
+   "description": "An array of objects to display."
+  },
+  {
+   "name": "page",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the first item.",
+   "default": "0"
+  },
+  {
+   "name": "numVisible",
+   "optional": true,
+   "type": "number",
+   "description": "Number of items per page.",
+   "default": "1"
+  },
+  {
+   "name": "numScroll",
+   "optional": true,
+   "type": "number",
+   "description": "Number of items to scroll.",
+   "default": "1"
+  },
+  {
+   "name": "responsiveOptions",
+   "optional": true,
+   "type": "CarouselResponsiveOptions[]",
+   "description": "An array of options for responsive design."
+  },
+  {
+   "name": "orientation",
+   "optional": true,
+   "type": "'horizontal' | 'vertical'",
+   "description": "Specifies the layout of the component, valid values are 'horizontal' and 'vertical'.",
+   "default": "horizontal"
+  },
+  {
+   "name": "verticalViewPortHeight",
+   "optional": true,
+   "type": "string",
+   "description": "Height of the viewport in vertical layout.",
+   "default": "300px"
+  },
+  {
+   "name": "containerClass",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the viewport container."
+  },
+  {
+   "name": "contentClass",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of main content."
+  },
+  {
+   "name": "indicatorsContentClass",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the indicator items."
+  },
+  {
+   "name": "circular",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines if scrolling would be infinite.",
+   "default": "false"
+  },
+  {
+   "name": "autoplayInterval",
+   "optional": true,
+   "type": "number",
+   "description": "Time in milliseconds to scroll items automatically.",
+   "default": "0"
+  },
+  {
+   "name": "showNavigators",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to display navigation buttons in container.",
+   "default": "true"
+  },
+  {
+   "name": "showIndicators",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to display indicator container.",
+   "default": "true"
+  },
+  {
+   "name": "prevButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass attributes to the previous Button component.",
+   "default": "{ severity: 'secondary', text: true, rounded: true }"
+  },
+  {
+   "name": "nextButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass attributes to the next Button component.",
+   "default": "{ severity: 'secondary', text: true, rounded: true }"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:page",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the page changes."
+  }
+ ],
+ "slots": [
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Data of the component */ data: any; /** * Index of the item */ index: number; }): VNode[]",
+   "description": "Custom content for each item."
+  },
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom header template."
+  },
+  {
+   "name": "footer",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom footer template."
+  },
+  {
+   "name": "previcon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom previous icon template."
+  },
+  {
+   "name": "nexticon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom next icon template."
+  },
+  {
+   "name": "empty",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom empty template."
+  }
+ ]
+}

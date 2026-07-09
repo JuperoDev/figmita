@@ -1,0 +1,363 @@
+{
+ "name": "InputNumber",
+ "category": "Form",
+ "description": "InputNumber is an input component to provide numerical input.",
+ "docUrl": "https://primevue.org/inputnumber/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "Nullable<number>",
+   "description": "Value of the component."
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "Nullable<number>",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "The name attribute for the element, typically used in form submissions."
+  },
+  {
+   "name": "format",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to format the value.",
+   "default": "true"
+  },
+  {
+   "name": "showButtons",
+   "optional": true,
+   "type": "boolean",
+   "description": "Displays spinner buttons.",
+   "default": "false"
+  },
+  {
+   "name": "buttonLayout",
+   "optional": true,
+   "type": "HintedString<'stacked' | 'horizontal' | 'vertical'>",
+   "description": "Layout of the buttons.",
+   "default": "stacked"
+  },
+  {
+   "name": "incrementButtonClass",
+   "optional": true,
+   "type": "string",
+   "description": "Style class of the increment button."
+  },
+  {
+   "name": "decrementButtonClass",
+   "optional": true,
+   "type": "string",
+   "description": "Style class of the decrement button."
+  },
+  {
+   "name": "incrementButtonIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Style class of the increment icon.",
+   "deprecated": true
+  },
+  {
+   "name": "incrementIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Style class of the increment icon."
+  },
+  {
+   "name": "decrementButtonIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Style class of the decrement icon.",
+   "deprecated": true
+  },
+  {
+   "name": "decrementIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Style class of the decrement icon."
+  },
+  {
+   "name": "locale",
+   "optional": true,
+   "type": "string",
+   "description": "Locale to be used in formatting."
+  },
+  {
+   "name": "localeMatcher",
+   "optional": true,
+   "type": "HintedString<'lookup' | 'best fit'>",
+   "description": "The locale matching algorithm to use. Possible values are 'lookup' and 'best fit'; the default is 'best fit'. See [Locale Negotation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation) for details.",
+   "default": "best fit"
+  },
+  {
+   "name": "mode",
+   "optional": true,
+   "type": "HintedString<'decimal' | 'currency'>",
+   "description": "Defines the behavior of the component.",
+   "default": "decimal"
+  },
+  {
+   "name": "prefix",
+   "optional": true,
+   "type": "string",
+   "description": "Text to display before the value."
+  },
+  {
+   "name": "suffix",
+   "optional": true,
+   "type": "string",
+   "description": "Text to display after the value."
+  },
+  {
+   "name": "currency",
+   "optional": true,
+   "type": "string",
+   "description": "The currency to use in currency formatting. Possible values are the [ISO 4217 currency codes](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency), such as 'USD' for the US dollar, 'EUR' for the euro, or 'CNY' for the Chinese RMB. There is no default value; if the style is 'currency', the currency property must be provided."
+  },
+  {
+   "name": "currencyDisplay",
+   "optional": true,
+   "type": "string",
+   "description": "How to display the currency in currency formatting. Possible values are 'symbol' to use a localized currency symbol such as €, 'code' to use the ISO currency code, 'name' to use a localized currency name such as 'dollar'.",
+   "default": "symbol"
+  },
+  {
+   "name": "useGrouping",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators.",
+   "default": "true"
+  },
+  {
+   "name": "minFractionDigits",
+   "optional": true,
+   "type": "number",
+   "description": "The minimum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number and percent formatting is 0; the default for currency formatting is the number of minor unit digits provided by the [ISO 4217 currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency) list (2 if the list doesn't provide that information)."
+  },
+  {
+   "name": "maxFractionDigits",
+   "optional": true,
+   "type": "number",
+   "description": "The maximum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number formatting is the larger of minimumFractionDigits and 3; the default for currency formatting is the larger of minimumFractionDigits and the number of minor unit digits provided by the [ISO 4217 currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency) list (2 if the list doesn't provide that information)."
+  },
+  {
+   "name": "roundingMode",
+   "optional": true,
+   "type": "RoundingMode",
+   "description": "How decimals should be rounded. The default value is `\"halfExpand\"`, [further information](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode)."
+  },
+  {
+   "name": "min",
+   "optional": true,
+   "type": "number",
+   "description": "Minimum boundary value."
+  },
+  {
+   "name": "max",
+   "optional": true,
+   "type": "number",
+   "description": "Maximum boundary value."
+  },
+  {
+   "name": "step",
+   "optional": true,
+   "type": "number",
+   "description": "Step factor to increment/decrement the value.",
+   "default": "1"
+  },
+  {
+   "name": "allowEmpty",
+   "optional": true,
+   "type": "boolean",
+   "description": "Determines whether the input field is empty.",
+   "default": "true"
+  },
+  {
+   "name": "highlightOnFocus",
+   "optional": true,
+   "type": "boolean",
+   "description": "Highlights automatically the input value.",
+   "default": "false"
+  },
+  {
+   "name": "showClear",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, a clear icon is displayed to clear the value.",
+   "default": "false"
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large'>",
+   "description": "Defines the size of the component."
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "variant",
+   "optional": true,
+   "type": "HintedString<'outlined' | 'filled'> | undefined | null",
+   "description": "Specifies the input variant of the component.",
+   "default": "null"
+  },
+  {
+   "name": "readonly",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that an input field is read-only.",
+   "default": "false"
+  },
+  {
+   "name": "placeholder",
+   "optional": true,
+   "type": "string",
+   "description": "Placeholder text for the input."
+  },
+  {
+   "name": "fluid",
+   "optional": true,
+   "type": "boolean",
+   "description": "Spans 100% width of the container when enabled.",
+   "default": "null"
+  },
+  {
+   "name": "inputId",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the focus input to match a label defined for the chips."
+  },
+  {
+   "name": "inputClass",
+   "optional": true,
+   "type": "string | object",
+   "description": "Style class of the input field."
+  },
+  {
+   "name": "inputStyle",
+   "optional": true,
+   "type": "object",
+   "description": "Inline style of the input field."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes a string value that labels the component."
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "input",
+   "optional": false,
+   "type": "(event: InputNumberInputEvent): void",
+   "description": "Callback to invoke when the value is entered."
+  },
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke on focus of input field."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: InputNumberBlurEvent): void",
+   "description": "Callback to invoke on blur of input field."
+  }
+ ],
+ "slots": [
+  {
+   "name": "incrementbutton",
+   "optional": false,
+   "type": "(scope: { /** * InputNumber listeners */ listeners: InputNumberButtonListeners; }): VNode[]",
+   "description": "Custom increment button template."
+  },
+  {
+   "name": "decrementbutton",
+   "optional": false,
+   "type": "(scope: { /** * InputNumber listeners */ listeners: InputNumberButtonListeners; }): VNode[]",
+   "description": "Custom decrement button template."
+  },
+  {
+   "name": "incrementbuttonicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom increment icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "incrementicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom increment icon template."
+  },
+  {
+   "name": "decrementbuttonicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom decrement icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "decrementicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom decrement icon template."
+  },
+  {
+   "name": "clearicon",
+   "optional": false,
+   "type": "(scope: { /** * Clear icon click function. * @param {Event} event - Browser event */ clearCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom clear icon template."
+  }
+ ]
+}

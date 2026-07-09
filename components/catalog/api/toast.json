@@ -1,0 +1,155 @@
+{
+ "name": "Toast",
+ "category": "Messages",
+ "description": "Toast is used to display messages in an overlay.",
+ "docUrl": "https://primevue.org/toast/",
+ "props": [
+  {
+   "name": "group",
+   "optional": true,
+   "type": "string",
+   "description": "Unique identifier of a message group."
+  },
+  {
+   "name": "position",
+   "optional": true,
+   "type": "'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'center'",
+   "description": "Position of the toast in viewport.",
+   "default": "top-right"
+  },
+  {
+   "name": "autoZIndex",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to automatically manage layering.",
+   "default": "true"
+  },
+  {
+   "name": "baseZIndex",
+   "optional": true,
+   "type": "number",
+   "description": "Base zIndex value to use in layering.",
+   "default": "0"
+  },
+  {
+   "name": "breakpoints",
+   "optional": true,
+   "type": "ToastBreakpointsType",
+   "description": "Object literal to define styles per screen size."
+  },
+  {
+   "name": "closeIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the toast close button."
+  },
+  {
+   "name": "infoIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the toast with info severity."
+  },
+  {
+   "name": "warnIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the toast with warn severity."
+  },
+  {
+   "name": "errorIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the toast with error severity."
+  },
+  {
+   "name": "successIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the toast with success severity."
+  },
+  {
+   "name": "closeButtonProps",
+   "optional": true,
+   "type": "ButtonHTMLAttributes",
+   "description": "Used to pass all properties of the HTMLButtonElement to the close button."
+  },
+  {
+   "name": "message",
+   "optional": true,
+   "type": "ToastMessageOptions",
+   "description": "Used to access message options."
+  },
+  {
+   "name": "onMouseEnter",
+   "optional": true,
+   "type": "Function",
+   "description": "Used to specify a callback function to be run when the mouseenter event is fired on the message component."
+  },
+  {
+   "name": "onMouseLeave",
+   "optional": true,
+   "type": "Function",
+   "description": "Used to specify a callback function to be run when the mouseleave event is fired on the message component."
+  },
+  {
+   "name": "onClick",
+   "optional": true,
+   "type": "Function",
+   "description": "Used to specify a callback function to be run when the click event is fired on the message component."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "close",
+   "optional": false,
+   "type": "(event: ToastEvent): void",
+   "description": "Callback to invoke when the toast is closed."
+  },
+  {
+   "name": "life-end",
+   "optional": false,
+   "type": "(event: ToastEvent): void",
+   "description": "Callback to invoke when the toast's timeout is over."
+  }
+ ],
+ "slots": [
+  {
+   "name": "message",
+   "optional": false,
+   "type": "(scope: { /** * Message of the component */ message: any; }): VNode[]",
+   "description": "Custom message template."
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the message icon */ class: any; }): VNode[]",
+   "description": "Custom message icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "messageicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the icon */ class: any; }): VNode[]",
+   "description": "Custom message icon template."
+  },
+  {
+   "name": "closeicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the close icon */ class: any; }): VNode[]",
+   "description": "Custom close icon template."
+  },
+  {
+   "name": "container",
+   "optional": false,
+   "type": "(scope: { /** * Message of the component */ message: any; /** * Close sidebar function. */ closeCallback: () => void; }): VNode[]",
+   "description": "Custom container slot."
+  }
+ ]
+}

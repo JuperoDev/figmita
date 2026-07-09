@@ -1,0 +1,189 @@
+{
+ "name": "Checkbox",
+ "category": "Form",
+ "description": "Checkbox is an extension to standard checkbox element with theming.",
+ "docUrl": "https://primevue.org/checkbox/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "any",
+   "description": "Value of the checkbox."
+  },
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "any",
+   "description": "Value binding of the checkbox."
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "any",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the input element."
+  },
+  {
+   "name": "binary",
+   "optional": true,
+   "type": "boolean",
+   "description": "Allows to select a boolean value instead of multiple values."
+  },
+  {
+   "name": "indeterminate",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies input state as indeterminate."
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "'small' | 'large'",
+   "description": "Defines the size of the component."
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the element should be disabled."
+  },
+  {
+   "name": "variant",
+   "optional": true,
+   "type": "HintedString<'outlined' | 'filled'> | undefined | null",
+   "description": "Specifies the input variant of the component.",
+   "default": "null"
+  },
+  {
+   "name": "readonly",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that an input field is read-only."
+  },
+  {
+   "name": "required",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the element is required."
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "trueValue",
+   "optional": true,
+   "type": "any",
+   "description": "Value in checked state."
+  },
+  {
+   "name": "falseValue",
+   "optional": true,
+   "type": "any",
+   "description": "Value in unchecked state."
+  },
+  {
+   "name": "inputId",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying input element."
+  },
+  {
+   "name": "inputClass",
+   "optional": true,
+   "type": "object",
+   "description": "Style class of the input field."
+  },
+  {
+   "name": "inputStyle",
+   "optional": true,
+   "type": "string | object",
+   "description": "Inline style of the input field."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes a string value that labels the component."
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "update:indeterminate",
+   "optional": false,
+   "type": "(value: false): void",
+   "description": "Emitted when the \"indeterminate\" changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "change",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke on value change."
+  },
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component receives focus."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component loses focus."
+  }
+ ],
+ "slots": [
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(scope: { /** * State of the checkbox. */ checked: boolean; /** * Indeterminate state of the checkbox. */ indeterminate?: boolean | undefined; /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom icon template."
+  }
+ ]
+}

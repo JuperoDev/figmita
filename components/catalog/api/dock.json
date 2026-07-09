@@ -1,0 +1,112 @@
+{
+ "name": "Dock",
+ "category": "Menu",
+ "description": "Dock is a navigation component consisting of menuitems.",
+ "docUrl": "https://primevue.org/dock/",
+ "props": [
+  {
+   "name": "model",
+   "optional": true,
+   "type": "MenuItem[]",
+   "description": "MenuModel instance to define the action items."
+  },
+  {
+   "name": "position",
+   "optional": true,
+   "type": "HintedString<'bottom' | 'top' | 'left' | 'right'>",
+   "description": "Position of element.",
+   "default": "bottom"
+  },
+  {
+   "name": "class",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the element."
+  },
+  {
+   "name": "style",
+   "optional": true,
+   "type": "any",
+   "description": "Inline style of the element."
+  },
+  {
+   "name": "breakpoint",
+   "optional": true,
+   "type": "string",
+   "description": "The breakpoint to define the maximum width boundary.",
+   "default": "960px"
+  },
+  {
+   "name": "tooltipOptions",
+   "optional": true,
+   "type": "DockTooltipOptions",
+   "description": "Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
+  },
+  {
+   "name": "menuId",
+   "optional": true,
+   "type": "string",
+   "description": "Unique identifier of the menu."
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number | string",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes a string value that labels the component."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component receives focus."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component loses focus."
+  }
+ ],
+ "slots": [
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Custom content for item. */ item: MenuItem; /** * Index of the menuitem */ index: number; /** * Label property of the menuitem */ label: string | ((...args: any) => string) | undefined; /** * Binding properties of the menuitem */ props: DockRouterBindProps; }): VNode[]",
+   "description": "Custom item content."
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(scope: { /** * Custom content for item icon. */ item: MenuItem; }): VNode[]",
+   "description": "Custom icon content.",
+   "deprecated": true
+  },
+  {
+   "name": "itemicon",
+   "optional": false,
+   "type": "(scope: { /** * Custom content for item icon. */ item: MenuItem; }): VNode[]",
+   "description": "Custom icon content."
+  }
+ ]
+}

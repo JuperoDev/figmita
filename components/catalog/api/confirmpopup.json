@@ -1,0 +1,54 @@
+{
+ "name": "ConfirmPopup",
+ "category": "Overlay",
+ "description": "ConfirmPopup displays a confirmation overlay displayed relatively to its target.",
+ "docUrl": "https://primevue.org/confirmpopup/",
+ "props": [
+  {
+   "name": "group",
+   "optional": true,
+   "type": "string",
+   "description": "Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "message",
+   "optional": false,
+   "type": "(scope: { /** * Message of the component */ message: ConfirmationOptions; }): VNode[]",
+   "description": "Custom message template."
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the icon template */ class: any; }): VNode[]",
+   "description": "Custom icon template. @param {Object} scope - icon slot's params."
+  },
+  {
+   "name": "accepticon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom icon template."
+  },
+  {
+   "name": "rejecticon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom icon template."
+  },
+  {
+   "name": "container",
+   "optional": false,
+   "type": "(scope: { /** * Message of the component */ message: any; /** * Accept function of the component */ acceptCallback: () => void; /** * Reject function of the component */ rejectCallback: () => void; }): VNode[]",
+   "description": "Custom container slot."
+  }
+ ]
+}

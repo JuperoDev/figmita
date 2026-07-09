@@ -1,0 +1,74 @@
+{
+ "name": "Chip",
+ "category": "Misc",
+ "description": "Chip represents people using icons, labels and images.",
+ "docUrl": "https://primevue.org/chip/",
+ "props": [
+  {
+   "name": "label",
+   "optional": true,
+   "type": "string | number",
+   "description": "Defines the text to display."
+  },
+  {
+   "name": "icon",
+   "optional": true,
+   "type": "string",
+   "description": "Defines the icon to display."
+  },
+  {
+   "name": "image",
+   "optional": true,
+   "type": "string",
+   "description": "Defines the image to display."
+  },
+  {
+   "name": "removable",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to display a remove icon.",
+   "default": "false"
+  },
+  {
+   "name": "removeIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon of the remove element."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "remove",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when a chip is removed."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Content can easily be customized with the default slot instead of using the built-in modes."
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom icon template."
+  },
+  {
+   "name": "removeicon",
+   "optional": false,
+   "type": "(scope: { /** * Remove icon click event * @param {Event} event - Browser event */ removeCallback: (event: Event) => void; /** * Remove icon keydown event * @param {Event} event - Browser event */ keydownCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom remove icon template of chip component."
+  }
+ ]
+}

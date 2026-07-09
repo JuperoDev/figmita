@@ -1,0 +1,216 @@
+{
+ "name": "SpeedDial",
+ "category": "Button",
+ "description": "When pressed, a floating action button can display multiple primary actions that can be performed on a page.",
+ "docUrl": "https://primevue.org/speeddial/",
+ "props": [
+  {
+   "name": "model",
+   "optional": true,
+   "type": "MenuItem[]",
+   "description": "MenuModel instance to define the action items."
+  },
+  {
+   "name": "visible",
+   "optional": true,
+   "type": "boolean",
+   "description": "Specifies the visibility of the overlay.",
+   "default": "false"
+  },
+  {
+   "name": "direction",
+   "optional": true,
+   "type": "HintedString<'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right'>",
+   "description": "Specifies the opening direction of actions.",
+   "default": "up"
+  },
+  {
+   "name": "transitionDelay",
+   "optional": true,
+   "type": "number",
+   "description": "Transition delay step for each action item.",
+   "default": "30"
+  },
+  {
+   "name": "type",
+   "optional": true,
+   "type": "HintedString<'linear' | 'circle' | 'semi-circle' | 'quarter-circle'>",
+   "description": "Specifies the opening type of actions.",
+   "default": "linear"
+  },
+  {
+   "name": "radius",
+   "optional": true,
+   "type": "number",
+   "description": "Radius for *circle types.",
+   "default": "0"
+  },
+  {
+   "name": "mask",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show a mask element behind the speeddial.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the component is disabled.",
+   "default": "false"
+  },
+  {
+   "name": "hideOnClickOutside",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the actions close when clicked outside.",
+   "default": "true"
+  },
+  {
+   "name": "buttonClass",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the button element."
+  },
+  {
+   "name": "maskStyle",
+   "optional": true,
+   "type": "any",
+   "description": "Inline style of the mask element."
+  },
+  {
+   "name": "maskClass",
+   "optional": true,
+   "type": "string",
+   "description": "Style class of the mask element."
+  },
+  {
+   "name": "showIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Show icon of the button element."
+  },
+  {
+   "name": "hideIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Hide icon of the button element."
+  },
+  {
+   "name": "rotateAnimation",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defined to rotate showIcon when hideIcon is not present.",
+   "default": "true"
+  },
+  {
+   "name": "class",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the element."
+  },
+  {
+   "name": "style",
+   "optional": true,
+   "type": "any",
+   "description": "Inline style of the element."
+  },
+  {
+   "name": "tooltipOptions",
+   "optional": true,
+   "type": "SpeedDialTooltipOptions",
+   "description": "Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
+  },
+  {
+   "name": "buttonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the button component.",
+   "default": "{ rounded: true  }"
+  },
+  {
+   "name": "actionButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the item component.",
+   "default": "{ severity: 'secondary', rounded: true, size: 'small' }"
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Defines a string value that labels an interactive list element."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying list element."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "click",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Fired when the button element clicked."
+  },
+  {
+   "name": "show",
+   "optional": false,
+   "type": "(): void",
+   "description": "Fired when the actions are visible."
+  },
+  {
+   "name": "hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Fired when the actions are hidden."
+  },
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component receives focus."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component loses focus."
+  }
+ ],
+ "slots": [
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance * @type {MenuItem} */ item: MenuItem; /** * Item click function * @param {Event} event - Browser event. */ onClick: (event: Event) => void; /** * Button click function * @param {Event} event - Browser event. */ toggleCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom content for each item."
+  },
+  {
+   "name": "button",
+   "optional": false,
+   "type": "(scope: { /** * Visible state of the item */ visible: boolean; /** * Button click function * @param {Event} event - Browser event. */ toggleCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom button template."
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(scope: { /** * Visible state of the item */ visible: boolean; }): VNode[]",
+   "description": "Custom icon template."
+  },
+  {
+   "name": "itemicon",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance * @type {MenuItem} */ item: MenuItem; /** * Style class of the icon template */ class: any; }): VNode[]",
+   "description": "Custom icon template."
+  }
+ ]
+}

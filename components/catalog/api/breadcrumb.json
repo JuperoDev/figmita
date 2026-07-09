@@ -1,0 +1,60 @@
+{
+ "name": "Breadcrumb",
+ "category": "Menu",
+ "description": "Breadcrumb provides contextual information about page hierarchy.",
+ "docUrl": "https://primevue.org/breadcrumb/",
+ "props": [
+  {
+   "name": "model",
+   "optional": true,
+   "type": "MenuItem[]",
+   "description": "An array of menuitems."
+  },
+  {
+   "name": "home",
+   "optional": true,
+   "type": "MenuItem",
+   "description": "Configuration for the home icon."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Defines a string value that labels an interactive element."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying menu element."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Label property of the menuitem */ label: string | ((...args: any) => string) | undefined; /** * Binding properties of the menuitem */ props: BreadcrumbRouterBindProps; }): VNode[]",
+   "description": "Custom item template."
+  },
+  {
+   "name": "separator",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom separator template."
+  },
+  {
+   "name": "itemicon",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Style class of the item icon element. */ class: any; }): VNode[]",
+   "description": "Custom item icon template."
+  }
+ ]
+}

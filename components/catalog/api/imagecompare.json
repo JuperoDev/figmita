@@ -1,0 +1,49 @@
+{
+ "name": "ImageCompare",
+ "category": "Media",
+ "description": "ImageCompare compares two images side by side with a slider.",
+ "docUrl": "https://primevue.org/imagecompare/",
+ "props": [
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the element in tabbing order.",
+   "default": "0"
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Defines a string value that labels an interactive element."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying input element."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "left",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom left template."
+  },
+  {
+   "name": "right",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom right template."
+  }
+ ]
+}

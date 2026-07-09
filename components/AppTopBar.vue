@@ -33,6 +33,9 @@ const { copyLink } = useShare()
     </div>
 
     <div class="top-right">
+      <NuxtLink to="/catalog" class="catalog-link" title="PrimeVue component catalog">
+        <i class="pi pi-objects-column" /> Catalog
+      </NuxtLink>
       <span class="zoom-chip">{{ zoomLabel }}</span>
       <Button size="small" label="Share" icon="pi pi-share-alt" rounded
         style="height:30px;font-size:12px;" @click="copyLink" />
@@ -56,4 +59,7 @@ const { copyLink } = useShare()
 .play-btn:hover { border-color:#555; color:#f0f0f0; }
 .play-btn.play-active { background:#14532d; color:#4ade80; border-color:#166534; }
 .zoom-chip { font-size:12px; color:#888; font-variant-numeric:tabular-nums; }
+.catalog-link { display:flex; align-items:center; gap:6px; padding:0 10px; height:30px; border:1px solid #383838; border-radius:6px; color:#aaa; font-size:12px; text-decoration:none; transition:all .12s; }
+.catalog-link:hover { border-color:#555; color:#f0f0f0; }
+.catalog-link .pi { font-size:12px; }
 </style>

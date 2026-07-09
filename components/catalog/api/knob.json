@@ -1,0 +1,170 @@
+{
+ "name": "Knob",
+ "category": "Form",
+ "description": "Knob is a form component to define number inputs with a dial.",
+ "docUrl": "https://primevue.org/knob/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "number",
+   "description": "Value of the component."
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "any",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "The name attribute for the element, typically used in form submissions."
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "number",
+   "description": "Size of the component in pixels.",
+   "default": "100"
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "readonly",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component value cannot be edited.",
+   "default": "false"
+  },
+  {
+   "name": "step",
+   "optional": true,
+   "type": "number",
+   "description": "Step factor to increment/decrement the value.",
+   "default": "1"
+  },
+  {
+   "name": "min",
+   "optional": true,
+   "type": "number",
+   "description": "Mininum boundary value.",
+   "default": "0"
+  },
+  {
+   "name": "max",
+   "optional": true,
+   "type": "number",
+   "description": "Maximum boundary value.",
+   "default": "100"
+  },
+  {
+   "name": "valueColor",
+   "optional": true,
+   "type": "string",
+   "description": "Background of the value.",
+   "default": "$dt('knob.value.background')"
+  },
+  {
+   "name": "rangeColor",
+   "optional": true,
+   "type": "string",
+   "description": "Background color of the range.",
+   "default": "$dt('knob.range.background')"
+  },
+  {
+   "name": "textColor",
+   "optional": true,
+   "type": "string",
+   "description": "Color of the value text.",
+   "default": "$dt('knob.text.color')"
+  },
+  {
+   "name": "strokeWidth",
+   "optional": true,
+   "type": "number",
+   "description": "Width of the knob stroke.",
+   "default": "14"
+  },
+  {
+   "name": "showValue",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the show the value inside the knob.",
+   "default": "true"
+  },
+  {
+   "name": "valueTemplate",
+   "optional": true,
+   "type": "((val: number) => string) | string",
+   "description": "Template string of the value.",
+   "default": "'{value}'"
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the element in tabbing order.",
+   "default": "0"
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Used to define a string that labels the element."
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "change",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Callback to invoke when the value changes."
+  }
+ ],
+ "slots": []
+}

@@ -1,0 +1,77 @@
+{
+ "name": "Splitter",
+ "category": "Panel",
+ "description": "Splitter is utilized to separate and resize panels.",
+ "docUrl": "https://primevue.org/splitter/",
+ "props": [
+  {
+   "name": "layout",
+   "optional": true,
+   "type": "HintedString<'horizontal' | 'vertical'>",
+   "description": "Orientation of the panels.",
+   "default": "horizontal"
+  },
+  {
+   "name": "gutterSize",
+   "optional": true,
+   "type": "number",
+   "description": "Size of the divider in pixels.",
+   "default": "4"
+  },
+  {
+   "name": "stateKey",
+   "optional": true,
+   "type": "string",
+   "description": "Storage identifier of a stateful Splitter."
+  },
+  {
+   "name": "stateStorage",
+   "optional": true,
+   "type": "HintedString<'local' | 'session'>",
+   "description": "Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage.",
+   "default": "session"
+  },
+  {
+   "name": "step",
+   "optional": true,
+   "type": "number",
+   "description": "Step factor to increment/decrement the size of the panels while pressing the arrow keys.",
+   "default": "5"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "resizestart",
+   "optional": false,
+   "type": "(event: SplitterResizeStartEvent): void",
+   "description": "Callback to invoke when resize starts."
+  },
+  {
+   "name": "resize",
+   "optional": false,
+   "type": "(event: SplitterResizeEvent): void",
+   "description": "Callback to invoke during the resizing process."
+  },
+  {
+   "name": "resizeend",
+   "optional": false,
+   "type": "(event: SplitterResizeEndEvent): void",
+   "description": "Callback to invoke when resize ends."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Default slot to detect SplitterPanel components."
+  }
+ ]
+}

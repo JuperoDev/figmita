@@ -1,0 +1,166 @@
+{
+ "name": "Paginator",
+ "category": "Data",
+ "description": "Paginator is a generic component to display content in paged format.",
+ "docUrl": "https://primevue.org/paginator/",
+ "props": [
+  {
+   "name": "totalRecords",
+   "optional": true,
+   "type": "number",
+   "description": "Number of total records.",
+   "default": "0"
+  },
+  {
+   "name": "rows",
+   "optional": true,
+   "type": "number",
+   "description": "Data count to display per page.",
+   "default": "0"
+  },
+  {
+   "name": "first",
+   "optional": true,
+   "type": "number",
+   "description": "Zero-relative number of the first row to be displayed.",
+   "default": "0"
+  },
+  {
+   "name": "pageLinkSize",
+   "optional": true,
+   "type": "number",
+   "description": "Number of page links to display.",
+   "default": "5"
+  },
+  {
+   "name": "rowsPerPageOptions",
+   "optional": true,
+   "type": "number[]",
+   "description": "Array of integer values to display inside rows per page dropdown."
+  },
+  {
+   "name": "template",
+   "optional": true,
+   "type": "any | string",
+   "description": "Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint. Available templates are the following; - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport"
+  },
+  {
+   "name": "currentPageReportTemplate",
+   "optional": true,
+   "type": "string",
+   "description": "Template of the current page report element. It displays information about the pagination state. Available placeholders are the following; - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords}",
+   "default": "'({currentPage} of {totalPages})'"
+  },
+  {
+   "name": "alwaysShow",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show the paginator even there is only one page.",
+   "default": "true"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:first",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the first changes."
+  },
+  {
+   "name": "update:rows",
+   "optional": false,
+   "type": "(value: number): void",
+   "description": "Emitted when the rows changes."
+  },
+  {
+   "name": "page",
+   "optional": false,
+   "type": "(event: PageState): void",
+   "description": "Callback to invoke when page changes, the event object contains information about the new state."
+  }
+ ],
+ "slots": [
+  {
+   "name": "start",
+   "optional": false,
+   "type": "(scope: { /** * Current state * @see PageState */ state: PageState; }): VNode[]",
+   "description": "Custom start template."
+  },
+  {
+   "name": "end",
+   "optional": false,
+   "type": "(scope: { /** * Current state * @see PageState */ state: PageState; }): VNode[]",
+   "description": "Custom end template."
+  },
+  {
+   "name": "firstpagelinkicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the jumptopagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom first page link icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "firsticon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the jumptopagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom first page link icon template."
+  },
+  {
+   "name": "prevpagelinkicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the jumptopagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom previous page link icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "previcon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the jumptopagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom previous page link icon template."
+  },
+  {
+   "name": "nextpagelinkicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the jumptopagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom finextrst page link icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "nexticon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the jumptopagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom finextrst page link icon template."
+  },
+  {
+   "name": "lastpagelinkicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the jumptopagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom last page link icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "lasticon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the jumptopagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom last page link icon template."
+  },
+  {
+   "name": "rowsperpagedropdownicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the rowsperpagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom rowsperpagedropdownicon template."
+  },
+  {
+   "name": "jumptopagedropdownicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the jumptopagedropdown icon. */ class: string; }): VNode[]",
+   "description": "Custom jumptopagedropdownicon template."
+  },
+  {
+   "name": "container",
+   "optional": false,
+   "type": "(scope: { /** * Index of first record */ first: number; /** * Index of last record */ last: number; /** * Number of rows to display in new page */ rows: number; /** * New page number */ page: number; /** * Total number of pages */ pageCount?: number; /** * Direct page links */ pageLinks?: number; /** * Total records */ totalRecords?: number; /** * First page function. * @param {Event} event - Browser event */ firstPageCallback: (event: Event) => void; /** * Last page function. * @param {Event} event - Browser event */ lastPageCallback: (event: Event) => void; /** * Previous page function. * @param {Event} event - Browser event */ prevPageCallback: (event: Event) => void; /** * Next page function. * @param {Event} event - Browser event */ nextPageCallback: (event: Event) => void; /** * Row change function. */ rowChangeCallback: (value: number) => void; /** * Page change function. */ changePageCallback: (value: number) => void; }): VNode[]",
+   "description": "Custom container slot."
+  }
+ ]
+}

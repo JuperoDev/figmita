@@ -1,0 +1,42 @@
+{
+ "name": "Toolbar",
+ "category": "Panel",
+ "description": "Toolbar is a grouping component for buttons and other content.",
+ "docUrl": "https://primevue.org/toolbar/",
+ "props": [
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Defines a string value that labels an interactive element."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "start",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom start template."
+  },
+  {
+   "name": "center",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom center template."
+  },
+  {
+   "name": "end",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom end template."
+  }
+ ]
+}

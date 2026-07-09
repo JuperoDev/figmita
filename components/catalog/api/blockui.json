@@ -1,0 +1,65 @@
+{
+ "name": "BlockUI",
+ "category": "Misc",
+ "description": "BlockUI represents people using icons, labels and images.",
+ "docUrl": "https://primevue.org/blockui/",
+ "props": [
+  {
+   "name": "blocked",
+   "optional": true,
+   "type": "boolean",
+   "description": "Controls the blocked state.",
+   "default": "false"
+  },
+  {
+   "name": "fullScreen",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, the whole document gets blocked.",
+   "default": "false"
+  },
+  {
+   "name": "baseZIndex",
+   "optional": true,
+   "type": "number",
+   "description": "Base zIndex value to use in layering.",
+   "default": "0"
+  },
+  {
+   "name": "autoZIndex",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to automatically manage layering.",
+   "default": "true"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "block",
+   "optional": false,
+   "type": "(): void",
+   "description": "Fired when the element gets blocked."
+  },
+  {
+   "name": "unblock",
+   "optional": false,
+   "type": "(): void",
+   "description": "Fired when the element gets unblocked."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom content's slot."
+  }
+ ]
+}

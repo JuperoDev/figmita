@@ -1,0 +1,24 @@
+{
+ "name": "ButtonGroup",
+ "category": "Button",
+ "description": "A set of Buttons can be displayed together using the ButtonGroup component.",
+ "docUrl": "https://primevue.org/buttongroup/",
+ "props": [
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Default slot to detect Button components."
+  }
+ ]
+}

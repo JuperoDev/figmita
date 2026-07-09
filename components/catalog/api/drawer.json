@@ -1,0 +1,173 @@
+{
+ "name": "Drawer",
+ "category": "Overlay",
+ "description": "Drawer is a panel component displayed as an overlay at the edges of the screen.",
+ "docUrl": "https://primevue.org/drawer/",
+ "props": [
+  {
+   "name": "visible",
+   "optional": true,
+   "type": "boolean",
+   "description": "Specifies the visibility of the dialog.",
+   "default": "false"
+  },
+  {
+   "name": "position",
+   "optional": true,
+   "type": "HintedString<'left' | 'right' | 'top' | 'bottom' | 'full'>",
+   "description": "Specifies the position of the drawer.",
+   "default": "left"
+  },
+  {
+   "name": "header",
+   "optional": true,
+   "type": "string",
+   "description": "Title content of the dialog."
+  },
+  {
+   "name": "baseZIndex",
+   "optional": true,
+   "type": "number",
+   "description": "Base zIndex value to use in layering.",
+   "default": "0"
+  },
+  {
+   "name": "autoZIndex",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to automatically manage layering.",
+   "default": "true"
+  },
+  {
+   "name": "dismissable",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether clicking outside closes the panel.",
+   "default": "true"
+  },
+  {
+   "name": "showCloseIcon",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to display a close icon inside the panel.",
+   "default": "true"
+  },
+  {
+   "name": "closeButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass the custom value to read for the button inside the component.",
+   "default": "{ severity: 'secondary', text: true, rounded: true }"
+  },
+  {
+   "name": "closeIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the drawer close button."
+  },
+  {
+   "name": "modal",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to a modal layer behind the drawer.",
+   "default": "true"
+  },
+  {
+   "name": "blockScroll",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether background scroll should be blocked when drawer is visible.",
+   "default": "false"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  },
+  {
+   "name": "closeOnEscape",
+   "optional": true,
+   "type": "boolean",
+   "description": "Specifies if pressing escape key should hide the drawer.",
+   "default": "true"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:visible",
+   "optional": false,
+   "type": "(value: boolean): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "show",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when drawer is shown."
+  },
+  {
+   "name": "before-hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke before drawer gets hidden."
+  },
+  {
+   "name": "hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when drawer gets hidden."
+  },
+  {
+   "name": "after-hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke after drawer is hidden."
+  },
+  {
+   "name": "after-show",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke after drawer is shown."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom content template."
+  },
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the header title */ class: any; }): VNode[]",
+   "description": "Custom header template. @param {Object} scope - header slot's params."
+  },
+  {
+   "name": "closebutton",
+   "optional": false,
+   "type": "(scope: { /** * Close function. */ closeCallback: () => void; }): VNode[]",
+   "description": "Custom close button template."
+  },
+  {
+   "name": "closeicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the close icon */ class: any; }): VNode[]",
+   "description": "Custom close icon template."
+  },
+  {
+   "name": "container",
+   "optional": false,
+   "type": "(scope: { /** * Close drawer function. */ closeCallback: () => void; }): VNode[]",
+   "description": "Custom container slot."
+  },
+  {
+   "name": "footer",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom footer template."
+  }
+ ]
+}

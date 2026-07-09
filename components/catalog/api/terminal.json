@@ -1,0 +1,29 @@
+{
+ "name": "Terminal",
+ "category": "Misc",
+ "description": "Terminal is a text based user interface.",
+ "docUrl": "https://primevue.org/terminal/",
+ "props": [
+  {
+   "name": "welcomeMessage",
+   "optional": true,
+   "type": "string",
+   "description": "Initial text to display on terminal."
+  },
+  {
+   "name": "prompt",
+   "optional": true,
+   "type": "string",
+   "description": "Prompt text for each command."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": []
+}

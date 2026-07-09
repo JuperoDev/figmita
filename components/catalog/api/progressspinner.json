@@ -1,0 +1,37 @@
+{
+ "name": "ProgressSpinner",
+ "category": "Misc",
+ "description": "ProgressSpinner is a process status indicator.",
+ "docUrl": "https://primevue.org/progressspinner/",
+ "props": [
+  {
+   "name": "strokeWidth",
+   "optional": true,
+   "type": "string",
+   "description": "Width of the circle stroke.",
+   "default": "2"
+  },
+  {
+   "name": "fill",
+   "optional": true,
+   "type": "string",
+   "description": "Color for the background of the circle."
+  },
+  {
+   "name": "animationDuration",
+   "optional": true,
+   "type": "string",
+   "description": "Duration of the rotate animation.",
+   "default": "2s"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": []
+}

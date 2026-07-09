@@ -1,0 +1,115 @@
+{
+ "name": "Message",
+ "category": "Messages",
+ "description": "Message groups a collection of contents in tabs.",
+ "docUrl": "https://primevue.org/message/",
+ "props": [
+  {
+   "name": "severity",
+   "optional": true,
+   "type": "HintedString<'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast'>",
+   "description": "Severity level of the message.",
+   "default": "info"
+  },
+  {
+   "name": "closable",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the message can be closed manually using the close icon.",
+   "default": "false"
+  },
+  {
+   "name": "sticky",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, message is not removed automatically.",
+   "default": "true",
+   "deprecated": true
+  },
+  {
+   "name": "life",
+   "optional": true,
+   "type": "number",
+   "description": "Delay in milliseconds to close the message automatically.",
+   "default": "null"
+  },
+  {
+   "name": "icon",
+   "optional": true,
+   "type": "string",
+   "description": "Display a custom icon for the message."
+  },
+  {
+   "name": "closeIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the message close button."
+  },
+  {
+   "name": "closeButtonProps",
+   "optional": true,
+   "type": "ButtonHTMLAttributes",
+   "description": "Used to pass all properties of the HTMLButtonElement to the close button."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large'>",
+   "description": "Defines the size of the component."
+  },
+  {
+   "name": "variant",
+   "optional": true,
+   "type": "HintedString<'outlined' | 'simple'>",
+   "description": "Specifies the variant of the component.",
+   "default": "undefined"
+  }
+ ],
+ "events": [
+  {
+   "name": "close",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when a message is closed."
+  },
+  {
+   "name": "life-end",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when the message's timeout is over."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Default custom slot."
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the item icon element. */ class: any; }): VNode[]",
+   "description": "Custom message icon template."
+  },
+  {
+   "name": "closeicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the item icon element. */ class: any; }): VNode[]",
+   "description": "Custom close icon template."
+  },
+  {
+   "name": "container",
+   "optional": false,
+   "type": "(scope: { /** * Close message function. */ closeCallback: () => void; }): VNode[]",
+   "description": "Custom container slot."
+  }
+ ]
+}

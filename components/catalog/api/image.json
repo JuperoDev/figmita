@@ -1,0 +1,151 @@
+{
+ "name": "Image",
+ "category": "Media",
+ "description": "Displays an image with preview and tranformation options. For multiple image, see Galleria.",
+ "docUrl": "https://primevue.org/image/",
+ "props": [
+  {
+   "name": "src",
+   "optional": true,
+   "type": "string",
+   "description": "Image url."
+  },
+  {
+   "name": "preview",
+   "optional": true,
+   "type": "boolean",
+   "description": "Controls the preview functionality.",
+   "default": "false"
+  },
+  {
+   "name": "imageStyle",
+   "optional": true,
+   "type": "any",
+   "description": "Inline style of the image element."
+  },
+  {
+   "name": "imageClass",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the image element."
+  },
+  {
+   "name": "indicatorIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Custom indicator icon.",
+   "deprecated": true
+  },
+  {
+   "name": "previewIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Custom indicator icon."
+  },
+  {
+   "name": "zoomInDisabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "Disable the zoom-in button",
+   "default": "false"
+  },
+  {
+   "name": "zoomOutDisabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "Disable the zoom-out button",
+   "default": "false"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "show",
+   "optional": false,
+   "type": "(): void",
+   "description": "Triggered when the preview overlay is shown."
+  },
+  {
+   "name": "hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Triggered when the preview overlay is hidden."
+  },
+  {
+   "name": "error",
+   "optional": false,
+   "type": "(): void",
+   "description": "Triggered when an error occurs while loading an image file."
+  }
+ ],
+ "slots": [
+  {
+   "name": "previewicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom indicator template."
+  },
+  {
+   "name": "indicatoricon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom indicator template.",
+   "deprecated": true
+  },
+  {
+   "name": "refresh",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom refresh template."
+  },
+  {
+   "name": "undo",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom undo template."
+  },
+  {
+   "name": "zoomout",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom zoomout template."
+  },
+  {
+   "name": "zoomin",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom zoomin template."
+  },
+  {
+   "name": "close",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom close template."
+  },
+  {
+   "name": "image",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the image element. */ class: any; /** * Style of the image element. */ style: any; /** * Preview click function. */ errorCallback: () => void; }): VNode[]",
+   "description": "Custom image template."
+  },
+  {
+   "name": "preview",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the preview image element. */ class: any; /** * Style of the preview image element. */ style: any; /** * Preview click function. */ previewCallback: () => void; }): VNode[]",
+   "description": "Custom preview template.",
+   "deprecated": true
+  },
+  {
+   "name": "original",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the original image element. */ class: any; /** * Style of the original image element. */ style: any; /** * Preview click function. */ previewCallback: () => void; }): VNode[]",
+   "description": "Custom original template."
+  }
+ ]
+}

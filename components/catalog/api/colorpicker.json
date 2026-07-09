@@ -1,0 +1,153 @@
+{
+ "name": "ColorPicker",
+ "category": "Form",
+ "description": "ColorPicker groups a collection of contents in tabs.",
+ "docUrl": "https://primevue.org/colorpicker/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "any",
+   "description": "Value of the component."
+  },
+  {
+   "name": "defaultColor",
+   "optional": true,
+   "type": "any",
+   "description": "Initial color to display when value is not defined.",
+   "default": "ff0000"
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "any",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "The name attribute for the element, typically used in form submissions."
+  },
+  {
+   "name": "inline",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to display as an overlay or not.",
+   "default": "false"
+  },
+  {
+   "name": "format",
+   "optional": true,
+   "type": "HintedString<'hex' | 'rgb' | 'hsb'>",
+   "description": "Format to use in value binding, supported formats are 'hex', 'rgb' and 'hsb'.",
+   "default": "hex"
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "string",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "autoZIndex",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to automatically manage layering.",
+   "default": "true"
+  },
+  {
+   "name": "baseZIndex",
+   "optional": true,
+   "type": "number",
+   "description": "Base zIndex value to use in layering.",
+   "default": "0"
+  },
+  {
+   "name": "inputId",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the focus input to match a label defined for the dropdown."
+  },
+  {
+   "name": "panelClass",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the overlay panel.",
+   "deprecated": true
+  },
+  {
+   "name": "overlayClass",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the overlay panel."
+  },
+  {
+   "name": "appendTo",
+   "optional": true,
+   "type": "HintedString<'body' | 'self'> | undefined | HTMLElement",
+   "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.",
+   "default": "body"
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "change",
+   "optional": false,
+   "type": "(event: ColorPickerChangeEvent): void",
+   "description": "Callback to invoke when a color is selected."
+  },
+  {
+   "name": "show",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when input is cleared by the user."
+  },
+  {
+   "name": "hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when input is cleared by the user."
+  }
+ ],
+ "slots": []
+}

@@ -1,0 +1,57 @@
+{
+ "name": "Skeleton",
+ "category": "Misc",
+ "description": "Skeleton is a placeholder to display instead of the actual content.",
+ "docUrl": "https://primevue.org/skeleton/",
+ "props": [
+  {
+   "name": "shape",
+   "optional": true,
+   "type": "HintedString<'rectangle' | 'circle'>",
+   "description": "Shape of the element.",
+   "default": "rectangle"
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "string",
+   "description": "Size of the Circle or Square."
+  },
+  {
+   "name": "width",
+   "optional": true,
+   "type": "string",
+   "description": "Width of the element.",
+   "default": "100%"
+  },
+  {
+   "name": "height",
+   "optional": true,
+   "type": "string",
+   "description": "Height of the element.",
+   "default": "1rem"
+  },
+  {
+   "name": "borderRadius",
+   "optional": true,
+   "type": "string",
+   "description": "Border radius of the element, defaults to value from theme."
+  },
+  {
+   "name": "animation",
+   "optional": true,
+   "type": "HintedString<'wave' | 'none'>",
+   "description": "Type of the animation.",
+   "default": "wave"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": []
+}

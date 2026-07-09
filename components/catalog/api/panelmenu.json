@@ -1,0 +1,86 @@
+{
+ "name": "PanelMenu",
+ "category": "Menu",
+ "description": "PanelMenu is a hybrid of Accordion and Tree components.",
+ "docUrl": "https://primevue.org/panelmenu/",
+ "props": [
+  {
+   "name": "model",
+   "optional": true,
+   "type": "MenuItem[]",
+   "description": "An array of menuitems."
+  },
+  {
+   "name": "expandedKeys",
+   "optional": true,
+   "type": "PanelMenuExpandedKeys",
+   "description": "A map of keys to represent the expansion state in controlled mode."
+  },
+  {
+   "name": "multiple",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, multiple root menuitems can be activated at the same time.",
+   "default": "false"
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number | string",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:expandedKeys",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the expandedKeys changes."
+  },
+  {
+   "name": "panel-open",
+   "optional": false,
+   "type": "(event: PanelMenuPanelOpenEvent): void",
+   "description": "Callback to invoke when a panel gets expanded."
+  },
+  {
+   "name": "panel-close",
+   "optional": false,
+   "type": "(event: PanelMenuPanelCloseEvent): void",
+   "description": "Callback to invoke when an active panel is collapsed by clicking on the header."
+  }
+ ],
+ "slots": [
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Whether there is a root menuitem */ root: boolean; /** * Current active state of the menuitem */ active: boolean; /** * Label property of the menuitem */ label: string | ((...args: any) => string) | undefined; /** * Binding properties of the menuitem */ props: PanelMenuRouterBindProps; /** * Whether or not there is a submenu */ hasSubmenu: boolean; }): VNode[]",
+   "description": "Custom content for each item."
+  },
+  {
+   "name": "submenuicon",
+   "optional": false,
+   "type": "(scope: { /** * Whether item is active */ active: boolean; }): VNode[]",
+   "description": "Custom submenu icon template."
+  },
+  {
+   "name": "headericon",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Style class of the item icon element. */ class: any; }): VNode[]",
+   "description": "Custom header icon template."
+  },
+  {
+   "name": "itemicon",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Style class of the item icon element. */ class: any; }): VNode[]",
+   "description": "Custom item icon template."
+  }
+ ]
+}

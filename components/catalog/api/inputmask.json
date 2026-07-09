@@ -1,0 +1,170 @@
+{
+ "name": "InputMask",
+ "category": "Form",
+ "description": "InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.",
+ "docUrl": "https://primevue.org/inputmask/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "string | undefined | null",
+   "description": "Value of the component."
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "string | undefined | null",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "slotChar",
+   "optional": true,
+   "type": "string",
+   "description": "Placeholder character in mask, default is underscore.",
+   "default": "_"
+  },
+  {
+   "name": "mask",
+   "optional": true,
+   "type": "string",
+   "description": "Mask pattern."
+  },
+  {
+   "name": "id",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the element."
+  },
+  {
+   "name": "class",
+   "optional": true,
+   "type": "string | object",
+   "description": "Style class of the input field."
+  },
+  {
+   "name": "placeholder",
+   "optional": true,
+   "type": "string",
+   "description": "Placeholder text for the input."
+  },
+  {
+   "name": "autoClear",
+   "optional": true,
+   "type": "boolean",
+   "description": "Clears the incomplete value on blur.",
+   "default": "true"
+  },
+  {
+   "name": "unmask",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines if model sets the raw unmasked value to bound value or the formatted mask value.",
+   "default": "false"
+  },
+  {
+   "name": "readonly",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the items are clickable or not.",
+   "default": "false"
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the input element."
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large'>",
+   "description": "Defines the size of the component."
+  },
+  {
+   "name": "variant",
+   "optional": true,
+   "type": "HintedString<'outlined' | 'filled'> | undefined | null",
+   "description": "Specifies the input variant of the component.",
+   "default": "null"
+  },
+  {
+   "name": "fluid",
+   "optional": true,
+   "type": "boolean",
+   "description": "Spans 100% width of the container when enabled.",
+   "default": "null"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: string): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: string): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component receives focus."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component loses focus."
+  },
+  {
+   "name": "keydown",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when a key is pressed."
+  },
+  {
+   "name": "keypress",
+   "optional": false,
+   "type": "(event: Event) => void",
+   "description": "Callback to invoke when a key that produces a character value is pressed down."
+  },
+  {
+   "name": "paste",
+   "optional": false,
+   "type": "(event: Event) => void",
+   "description": "Callback to invoke when the user has initiated a 'paste' action through the browser's user interface."
+  },
+  {
+   "name": "complete",
+   "optional": false,
+   "type": "(event: Event) => void",
+   "description": "Callback to invoke when the mask is completed."
+  }
+ ],
+ "slots": []
+}

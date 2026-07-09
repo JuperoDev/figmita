@@ -1,0 +1,126 @@
+{
+ "name": "Accordion",
+ "category": "Panel",
+ "description": "Accordion groups a collection of contents in tabs.",
+ "docUrl": "https://primevue.org/accordion/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "string | string[] | number | number[] | null",
+   "description": "Value of the active panel or an array of values in multiple mode.",
+   "default": "null"
+  },
+  {
+   "name": "multiple",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, multiple tabs can be activated at the same time.",
+   "default": "false"
+  },
+  {
+   "name": "activeIndex",
+   "optional": true,
+   "type": "number | number[] | null",
+   "description": "Index of the active tab or an array of indexes in multiple mode.",
+   "default": "null",
+   "deprecated": true
+  },
+  {
+   "name": "lazy",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.",
+   "default": "false"
+  },
+  {
+   "name": "expandIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon of a collapsed tab."
+  },
+  {
+   "name": "collapseIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon of an expanded tab."
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the element in tabbing order.",
+   "default": "0"
+  },
+  {
+   "name": "selectOnFocus",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, the focused tab is activated.",
+   "default": "false"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:value",
+   "optional": false,
+   "type": "(value: string | string[] | null | undefined): void",
+   "description": "Emitted when the active panel changes."
+  },
+  {
+   "name": "update:activeIndex",
+   "optional": false,
+   "type": "(value: number | undefined): void",
+   "description": "Emitted when the active tab changes.",
+   "deprecated": true
+  },
+  {
+   "name": "tab-open",
+   "optional": false,
+   "type": "(event: AccordionTabOpenEvent): void",
+   "description": "Callback to invoke when a tab gets expanded.",
+   "deprecated": true
+  },
+  {
+   "name": "tab-close",
+   "optional": false,
+   "type": "(event: AccordionTabCloseEvent): void",
+   "description": "Callback to invoke when an active tab is collapsed by clicking on the header.",
+   "deprecated": true
+  },
+  {
+   "name": "tab-click",
+   "optional": false,
+   "type": "(event: AccordionClickEvent): void",
+   "description": "Callback to invoke when an active tab is clicked.",
+   "deprecated": true
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Default slot to detect AccordionTab components."
+  },
+  {
+   "name": "collapseicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom collapse icon template."
+  },
+  {
+   "name": "expandicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom expand icon template."
+  }
+ ]
+}

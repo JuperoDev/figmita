@@ -1,0 +1,44 @@
+{
+ "name": "ProgressBar",
+ "category": "Misc",
+ "description": "ProgressBar is a process status indicator.",
+ "docUrl": "https://primevue.org/progressbar/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "number",
+   "description": "Current value of the progress."
+  },
+  {
+   "name": "mode",
+   "optional": true,
+   "type": "'determinate' | 'indeterminate'",
+   "description": "Defines the mode of the progress",
+   "default": "determinate"
+  },
+  {
+   "name": "showValue",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to display the progress bar value.",
+   "default": "true"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom content slot."
+  }
+ ]
+}

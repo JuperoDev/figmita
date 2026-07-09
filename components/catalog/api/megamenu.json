@@ -1,0 +1,125 @@
+{
+ "name": "MegaMenu",
+ "category": "Menu",
+ "description": "MegaMenu is navigation component that displays submenus together.",
+ "docUrl": "https://primevue.org/megamenu/",
+ "props": [
+  {
+   "name": "model",
+   "optional": true,
+   "type": "MenuItem[]",
+   "description": "An array of menuitems."
+  },
+  {
+   "name": "orientation",
+   "optional": true,
+   "type": "HintedString<'horizontal' | 'vertical'>",
+   "description": "Defines the orientation.",
+   "default": "horizontal"
+  },
+  {
+   "name": "breakpoint",
+   "optional": true,
+   "type": "string",
+   "description": "The breakpoint to define the maximum width boundary.",
+   "default": "960px"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number | string",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "scrollHeight",
+   "optional": true,
+   "type": "string",
+   "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value.",
+   "default": "20rem"
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Defines a string value that labels an interactive element."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying menu element."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component receives focus."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component loses focus."
+  }
+ ],
+ "slots": [
+  {
+   "name": "start",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom start template."
+  },
+  {
+   "name": "end",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom end template."
+  },
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Label property of the menuitem */ label: string | ((...args: any) => string) | undefined; /** * Binding properties of the menuitem */ props: MegaMenuRouterBindProps; /** * Whether or not there is a submenu */ hasSubmenu: boolean; }): VNode[]",
+   "description": "Custom item template."
+  },
+  {
+   "name": "menubutton",
+   "optional": false,
+   "type": "(scope: { /** * Current id state as a string */ id: string; /** * Style class of component */ class: string; /** * Toggle event */ toggleCallback: () => void; }): VNode[]",
+   "description": "Custom menu button template on responsive mode."
+  },
+  {
+   "name": "menubuttonicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom menu button icon template on responsive mode."
+  },
+  {
+   "name": "submenuicon",
+   "optional": false,
+   "type": "(scope: { /** * Whether item is active */ active: boolean; }): VNode[]",
+   "description": "Custom submenu icon template."
+  },
+  {
+   "name": "itemicon",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Style class of the item icon element. */ class: any; }): VNode[]",
+   "description": "Custom item icon template."
+  }
+ ]
+}

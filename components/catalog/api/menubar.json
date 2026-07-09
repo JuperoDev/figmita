@@ -1,0 +1,99 @@
+{
+ "name": "Menubar",
+ "category": "Menu",
+ "description": "Menubar is a horizontal menu component.",
+ "docUrl": "https://primevue.org/menubar/",
+ "props": [
+  {
+   "name": "model",
+   "optional": true,
+   "type": "MenuItem[]",
+   "description": "An array of menuitems."
+  },
+  {
+   "name": "breakpoint",
+   "optional": true,
+   "type": "string",
+   "description": "The breakpoint to define the maximum width boundary.",
+   "default": "960px"
+  },
+  {
+   "name": "buttonProps",
+   "optional": true,
+   "type": "ButtonHTMLAttributes",
+   "description": "Used to pass all properties of the HTMLButtonElement to the menu button."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Defines a string value that labels an interactive element."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying input element."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "start",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom start template."
+  },
+  {
+   "name": "end",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom end template."
+  },
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Label property of the menuitem */ label: string | ((...args: any) => string) | undefined; /** * Binding properties of the menuitem */ props: MenubarRouterBindProps; /** * State of the root */ root: boolean; /** * Whether or not there is a submenu */ hasSubmenu: boolean; }): VNode[]",
+   "description": "Custom item template."
+  },
+  {
+   "name": "menubutton",
+   "optional": false,
+   "type": "(scope: { /** * Current id state as a string */ id: string; /** * Style class of component */ class: string; /** * Toggle event */ toggleCallback: () => void; }): VNode[]",
+   "description": "Custom menu button template on responsive mode.",
+   "deprecated": true
+  },
+  {
+   "name": "button",
+   "optional": false,
+   "type": "(scope: { /** * Current id state as a string */ id: string; /** * Style class of component */ class: string; /** * Toggle event */ toggleCallback: () => void; }): VNode[]",
+   "description": "Custom menu button template on responsive mode."
+  },
+  {
+   "name": "menubuttonicon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom menu button icon template on responsive mode.",
+   "deprecated": true
+  },
+  {
+   "name": "submenuicon",
+   "optional": false,
+   "type": "(scope: { /** * Whether item is root */ root: boolean; /** * Whether item is active */ active: boolean; }): VNode[]",
+   "description": "Custom submenu icon template."
+  },
+  {
+   "name": "itemicon",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Style class of the item icon element. */ class: any; }): VNode[]",
+   "description": "Custom item icon template."
+  }
+ ]
+}

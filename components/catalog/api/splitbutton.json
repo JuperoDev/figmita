@@ -1,0 +1,204 @@
+{
+ "name": "SplitButton",
+ "category": "Button",
+ "description": "SplitButton groups a set of commands in an overlay with a default command.",
+ "docUrl": "https://primevue.org/splitbutton/",
+ "props": [
+  {
+   "name": "label",
+   "optional": true,
+   "type": "string",
+   "description": "Text of the button."
+  },
+  {
+   "name": "icon",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the icon."
+  },
+  {
+   "name": "model",
+   "optional": true,
+   "type": "MenuItem[]",
+   "description": "MenuModel instance to define the overlay items."
+  },
+  {
+   "name": "autoZIndex",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to automatically manage layering.",
+   "default": "true"
+  },
+  {
+   "name": "baseZIndex",
+   "optional": true,
+   "type": "number",
+   "description": "Base zIndex value to use in layering.",
+   "default": "0"
+  },
+  {
+   "name": "appendTo",
+   "optional": true,
+   "type": "HintedString<'body' | 'self'> | undefined | HTMLElement",
+   "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.",
+   "default": "body"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the element should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "fluid",
+   "optional": true,
+   "type": "boolean",
+   "description": "Spans 100% width of the container when enabled.",
+   "default": "null"
+  },
+  {
+   "name": "class",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the component."
+  },
+  {
+   "name": "style",
+   "optional": true,
+   "type": "any",
+   "description": "Inline style of the component."
+  },
+  {
+   "name": "buttonProps",
+   "optional": true,
+   "type": "ButtonHTMLAttributes",
+   "description": "Used to pass all properties of the HTMLButtonElement to the default button."
+  },
+  {
+   "name": "menuButtonProps",
+   "optional": true,
+   "type": "ButtonHTMLAttributes",
+   "description": "Used to pass all properties of the HTMLButtonElement to the menu button."
+  },
+  {
+   "name": "menuButtonIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the menu button icon."
+  },
+  {
+   "name": "dropdownIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Name of the menu button icon."
+  },
+  {
+   "name": "severity",
+   "optional": true,
+   "type": "HintedString<'secondary' | 'success' | 'info' | 'warn' | 'help' | 'danger' | 'contrast'>",
+   "description": "Defines the style of the button."
+  },
+  {
+   "name": "raised",
+   "optional": true,
+   "type": "boolean",
+   "description": "Add a shadow to indicate elevation.",
+   "default": "false"
+  },
+  {
+   "name": "rounded",
+   "optional": true,
+   "type": "boolean",
+   "description": "Add a circular border radius to the button.",
+   "default": "false"
+  },
+  {
+   "name": "text",
+   "optional": true,
+   "type": "boolean",
+   "description": "Add a textual class to the button without a background initially.",
+   "default": "false"
+  },
+  {
+   "name": "outlined",
+   "optional": true,
+   "type": "boolean",
+   "description": "Add a border class without a background initially.",
+   "default": "false"
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large'>",
+   "description": "Defines the size of the button."
+  },
+  {
+   "name": "plain",
+   "optional": true,
+   "type": "boolean",
+   "description": "Add a plain textual class to the button without a background initially.",
+   "default": "false"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "click",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when main button is clicked."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Button part of the content can easily be customized with the default slot instead of using the built-in modes."
+  },
+  {
+   "name": "buttoncontent",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Command button part of the content can easily be customized with the button content slot."
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom button icon template."
+  },
+  {
+   "name": "menubuttonicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom menu button icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "dropdownicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the icon. */ class: string; }): VNode[]",
+   "description": "Custom menu button icon template."
+  },
+  {
+   "name": "menuitemicon",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Style class of the item icon element. */ class: any; }): VNode[]",
+   "description": "Custom menu item icon template."
+  },
+  {
+   "name": "item",
+   "optional": false,
+   "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Label property of the menuitem */ label: string | ((...args: any) => string) | undefined; /** * Binding properties of the menuitem */ props: TieredMenuRouterBindProps; /** * Whether or not there is a submenu */ hasSubmenu: boolean; }): VNode[]",
+   "description": "Custom content for each menu item."
+  }
+ ]
+}

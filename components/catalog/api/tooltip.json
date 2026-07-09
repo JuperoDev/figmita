@@ -1,0 +1,77 @@
+{
+ "name": "Tooltip",
+ "category": "Overlay",
+ "description": "Tooltip directive provides advisory information for a component.",
+ "docUrl": "https://primevue.org/tooltip/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "string",
+   "description": "Text of the tooltip."
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "id",
+   "optional": true,
+   "type": "string",
+   "description": "When present, it adds a custom id to the tooltip."
+  },
+  {
+   "name": "class",
+   "optional": true,
+   "type": "string",
+   "description": "When present, it adds a custom class to the tooltip."
+  },
+  {
+   "name": "escape",
+   "optional": true,
+   "type": "boolean",
+   "description": "By default the tooltip contents are not rendered as text. Set to false to support html tags in the content.",
+   "default": "true"
+  },
+  {
+   "name": "fitContent",
+   "optional": true,
+   "type": "boolean",
+   "description": "Automatically adjusts the element position when there is not enough space on the selected position.",
+   "default": "true"
+  },
+  {
+   "name": "showDelay",
+   "optional": true,
+   "type": "number",
+   "description": "When present, it adds a custom delay to the tooltip's display.",
+   "default": "0"
+  },
+  {
+   "name": "hideDelay",
+   "optional": true,
+   "type": "number",
+   "description": "When present, it adds a custom delay to the tooltip's hiding.",
+   "default": "0"
+  },
+  {
+   "name": "autoHide",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to hide tooltip when hovering over tooltip content.",
+   "default": "true"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": []
+}

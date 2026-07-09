@@ -1,0 +1,133 @@
+{
+ "name": "Slider",
+ "category": "Form",
+ "description": "Slider is a component to provide input with a drag handle.",
+ "docUrl": "https://primevue.org/slider/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "number | number[]",
+   "description": "Value of the component."
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "number | number[]",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "The name attribute for the element, typically used in form submissions."
+  },
+  {
+   "name": "min",
+   "optional": true,
+   "type": "number",
+   "description": "Mininum boundary value.",
+   "default": "0"
+  },
+  {
+   "name": "max",
+   "optional": true,
+   "type": "number",
+   "description": "Maximum boundary value.",
+   "default": "100"
+  },
+  {
+   "name": "orientation",
+   "optional": true,
+   "type": "HintedString<'horizontal' | 'vertical'>",
+   "description": "Orientation of the slider.",
+   "default": "horizontal"
+  },
+  {
+   "name": "step",
+   "optional": true,
+   "type": "number",
+   "description": "Step factor to increment/decrement the value.",
+   "default": "1"
+  },
+  {
+   "name": "range",
+   "optional": true,
+   "type": "boolean",
+   "description": "When speficed, allows two boundary values to be picked.",
+   "default": "false"
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Used to define a string that labels the element."
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: number | number[]): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: number | number[]): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "change",
+   "optional": false,
+   "type": "(value: number | number[]): void",
+   "description": "Callback to invoke on value change."
+  },
+  {
+   "name": "slideend",
+   "optional": false,
+   "type": "(event: SliderSlideEndEvent): void",
+   "description": "Callback to invoke when slide ends."
+  }
+ ],
+ "slots": []
+}

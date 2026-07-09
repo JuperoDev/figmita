@@ -1,0 +1,81 @@
+{
+ "name": "Avatar",
+ "category": "Misc",
+ "description": "Avatar represents people using icons, labels and images. - [Live Demo](https://primevue.org/avatar)",
+ "docUrl": "https://primevue.org/avatar/",
+ "props": [
+  {
+   "name": "label",
+   "optional": true,
+   "type": "string",
+   "description": "Defines the text to display."
+  },
+  {
+   "name": "icon",
+   "optional": true,
+   "type": "string",
+   "description": "Defines the icon to display."
+  },
+  {
+   "name": "image",
+   "optional": true,
+   "type": "string",
+   "description": "Defines the image to display."
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'normal' | 'large' | 'xlarge'>",
+   "description": "Size of the element.",
+   "default": "normal"
+  },
+  {
+   "name": "shape",
+   "optional": true,
+   "type": "HintedString<'square' | 'circle'>",
+   "description": "Shape of the element.",
+   "default": "square"
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes a string value that labels the component."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "error",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Triggered when an error occurs while loading an image file."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Content can easily be customized with the default slot instead of using the built-in modes."
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom icon template."
+  }
+ ]
+}

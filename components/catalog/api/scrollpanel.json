@@ -1,0 +1,31 @@
+{
+ "name": "ScrollPanel",
+ "category": "Panel",
+ "description": "ScrollPanel is a cross browser, lightweight and themable alternative to native browser scrollbar.",
+ "docUrl": "https://primevue.org/scrollpanel/",
+ "props": [
+  {
+   "name": "step",
+   "optional": true,
+   "type": "number",
+   "description": "Step factor to scroll the content while pressing the arrow keys.",
+   "default": "5"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "() => VNode[]",
+   "description": "Custom content slot."
+  }
+ ]
+}

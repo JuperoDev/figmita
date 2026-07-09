@@ -1,0 +1,141 @@
+{
+ "name": "InputOtp",
+ "category": "Form",
+ "description": "InputOtp is used to enter one time passwords.",
+ "docUrl": "https://primevue.org/inputotp/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "boolean | string",
+   "description": "Specifies whether a inputotp should be checked or not.",
+   "default": "null"
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "boolean | string",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "The name attribute for the element, typically used in form submissions."
+  },
+  {
+   "name": "size",
+   "optional": true,
+   "type": "HintedString<'small' | 'large'>",
+   "description": "Defines the size of the component."
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "readonly",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that an input field is read-only.",
+   "default": "false"
+  },
+  {
+   "name": "variant",
+   "optional": true,
+   "type": "HintedString<'outlined' | 'filled'> | undefined | null",
+   "description": "Specifies the input variant of the component.",
+   "default": "null"
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "length",
+   "optional": true,
+   "type": "number",
+   "description": "Number of characters to initiate.",
+   "default": "4"
+  },
+  {
+   "name": "mask",
+   "optional": true,
+   "type": "boolean",
+   "description": "Mask pattern.",
+   "default": "false"
+  },
+  {
+   "name": "integerOnly",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that an input field is integer-only.",
+   "default": "false"
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: string): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: string): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "change",
+   "optional": false,
+   "type": "(event: InputOtpChangeEvent): void",
+   "description": "Callback to invoke on value change."
+  },
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component receives focus."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component loses focus."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(scope: { /** * Events of the component * @param {number} index - Index of the input field * @return {InputOtpTemplateEvents} */ events: (index: number) => InputOtpTemplateEvents; /** * Attributes of the component * @param {number} index - Index of the input field * @return {InputOtpTemplateAttrsOptions} */ attrs: (index: number) => InputOtpTemplateAttrsOptions; /** * Index of the input field */ index: number; }): VNode[]",
+   "description": "Default content slot."
+  }
+ ]
+}

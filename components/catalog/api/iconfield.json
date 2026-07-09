@@ -1,0 +1,24 @@
+{
+ "name": "IconField",
+ "category": "Form",
+ "description": "IconField wraps an input and an icon.",
+ "docUrl": "https://primevue.org/iconfield/",
+ "props": [
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Default slot for content."
+  }
+ ]
+}

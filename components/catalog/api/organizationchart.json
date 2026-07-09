@@ -1,0 +1,105 @@
+{
+ "name": "OrganizationChart",
+ "category": "Data",
+ "description": "OrganizationChart visualizes hierarchical organization data.",
+ "docUrl": "https://primevue.org/organizationchart/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "OrganizationChartNode",
+   "description": "Value of the component."
+  },
+  {
+   "name": "selectionKeys",
+   "optional": true,
+   "type": "OrganizationChartSelectionKeys",
+   "description": "A map instance of key-value pairs to represented the selected nodes."
+  },
+  {
+   "name": "selectionMode",
+   "optional": true,
+   "type": "HintedString<'single' | 'multiple'>",
+   "description": "Type of the selection."
+  },
+  {
+   "name": "collapsedKeys",
+   "optional": true,
+   "type": "OrganizationChartCollapsedKeys",
+   "description": "A map instance of key-value pairs to represented the collapsed nodes."
+  },
+  {
+   "name": "collapsible",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the nodes can be expanded or toggled.",
+   "default": "false"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:selectionKeys",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "update:collapsedKeys",
+   "optional": false,
+   "type": "(value: boolean): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "node-select",
+   "optional": false,
+   "type": "(node: OrganizationChartNode): void",
+   "description": "Callback to invoke when a suggestion is selected."
+  },
+  {
+   "name": "node-unselect",
+   "optional": false,
+   "type": "(node: OrganizationChartNode): void",
+   "description": "Callback to invoke when a node is unselected."
+  },
+  {
+   "name": "node-expand",
+   "optional": false,
+   "type": "(node: OrganizationChartNode): void",
+   "description": "Callback to invoke when a node is expanded."
+  },
+  {
+   "name": "node-collapsed",
+   "optional": false,
+   "type": "(node: OrganizationChartNode): void",
+   "description": "Callback to invoke when a node is collapsed."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(scope: { /** * Current node */ node: any; }): VNode[]",
+   "description": "Custom content template."
+  },
+  {
+   "name": "togglericon",
+   "optional": false,
+   "type": "(scope: { /** * Curent state of the node */ expanded: boolean; }): VNode[]",
+   "description": "Custom toggler icon template.",
+   "deprecated": true
+  },
+  {
+   "name": "toggleicon",
+   "optional": false,
+   "type": "(scope: { /** * Curent state of the node */ expanded: boolean; }): VNode[]",
+   "description": "Custom toggler icon template."
+  }
+ ]
+}

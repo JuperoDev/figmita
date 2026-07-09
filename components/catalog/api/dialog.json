@@ -1,0 +1,301 @@
+{
+ "name": "Dialog",
+ "category": "Overlay",
+ "description": "Dialog is a container to display content in an overlay window.",
+ "docUrl": "https://primevue.org/dialog/",
+ "props": [
+  {
+   "name": "header",
+   "optional": true,
+   "type": "string",
+   "description": "Title content of the dialog."
+  },
+  {
+   "name": "footer",
+   "optional": true,
+   "type": "string",
+   "description": "Footer content of the dialog."
+  },
+  {
+   "name": "visible",
+   "optional": true,
+   "type": "boolean",
+   "description": "Specifies the visibility of the dialog.",
+   "default": "false"
+  },
+  {
+   "name": "modal",
+   "optional": true,
+   "type": "boolean",
+   "description": "Defines if background should be blocked when dialog is displayed.",
+   "default": "false"
+  },
+  {
+   "name": "contentStyle",
+   "optional": true,
+   "type": "any",
+   "description": "Style of the content section."
+  },
+  {
+   "name": "contentClass",
+   "optional": true,
+   "type": "any",
+   "description": "Style class of the content section."
+  },
+  {
+   "name": "contentProps",
+   "optional": true,
+   "type": "HTMLAttributes",
+   "description": "Used to pass all properties of the HTMLDivElement to the overlay Dialog inside the component."
+  },
+  {
+   "name": "closable",
+   "optional": true,
+   "type": "boolean",
+   "description": "Adds a close icon to the header to hide the dialog.",
+   "default": "true"
+  },
+  {
+   "name": "dismissableMask",
+   "optional": true,
+   "type": "boolean",
+   "description": "Specifies if clicking the modal background should hide the dialog.",
+   "default": "false"
+  },
+  {
+   "name": "closeOnEscape",
+   "optional": true,
+   "type": "boolean",
+   "description": "Specifies if pressing escape key should hide the dialog.",
+   "default": "true"
+  },
+  {
+   "name": "showHeader",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to show the header or not.",
+   "default": "true"
+  },
+  {
+   "name": "blockScroll",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether background scroll should be blocked when dialog is visible.",
+   "default": "false"
+  },
+  {
+   "name": "baseZIndex",
+   "optional": true,
+   "type": "number",
+   "description": "Base zIndex value to use in layering.",
+   "default": "0"
+  },
+  {
+   "name": "autoZIndex",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether to automatically manage layering.",
+   "default": "true"
+  },
+  {
+   "name": "position",
+   "optional": true,
+   "type": "HintedString<'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright'>",
+   "description": "Position of the dialog.",
+   "default": "center"
+  },
+  {
+   "name": "maximizable",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the dialog can be displayed full screen.",
+   "default": "false"
+  },
+  {
+   "name": "breakpoints",
+   "optional": true,
+   "type": "DialogBreakpoints",
+   "description": "Object literal to define widths per screen size."
+  },
+  {
+   "name": "draggable",
+   "optional": true,
+   "type": "boolean",
+   "description": "Enables dragging to change the position using header.",
+   "default": "true"
+  },
+  {
+   "name": "keepInViewport",
+   "optional": true,
+   "type": "boolean",
+   "description": "Keeps dialog in the viewport when dragging.",
+   "default": "true"
+  },
+  {
+   "name": "minX",
+   "optional": true,
+   "type": "number",
+   "description": "Minimum value for the left coordinate of dialog in dragging.",
+   "default": "0."
+  },
+  {
+   "name": "minY",
+   "optional": true,
+   "type": "number",
+   "description": "Minimum value for the top coordinate of dialog in dragging.",
+   "default": "0"
+  },
+  {
+   "name": "appendTo",
+   "optional": true,
+   "type": "HintedString<'body' | 'self'> | undefined | HTMLElement",
+   "description": "A valid query selector or an HTMLElement to specify where the dialog gets attached.",
+   "default": "body"
+  },
+  {
+   "name": "style",
+   "optional": true,
+   "type": "any",
+   "description": "Style of the dynamic dialog."
+  },
+  {
+   "name": "closeIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the dialog close button."
+  },
+  {
+   "name": "maximizeIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the dialog maximize button when dialog is not maximized."
+  },
+  {
+   "name": "minimizeIcon",
+   "optional": true,
+   "type": "string",
+   "description": "Icon to display in the dialog maximize button when dialog is minimized."
+  },
+  {
+   "name": "closeButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the Button component.",
+   "default": "{ severity: 'secondary', rounded: true, text: true }"
+  },
+  {
+   "name": "maximizeButtonProps",
+   "optional": true,
+   "type": "object",
+   "description": "Used to pass all properties of the ButtonProps to the Button component.",
+   "default": "{ severity: 'secondary', rounded: true, text: true }"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:visible",
+   "optional": false,
+   "type": "(value: boolean): void",
+   "description": "Emitted when the visible changes."
+  },
+  {
+   "name": "hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when dialog is hidden."
+  },
+  {
+   "name": "after-hide",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke after dialog is hidden."
+  },
+  {
+   "name": "show",
+   "optional": false,
+   "type": "(): void",
+   "description": "Callback to invoke when dialog is shown."
+  },
+  {
+   "name": "maximize",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Fired when a dialog gets maximized."
+  },
+  {
+   "name": "unmaximize",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Fired when a dialog gets unmaximized."
+  },
+  {
+   "name": "dragstart",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Fired when a dialog drag begins."
+  },
+  {
+   "name": "dragend",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Fired when a dialog drag completes."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Default content slot."
+  },
+  {
+   "name": "header",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom header template."
+  },
+  {
+   "name": "footer",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom footer template."
+  },
+  {
+   "name": "closebutton",
+   "optional": false,
+   "type": "(scope: { /** * Close function. */ closeCallback: () => void; }): VNode[]",
+   "description": "Custom close button template."
+  },
+  {
+   "name": "closeicon",
+   "optional": false,
+   "type": "(scope: { /** * Style class of the close icon */ class: any; }): VNode[]",
+   "description": "Custom close icon template."
+  },
+  {
+   "name": "maximizebutton",
+   "optional": false,
+   "type": "(scope: { /** * Maximized state as a boolean */ maximized: boolean; /** * Toggle maximize function. * @param {Event} event - Browser event */ maximizeCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom maximize button template."
+  },
+  {
+   "name": "maximizeicon",
+   "optional": false,
+   "type": "(scope: { /** * Maximized state as a boolean */ maximized: boolean; /** * Style class of the maximize icon */ class: any; }): VNode[]",
+   "description": "Custom maximize icon template of dialog."
+  },
+  {
+   "name": "container",
+   "optional": false,
+   "type": "(scope: { /** * Close dialog function. */ closeCallback: () => void; /** * Maximize/minimize dialog function. * @param {Event} event - Browser event */ maximizeCallback: (event: Event) => void; /** * Initialize drag function for custom container elements. * @param {Event} event - Browser event */ initDragCallback: (event: Event) => void; }): VNode[]",
+   "description": "Custom container slot."
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "name": "Stepper",
+ "category": "Panel",
+ "description": "Stepper is a component that streamlines a wizard-like workflow, organizing content into coherent steps and visually guiding users through a numbered progression in a multi-step process.",
+ "docUrl": "https://primevue.org/stepper/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "string | number",
+   "description": "Active value of stepper.",
+   "default": "null"
+  },
+  {
+   "name": "linear",
+   "optional": true,
+   "type": "boolean",
+   "description": "Whether the steps are clickable or not.",
+   "default": "false"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:value",
+   "optional": false,
+   "type": "(value: any): void",
+   "description": "Emitted when the value changes."
+  }
+ ],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom default template."
+  },
+  {
+   "name": "start",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom start template."
+  },
+  {
+   "name": "end",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Custom end template."
+  }
+ ]
+}

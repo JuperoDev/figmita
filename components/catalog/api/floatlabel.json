@@ -1,0 +1,31 @@
+{
+ "name": "FloatLabel",
+ "category": "Form",
+ "description": "FloatLabel visually integrates a label with its form element.",
+ "docUrl": "https://primevue.org/floatlabel/",
+ "props": [
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  },
+  {
+   "name": "variant",
+   "optional": true,
+   "type": "HintedString<'over' | 'in' | 'on'>",
+   "description": "Defines the positioning of the label relative to the input.",
+   "default": "over"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "() => VNode[]",
+   "description": "Default content slot."
+  }
+ ]
+}

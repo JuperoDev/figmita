@@ -1,0 +1,89 @@
+{
+ "name": "MeterGroup",
+ "category": "Misc",
+ "description": "MeterGroup is a group of process status indicators.",
+ "docUrl": "https://primevue.org/metergroup/",
+ "props": [
+  {
+   "name": "value",
+   "optional": true,
+   "type": "MeterItem[]",
+   "description": "Current value of the metergroup."
+  },
+  {
+   "name": "min",
+   "optional": true,
+   "type": "number",
+   "description": "Mininum boundary value.",
+   "default": "0"
+  },
+  {
+   "name": "max",
+   "optional": true,
+   "type": "number",
+   "description": "Maximum boundary value.",
+   "default": "100"
+  },
+  {
+   "name": "orientation",
+   "optional": true,
+   "type": "'horizontal' | 'vertical'",
+   "description": "Specifies the layout of the component, valid values are 'horizontal' and 'vertical'.",
+   "default": "horizontal"
+  },
+  {
+   "name": "labelPosition",
+   "optional": true,
+   "type": "'start' | 'end'",
+   "description": "Specifies the label position of the component, valid values are 'start' and 'end'.",
+   "default": "end"
+  },
+  {
+   "name": "labelOrientation",
+   "optional": true,
+   "type": "'horizontal' | 'vertical'",
+   "description": "Specifies the label orientation of the component, valid values are 'horizontal' and 'vertical'.",
+   "default": "horizontal"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "label",
+   "optional": false,
+   "type": "(scope: { /** * Current value of the component */ value: MeterItem[]; /** * Total percent of the metergroup items */ totalPercent: number; /** * Array of sequential sum of values of metergroup items */ percentages: number[]; }): VNode[]",
+   "description": "Custom label template."
+  },
+  {
+   "name": "meter",
+   "optional": false,
+   "type": "(scope: { /** * Current value of the meter item */ value: MeterItem; /** * Current index of the meter item */ index: number; /** * Style class of the meter item */ class: string; /** * Current orientation of the component */ orientation: string; /** * Current width of the meter item */ size: string; /** * Total percent of the metergroup items */ totalPercent: number; }): VNode[]",
+   "description": "Custom meter template."
+  },
+  {
+   "name": "icon",
+   "optional": false,
+   "type": "(scope: { /** * Current value of the component */ value: MeterItem; /** * Style class of the icon */ class: string; }): VNode[]",
+   "description": "Custom icon template."
+  },
+  {
+   "name": "start",
+   "optional": false,
+   "type": "(scope: { /** * Current value of the component */ value: MeterItem[]; /** * Total percent of the metergroup items */ totalPercent: number; /** * Array of sequential sum of values of metergroup items */ percentages: number[]; }): VNode[]",
+   "description": "Custom start template."
+  },
+  {
+   "name": "end",
+   "optional": false,
+   "type": "(scope: { /** * Current value of the component */ value: MeterItem[]; /** * Total percent of the metergroup items */ totalPercent: number; /** * Array of sequential sum of values of metergroup items */ percentages: number[]; }): VNode[]",
+   "description": "Custom end template."
+  }
+ ]
+}

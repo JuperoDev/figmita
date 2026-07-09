@@ -1,0 +1,150 @@
+{
+ "name": "ToggleSwitch",
+ "category": "Form",
+ "description": "ToggleSwitch is used to select a boolean value.",
+ "docUrl": "https://primevue.org/toggleswitch/",
+ "props": [
+  {
+   "name": "modelValue",
+   "optional": true,
+   "type": "boolean | string",
+   "description": "Specifies whether a toggleswitch should be checked or not.",
+   "default": "false"
+  },
+  {
+   "name": "defaultValue",
+   "optional": true,
+   "type": "boolean | string",
+   "description": "The default value for the input when not controlled by `modelValue`."
+  },
+  {
+   "name": "name",
+   "optional": true,
+   "type": "string",
+   "description": "The name attribute for the element, typically used in form submissions."
+  },
+  {
+   "name": "trueValue",
+   "optional": true,
+   "type": "any",
+   "description": "Value in checked state.",
+   "default": "true"
+  },
+  {
+   "name": "falseValue",
+   "optional": true,
+   "type": "any",
+   "description": "Value in unchecked state.",
+   "default": "false"
+  },
+  {
+   "name": "invalid",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should have invalid state style.",
+   "default": "false"
+  },
+  {
+   "name": "disabled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that the component should be disabled.",
+   "default": "false"
+  },
+  {
+   "name": "readonly",
+   "optional": true,
+   "type": "boolean",
+   "description": "When present, it specifies that an input field is read-only."
+  },
+  {
+   "name": "tabindex",
+   "optional": true,
+   "type": "number",
+   "description": "Index of the element in tabbing order."
+  },
+  {
+   "name": "inputId",
+   "optional": true,
+   "type": "string",
+   "description": "Identifier of the underlying input element."
+  },
+  {
+   "name": "inputClass",
+   "optional": true,
+   "type": "string | object",
+   "description": "Style class of the input field."
+  },
+  {
+   "name": "inputStyle",
+   "optional": true,
+   "type": "object",
+   "description": "Inline style of the input field."
+  },
+  {
+   "name": "ariaLabelledby",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+  },
+  {
+   "name": "ariaLabel",
+   "optional": true,
+   "type": "string",
+   "description": "Establishes a string value that labels the component."
+  },
+  {
+   "name": "formControl",
+   "optional": true,
+   "type": "Record<string, any>",
+   "description": "Form control object, typically used for handling validation and form state."
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [
+  {
+   "name": "update:modelValue",
+   "optional": false,
+   "type": "(value: boolean): void",
+   "description": "Emitted when the value changes."
+  },
+  {
+   "name": "value-change",
+   "optional": false,
+   "type": "(value: boolean): void",
+   "description": "Emitted when the value changes in uncontrolled mode."
+  },
+  {
+   "name": "change",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke on value change."
+  },
+  {
+   "name": "focus",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component receives focus."
+  },
+  {
+   "name": "blur",
+   "optional": false,
+   "type": "(event: Event): void",
+   "description": "Callback to invoke when the component loses focus."
+  }
+ ],
+ "slots": [
+  {
+   "name": "handle",
+   "optional": false,
+   "type": "(scope: { /** * Current checked state of the item as a boolean. */ checked: boolean; }): VNode[]",
+   "description": "Custom handle template."
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "name": "Divider",
+ "category": "Panel",
+ "description": "Divider is used to separate contents.",
+ "docUrl": "https://primevue.org/divider/",
+ "props": [
+  {
+   "name": "align",
+   "optional": true,
+   "type": "HintedString<'left' | 'center' | 'right' | 'top' | 'center' | 'bottom'>",
+   "description": "Alignment of the content."
+  },
+  {
+   "name": "layout",
+   "optional": true,
+   "type": "HintedString<'horizontal' | 'vertical'>",
+   "description": "Specifies the orientation, valid values are 'horizontal' and 'vertical'.",
+   "default": "horizontal"
+  },
+  {
+   "name": "type",
+   "optional": true,
+   "type": "HintedString<'solid' | 'dashed' | 'dotted'>",
+   "description": "Border style type.",
+   "default": "solid"
+  },
+  {
+   "name": "unstyled",
+   "optional": true,
+   "type": "boolean",
+   "description": "When enabled, it removes component related styles in the core.",
+   "default": "false"
+  }
+ ],
+ "events": [],
+ "slots": [
+  {
+   "name": "default",
+   "optional": false,
+   "type": "(): VNode[]",
+   "description": "Default content slot."
+  }
+ ]
+}
