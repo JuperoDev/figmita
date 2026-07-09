@@ -45,7 +45,6 @@ function resetTokens() {
 }
 
 const short = n => n.replace(`--p-${(compName.value || '').toLowerCase()}-`, '')
-const isColorish = v => /^(#|rgb|hsl|oklch|color)/.test(v || '')
 </script>
 
 <template>
@@ -63,11 +62,12 @@ const isColorish = v => /^(#|rgb|hsl|oklch|color)/.test(v || '')
       <div v-for="t in filtered" :key="t.name" class="ce-field" :title="`${t.name}\ntheme: ${t.value}`">
         <label class="ce-label">{{ short(t.name) }}</label>
         <div class="token-row">
-          <span
-            class="token-swatch"
-            :class="{ hidden: !isColorish(edits[t.name] ?? current[t.name]) }"
-            :style="{ background: edits[t.name] ?? current[t.name] }"
-          />
+          <input
+            v-if="looksLikeColorToken(t.name) || isColorish(edits[t.name] ?? current[t.name])"
+            type="color" class="token-color"
+            :value="cssToHex(edits[t.name] ?? current[t.name])"
+            @input="e => setToken(t.name, e.target.value)"
+          >
           <input
             class="ce-input"
             :value="edits[t.name] ?? ''"
@@ -94,7 +94,8 @@ const isColorish = v => /^(#|rgb|hsl|oklch|color)/.test(v || '')
 .ce-input { width:100%; box-sizing:border-box; background:#1e1e1e; border:1px solid #333; border-radius:4px; color:#d0d0d0; font-size:11px; padding:5px 8px; outline:none; font-family:'JetBrains Mono',monospace; user-select:text; min-width:0; }
 .ce-input:focus { border-color:#7c5cfc; }
 .token-row { display:flex; align-items:center; gap:6px; }
-.token-swatch { width:16px; height:16px; flex-shrink:0; border-radius:4px; border:1px solid #444; }
-.token-swatch.hidden { visibility:hidden; }
+.token-color { width:24px; height:24px; flex-shrink:0; padding:0; border:1px solid #444; border-radius:4px; cursor:pointer; background:none; -webkit-appearance:none; }
+.token-color::-webkit-color-swatch-wrapper { padding:2px; }
+.token-color::-webkit-color-swatch { border:none; border-radius:3px; }
 .hint-text { font-size:11px; color:#555; margin:4px 0 0; }
 </style>

@@ -87,7 +87,6 @@ const setToken = (name, v) => {
 }
 const tokensTouched = computed(() => Object.keys(tokenEdits.value).length > 0)
 const resetTokens = () => { tokenEdits.value = {} }
-const isColorish = v => /^(#|rgb|hsl|oklch|color)/.test(v || '')
 
 // Current resolved values, read from the live theme (retries because a
 // component's theme CSS is injected when it first mounts)
@@ -241,11 +240,18 @@ onBeforeUnmount(() => document.documentElement.classList.remove('dark'))
                       :placeholder="p.default ?? 'default'" show-clear size="small" fluid
                       @update:model-value="v => setValue(p.name, v)"
                     />
-                    <InputText
-                      v-else
-                      :model-value="curValue(p) ?? ''" :placeholder="p.default ?? ''" size="small" fluid
-                      @update:model-value="v => setValue(p.name, v)"
-                    />
+                    <div v-else class="pg-text-row">
+                      <input
+                        v-if="/color/i.test(p.name)"
+                        type="color" class="token-picker"
+                        :value="cssToHex(curValue(p))"
+                        @input="e => setValue(p.name, e.target.value)"
+                      >
+                      <InputText
+                        :model-value="curValue(p) ?? ''" :placeholder="p.default ?? ''" size="small" fluid
+                        @update:model-value="v => setValue(p.name, v)"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -295,11 +301,13 @@ onBeforeUnmount(() => document.documentElement.classList.remove('dark'))
                     <td class="cell-type"><code>{{ t.value }}</code></td>
                     <td>
                       <div class="token-edit">
-                        <span
-                          class="token-swatch"
-                          :class="{ 'token-swatch-empty': !isColorish(tokenEdits[t.name] ?? tokenCurrent[t.name]) }"
-                          :style="{ background: tokenEdits[t.name] ?? tokenCurrent[t.name] }"
-                        />
+                        <input
+                          v-if="looksLikeColorToken(t.name) || isColorish(tokenEdits[t.name] ?? tokenCurrent[t.name])"
+                          type="color" class="token-picker"
+                          :value="cssToHex(tokenEdits[t.name] ?? tokenCurrent[t.name])"
+                          @input="e => setToken(t.name, e.target.value)"
+                        >
+                        <span v-else class="token-swatch token-swatch-empty" />
                         <InputText
                           :model-value="tokenEdits[t.name] ?? ''"
                           :placeholder="tokenCurrent[t.name] || t.value"
@@ -625,6 +633,15 @@ onBeforeUnmount(() => document.documentElement.classList.remove('dark'))
   border: 1px solid var(--p-content-border-color, #e2e8f0);
 }
 .token-swatch-empty { visibility: hidden; }
+.token-picker {
+  width: 26px; height: 26px; flex-shrink: 0; padding: 0;
+  border: 1px solid var(--p-content-border-color, #e2e8f0);
+  border-radius: 6px; cursor: pointer; background: none;
+  -webkit-appearance: none;
+}
+.token-picker::-webkit-color-swatch-wrapper { padding: 2px; }
+.token-picker::-webkit-color-swatch { border: none; border-radius: 4px; }
+.pg-text-row { display: flex; align-items: center; gap: 6px; width: 100%; }
 .token-input { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
 
 /* ---- pager / footer ---- */

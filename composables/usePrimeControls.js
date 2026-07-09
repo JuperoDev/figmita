@@ -49,6 +49,28 @@ export function editableProps(api) {
     .filter(p => p.control)
 }
 
+export function isColorish(v) {
+  return /^(#|rgb|hsl|oklch|color)/.test(v || '')
+}
+
+export function looksLikeColorToken(name) {
+  return /color|background/.test(name)
+}
+
+// Normalizes any CSS color to #rrggbb for <input type="color">
+export function cssToHex(value) {
+  if (!value || typeof document === 'undefined') return '#000000'
+  if (/^#[0-9a-f]{6}$/i.test(value)) return value
+  const el = document.createElement('div')
+  el.style.color = value
+  document.body.appendChild(el)
+  const rgb = getComputedStyle(el).color
+  el.remove()
+  const m = rgb.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/)
+  if (!m) return '#000000'
+  return '#' + [m[1], m[2], m[3]].map(n => (+n).toString(16).padStart(2, '0')).join('')
+}
+
 const apiLoaders = import.meta.glob('~/components/catalog/api/*.json', { import: 'default' })
 
 export async function loadComponentApi(name) {

@@ -69,11 +69,19 @@ function resetProps() {
             :value="cur(p) ?? ''" :placeholder="p.default"
             @input="e => setProp(p.name, e.target.value === '' ? '' : Number(e.target.value))"
           >
-          <input
-            v-else class="ce-input"
-            :value="cur(p) ?? ''" :placeholder="p.default || ''"
-            @input="e => setProp(p.name, e.target.value)"
-          >
+          <div v-else class="text-row">
+            <input
+              v-if="/color/i.test(p.name)"
+              type="color" class="token-color"
+              :value="cssToHex(cur(p))"
+              @input="e => setProp(p.name, e.target.value)"
+            >
+            <input
+              class="ce-input"
+              :value="cur(p) ?? ''" :placeholder="p.default || ''"
+              @input="e => setProp(p.name, e.target.value)"
+            >
+          </div>
         </template>
       </div>
     </template>
@@ -106,6 +114,10 @@ function resetProps() {
 .bool-row { display:flex; align-items:center; gap:8px; cursor:pointer; padding:2px 0; }
 .bool-row input { accent-color:#7c5cfc; cursor:pointer; margin:0; }
 .bool-label { margin:0; }
+.text-row { display:flex; align-items:center; gap:6px; }
+.token-color { width:24px; height:24px; flex-shrink:0; padding:0; border:1px solid #444; border-radius:4px; cursor:pointer; background:none; -webkit-appearance:none; }
+.token-color::-webkit-color-swatch-wrapper { padding:2px; }
+.token-color::-webkit-color-swatch { border:none; border-radius:3px; }
 .preset-note { font-size:11px; color:#888; line-height:1.6; padding:4px 12px 0; margin:0; }
 .preset-note b { color:#bbb; }
 .catalog-jump { display:flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid #333; border-radius:6px; background:#1e1e1e; color:#a78bfa; font-size:11px; text-decoration:none; transition:all .15s; }
