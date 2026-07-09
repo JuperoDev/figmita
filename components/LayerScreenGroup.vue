@@ -13,7 +13,7 @@ const { panToIdx } = useCanvas()
 
 const vFocus = { mounted: el => nextTick(() => el.focus()) }
 
-const EL_ICON = { megamenu: 'pi-bars', confirmdialog: 'pi-shield', button: 'pi-mouse' }
+const EL_ICON = { megamenu: 'pi-bars', confirmdialog: 'pi-shield', button: 'pi-mouse', prime: 'pi-prime' }
 const EL_NAME = { megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button' }
 
 function setActiveScreen(id) {

@@ -94,6 +94,13 @@ export function makeButtonConfig() {
   }
 }
 
+export function makePrimeConfig() {
+  return {
+    component: '',
+    props:     {},
+  }
+}
+
 const ELEMENT_NAMES = { card: 'Card', megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button' }
 
 export function makeElement(type) {
@@ -106,6 +113,7 @@ export function makeElement(type) {
       : type === 'megamenu' ? makeMegaMenuConfig()
       : type === 'confirmdialog' ? makeConfirmDialogConfig()
       : type === 'button' ? makeButtonConfig()
+      : type === 'prime' ? makePrimeConfig()
       : {},
     interaction: {
       action:                 'alert',

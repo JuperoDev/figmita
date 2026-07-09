@@ -68,6 +68,11 @@ const { screens } = useScreens()
                         :play-mode="true"
                         @click="handlePlayBtn(el)"
                       />
+                      <ElementsPrimeMock
+                        v-else-if="el.type === 'prime'"
+                        :config="el.config"
+                        :play-mode="true"
+                      />
                     </div>
                   </div>
                 </div>

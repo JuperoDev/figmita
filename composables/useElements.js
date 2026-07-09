@@ -45,6 +45,7 @@ export function useElements() {
     if (!sc) return
     const el = makeElement(type)
     if (configOverrides) Object.assign(el.config, configOverrides)
+    if (type === 'prime' && el.config.component) el.name = el.config.component
     if (type !== 'megamenu' && sc.elements.length > 0) {
       el.pos.x += sc.elements.length * 20
       el.pos.y += sc.elements.length * 20

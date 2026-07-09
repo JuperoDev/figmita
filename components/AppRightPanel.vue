@@ -12,6 +12,7 @@ const hasOwnInteractions = computed(() => activeElement.value?.type === 'button'
 
 watch([selectedEl, selectedSub, activeScreenId], () => {
   if (selectedSub.value === 'btn')  rightTab.value = 'interactions'
+  else if (activeElement.value?.type === 'prime') rightTab.value = 'props'
   else if (selectedEl.value)        rightTab.value = hasOwnInteractions.value ? 'interactions' : 'design'
   else                              rightTab.value = 'screen'
 })
@@ -31,6 +32,16 @@ watch([selectedEl, selectedSub, activeScreenId], () => {
         <button class="ptab active">Interactions</button>
       </div>
       <PanelInteractionsTab />
+    </template>
+
+    <!-- PrimeVue catalog element: auto-generated Props editor + JSON -->
+    <template v-else-if="activeElement?.type === 'prime'">
+      <div class="panel-tabs">
+        <button :class="['ptab', rightTab === 'props' && 'active']" @click="rightTab = 'props'">Props</button>
+        <button :class="['ptab', rightTab === 'json'  && 'active']" @click="rightTab = 'json'">JSON</button>
+      </div>
+      <PanelPropsTab v-if="rightTab === 'props'" />
+      <PanelJsonTab  v-if="rightTab === 'json'" />
     </template>
 
     <!-- Top-level element tabs (Design / Content / Interactions / JSON) -->

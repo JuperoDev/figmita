@@ -1,8 +1,18 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { categories } from '~/components/catalog/registry'
 
 const { screens, activeScreen, startScreenId } = useScreens()
 const { addElement } = useElements()
+
+const primeQuery = ref('')
+const filteredPrime = computed(() => {
+  const q = primeQuery.value.trim().toLowerCase()
+  if (!q) return categories
+  return categories
+    .map(c => ({ ...c, items: c.items.filter(i => i.toLowerCase().includes(q)) }))
+    .filter(c => c.items.length)
+})
 
 const showMegaMenuDialog = ref(false)
 const megaMenuItemsText  = ref('')
@@ -99,18 +109,26 @@ function confirmAddButton() {
       <i class="pi pi-shield" style="font-size:1.3rem;" />
       <span>Confirm Dialog</span>
     </button>
-    <button class="comp-btn comp-btn-soon" disabled title="Coming soon">
-      <i class="pi pi-image" style="font-size:1.3rem;" />
-      <span>Image</span>
-    </button>
-    <button class="comp-btn comp-btn-soon" disabled title="Coming soon">
-      <i class="pi pi-align-left" style="font-size:1.3rem;" />
-      <span>Text</span>
-    </button>
-    <button class="comp-btn comp-btn-soon" disabled title="Coming soon">
-      <i class="pi pi-table" style="font-size:1.3rem;" />
-      <span>Table</span>
-    </button>
+  </div>
+
+  <div class="prop-hr" />
+  <p class="prop-section">PrimeVue Components</p>
+  <div class="ce-field">
+    <input v-model="primeQuery" class="ce-input" placeholder="Search components…" />
+  </div>
+  <div class="prime-list">
+    <template v-for="cat in filteredPrime" :key="cat.label">
+      <p class="prime-cat">{{ cat.label }}</p>
+      <button
+        v-for="name in cat.items" :key="name"
+        class="prime-item"
+        @click="addElement('prime', { component: name })"
+      >
+        <i class="pi pi-plus" />
+        <span>{{ name }}</span>
+      </button>
+    </template>
+    <p v-if="!filteredPrime.length" class="prime-empty">No matches</p>
   </div>
 
   <Dialog
@@ -183,8 +201,13 @@ function confirmAddButton() {
 .comp-palette { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0 12px; }
 .comp-btn { display:flex; flex-direction:column; align-items:center; gap:6px; padding:14px 8px; background:#1e1e1e; border:1px solid #333; border-radius:8px; color:#ccc; cursor:pointer; font-size:11px; font-family:inherit; transition:all .15s; }
 .comp-btn:hover { border-color:#7c5cfc; color:#a78bfa; background:rgba(124,92,252,.08); }
-.comp-btn-soon { opacity:.35; cursor:not-allowed !important; }
-.comp-btn-soon:hover { border-color:#333; color:#ccc; background:#1e1e1e; }
+.prime-list { padding:0 12px 12px; }
+.prime-cat { font-size:9px; font-weight:700; color:#555; text-transform:uppercase; letter-spacing:.08em; margin:10px 0 3px; padding:0 2px; }
+.prime-item { display:flex; align-items:center; gap:8px; width:100%; padding:5px 8px; background:transparent; border:none; border-radius:5px; color:#bbb; font-size:12px; cursor:pointer; font-family:inherit; text-align:left; transition:all .12s; }
+.prime-item:hover { background:rgba(124,92,252,.12); color:#d6c9ff; }
+.prime-item .pi { font-size:10px; color:#555; transition:color .12s; }
+.prime-item:hover .pi { color:#a78bfa; }
+.prime-empty { font-size:11px; color:#555; padding:8px 2px; margin:0; }
 .dlg-hint { font-size:12px; color:#999; margin:0 0 10px; line-height:1.5; }
 .ce-textarea { width:100%; box-sizing:border-box; resize:vertical; background:#1e1e1e; border:1px solid #333; border-radius:4px; color:#d0d0d0; font-size:12px; padding:6px 8px; outline:none; font-family:inherit; line-height:1.5; user-select:text; }
 .ce-textarea:focus { border-color:#7c5cfc; }
