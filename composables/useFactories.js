@@ -156,7 +156,7 @@ export function makeScreen(name) {
     height:   SCREEN_H,
     border:   { width: 0, color: '#111827' },
     shadow:   'default',
-    grid:     { visible: false, cols: 12, gutter: 16, margin: 24, color: '#7c5cfc' },
+    grid:     { visible: false, cols: ['1fr', '1fr', '1fr', '1fr'], rows: ['1fr', '1fr', '1fr'], colGap: 12, rowGap: 12, color: '#7c5cfc' },
     elements: [],
   }
 }

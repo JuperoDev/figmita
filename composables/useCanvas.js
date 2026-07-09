@@ -3,6 +3,7 @@ import { SCREEN_W, SCREEN_H, SCREEN_GAP } from './useConstants.js'
 import { useScreens } from './useScreens.js'
 import { useElements } from './useElements.js'
 import { makeElement } from './useFactories.js'
+import { snapRectToGrid } from './useGridLayout.js'
 
 const canvasRef    = ref(null)
 const zoom         = ref(1)
@@ -154,11 +155,15 @@ export function useCanvas() {
   })
 
   function commitDrawing() {
-    const r = drawRect.value
+    let r = drawRect.value
     drawing.value = null
-    if (!r || r.w < 8 || r.h < 8) return
+    if (!r) return
     const sc = screens.value.find(s => s.id === r.scId)
     if (!sc) return
+    // With a visible layout grid, drawn boxes snap to the covered cells —
+    // even a click-sized drag fills its cell (cssgridgenerator-style)
+    if (sc.grid?.visible && Array.isArray(sc.grid.cols)) r = snapRectToGrid(sc, r)
+    if (r.w < 8 || r.h < 8) return
     const el = makeElement('box')
     el.name = `Box ${screens.value.flatMap(s => s.elements).filter(e => e.type === 'box').length + 1}`
     el.pos = { x: r.x, y: r.y }

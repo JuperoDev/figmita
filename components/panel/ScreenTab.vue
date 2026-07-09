@@ -1,18 +1,64 @@
 <script setup>
 import { ref, computed, watchEffect } from 'vue'
 import { categories } from '~/components/catalog/registry'
+import { gridCss } from '~/composables/useGridLayout.js'
 
 const { screens, activeScreen, startScreenId } = useScreens()
 const { addElement } = useElements()
 
-// Screens saved before borders/shadows/grids existed lack these fields
+// Screens saved before borders/shadows/grids existed lack these fields;
+// grids from the short-lived column-guide era store cols as a number
 watchEffect(() => {
   const s = activeScreen.value
   if (!s) return
   s.border ??= { width: 0, color: '#111827' }
   s.shadow ??= 'default'
-  s.grid   ??= { visible: false, cols: 12, gutter: 16, margin: 24, color: '#7c5cfc' }
+  if (!s.grid || !Array.isArray(s.grid.cols)) {
+    s.grid = {
+      visible: s.grid?.visible ?? false,
+      cols:    Array(typeof s.grid?.cols === 'number' ? s.grid.cols : 4).fill('1fr'),
+      rows:    ['1fr', '1fr', '1fr'],
+      colGap:  s.grid?.gutter ?? 12,
+      rowGap:  s.grid?.gutter ?? 12,
+      color:   s.grid?.color ?? '#7c5cfc',
+    }
+  }
 })
+
+// Track helpers: counts resize the arrays, sizes edit as one text line
+function trackCount(axis) {
+  return computed({
+    get: () => activeScreen.value?.grid?.[axis]?.length ?? 0,
+    set: (n) => {
+      const tracks = activeScreen.value?.grid?.[axis]
+      if (!tracks || !Number.isFinite(n)) return
+      n = Math.min(24, Math.max(1, Math.round(n)))
+      while (tracks.length < n) tracks.push('1fr')
+      tracks.length = n
+    },
+  })
+}
+const colCount = trackCount('cols')
+const rowCount = trackCount('rows')
+
+function trackSizes(axis) {
+  return computed({
+    get: () => activeScreen.value?.grid?.[axis]?.join(' ') ?? '',
+    set: (v) => {
+      const parts = v.trim().split(/[\s,]+/).filter(Boolean)
+      if (parts.length && activeScreen.value?.grid) activeScreen.value.grid[axis] = parts
+    },
+  })
+}
+const colSizes = trackSizes('cols')
+const rowSizes = trackSizes('rows')
+
+const cssCopied = ref(false)
+async function copyGridCss() {
+  await navigator.clipboard.writeText(gridCss(activeScreen.value))
+  cssCopied.value = true
+  setTimeout(() => { cssCopied.value = false }, 1500)
+}
 
 const shadowOptions = [
   { value: 'none',    label: 'None' },
@@ -108,35 +154,54 @@ function confirmAddButton() {
     </div>
 
     <div class="prop-hr" />
-    <p class="prop-section">Layout Grid</p>
+    <p class="prop-section">CSS Grid</p>
     <div class="ce-field">
       <label class="grid-toggle">
         <input type="checkbox" v-model="activeScreen.grid.visible" />
-        <span>Show column grid</span>
+        <span>Show grid</span>
       </label>
     </div>
     <template v-if="activeScreen.grid.visible">
       <div class="ce-field two-col">
         <div>
           <label class="ce-label">Columns</label>
-          <input type="number" class="ce-input" min="1" max="24" v-model.number="activeScreen.grid.cols" />
+          <input type="number" class="ce-input" min="1" max="24" v-model.number="colCount" />
         </div>
         <div>
-          <label class="ce-label">Gutter</label>
-          <input type="number" class="ce-input" min="0" v-model.number="activeScreen.grid.gutter" />
+          <label class="ce-label">Rows</label>
+          <input type="number" class="ce-input" min="1" max="24" v-model.number="rowCount" />
         </div>
+      </div>
+      <div class="ce-field">
+        <label class="ce-label">Column sizes (fr / px)</label>
+        <input class="ce-input mono" v-model.lazy="colSizes" spellcheck="false" />
+      </div>
+      <div class="ce-field">
+        <label class="ce-label">Row sizes (fr / px)</label>
+        <input class="ce-input mono" v-model.lazy="rowSizes" spellcheck="false" />
       </div>
       <div class="ce-field two-col">
         <div>
-          <label class="ce-label">Margin</label>
-          <input type="number" class="ce-input" min="0" v-model.number="activeScreen.grid.margin" />
+          <label class="ce-label">Column gap</label>
+          <input type="number" class="ce-input" min="0" v-model.number="activeScreen.grid.colGap" />
         </div>
         <div>
-          <label class="ce-label">Color</label>
-          <input type="color" v-model="activeScreen.grid.color" class="color-native wide" />
+          <label class="ce-label">Row gap</label>
+          <input type="number" class="ce-input" min="0" v-model.number="activeScreen.grid.rowGap" />
         </div>
       </div>
-      <p class="hint-text" style="padding:0 12px;">Guides only — hidden in play mode.</p>
+      <div class="ce-field">
+        <label class="ce-label">Color</label>
+        <input type="color" v-model="activeScreen.grid.color" class="color-native wide" />
+      </div>
+      <div class="ce-field">
+        <button class="copy-css-btn" @click="copyGridCss">
+          <i :class="cssCopied ? 'pi pi-check' : 'pi pi-copy'" /> {{ cssCopied ? 'Copied!' : 'Copy grid CSS' }}
+        </button>
+      </div>
+      <p class="hint-text" style="padding:0 12px;">
+        Draw with the box tool (R) to snap divs to the grid cells. Guides are hidden in play mode.
+      </p>
     </template>
   </template>
 
@@ -263,7 +328,10 @@ function confirmAddButton() {
 .ce-field.two-col > div { flex:1; min-width:0; }
 .grid-toggle { display:flex; align-items:center; gap:8px; font-size:12px; color:#ccc; cursor:pointer; }
 .grid-toggle input { accent-color:#7c5cfc; cursor:pointer; margin:0; }
-.hint-text { font-size:10px; color:#555; margin:2px 0 0; }
+.hint-text { font-size:10px; color:#555; margin:2px 0 0; line-height:1.5; }
+.ce-input.mono { font-family:'JetBrains Mono','Fira Code',monospace; font-size:11px; }
+.copy-css-btn { width:100%; display:flex; align-items:center; justify-content:center; gap:6px; padding:7px; border-radius:6px; border:1px solid #3a3a3a; cursor:pointer; font-size:12px; font-family:inherit; background:#2a2a2a; color:#ccc; transition:all .15s; }
+.copy-css-btn:hover { background:#333; color:#fff; }
 .color-hex-val { font-size:12px; color:#aaa; font-family:monospace; }
 .entry-badge { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; cursor:pointer; border:1px solid #333; background:#1e1e1e; transition:all .15s; }
 .entry-badge:hover { border-color:#555; }

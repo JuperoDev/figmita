@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { SCREEN_W, SCREEN_H } from '~/composables/useConstants.js'
+import { snapRectToGrid } from '~/composables/useGridLayout.js'
 
 const props = defineProps({
   sc:  { type: Object, required: true },
@@ -43,13 +44,25 @@ const frameShadow = computed(() => {
   return rings.join(', ')
 })
 
+// The overlay is itself a CSS grid, so the guides always match the geometry
 const gridStyle = computed(() => {
   const g = props.sc.grid
-  if (!g?.visible) return null
+  if (!g?.visible || !Array.isArray(g.cols)) return null
   return {
-    padding: `0 ${g.margin}px`,
-    gap:     `${g.gutter}px`,
+    gridTemplateColumns: g.cols.join(' '),
+    gridTemplateRows:    g.rows.join(' '),
+    columnGap:           `${g.colGap ?? 0}px`,
+    rowGap:              `${g.rowGap ?? 0}px`,
   }
+})
+const gridCellCount = computed(() =>
+  (props.sc.grid?.cols?.length ?? 0) * (props.sc.grid?.rows?.length ?? 0))
+
+// While drawing on a gridded screen, preview the snapped cell area
+const previewRect = computed(() => {
+  const r = drawRect.value
+  if (!r || r.scId !== props.sc.id) return null
+  return gridStyle.value ? snapRectToGrid(props.sc, r) : r
 })
 
 function onScreenMouseDown(e) {
@@ -100,20 +113,20 @@ function setActiveScreen(id) {
         <span class="viewport-guide-label">Visible area — scrolls below ↓</span>
       </div>
 
-      <!-- Layout grid overlay (columns), like a Figma layout grid -->
+      <!-- CSS grid overlay: each guide is a real grid cell -->
       <div v-if="gridStyle && !playMode" class="layout-grid" :style="gridStyle">
         <div
-          v-for="n in sc.grid.cols" :key="n"
-          class="layout-col"
-          :style="{ background: sc.grid.color + '22', borderLeft: `1px solid ${sc.grid.color}44`, borderRight: `1px solid ${sc.grid.color}44` }"
+          v-for="n in gridCellCount" :key="n"
+          class="layout-cell"
+          :style="{ background: sc.grid.color + '18', border: `1px dashed ${sc.grid.color}66` }"
         />
       </div>
 
-      <!-- Rubber-band preview while drawing a box -->
+      <!-- Rubber-band preview while drawing a box (snapped to grid cells) -->
       <div
-        v-if="drawRect && drawRect.scId === sc.id"
+        v-if="previewRect"
         class="draw-preview"
-        :style="{ left: drawRect.x + 'px', top: drawRect.y + 'px', width: drawRect.w + 'px', height: drawRect.h + 'px' }"
+        :style="{ left: previewRect.x + 'px', top: previewRect.y + 'px', width: previewRect.w + 'px', height: previewRect.h + 'px' }"
       />
     </div>
 
@@ -140,7 +153,7 @@ function setActiveScreen(id) {
 .resize-handle { position:absolute; left:0; height:14px; margin-top:-7px; cursor:ns-resize; display:flex; align-items:center; justify-content:center; }
 .resize-grip { width:48px; height:5px; border-radius:3px; background:#3a3a3a; transition:background .15s; }
 .resize-handle:hover .resize-grip { background:#7c5cfc; }
-.layout-grid { position:absolute; inset:0; display:flex; pointer-events:none; z-index:40; }
-.layout-col { flex:1; height:100%; box-sizing:border-box; }
+.layout-grid { position:absolute; inset:0; display:grid; pointer-events:none; z-index:40; }
+.layout-cell { box-sizing:border-box; border-radius:2px; }
 .draw-preview { position:absolute; background:rgba(124,92,252,.15); border:1px solid #7c5cfc; box-sizing:border-box; pointer-events:none; z-index:60; }
 </style>
