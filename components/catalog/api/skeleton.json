@@ -53,5 +53,21 @@
   }
  ],
  "events": [],
- "slots": []
+ "slots": [],
+ "tokens": [
+  {
+   "name": "--p-skeleton-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-skeleton-background",
+   "value": "{surface.200}",
+   "dark": "rgba(255, 255, 255, 0.06)"
+  },
+  {
+   "name": "--p-skeleton-animation-background",
+   "value": "rgba(255,255,255,0.4)",
+   "dark": "rgba(255, 255, 255, 0.04)"
+  }
+ ]
 }

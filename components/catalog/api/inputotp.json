@@ -137,5 +137,23 @@
    "type": "(scope: { /** * Events of the component * @param {number} index - Index of the input field * @return {InputOtpTemplateEvents} */ events: (index: number) => InputOtpTemplateEvents; /** * Attributes of the component * @param {number} index - Index of the input field * @return {InputOtpTemplateAttrsOptions} */ attrs: (index: number) => InputOtpTemplateAttrsOptions; /** * Index of the input field */ index: number; }): VNode[]",
    "description": "Default content slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-inputotp-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-inputotp-input-width",
+   "value": "2.5rem"
+  },
+  {
+   "name": "--p-inputotp-input-sm-width",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-inputotp-input-lg-width",
+   "value": "3rem"
+  }
  ]
 }

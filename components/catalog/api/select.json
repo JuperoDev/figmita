@@ -530,5 +530,235 @@
    "type": "(scope: { /** * Style class of the filter icon */ class: any; }): VNode[]",
    "description": "Custom filter icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-select-background",
+   "value": "{form.field.background}"
+  },
+  {
+   "name": "--p-select-disabled-background",
+   "value": "{form.field.disabled.background}"
+  },
+  {
+   "name": "--p-select-filled-background",
+   "value": "{form.field.filled.background}"
+  },
+  {
+   "name": "--p-select-filled-hover-background",
+   "value": "{form.field.filled.hover.background}"
+  },
+  {
+   "name": "--p-select-filled-focus-background",
+   "value": "{form.field.filled.focus.background}"
+  },
+  {
+   "name": "--p-select-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-select-hover-border-color",
+   "value": "{form.field.hover.border.color}"
+  },
+  {
+   "name": "--p-select-focus-border-color",
+   "value": "{form.field.focus.border.color}"
+  },
+  {
+   "name": "--p-select-invalid-border-color",
+   "value": "{form.field.invalid.border.color}"
+  },
+  {
+   "name": "--p-select-color",
+   "value": "{form.field.color}"
+  },
+  {
+   "name": "--p-select-disabled-color",
+   "value": "{form.field.disabled.color}"
+  },
+  {
+   "name": "--p-select-placeholder-color",
+   "value": "{form.field.placeholder.color}"
+  },
+  {
+   "name": "--p-select-invalid-placeholder-color",
+   "value": "{form.field.invalid.placeholder.color}"
+  },
+  {
+   "name": "--p-select-shadow",
+   "value": "{form.field.shadow}"
+  },
+  {
+   "name": "--p-select-padding-x",
+   "value": "{form.field.padding.x}"
+  },
+  {
+   "name": "--p-select-padding-y",
+   "value": "{form.field.padding.y}"
+  },
+  {
+   "name": "--p-select-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-select-focus-ring-width",
+   "value": "{form.field.focus.ring.width}"
+  },
+  {
+   "name": "--p-select-focus-ring-style",
+   "value": "{form.field.focus.ring.style}"
+  },
+  {
+   "name": "--p-select-focus-ring-color",
+   "value": "{form.field.focus.ring.color}"
+  },
+  {
+   "name": "--p-select-focus-ring-offset",
+   "value": "{form.field.focus.ring.offset}"
+  },
+  {
+   "name": "--p-select-focus-ring-shadow",
+   "value": "{form.field.focus.ring.shadow}"
+  },
+  {
+   "name": "--p-select-transition-duration",
+   "value": "{form.field.transition.duration}"
+  },
+  {
+   "name": "--p-select-sm-font-size",
+   "value": "{form.field.sm.font.size}"
+  },
+  {
+   "name": "--p-select-sm-padding-x",
+   "value": "{form.field.sm.padding.x}"
+  },
+  {
+   "name": "--p-select-sm-padding-y",
+   "value": "{form.field.sm.padding.y}"
+  },
+  {
+   "name": "--p-select-lg-font-size",
+   "value": "{form.field.lg.font.size}"
+  },
+  {
+   "name": "--p-select-lg-padding-x",
+   "value": "{form.field.lg.padding.x}"
+  },
+  {
+   "name": "--p-select-lg-padding-y",
+   "value": "{form.field.lg.padding.y}"
+  },
+  {
+   "name": "--p-select-dropdown-width",
+   "value": "2.5rem"
+  },
+  {
+   "name": "--p-select-dropdown-color",
+   "value": "{form.field.icon.color}"
+  },
+  {
+   "name": "--p-select-overlay-background",
+   "value": "{overlay.select.background}"
+  },
+  {
+   "name": "--p-select-overlay-border-color",
+   "value": "{overlay.select.border.color}"
+  },
+  {
+   "name": "--p-select-overlay-border-radius",
+   "value": "{overlay.select.border.radius}"
+  },
+  {
+   "name": "--p-select-overlay-color",
+   "value": "{overlay.select.color}"
+  },
+  {
+   "name": "--p-select-overlay-shadow",
+   "value": "{overlay.select.shadow}"
+  },
+  {
+   "name": "--p-select-list-padding",
+   "value": "{list.padding}"
+  },
+  {
+   "name": "--p-select-list-gap",
+   "value": "{list.gap}"
+  },
+  {
+   "name": "--p-select-list-header-padding",
+   "value": "{list.header.padding}"
+  },
+  {
+   "name": "--p-select-option-focus-background",
+   "value": "{list.option.focus.background}"
+  },
+  {
+   "name": "--p-select-option-selected-background",
+   "value": "{list.option.selected.background}"
+  },
+  {
+   "name": "--p-select-option-selected-focus-background",
+   "value": "{list.option.selected.focus.background}"
+  },
+  {
+   "name": "--p-select-option-color",
+   "value": "{list.option.color}"
+  },
+  {
+   "name": "--p-select-option-focus-color",
+   "value": "{list.option.focus.color}"
+  },
+  {
+   "name": "--p-select-option-selected-color",
+   "value": "{list.option.selected.color}"
+  },
+  {
+   "name": "--p-select-option-selected-focus-color",
+   "value": "{list.option.selected.focus.color}"
+  },
+  {
+   "name": "--p-select-option-padding",
+   "value": "{list.option.padding}"
+  },
+  {
+   "name": "--p-select-option-border-radius",
+   "value": "{list.option.border.radius}"
+  },
+  {
+   "name": "--p-select-option-group-background",
+   "value": "{list.option.group.background}"
+  },
+  {
+   "name": "--p-select-option-group-color",
+   "value": "{list.option.group.color}"
+  },
+  {
+   "name": "--p-select-option-group-font-weight",
+   "value": "{list.option.group.font.weight}"
+  },
+  {
+   "name": "--p-select-option-group-padding",
+   "value": "{list.option.group.padding}"
+  },
+  {
+   "name": "--p-select-clear-icon-color",
+   "value": "{form.field.icon.color}"
+  },
+  {
+   "name": "--p-select-checkmark-color",
+   "value": "{list.option.color}"
+  },
+  {
+   "name": "--p-select-checkmark-gutter-start",
+   "value": "-0.375rem"
+  },
+  {
+   "name": "--p-select-checkmark-gutter-end",
+   "value": "0.375rem"
+  },
+  {
+   "name": "--p-select-empty-message-padding",
+   "value": "{list.option.padding}"
+  }
  ]
 }

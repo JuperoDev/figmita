@@ -129,5 +129,92 @@
    "description": "Callback to invoke when slide ends."
   }
  ],
- "slots": []
+ "slots": [],
+ "tokens": [
+  {
+   "name": "--p-slider-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-slider-track-background",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-slider-track-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-slider-track-size",
+   "value": "3px"
+  },
+  {
+   "name": "--p-slider-range-background",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-slider-handle-width",
+   "value": "20px"
+  },
+  {
+   "name": "--p-slider-handle-height",
+   "value": "20px"
+  },
+  {
+   "name": "--p-slider-handle-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-slider-handle-background",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-slider-handle-hover-background",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-slider-handle-content-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-slider-handle-content-hover-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-slider-handle-content-width",
+   "value": "16px"
+  },
+  {
+   "name": "--p-slider-handle-content-height",
+   "value": "16px"
+  },
+  {
+   "name": "--p-slider-handle-content-shadow",
+   "value": "0px 0.5px 0px 0px rgba(0, 0, 0, 0.08), 0px 1px 1px 0px rgba(0, 0, 0, 0.14)"
+  },
+  {
+   "name": "--p-slider-handle-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-slider-handle-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-slider-handle-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-slider-handle-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-slider-handle-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-slider-handle-content-background",
+   "value": "{surface.0}",
+   "dark": "{surface.950}"
+  }
+ ]
 }

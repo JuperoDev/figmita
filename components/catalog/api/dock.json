@@ -108,5 +108,55 @@
    "type": "(scope: { /** * Custom content for item icon. */ item: MenuItem; }): VNode[]",
    "description": "Custom icon content."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-dock-background",
+   "value": "rgba(255, 255, 255, 0.1)"
+  },
+  {
+   "name": "--p-dock-border-color",
+   "value": "rgba(255, 255, 255, 0.2)"
+  },
+  {
+   "name": "--p-dock-padding",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-dock-border-radius",
+   "value": "{border.radius.xl}"
+  },
+  {
+   "name": "--p-dock-item-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-dock-item-padding",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-dock-item-size",
+   "value": "3rem"
+  },
+  {
+   "name": "--p-dock-item-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-dock-item-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-dock-item-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-dock-item-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-dock-item-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  }
  ]
 }

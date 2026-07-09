@@ -44,5 +44,47 @@
    "type": "(): VNode[]",
    "description": "Custom footer template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-card-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-card-border-radius",
+   "value": "{border.radius.xl}"
+  },
+  {
+   "name": "--p-card-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-card-shadow",
+   "value": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)"
+  },
+  {
+   "name": "--p-card-body-padding",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-card-body-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-card-caption-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-card-title-font-size",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-card-title-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-card-subtitle-color",
+   "value": "{text.muted.color}"
+  }
  ]
 }

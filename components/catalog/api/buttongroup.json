@@ -20,5 +20,6 @@
    "type": "(): VNode[]",
    "description": "Default slot to detect Button components."
   }
- ]
+ ],
+ "tokens": []
 }

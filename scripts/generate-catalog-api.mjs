@@ -6,6 +6,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import Aura from '@primeuix/themes/aura'
 import { categories } from '../components/catalog/registry.js'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -97,6 +98,40 @@ function parseMembers(body) {
   return members
 }
 
+// ---- design tokens (CSS variables) from the Aura preset ----
+const kebab = s => s.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+
+function flattenTokens(obj, path = []) {
+  const out = []
+  for (const [k, v] of Object.entries(obj || {})) {
+    if (k === 'colorScheme') continue
+    if (v && typeof v === 'object') out.push(...flattenTokens(v, [...path, k]))
+    else out.push({ path: [...path, k], value: String(v) })
+  }
+  return out
+}
+
+// Maps token paths to CSS variable names the way @primeuix/styled does:
+// `--p-<component>-<path>` with the leading `root` segment dropped
+function componentTokens(name) {
+  const comp = Aura.components?.[name.toLowerCase()]
+  if (!comp) return []
+  const map = new Map()
+  const add = (entries, key) => {
+    for (const t of entries) {
+      const segs = t.path[0] === 'root' ? t.path.slice(1) : t.path
+      const cssVar = `--p-${name.toLowerCase()}-${segs.map(kebab).join('-')}`
+      const cur = map.get(cssVar) || { name: cssVar }
+      cur[key] = t.value
+      map.set(cssVar, cur)
+    }
+  }
+  add(flattenTokens(comp), 'value')
+  add(flattenTokens(comp.colorScheme?.light), 'value')
+  add(flattenTokens(comp.colorScheme?.dark), 'dark')
+  return [...map.values()]
+}
+
 function moduleDescription(src) {
   const m = src.match(/^\/\*\*([\s\S]*?)\*\//)
   return m ? jsdocText(m[0]) : ''
@@ -127,6 +162,7 @@ for (const cat of categories) {
       props: props ? parseMembers(props.body).filter(p => !['pt', 'ptOptions', 'dt'].includes(p.name)) : [],
       events: emits ? parseMembers(emits.body) : [],
       slots: slots ? parseMembers(slots.body) : [],
+      tokens: componentTokens(name),
     }
     if (!props) missing.push(`${name}: no ${propsName} interface`)
     writeFileSync(join(outDir, `${dir}.json`), JSON.stringify(api, null, 1))

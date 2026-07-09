@@ -149,5 +149,135 @@
    "description": "Callback to invoke when the component loses focus."
   }
  ],
- "slots": []
+ "slots": [],
+ "tokens": [
+  {
+   "name": "--p-radiobutton-width",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-radiobutton-height",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-radiobutton-background",
+   "value": "{form.field.background}"
+  },
+  {
+   "name": "--p-radiobutton-checked-background",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-radiobutton-checked-hover-background",
+   "value": "{primary.hover.color}"
+  },
+  {
+   "name": "--p-radiobutton-disabled-background",
+   "value": "{form.field.disabled.background}"
+  },
+  {
+   "name": "--p-radiobutton-filled-background",
+   "value": "{form.field.filled.background}"
+  },
+  {
+   "name": "--p-radiobutton-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-radiobutton-hover-border-color",
+   "value": "{form.field.hover.border.color}"
+  },
+  {
+   "name": "--p-radiobutton-focus-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-radiobutton-checked-border-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-radiobutton-checked-hover-border-color",
+   "value": "{primary.hover.color}"
+  },
+  {
+   "name": "--p-radiobutton-checked-focus-border-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-radiobutton-checked-disabled-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-radiobutton-invalid-border-color",
+   "value": "{form.field.invalid.border.color}"
+  },
+  {
+   "name": "--p-radiobutton-shadow",
+   "value": "{form.field.shadow}"
+  },
+  {
+   "name": "--p-radiobutton-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-radiobutton-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-radiobutton-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-radiobutton-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-radiobutton-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-radiobutton-transition-duration",
+   "value": "{form.field.transition.duration}"
+  },
+  {
+   "name": "--p-radiobutton-sm-width",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-radiobutton-sm-height",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-radiobutton-lg-width",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-radiobutton-lg-height",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-radiobutton-icon-size",
+   "value": "0.75rem"
+  },
+  {
+   "name": "--p-radiobutton-icon-checked-color",
+   "value": "{primary.contrast.color}"
+  },
+  {
+   "name": "--p-radiobutton-icon-checked-hover-color",
+   "value": "{primary.contrast.color}"
+  },
+  {
+   "name": "--p-radiobutton-icon-disabled-color",
+   "value": "{form.field.disabled.color}"
+  },
+  {
+   "name": "--p-radiobutton-icon-sm-size",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-radiobutton-icon-lg-size",
+   "value": "1rem"
+  }
+ ]
 }

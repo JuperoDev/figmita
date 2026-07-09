@@ -166,5 +166,6 @@
    "description": "Callback to invoke when the mask is completed."
   }
  ],
- "slots": []
+ "slots": [],
+ "tokens": []
 }

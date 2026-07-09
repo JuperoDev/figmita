@@ -164,5 +164,70 @@
    "type": "(): VNode[]",
    "description": "Custom empty template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-carousel-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-carousel-content-gap",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-carousel-indicator-list-padding",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-carousel-indicator-list-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-carousel-indicator-width",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-carousel-indicator-height",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-carousel-indicator-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-carousel-indicator-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-carousel-indicator-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-carousel-indicator-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-carousel-indicator-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-carousel-indicator-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-carousel-indicator-background",
+   "value": "{surface.200}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-carousel-indicator-hover-background",
+   "value": "{surface.300}",
+   "dark": "{surface.600}"
+  },
+  {
+   "name": "--p-carousel-indicator-active-background",
+   "value": "{primary.color}",
+   "dark": "{primary.color}"
+  }
  ]
 }

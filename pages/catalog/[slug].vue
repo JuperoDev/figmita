@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, defineAsyncComponent, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, nextTick, defineAsyncComponent, onMounted, onBeforeUnmount } from 'vue'
 import { categories, allComponents, slugOf, findBySlug, docUrl } from '~/components/catalog/registry'
 import { playgrounds } from '~/components/catalog/playground'
 
@@ -117,6 +117,46 @@ const resetEdits = () => {
   pgModel.value = pg.value && 'model' in pg.value ? pg.value.model : undefined
 }
 
+// Live design-token (CSS variable) editing: component tokens are declared at
+// :root, so re-declaring them on the preview containers overrides them for
+// the previews only. Edits bind as inline custom properties.
+const tokens = computed(() => api.value?.tokens || [])
+const tokenEdits = ref({})
+const tokenCurrent = ref({})
+const tokenQuery = ref('')
+const filteredTokens = computed(() => {
+  const q = tokenQuery.value.trim().toLowerCase()
+  return q ? tokens.value.filter(t => t.name.includes(q)) : tokens.value
+})
+const setToken = (name, v) => {
+  if (v === '' || v == null) delete tokenEdits.value[name]
+  else tokenEdits.value[name] = v
+}
+const tokensTouched = computed(() => Object.keys(tokenEdits.value).length > 0)
+const resetTokens = () => { tokenEdits.value = {} }
+const isColorish = v => /^(#|rgb|hsl|oklch|color)/.test(v || '')
+
+// Current resolved values, read from the live theme (retries because a
+// component's theme CSS is injected when it first mounts)
+const readTokens = (attempt = 0) => {
+  if (!import.meta.client || !tokens.value.length) return
+  const cs = getComputedStyle(document.documentElement)
+  const cur = {}
+  let any = false
+  for (const t of tokens.value) {
+    cur[t.name] = cs.getPropertyValue(t.name).trim()
+    if (cur[t.name]) any = true
+  }
+  tokenCurrent.value = cur
+  if (!any && attempt < 6) setTimeout(() => readTokens(attempt + 1), 150)
+}
+watch(tokens, () => {
+  tokenEdits.value = {}
+  tokenQuery.value = ''
+  nextTick(() => readTokens())
+})
+onMounted(() => readTokens())
+
 // Prev / next component navigation
 const index = computed(() => allComponents.findIndex(c => slugOf(c.name) === slug.value))
 const prev = computed(() => allComponents[index.value - 1])
@@ -146,7 +186,10 @@ watch(slug, () => {
 })
 
 const dark = useState('catalog-dark', () => false)
-watch(dark, v => document.documentElement.classList.toggle('dark', v))
+watch(dark, (v) => {
+  document.documentElement.classList.toggle('dark', v)
+  setTimeout(readTokens, 50)
+})
 onMounted(() => document.documentElement.classList.toggle('dark', dark.value))
 // The editor page styles itself for dark UI without the PrimeVue dark selector,
 // so the class must not leak out of the catalog.
@@ -218,7 +261,7 @@ onBeforeUnmount(() => document.documentElement.classList.remove('dark'))
             </div>
             <div class="pg-grid">
               <div class="pg-stage">
-                <div class="pg-stage-inner" :style="pg.stageStyle">
+                <div class="pg-stage-inner" :style="[pg.stageStyle || '', tokenEdits]">
                   <component :is="pgComp" v-if="pg.content" v-bind="pgBindings">{{ pg.content }}</component>
                   <component :is="pgComp" v-else v-bind="pgBindings" />
                 </div>
@@ -258,7 +301,7 @@ onBeforeUnmount(() => document.documentElement.classList.remove('dark'))
 
           <h2 class="examples-title">Examples</h2>
           <section class="preview-wrap">
-            <div class="preview">
+            <div class="preview" :style="tokenEdits">
               <component :is="demo" v-if="demo" />
               <p v-else class="preview-missing">No demo available for this component.</p>
             </div>
@@ -271,6 +314,51 @@ onBeforeUnmount(() => document.documentElement.classList.remove('dark'))
               </button>
             </div>
             <pre v-if="showCode" class="code-block"><code>{{ source }}</code></pre>
+          </section>
+
+          <section v-if="tokens.length" class="api-section">
+            <h2>
+              Design Tokens <span class="api-count">{{ tokens.length }}</span>
+              <button v-if="tokensTouched" class="ghost-btn" @click="resetTokens">
+                <i class="pi pi-refresh" /> Reset
+              </button>
+            </h2>
+            <p class="api-extends">
+              CSS variables of this component in the Aura theme — type into “Live value” to restyle the
+              previews above (any CSS value: colors, sizes, shadows…). Clear the field to go back to the theme value.
+            </p>
+            <IconField style="max-width: 260px; margin-bottom: 10px">
+              <InputIcon class="pi pi-search" />
+              <InputText v-model="tokenQuery" placeholder="Filter tokens" size="small" fluid />
+            </IconField>
+            <div class="table-scroll token-scroll">
+              <table class="api-table">
+                <thead>
+                  <tr><th>CSS variable</th><th>Theme value</th><th class="token-col">Live value</th></tr>
+                </thead>
+                <tbody>
+                  <tr v-for="t in filteredTokens" :key="t.name">
+                    <td class="cell-name token-name">{{ t.name }}</td>
+                    <td class="cell-type"><code>{{ t.value }}</code></td>
+                    <td>
+                      <div class="token-edit">
+                        <span
+                          class="token-swatch"
+                          :class="{ 'token-swatch-empty': !isColorish(tokenEdits[t.name] ?? tokenCurrent[t.name]) }"
+                          :style="{ background: tokenEdits[t.name] ?? tokenCurrent[t.name] }"
+                        />
+                        <InputText
+                          :model-value="tokenEdits[t.name] ?? ''"
+                          :placeholder="tokenCurrent[t.name] || t.value"
+                          size="small" fluid class="token-input"
+                          @update:model-value="v => setToken(t.name, v)"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <template v-if="api">
@@ -572,6 +660,19 @@ onBeforeUnmount(() => document.documentElement.classList.remove('dark'))
 .catalog-dark .api-extends code, .catalog-dark .cat-footer code { background: var(--p-surface-800, #27272a); }
 .cell-type { max-width: 320px; }
 .cell-desc { opacity: .85; min-width: 220px; }
+
+/* ---- design tokens ---- */
+.token-scroll { max-height: 480px; overflow-y: auto; }
+.token-name { font-family: ui-monospace, Menlo, monospace; font-size: 12px; user-select: text; }
+.token-col { width: 240px; }
+.token-edit { display: flex; align-items: center; gap: 8px; }
+.token-swatch {
+  width: 18px; height: 18px; flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid var(--p-content-border-color, #e2e8f0);
+}
+.token-swatch-empty { visibility: hidden; }
+.token-input { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
 
 /* ---- pager / footer ---- */
 .pager {

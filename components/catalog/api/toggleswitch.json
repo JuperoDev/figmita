@@ -146,5 +146,157 @@
    "type": "(scope: { /** * Current checked state of the item as a boolean. */ checked: boolean; }): VNode[]",
    "description": "Custom handle template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-toggleswitch-width",
+   "value": "2.5rem"
+  },
+  {
+   "name": "--p-toggleswitch-height",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-toggleswitch-border-radius",
+   "value": "30px"
+  },
+  {
+   "name": "--p-toggleswitch-gap",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-toggleswitch-shadow",
+   "value": "{form.field.shadow}"
+  },
+  {
+   "name": "--p-toggleswitch-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-toggleswitch-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-toggleswitch-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-toggleswitch-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-toggleswitch-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-toggleswitch-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-toggleswitch-border-color",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-toggleswitch-hover-border-color",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-toggleswitch-checked-border-color",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-toggleswitch-checked-hover-border-color",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-toggleswitch-invalid-border-color",
+   "value": "{form.field.invalid.border.color}"
+  },
+  {
+   "name": "--p-toggleswitch-transition-duration",
+   "value": "{form.field.transition.duration}"
+  },
+  {
+   "name": "--p-toggleswitch-slide-duration",
+   "value": "0.2s"
+  },
+  {
+   "name": "--p-toggleswitch-handle-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-toggleswitch-handle-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-toggleswitch-background",
+   "value": "{surface.300}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-toggleswitch-disabled-background",
+   "value": "{form.field.disabled.background}",
+   "dark": "{surface.600}"
+  },
+  {
+   "name": "--p-toggleswitch-hover-background",
+   "value": "{surface.400}",
+   "dark": "{surface.600}"
+  },
+  {
+   "name": "--p-toggleswitch-checked-background",
+   "value": "{primary.color}",
+   "dark": "{primary.color}"
+  },
+  {
+   "name": "--p-toggleswitch-checked-hover-background",
+   "value": "{primary.hover.color}",
+   "dark": "{primary.hover.color}"
+  },
+  {
+   "name": "--p-toggleswitch-handle-background",
+   "value": "{surface.0}",
+   "dark": "{surface.400}"
+  },
+  {
+   "name": "--p-toggleswitch-handle-disabled-background",
+   "value": "{form.field.disabled.color}",
+   "dark": "{surface.900}"
+  },
+  {
+   "name": "--p-toggleswitch-handle-hover-background",
+   "value": "{surface.0}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-toggleswitch-handle-checked-background",
+   "value": "{surface.0}",
+   "dark": "{surface.900}"
+  },
+  {
+   "name": "--p-toggleswitch-handle-checked-hover-background",
+   "value": "{surface.0}",
+   "dark": "{surface.900}"
+  },
+  {
+   "name": "--p-toggleswitch-handle-color",
+   "value": "{text.muted.color}",
+   "dark": "{surface.900}"
+  },
+  {
+   "name": "--p-toggleswitch-handle-hover-color",
+   "value": "{text.color}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-toggleswitch-handle-checked-color",
+   "value": "{primary.color}",
+   "dark": "{primary.color}"
+  },
+  {
+   "name": "--p-toggleswitch-handle-checked-hover-color",
+   "value": "{primary.hover.color}",
+   "dark": "{primary.hover.color}"
+  }
  ]
 }

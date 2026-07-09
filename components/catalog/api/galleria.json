@@ -285,5 +285,272 @@
    "type": "(): VNode[]",
    "description": "Custom thumbnail next item template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-galleria-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-galleria-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-galleria-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-galleria-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-galleria-nav-button-background",
+   "value": "rgba(255, 255, 255, 0.1)"
+  },
+  {
+   "name": "--p-galleria-nav-button-hover-background",
+   "value": "rgba(255, 255, 255, 0.2)"
+  },
+  {
+   "name": "--p-galleria-nav-button-color",
+   "value": "{surface.100}"
+  },
+  {
+   "name": "--p-galleria-nav-button-hover-color",
+   "value": "{surface.0}"
+  },
+  {
+   "name": "--p-galleria-nav-button-size",
+   "value": "3rem"
+  },
+  {
+   "name": "--p-galleria-nav-button-gutter",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-galleria-nav-button-prev-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-galleria-nav-button-next-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-galleria-nav-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-galleria-nav-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-galleria-nav-button-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-galleria-nav-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-galleria-nav-button-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-galleria-nav-icon-size",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-galleria-thumbnails-content-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-galleria-thumbnails-content-padding",
+   "value": "1rem 0.25rem"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-size",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-gutter",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-icon-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-galleria-caption-background",
+   "value": "rgba(0, 0, 0, 0.5)"
+  },
+  {
+   "name": "--p-galleria-caption-color",
+   "value": "{surface.100}"
+  },
+  {
+   "name": "--p-galleria-caption-padding",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-galleria-indicator-list-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-galleria-indicator-list-padding",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-galleria-indicator-button-width",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-galleria-indicator-button-height",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-galleria-indicator-button-active-background",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-galleria-indicator-button-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-galleria-indicator-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-galleria-indicator-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-galleria-indicator-button-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-galleria-indicator-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-galleria-indicator-button-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-galleria-inset-indicator-list-background",
+   "value": "rgba(0, 0, 0, 0.5)"
+  },
+  {
+   "name": "--p-galleria-inset-indicator-button-background",
+   "value": "rgba(255, 255, 255, 0.4)"
+  },
+  {
+   "name": "--p-galleria-inset-indicator-button-hover-background",
+   "value": "rgba(255, 255, 255, 0.6)"
+  },
+  {
+   "name": "--p-galleria-inset-indicator-button-active-background",
+   "value": "rgba(255, 255, 255, 0.9)"
+  },
+  {
+   "name": "--p-galleria-close-button-size",
+   "value": "3rem"
+  },
+  {
+   "name": "--p-galleria-close-button-gutter",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-galleria-close-button-background",
+   "value": "rgba(255, 255, 255, 0.1)"
+  },
+  {
+   "name": "--p-galleria-close-button-hover-background",
+   "value": "rgba(255, 255, 255, 0.2)"
+  },
+  {
+   "name": "--p-galleria-close-button-color",
+   "value": "{surface.50}"
+  },
+  {
+   "name": "--p-galleria-close-button-hover-color",
+   "value": "{surface.0}"
+  },
+  {
+   "name": "--p-galleria-close-button-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-galleria-close-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-galleria-close-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-galleria-close-button-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-galleria-close-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-galleria-close-button-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-galleria-close-button-icon-size",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-hover-background",
+   "value": "{surface.100}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-color",
+   "value": "{surface.600}",
+   "dark": "{surface.400}"
+  },
+  {
+   "name": "--p-galleria-thumbnail-nav-button-hover-color",
+   "value": "{surface.700}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-galleria-indicator-button-background",
+   "value": "{surface.200}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-galleria-indicator-button-hover-background",
+   "value": "{surface.300}",
+   "dark": "{surface.600}"
+  }
  ]
 }

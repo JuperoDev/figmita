@@ -200,5 +200,19 @@
    "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Label property of the menuitem */ label: string | ((...args: any) => string) | undefined; /** * Binding properties of the menuitem */ props: TieredMenuRouterBindProps; /** * Whether or not there is a submenu */ hasSubmenu: boolean; }): VNode[]",
    "description": "Custom content for each menu item."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-splitbutton-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-splitbutton-rounded-border-radius",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-splitbutton-raised-shadow",
+   "value": "0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)"
+  }
  ]
 }

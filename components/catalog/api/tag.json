@@ -51,5 +51,105 @@
    "type": "(): VNode[]",
    "description": "Custom icon template"
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-tag-font-size",
+   "value": "0.875rem"
+  },
+  {
+   "name": "--p-tag-font-weight",
+   "value": "700"
+  },
+  {
+   "name": "--p-tag-padding",
+   "value": "0.25rem 0.5rem"
+  },
+  {
+   "name": "--p-tag-gap",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-tag-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-tag-rounded-border-radius",
+   "value": "{border.radius.xl}"
+  },
+  {
+   "name": "--p-tag-icon-size",
+   "value": "0.75rem"
+  },
+  {
+   "name": "--p-tag-primary-background",
+   "value": "{primary.100}",
+   "dark": "color-mix(in srgb, {primary.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-tag-primary-color",
+   "value": "{primary.700}",
+   "dark": "{primary.300}"
+  },
+  {
+   "name": "--p-tag-secondary-background",
+   "value": "{surface.100}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-tag-secondary-color",
+   "value": "{surface.600}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-tag-success-background",
+   "value": "{green.100}",
+   "dark": "color-mix(in srgb, {green.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-tag-success-color",
+   "value": "{green.700}",
+   "dark": "{green.300}"
+  },
+  {
+   "name": "--p-tag-info-background",
+   "value": "{sky.100}",
+   "dark": "color-mix(in srgb, {sky.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-tag-info-color",
+   "value": "{sky.700}",
+   "dark": "{sky.300}"
+  },
+  {
+   "name": "--p-tag-warn-background",
+   "value": "{orange.100}",
+   "dark": "color-mix(in srgb, {orange.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-tag-warn-color",
+   "value": "{orange.700}",
+   "dark": "{orange.300}"
+  },
+  {
+   "name": "--p-tag-danger-background",
+   "value": "{red.100}",
+   "dark": "color-mix(in srgb, {red.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-tag-danger-color",
+   "value": "{red.700}",
+   "dark": "{red.300}"
+  },
+  {
+   "name": "--p-tag-contrast-background",
+   "value": "{surface.950}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-tag-contrast-color",
+   "value": "{surface.0}",
+   "dark": "{surface.950}"
+  }
  ]
 }

@@ -128,5 +128,91 @@
    "type": "(scope: { /** * Menuitem instance */ item: MenuItem; }): VNode[]",
    "description": "Custom submenu label template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-menu-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-menu-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-menu-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-menu-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-menu-shadow",
+   "value": "{overlay.navigation.shadow}"
+  },
+  {
+   "name": "--p-menu-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-menu-list-padding",
+   "value": "{navigation.list.padding}"
+  },
+  {
+   "name": "--p-menu-list-gap",
+   "value": "{navigation.list.gap}"
+  },
+  {
+   "name": "--p-menu-item-focus-background",
+   "value": "{navigation.item.focus.background}"
+  },
+  {
+   "name": "--p-menu-item-color",
+   "value": "{navigation.item.color}"
+  },
+  {
+   "name": "--p-menu-item-focus-color",
+   "value": "{navigation.item.focus.color}"
+  },
+  {
+   "name": "--p-menu-item-padding",
+   "value": "{navigation.item.padding}"
+  },
+  {
+   "name": "--p-menu-item-border-radius",
+   "value": "{navigation.item.border.radius}"
+  },
+  {
+   "name": "--p-menu-item-gap",
+   "value": "{navigation.item.gap}"
+  },
+  {
+   "name": "--p-menu-item-icon-color",
+   "value": "{navigation.item.icon.color}"
+  },
+  {
+   "name": "--p-menu-item-icon-focus-color",
+   "value": "{navigation.item.icon.focus.color}"
+  },
+  {
+   "name": "--p-menu-submenu-label-padding",
+   "value": "{navigation.submenu.label.padding}"
+  },
+  {
+   "name": "--p-menu-submenu-label-font-weight",
+   "value": "{navigation.submenu.label.font.weight}"
+  },
+  {
+   "name": "--p-menu-submenu-label-background",
+   "value": "{navigation.submenu.label.background}"
+  },
+  {
+   "name": "--p-menu-submenu-label-color",
+   "value": "{navigation.submenu.label.color}"
+  },
+  {
+   "name": "--p-menu-separator-border-color",
+   "value": "{content.border.color}"
+  }
  ]
 }

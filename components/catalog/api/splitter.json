@@ -73,5 +73,59 @@
    "type": "(): VNode[]",
    "description": "Default slot to detect SplitterPanel components."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-splitter-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-splitter-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-splitter-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-splitter-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-splitter-gutter-background",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-splitter-handle-size",
+   "value": "24px"
+  },
+  {
+   "name": "--p-splitter-handle-background",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-splitter-handle-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-splitter-handle-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-splitter-handle-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-splitter-handle-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-splitter-handle-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-splitter-handle-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  }
  ]
 }

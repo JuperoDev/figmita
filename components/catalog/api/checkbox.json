@@ -185,5 +185,143 @@
    "type": "(scope: { /** * State of the checkbox. */ checked: boolean; /** * Indeterminate state of the checkbox. */ indeterminate?: boolean | undefined; /** * Style class of the icon. */ class: string; }): VNode[]",
    "description": "Custom icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-checkbox-border-radius",
+   "value": "{border.radius.sm}"
+  },
+  {
+   "name": "--p-checkbox-width",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-checkbox-height",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-checkbox-background",
+   "value": "{form.field.background}"
+  },
+  {
+   "name": "--p-checkbox-checked-background",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-checkbox-checked-hover-background",
+   "value": "{primary.hover.color}"
+  },
+  {
+   "name": "--p-checkbox-disabled-background",
+   "value": "{form.field.disabled.background}"
+  },
+  {
+   "name": "--p-checkbox-filled-background",
+   "value": "{form.field.filled.background}"
+  },
+  {
+   "name": "--p-checkbox-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-checkbox-hover-border-color",
+   "value": "{form.field.hover.border.color}"
+  },
+  {
+   "name": "--p-checkbox-focus-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-checkbox-checked-border-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-checkbox-checked-hover-border-color",
+   "value": "{primary.hover.color}"
+  },
+  {
+   "name": "--p-checkbox-checked-focus-border-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-checkbox-checked-disabled-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-checkbox-invalid-border-color",
+   "value": "{form.field.invalid.border.color}"
+  },
+  {
+   "name": "--p-checkbox-shadow",
+   "value": "{form.field.shadow}"
+  },
+  {
+   "name": "--p-checkbox-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-checkbox-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-checkbox-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-checkbox-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-checkbox-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-checkbox-transition-duration",
+   "value": "{form.field.transition.duration}"
+  },
+  {
+   "name": "--p-checkbox-sm-width",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-checkbox-sm-height",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-checkbox-lg-width",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-checkbox-lg-height",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-checkbox-icon-size",
+   "value": "0.875rem"
+  },
+  {
+   "name": "--p-checkbox-icon-color",
+   "value": "{form.field.color}"
+  },
+  {
+   "name": "--p-checkbox-icon-checked-color",
+   "value": "{primary.contrast.color}"
+  },
+  {
+   "name": "--p-checkbox-icon-checked-hover-color",
+   "value": "{primary.contrast.color}"
+  },
+  {
+   "name": "--p-checkbox-icon-disabled-color",
+   "value": "{form.field.disabled.color}"
+  },
+  {
+   "name": "--p-checkbox-icon-sm-size",
+   "value": "0.75rem"
+  },
+  {
+   "name": "--p-checkbox-icon-lg-size",
+   "value": "1rem"
+  }
  ]
 }

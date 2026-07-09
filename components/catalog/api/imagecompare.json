@@ -45,5 +45,63 @@
    "type": "(): VNode[]",
    "description": "Custom right template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-imagecompare-handle-size",
+   "value": "15px"
+  },
+  {
+   "name": "--p-imagecompare-handle-hover-size",
+   "value": "30px"
+  },
+  {
+   "name": "--p-imagecompare-handle-background",
+   "value": "rgba(255,255,255,0.3)"
+  },
+  {
+   "name": "--p-imagecompare-handle-hover-background",
+   "value": "rgba(255,255,255,0.3)"
+  },
+  {
+   "name": "--p-imagecompare-handle-border-color",
+   "value": "unset"
+  },
+  {
+   "name": "--p-imagecompare-handle-hover-border-color",
+   "value": "unset"
+  },
+  {
+   "name": "--p-imagecompare-handle-border-width",
+   "value": "0"
+  },
+  {
+   "name": "--p-imagecompare-handle-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-imagecompare-handle-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-imagecompare-handle-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-imagecompare-handle-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-imagecompare-handle-focus-ring-color",
+   "value": "rgba(255,255,255,0.3)"
+  },
+  {
+   "name": "--p-imagecompare-handle-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-imagecompare-handle-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  }
  ]
 }

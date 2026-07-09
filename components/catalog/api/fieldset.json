@@ -78,5 +78,103 @@
    "type": "(scope: { /** * Collapsed state as a boolean */ collapsed: boolean; /** * Style class of the icon. */ class: string; }): VNode[]",
    "description": "Custom toggler icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-fieldset-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-fieldset-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-fieldset-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-fieldset-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-fieldset-padding",
+   "value": "0 1.125rem 1.125rem 1.125rem"
+  },
+  {
+   "name": "--p-fieldset-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-fieldset-legend-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-fieldset-legend-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-fieldset-legend-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-fieldset-legend-hover-color",
+   "value": "{content.hover.color}"
+  },
+  {
+   "name": "--p-fieldset-legend-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-fieldset-legend-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-fieldset-legend-border-color",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-fieldset-legend-padding",
+   "value": "0.5rem 0.75rem"
+  },
+  {
+   "name": "--p-fieldset-legend-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-fieldset-legend-font-weight",
+   "value": "600"
+  },
+  {
+   "name": "--p-fieldset-legend-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-fieldset-legend-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-fieldset-legend-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-fieldset-legend-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-fieldset-legend-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-fieldset-toggle-icon-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-fieldset-toggle-icon-hover-color",
+   "value": "{text.hover.muted.color}"
+  },
+  {
+   "name": "--p-fieldset-content-padding",
+   "value": "0"
+  }
  ]
 }

@@ -27,5 +27,75 @@
    "type": "() => VNode[]",
    "description": "Default content slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-floatlabel-color",
+   "value": "{form.field.float.label.color}"
+  },
+  {
+   "name": "--p-floatlabel-focus-color",
+   "value": "{form.field.float.label.focus.color}"
+  },
+  {
+   "name": "--p-floatlabel-active-color",
+   "value": "{form.field.float.label.active.color}"
+  },
+  {
+   "name": "--p-floatlabel-invalid-color",
+   "value": "{form.field.float.label.invalid.color}"
+  },
+  {
+   "name": "--p-floatlabel-transition-duration",
+   "value": "0.2s"
+  },
+  {
+   "name": "--p-floatlabel-position-x",
+   "value": "{form.field.padding.x}"
+  },
+  {
+   "name": "--p-floatlabel-position-y",
+   "value": "{form.field.padding.y}"
+  },
+  {
+   "name": "--p-floatlabel-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-floatlabel-active-font-size",
+   "value": "0.75rem"
+  },
+  {
+   "name": "--p-floatlabel-active-font-weight",
+   "value": "400"
+  },
+  {
+   "name": "--p-floatlabel-over-active-top",
+   "value": "-1.25rem"
+  },
+  {
+   "name": "--p-floatlabel-in-input-padding-top",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-floatlabel-in-input-padding-bottom",
+   "value": "{form.field.padding.y}"
+  },
+  {
+   "name": "--p-floatlabel-in-active-top",
+   "value": "{form.field.padding.y}"
+  },
+  {
+   "name": "--p-floatlabel-on-border-radius",
+   "value": "{border.radius.xs}"
+  },
+  {
+   "name": "--p-floatlabel-on-active-background",
+   "value": "{form.field.background}"
+  },
+  {
+   "name": "--p-floatlabel-on-active-padding",
+   "value": "0 0.125rem"
+  }
  ]
 }

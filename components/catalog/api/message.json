@@ -111,5 +111,407 @@
    "type": "(scope: { /** * Close message function. */ closeCallback: () => void; }): VNode[]",
    "description": "Custom container slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-message-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-message-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-message-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-message-content-padding",
+   "value": "0.5rem 0.75rem"
+  },
+  {
+   "name": "--p-message-content-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-message-content-sm-padding",
+   "value": "0.375rem 0.625rem"
+  },
+  {
+   "name": "--p-message-content-lg-padding",
+   "value": "0.625rem 0.875rem"
+  },
+  {
+   "name": "--p-message-text-font-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-message-text-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-message-text-sm-font-size",
+   "value": "0.875rem"
+  },
+  {
+   "name": "--p-message-text-lg-font-size",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-message-icon-size",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-message-icon-sm-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-message-icon-lg-size",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-message-close-button-width",
+   "value": "1.75rem"
+  },
+  {
+   "name": "--p-message-close-button-height",
+   "value": "1.75rem"
+  },
+  {
+   "name": "--p-message-close-button-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-message-close-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-message-close-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-message-close-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-message-close-icon-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-message-close-icon-sm-size",
+   "value": "0.875rem"
+  },
+  {
+   "name": "--p-message-close-icon-lg-size",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-message-outlined-root-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-message-simple-content-padding",
+   "value": "0"
+  },
+  {
+   "name": "--p-message-info-background",
+   "value": "color-mix(in srgb, {blue.50}, transparent 5%)",
+   "dark": "color-mix(in srgb, {blue.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-message-info-border-color",
+   "value": "{blue.200}",
+   "dark": "color-mix(in srgb, {blue.700}, transparent 64%)"
+  },
+  {
+   "name": "--p-message-info-color",
+   "value": "{blue.600}",
+   "dark": "{blue.500}"
+  },
+  {
+   "name": "--p-message-info-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-message-info-close-button-hover-background",
+   "value": "{blue.100}",
+   "dark": "rgba(255, 255, 255, 0.05)"
+  },
+  {
+   "name": "--p-message-info-close-button-focus-ring-color",
+   "value": "{blue.600}",
+   "dark": "{blue.500}"
+  },
+  {
+   "name": "--p-message-info-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-message-info-outlined-color",
+   "value": "{blue.600}",
+   "dark": "{blue.500}"
+  },
+  {
+   "name": "--p-message-info-outlined-border-color",
+   "value": "{blue.600}",
+   "dark": "{blue.500}"
+  },
+  {
+   "name": "--p-message-info-simple-color",
+   "value": "{blue.600}",
+   "dark": "{blue.500}"
+  },
+  {
+   "name": "--p-message-success-background",
+   "value": "color-mix(in srgb, {green.50}, transparent 5%)",
+   "dark": "color-mix(in srgb, {green.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-message-success-border-color",
+   "value": "{green.200}",
+   "dark": "color-mix(in srgb, {green.700}, transparent 64%)"
+  },
+  {
+   "name": "--p-message-success-color",
+   "value": "{green.600}",
+   "dark": "{green.500}"
+  },
+  {
+   "name": "--p-message-success-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-message-success-close-button-hover-background",
+   "value": "{green.100}",
+   "dark": "rgba(255, 255, 255, 0.05)"
+  },
+  {
+   "name": "--p-message-success-close-button-focus-ring-color",
+   "value": "{green.600}",
+   "dark": "{green.500}"
+  },
+  {
+   "name": "--p-message-success-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-message-success-outlined-color",
+   "value": "{green.600}",
+   "dark": "{green.500}"
+  },
+  {
+   "name": "--p-message-success-outlined-border-color",
+   "value": "{green.600}",
+   "dark": "{green.500}"
+  },
+  {
+   "name": "--p-message-success-simple-color",
+   "value": "{green.600}",
+   "dark": "{green.500}"
+  },
+  {
+   "name": "--p-message-warn-background",
+   "value": "color-mix(in srgb,{yellow.50}, transparent 5%)",
+   "dark": "color-mix(in srgb, {yellow.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-message-warn-border-color",
+   "value": "{yellow.200}",
+   "dark": "color-mix(in srgb, {yellow.700}, transparent 64%)"
+  },
+  {
+   "name": "--p-message-warn-color",
+   "value": "{yellow.600}",
+   "dark": "{yellow.500}"
+  },
+  {
+   "name": "--p-message-warn-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-message-warn-close-button-hover-background",
+   "value": "{yellow.100}",
+   "dark": "rgba(255, 255, 255, 0.05)"
+  },
+  {
+   "name": "--p-message-warn-close-button-focus-ring-color",
+   "value": "{yellow.600}",
+   "dark": "{yellow.500}"
+  },
+  {
+   "name": "--p-message-warn-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-message-warn-outlined-color",
+   "value": "{yellow.600}",
+   "dark": "{yellow.500}"
+  },
+  {
+   "name": "--p-message-warn-outlined-border-color",
+   "value": "{yellow.600}",
+   "dark": "{yellow.500}"
+  },
+  {
+   "name": "--p-message-warn-simple-color",
+   "value": "{yellow.600}",
+   "dark": "{yellow.500}"
+  },
+  {
+   "name": "--p-message-error-background",
+   "value": "color-mix(in srgb, {red.50}, transparent 5%)",
+   "dark": "color-mix(in srgb, {red.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-message-error-border-color",
+   "value": "{red.200}",
+   "dark": "color-mix(in srgb, {red.700}, transparent 64%)"
+  },
+  {
+   "name": "--p-message-error-color",
+   "value": "{red.600}",
+   "dark": "{red.500}"
+  },
+  {
+   "name": "--p-message-error-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-message-error-close-button-hover-background",
+   "value": "{red.100}",
+   "dark": "rgba(255, 255, 255, 0.05)"
+  },
+  {
+   "name": "--p-message-error-close-button-focus-ring-color",
+   "value": "{red.600}",
+   "dark": "{red.500}"
+  },
+  {
+   "name": "--p-message-error-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-message-error-outlined-color",
+   "value": "{red.600}",
+   "dark": "{red.500}"
+  },
+  {
+   "name": "--p-message-error-outlined-border-color",
+   "value": "{red.600}",
+   "dark": "{red.500}"
+  },
+  {
+   "name": "--p-message-error-simple-color",
+   "value": "{red.600}",
+   "dark": "{red.500}"
+  },
+  {
+   "name": "--p-message-secondary-background",
+   "value": "{surface.100}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-message-secondary-border-color",
+   "value": "{surface.200}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-message-secondary-color",
+   "value": "{surface.600}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-message-secondary-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-message-secondary-close-button-hover-background",
+   "value": "{surface.200}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-message-secondary-close-button-focus-ring-color",
+   "value": "{surface.600}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-message-secondary-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-message-secondary-outlined-color",
+   "value": "{surface.500}",
+   "dark": "{surface.400}"
+  },
+  {
+   "name": "--p-message-secondary-outlined-border-color",
+   "value": "{surface.500}",
+   "dark": "{surface.400}"
+  },
+  {
+   "name": "--p-message-secondary-simple-color",
+   "value": "{surface.500}",
+   "dark": "{surface.400}"
+  },
+  {
+   "name": "--p-message-contrast-background",
+   "value": "{surface.900}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-message-contrast-border-color",
+   "value": "{surface.950}",
+   "dark": "{surface.100}"
+  },
+  {
+   "name": "--p-message-contrast-color",
+   "value": "{surface.50}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-message-contrast-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)"
+  },
+  {
+   "name": "--p-message-contrast-close-button-hover-background",
+   "value": "{surface.800}",
+   "dark": "{surface.100}"
+  },
+  {
+   "name": "--p-message-contrast-close-button-focus-ring-color",
+   "value": "{surface.50}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-message-contrast-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-message-contrast-outlined-color",
+   "value": "{surface.950}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-message-contrast-outlined-border-color",
+   "value": "{surface.950}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-message-contrast-simple-color",
+   "value": "{surface.950}",
+   "dark": "{surface.0}"
+  }
  ]
 }

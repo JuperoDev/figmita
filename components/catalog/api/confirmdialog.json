@@ -63,5 +63,19 @@
    "type": "(scope: { /** * Message of the component */ message: any; /** * Close dialog function. */ closeCallback: () => void; /** * Accept function of the component */ acceptCallback: () => void; /** * Reject function of the component */ rejectCallback: () => void; /** * Initialize drag function for custom container elements. * @param {Event} event - Browser event */ initDragCallback: (event: Event) => void; }): VNode[]",
    "description": "Custom container slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-confirmdialog-icon-size",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-confirmdialog-icon-color",
+   "value": "{overlay.modal.color}"
+  },
+  {
+   "name": "--p-confirmdialog-content-gap",
+   "value": "1rem"
+  }
  ]
 }

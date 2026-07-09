@@ -53,5 +53,143 @@
    "type": "(): VNode[]",
    "description": "Custom end template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-stepper-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-stepper-separator-background",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-stepper-separator-active-background",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-stepper-separator-margin",
+   "value": "0 0 0 1.625rem"
+  },
+  {
+   "name": "--p-stepper-separator-size",
+   "value": "2px"
+  },
+  {
+   "name": "--p-stepper-step-padding",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-stepper-step-gap",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-stepper-step-header-padding",
+   "value": "0"
+  },
+  {
+   "name": "--p-stepper-step-header-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-stepper-step-header-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-stepper-step-header-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-stepper-step-header-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-stepper-step-header-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-stepper-step-header-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-stepper-step-header-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-stepper-step-title-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-stepper-step-title-active-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-stepper-step-title-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-stepper-step-number-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-stepper-step-number-active-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-stepper-step-number-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-stepper-step-number-active-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-stepper-step-number-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-stepper-step-number-active-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-stepper-step-number-size",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-stepper-step-number-font-size",
+   "value": "1.143rem"
+  },
+  {
+   "name": "--p-stepper-step-number-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-stepper-step-number-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-stepper-step-number-shadow",
+   "value": "0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12)"
+  },
+  {
+   "name": "--p-stepper-steppanels-padding",
+   "value": "0.875rem 0.5rem 1.125rem 0.5rem"
+  },
+  {
+   "name": "--p-stepper-steppanel-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-stepper-steppanel-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-stepper-steppanel-padding",
+   "value": "0"
+  },
+  {
+   "name": "--p-stepper-steppanel-indent",
+   "value": "1rem"
+  }
  ]
 }

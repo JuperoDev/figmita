@@ -216,5 +216,15 @@
    "type": "(): VNode[]",
    "description": "Custom move bottom icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-orderlist-gap",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-orderlist-controls-gap",
+   "value": "0.5rem"
+  }
  ]
 }

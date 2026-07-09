@@ -405,5 +405,167 @@
    "type": "(scope: { /** * Clear icon click function. * @param {Event} event - Browser event */ clearCallback: (event: Event) => void; }): VNode[]",
    "description": "Custom clear icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-treeselect-background",
+   "value": "{form.field.background}"
+  },
+  {
+   "name": "--p-treeselect-disabled-background",
+   "value": "{form.field.disabled.background}"
+  },
+  {
+   "name": "--p-treeselect-filled-background",
+   "value": "{form.field.filled.background}"
+  },
+  {
+   "name": "--p-treeselect-filled-hover-background",
+   "value": "{form.field.filled.hover.background}"
+  },
+  {
+   "name": "--p-treeselect-filled-focus-background",
+   "value": "{form.field.filled.focus.background}"
+  },
+  {
+   "name": "--p-treeselect-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-treeselect-hover-border-color",
+   "value": "{form.field.hover.border.color}"
+  },
+  {
+   "name": "--p-treeselect-focus-border-color",
+   "value": "{form.field.focus.border.color}"
+  },
+  {
+   "name": "--p-treeselect-invalid-border-color",
+   "value": "{form.field.invalid.border.color}"
+  },
+  {
+   "name": "--p-treeselect-color",
+   "value": "{form.field.color}"
+  },
+  {
+   "name": "--p-treeselect-disabled-color",
+   "value": "{form.field.disabled.color}"
+  },
+  {
+   "name": "--p-treeselect-placeholder-color",
+   "value": "{form.field.placeholder.color}"
+  },
+  {
+   "name": "--p-treeselect-invalid-placeholder-color",
+   "value": "{form.field.invalid.placeholder.color}"
+  },
+  {
+   "name": "--p-treeselect-shadow",
+   "value": "{form.field.shadow}"
+  },
+  {
+   "name": "--p-treeselect-padding-x",
+   "value": "{form.field.padding.x}"
+  },
+  {
+   "name": "--p-treeselect-padding-y",
+   "value": "{form.field.padding.y}"
+  },
+  {
+   "name": "--p-treeselect-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-treeselect-focus-ring-width",
+   "value": "{form.field.focus.ring.width}"
+  },
+  {
+   "name": "--p-treeselect-focus-ring-style",
+   "value": "{form.field.focus.ring.style}"
+  },
+  {
+   "name": "--p-treeselect-focus-ring-color",
+   "value": "{form.field.focus.ring.color}"
+  },
+  {
+   "name": "--p-treeselect-focus-ring-offset",
+   "value": "{form.field.focus.ring.offset}"
+  },
+  {
+   "name": "--p-treeselect-focus-ring-shadow",
+   "value": "{form.field.focus.ring.shadow}"
+  },
+  {
+   "name": "--p-treeselect-transition-duration",
+   "value": "{form.field.transition.duration}"
+  },
+  {
+   "name": "--p-treeselect-sm-font-size",
+   "value": "{form.field.sm.font.size}"
+  },
+  {
+   "name": "--p-treeselect-sm-padding-x",
+   "value": "{form.field.sm.padding.x}"
+  },
+  {
+   "name": "--p-treeselect-sm-padding-y",
+   "value": "{form.field.sm.padding.y}"
+  },
+  {
+   "name": "--p-treeselect-lg-font-size",
+   "value": "{form.field.lg.font.size}"
+  },
+  {
+   "name": "--p-treeselect-lg-padding-x",
+   "value": "{form.field.lg.padding.x}"
+  },
+  {
+   "name": "--p-treeselect-lg-padding-y",
+   "value": "{form.field.lg.padding.y}"
+  },
+  {
+   "name": "--p-treeselect-dropdown-width",
+   "value": "2.5rem"
+  },
+  {
+   "name": "--p-treeselect-dropdown-color",
+   "value": "{form.field.icon.color}"
+  },
+  {
+   "name": "--p-treeselect-overlay-background",
+   "value": "{overlay.select.background}"
+  },
+  {
+   "name": "--p-treeselect-overlay-border-color",
+   "value": "{overlay.select.border.color}"
+  },
+  {
+   "name": "--p-treeselect-overlay-border-radius",
+   "value": "{overlay.select.border.radius}"
+  },
+  {
+   "name": "--p-treeselect-overlay-color",
+   "value": "{overlay.select.color}"
+  },
+  {
+   "name": "--p-treeselect-overlay-shadow",
+   "value": "{overlay.select.shadow}"
+  },
+  {
+   "name": "--p-treeselect-tree-padding",
+   "value": "{list.padding}"
+  },
+  {
+   "name": "--p-treeselect-empty-message-padding",
+   "value": "{list.option.padding}"
+  },
+  {
+   "name": "--p-treeselect-chip-border-radius",
+   "value": "{border.radius.sm}"
+  },
+  {
+   "name": "--p-treeselect-clear-icon-color",
+   "value": "{form.field.icon.color}"
+  }
  ]
 }

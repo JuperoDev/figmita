@@ -61,5 +61,11 @@
    "type": "(): VNode[]",
    "description": "Custom content's slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-blockui-border-radius",
+   "value": "{content.border.radius}"
+  }
  ]
 }

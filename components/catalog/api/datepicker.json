@@ -672,5 +672,327 @@
    "type": "(scope: { /** * Clear icon click function. * @param {Event} event - Browser event */ clearCallback: (event: Event) => void; }): VNode[]",
    "description": "Custom clear icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-datepicker-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-datepicker-panel-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-datepicker-panel-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-datepicker-panel-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-datepicker-panel-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-datepicker-panel-shadow",
+   "value": "{overlay.popover.shadow}"
+  },
+  {
+   "name": "--p-datepicker-panel-padding",
+   "value": "{overlay.popover.padding}"
+  },
+  {
+   "name": "--p-datepicker-header-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-datepicker-header-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-datepicker-header-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-datepicker-header-padding",
+   "value": "0 0 0.5rem 0"
+  },
+  {
+   "name": "--p-datepicker-title-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-datepicker-title-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-datepicker-dropdown-width",
+   "value": "2.5rem"
+  },
+  {
+   "name": "--p-datepicker-dropdown-sm-width",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-datepicker-dropdown-lg-width",
+   "value": "3rem"
+  },
+  {
+   "name": "--p-datepicker-dropdown-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-hover-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-active-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-datepicker-input-icon-color",
+   "value": "{form.field.icon.color}"
+  },
+  {
+   "name": "--p-datepicker-select-month-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-datepicker-select-month-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-datepicker-select-month-hover-color",
+   "value": "{content.hover.color}"
+  },
+  {
+   "name": "--p-datepicker-select-month-padding",
+   "value": "0.25rem 0.5rem"
+  },
+  {
+   "name": "--p-datepicker-select-month-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-datepicker-select-year-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-datepicker-select-year-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-datepicker-select-year-hover-color",
+   "value": "{content.hover.color}"
+  },
+  {
+   "name": "--p-datepicker-select-year-padding",
+   "value": "0.25rem 0.5rem"
+  },
+  {
+   "name": "--p-datepicker-select-year-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-datepicker-group-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-datepicker-group-gap",
+   "value": "{overlay.popover.padding}"
+  },
+  {
+   "name": "--p-datepicker-day-view-margin",
+   "value": "0.5rem 0 0 0"
+  },
+  {
+   "name": "--p-datepicker-week-day-padding",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-datepicker-week-day-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-datepicker-week-day-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-datepicker-date-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-datepicker-date-selected-background",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-datepicker-date-range-selected-background",
+   "value": "{highlight.background}"
+  },
+  {
+   "name": "--p-datepicker-date-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-datepicker-date-hover-color",
+   "value": "{content.hover.color}"
+  },
+  {
+   "name": "--p-datepicker-date-selected-color",
+   "value": "{primary.contrast.color}"
+  },
+  {
+   "name": "--p-datepicker-date-range-selected-color",
+   "value": "{highlight.color}"
+  },
+  {
+   "name": "--p-datepicker-date-width",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-datepicker-date-height",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-datepicker-date-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-datepicker-date-padding",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-datepicker-date-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-datepicker-date-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-datepicker-date-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-datepicker-date-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-datepicker-date-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-datepicker-month-view-margin",
+   "value": "0.5rem 0 0 0"
+  },
+  {
+   "name": "--p-datepicker-month-padding",
+   "value": "0.375rem"
+  },
+  {
+   "name": "--p-datepicker-month-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-datepicker-year-view-margin",
+   "value": "0.5rem 0 0 0"
+  },
+  {
+   "name": "--p-datepicker-year-padding",
+   "value": "0.375rem"
+  },
+  {
+   "name": "--p-datepicker-year-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-datepicker-buttonbar-padding",
+   "value": "0.5rem 0 0 0"
+  },
+  {
+   "name": "--p-datepicker-buttonbar-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-datepicker-time-picker-padding",
+   "value": "0.5rem 0 0 0"
+  },
+  {
+   "name": "--p-datepicker-time-picker-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-datepicker-time-picker-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-datepicker-time-picker-button-gap",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-datepicker-dropdown-background",
+   "value": "{surface.100}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-hover-background",
+   "value": "{surface.200}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-active-background",
+   "value": "{surface.300}",
+   "dark": "{surface.600}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-color",
+   "value": "{surface.600}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-hover-color",
+   "value": "{surface.700}",
+   "dark": "{surface.200}"
+  },
+  {
+   "name": "--p-datepicker-dropdown-active-color",
+   "value": "{surface.800}",
+   "dark": "{surface.100}"
+  },
+  {
+   "name": "--p-datepicker-today-background",
+   "value": "{surface.200}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-datepicker-today-color",
+   "value": "{surface.900}",
+   "dark": "{surface.0}"
+  }
  ]
 }

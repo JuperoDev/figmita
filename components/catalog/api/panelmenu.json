@@ -82,5 +82,99 @@
    "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Style class of the item icon element. */ class: any; }): VNode[]",
    "description": "Custom item icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-panelmenu-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-panelmenu-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-panelmenu-panel-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-panelmenu-panel-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-panelmenu-panel-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-panelmenu-panel-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-panelmenu-panel-padding",
+   "value": "0.25rem 0.25rem"
+  },
+  {
+   "name": "--p-panelmenu-panel-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-panelmenu-panel-first-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-panelmenu-panel-first-top-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-panelmenu-panel-last-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-panelmenu-panel-last-bottom-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-panelmenu-item-focus-background",
+   "value": "{navigation.item.focus.background}"
+  },
+  {
+   "name": "--p-panelmenu-item-color",
+   "value": "{navigation.item.color}"
+  },
+  {
+   "name": "--p-panelmenu-item-focus-color",
+   "value": "{navigation.item.focus.color}"
+  },
+  {
+   "name": "--p-panelmenu-item-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-panelmenu-item-padding",
+   "value": "{navigation.item.padding}"
+  },
+  {
+   "name": "--p-panelmenu-item-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-panelmenu-item-icon-color",
+   "value": "{navigation.item.icon.color}"
+  },
+  {
+   "name": "--p-panelmenu-item-icon-focus-color",
+   "value": "{navigation.item.icon.focus.color}"
+  },
+  {
+   "name": "--p-panelmenu-submenu-indent",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-panelmenu-submenu-icon-color",
+   "value": "{navigation.submenu.icon.color}"
+  },
+  {
+   "name": "--p-panelmenu-submenu-icon-focus-color",
+   "value": "{navigation.submenu.icon.focus.color}"
+  }
  ]
 }

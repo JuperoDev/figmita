@@ -430,5 +430,215 @@
    "type": "(scope: { /** * Clear icon click function. * @param {Event} event - Browser event */ clearCallback: (event: Event) => void; }): VNode[]",
    "description": "Custom clear icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-cascadeselect-background",
+   "value": "{form.field.background}"
+  },
+  {
+   "name": "--p-cascadeselect-disabled-background",
+   "value": "{form.field.disabled.background}"
+  },
+  {
+   "name": "--p-cascadeselect-filled-background",
+   "value": "{form.field.filled.background}"
+  },
+  {
+   "name": "--p-cascadeselect-filled-hover-background",
+   "value": "{form.field.filled.hover.background}"
+  },
+  {
+   "name": "--p-cascadeselect-filled-focus-background",
+   "value": "{form.field.filled.focus.background}"
+  },
+  {
+   "name": "--p-cascadeselect-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-cascadeselect-hover-border-color",
+   "value": "{form.field.hover.border.color}"
+  },
+  {
+   "name": "--p-cascadeselect-focus-border-color",
+   "value": "{form.field.focus.border.color}"
+  },
+  {
+   "name": "--p-cascadeselect-invalid-border-color",
+   "value": "{form.field.invalid.border.color}"
+  },
+  {
+   "name": "--p-cascadeselect-color",
+   "value": "{form.field.color}"
+  },
+  {
+   "name": "--p-cascadeselect-disabled-color",
+   "value": "{form.field.disabled.color}"
+  },
+  {
+   "name": "--p-cascadeselect-placeholder-color",
+   "value": "{form.field.placeholder.color}"
+  },
+  {
+   "name": "--p-cascadeselect-invalid-placeholder-color",
+   "value": "{form.field.invalid.placeholder.color}"
+  },
+  {
+   "name": "--p-cascadeselect-shadow",
+   "value": "{form.field.shadow}"
+  },
+  {
+   "name": "--p-cascadeselect-padding-x",
+   "value": "{form.field.padding.x}"
+  },
+  {
+   "name": "--p-cascadeselect-padding-y",
+   "value": "{form.field.padding.y}"
+  },
+  {
+   "name": "--p-cascadeselect-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-cascadeselect-focus-ring-width",
+   "value": "{form.field.focus.ring.width}"
+  },
+  {
+   "name": "--p-cascadeselect-focus-ring-style",
+   "value": "{form.field.focus.ring.style}"
+  },
+  {
+   "name": "--p-cascadeselect-focus-ring-color",
+   "value": "{form.field.focus.ring.color}"
+  },
+  {
+   "name": "--p-cascadeselect-focus-ring-offset",
+   "value": "{form.field.focus.ring.offset}"
+  },
+  {
+   "name": "--p-cascadeselect-focus-ring-shadow",
+   "value": "{form.field.focus.ring.shadow}"
+  },
+  {
+   "name": "--p-cascadeselect-transition-duration",
+   "value": "{form.field.transition.duration}"
+  },
+  {
+   "name": "--p-cascadeselect-sm-font-size",
+   "value": "{form.field.sm.font.size}"
+  },
+  {
+   "name": "--p-cascadeselect-sm-padding-x",
+   "value": "{form.field.sm.padding.x}"
+  },
+  {
+   "name": "--p-cascadeselect-sm-padding-y",
+   "value": "{form.field.sm.padding.y}"
+  },
+  {
+   "name": "--p-cascadeselect-lg-font-size",
+   "value": "{form.field.lg.font.size}"
+  },
+  {
+   "name": "--p-cascadeselect-lg-padding-x",
+   "value": "{form.field.lg.padding.x}"
+  },
+  {
+   "name": "--p-cascadeselect-lg-padding-y",
+   "value": "{form.field.lg.padding.y}"
+  },
+  {
+   "name": "--p-cascadeselect-dropdown-width",
+   "value": "2.5rem"
+  },
+  {
+   "name": "--p-cascadeselect-dropdown-color",
+   "value": "{form.field.icon.color}"
+  },
+  {
+   "name": "--p-cascadeselect-overlay-background",
+   "value": "{overlay.select.background}"
+  },
+  {
+   "name": "--p-cascadeselect-overlay-border-color",
+   "value": "{overlay.select.border.color}"
+  },
+  {
+   "name": "--p-cascadeselect-overlay-border-radius",
+   "value": "{overlay.select.border.radius}"
+  },
+  {
+   "name": "--p-cascadeselect-overlay-color",
+   "value": "{overlay.select.color}"
+  },
+  {
+   "name": "--p-cascadeselect-overlay-shadow",
+   "value": "{overlay.select.shadow}"
+  },
+  {
+   "name": "--p-cascadeselect-list-padding",
+   "value": "{list.padding}"
+  },
+  {
+   "name": "--p-cascadeselect-list-gap",
+   "value": "{list.gap}"
+  },
+  {
+   "name": "--p-cascadeselect-list-mobile-indent",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-cascadeselect-option-focus-background",
+   "value": "{list.option.focus.background}"
+  },
+  {
+   "name": "--p-cascadeselect-option-selected-background",
+   "value": "{list.option.selected.background}"
+  },
+  {
+   "name": "--p-cascadeselect-option-selected-focus-background",
+   "value": "{list.option.selected.focus.background}"
+  },
+  {
+   "name": "--p-cascadeselect-option-color",
+   "value": "{list.option.color}"
+  },
+  {
+   "name": "--p-cascadeselect-option-focus-color",
+   "value": "{list.option.focus.color}"
+  },
+  {
+   "name": "--p-cascadeselect-option-selected-color",
+   "value": "{list.option.selected.color}"
+  },
+  {
+   "name": "--p-cascadeselect-option-selected-focus-color",
+   "value": "{list.option.selected.focus.color}"
+  },
+  {
+   "name": "--p-cascadeselect-option-padding",
+   "value": "{list.option.padding}"
+  },
+  {
+   "name": "--p-cascadeselect-option-border-radius",
+   "value": "{list.option.border.radius}"
+  },
+  {
+   "name": "--p-cascadeselect-option-icon-color",
+   "value": "{list.option.icon.color}"
+  },
+  {
+   "name": "--p-cascadeselect-option-icon-focus-color",
+   "value": "{list.option.icon.focus.color}"
+  },
+  {
+   "name": "--p-cascadeselect-option-icon-size",
+   "value": "0.875rem"
+  },
+  {
+   "name": "--p-cascadeselect-clear-icon-color",
+   "value": "{form.field.icon.color}"
+  }
  ]
 }

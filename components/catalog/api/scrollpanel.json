@@ -27,5 +27,44 @@
    "type": "() => VNode[]",
    "description": "Custom content slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-scrollpanel-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-scrollpanel-bar-size",
+   "value": "9px"
+  },
+  {
+   "name": "--p-scrollpanel-bar-border-radius",
+   "value": "{border.radius.sm}"
+  },
+  {
+   "name": "--p-scrollpanel-bar-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-scrollpanel-bar-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-scrollpanel-bar-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-scrollpanel-bar-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-scrollpanel-bar-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-scrollpanel-bar-background",
+   "value": "{surface.100}",
+   "dark": "{surface.800}"
+  }
  ]
 }

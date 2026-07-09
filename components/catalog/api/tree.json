@@ -312,5 +312,155 @@
    "type": "(): VNode[]",
    "description": "Custom empty template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-tree-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-tree-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-tree-padding",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-tree-gap",
+   "value": "2px"
+  },
+  {
+   "name": "--p-tree-indent",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-tree-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-tree-node-padding",
+   "value": "0.25rem 0.5rem"
+  },
+  {
+   "name": "--p-tree-node-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-tree-node-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-tree-node-selected-background",
+   "value": "{highlight.background}"
+  },
+  {
+   "name": "--p-tree-node-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-tree-node-hover-color",
+   "value": "{text.hover.color}"
+  },
+  {
+   "name": "--p-tree-node-selected-color",
+   "value": "{highlight.color}"
+  },
+  {
+   "name": "--p-tree-node-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-tree-node-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-tree-node-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-tree-node-focus-ring-offset",
+   "value": "-1px"
+  },
+  {
+   "name": "--p-tree-node-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-tree-node-gap",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-tree-node-icon-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-tree-node-icon-hover-color",
+   "value": "{text.hover.muted.color}"
+  },
+  {
+   "name": "--p-tree-node-icon-selected-color",
+   "value": "{highlight.color}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-size",
+   "value": "1.75rem"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-selected-hover-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-hover-color",
+   "value": "{text.hover.muted.color}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-selected-hover-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-tree-node-toggle-button-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-tree-loading-icon-size",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-tree-filter-margin",
+   "value": "0 0 0.5rem 0"
+  },
+  {
+   "name": "--p-tree-css",
+   "value": "\n    .p-tree-mask.p-overlay-mask {\n        --px-mask-background: light-dark(rgba(255,255,255,0.5),rgba(0,0,0,0.3));\n    }\n"
+  }
  ]
 }

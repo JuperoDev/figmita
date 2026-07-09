@@ -38,5 +38,15 @@
    "type": "(): VNode[]",
    "description": "Content can easily be customized with the default slot instead of using the built-in display."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-overlaybadge-outline-width",
+   "value": "2px"
+  },
+  {
+   "name": "--p-overlaybadge-outline-color",
+   "value": "{content.background}"
+  }
  ]
 }

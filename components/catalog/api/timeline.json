@@ -64,5 +64,63 @@
    "type": "(scope: { /** * Item data */ item: any; /** * Index of item */ index: number; }): VNode[]",
    "description": "Custom connector template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-timeline-event-min-height",
+   "value": "5rem"
+  },
+  {
+   "name": "--p-timeline-horizontal-event-content-padding",
+   "value": "1rem 0"
+  },
+  {
+   "name": "--p-timeline-vertical-event-content-padding",
+   "value": "0 1rem"
+  },
+  {
+   "name": "--p-timeline-event-marker-size",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-timeline-event-marker-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-timeline-event-marker-border-width",
+   "value": "2px"
+  },
+  {
+   "name": "--p-timeline-event-marker-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-timeline-event-marker-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-timeline-event-marker-content-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-timeline-event-marker-content-size",
+   "value": "0.375rem"
+  },
+  {
+   "name": "--p-timeline-event-marker-content-background",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-timeline-event-marker-content-inset-shadow",
+   "value": "0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12)"
+  },
+  {
+   "name": "--p-timeline-event-connector-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-timeline-event-connector-size",
+   "value": "2px"
+  }
  ]
 }

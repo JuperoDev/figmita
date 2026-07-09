@@ -151,5 +151,328 @@
    "type": "(scope: { /** * Message of the component */ message: any; /** * Close sidebar function. */ closeCallback: () => void; }): VNode[]",
    "description": "Custom container slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-toast-width",
+   "value": "25rem"
+  },
+  {
+   "name": "--p-toast-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-toast-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-toast-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-toast-icon-size",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-toast-content-padding",
+   "value": "{overlay.popover.padding}"
+  },
+  {
+   "name": "--p-toast-content-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-toast-text-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-toast-summary-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-toast-summary-font-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-toast-detail-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-toast-detail-font-size",
+   "value": "0.875rem"
+  },
+  {
+   "name": "--p-toast-close-button-width",
+   "value": "1.75rem"
+  },
+  {
+   "name": "--p-toast-close-button-height",
+   "value": "1.75rem"
+  },
+  {
+   "name": "--p-toast-close-button-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-toast-close-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-toast-close-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-toast-close-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-toast-close-icon-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-toast-blur",
+   "value": "1.5px",
+   "dark": "10px"
+  },
+  {
+   "name": "--p-toast-info-background",
+   "value": "color-mix(in srgb, {blue.50}, transparent 5%)",
+   "dark": "color-mix(in srgb, {blue.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-toast-info-border-color",
+   "value": "{blue.200}",
+   "dark": "color-mix(in srgb, {blue.700}, transparent 64%)"
+  },
+  {
+   "name": "--p-toast-info-color",
+   "value": "{blue.600}",
+   "dark": "{blue.500}"
+  },
+  {
+   "name": "--p-toast-info-detail-color",
+   "value": "{surface.700}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-toast-info-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-toast-info-close-button-hover-background",
+   "value": "{blue.100}",
+   "dark": "rgba(255, 255, 255, 0.05)"
+  },
+  {
+   "name": "--p-toast-info-close-button-focus-ring-color",
+   "value": "{blue.600}",
+   "dark": "{blue.500}"
+  },
+  {
+   "name": "--p-toast-info-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-toast-success-background",
+   "value": "color-mix(in srgb, {green.50}, transparent 5%)",
+   "dark": "color-mix(in srgb, {green.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-toast-success-border-color",
+   "value": "{green.200}",
+   "dark": "color-mix(in srgb, {green.700}, transparent 64%)"
+  },
+  {
+   "name": "--p-toast-success-color",
+   "value": "{green.600}",
+   "dark": "{green.500}"
+  },
+  {
+   "name": "--p-toast-success-detail-color",
+   "value": "{surface.700}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-toast-success-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-toast-success-close-button-hover-background",
+   "value": "{green.100}",
+   "dark": "rgba(255, 255, 255, 0.05)"
+  },
+  {
+   "name": "--p-toast-success-close-button-focus-ring-color",
+   "value": "{green.600}",
+   "dark": "{green.500}"
+  },
+  {
+   "name": "--p-toast-success-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-toast-warn-background",
+   "value": "color-mix(in srgb,{yellow.50}, transparent 5%)",
+   "dark": "color-mix(in srgb, {yellow.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-toast-warn-border-color",
+   "value": "{yellow.200}",
+   "dark": "color-mix(in srgb, {yellow.700}, transparent 64%)"
+  },
+  {
+   "name": "--p-toast-warn-color",
+   "value": "{yellow.600}",
+   "dark": "{yellow.500}"
+  },
+  {
+   "name": "--p-toast-warn-detail-color",
+   "value": "{surface.700}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-toast-warn-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-toast-warn-close-button-hover-background",
+   "value": "{yellow.100}",
+   "dark": "rgba(255, 255, 255, 0.05)"
+  },
+  {
+   "name": "--p-toast-warn-close-button-focus-ring-color",
+   "value": "{yellow.600}",
+   "dark": "{yellow.500}"
+  },
+  {
+   "name": "--p-toast-warn-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-toast-error-background",
+   "value": "color-mix(in srgb, {red.50}, transparent 5%)",
+   "dark": "color-mix(in srgb, {red.500}, transparent 84%)"
+  },
+  {
+   "name": "--p-toast-error-border-color",
+   "value": "{red.200}",
+   "dark": "color-mix(in srgb, {red.700}, transparent 64%)"
+  },
+  {
+   "name": "--p-toast-error-color",
+   "value": "{red.600}",
+   "dark": "{red.500}"
+  },
+  {
+   "name": "--p-toast-error-detail-color",
+   "value": "{surface.700}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-toast-error-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-toast-error-close-button-hover-background",
+   "value": "{red.100}",
+   "dark": "rgba(255, 255, 255, 0.05)"
+  },
+  {
+   "name": "--p-toast-error-close-button-focus-ring-color",
+   "value": "{red.600}",
+   "dark": "{red.500}"
+  },
+  {
+   "name": "--p-toast-error-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-toast-secondary-background",
+   "value": "{surface.100}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-toast-secondary-border-color",
+   "value": "{surface.200}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-toast-secondary-color",
+   "value": "{surface.600}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-toast-secondary-detail-color",
+   "value": "{surface.700}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-toast-secondary-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)"
+  },
+  {
+   "name": "--p-toast-secondary-close-button-hover-background",
+   "value": "{surface.200}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-toast-secondary-close-button-focus-ring-color",
+   "value": "{surface.600}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-toast-secondary-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  },
+  {
+   "name": "--p-toast-contrast-background",
+   "value": "{surface.900}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-toast-contrast-border-color",
+   "value": "{surface.950}",
+   "dark": "{surface.100}"
+  },
+  {
+   "name": "--p-toast-contrast-color",
+   "value": "{surface.50}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-toast-contrast-detail-color",
+   "value": "{surface.0}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-toast-contrast-shadow",
+   "value": "0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)",
+   "dark": "0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)"
+  },
+  {
+   "name": "--p-toast-contrast-close-button-hover-background",
+   "value": "{surface.800}",
+   "dark": "{surface.100}"
+  },
+  {
+   "name": "--p-toast-contrast-close-button-focus-ring-color",
+   "value": "{surface.50}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-toast-contrast-close-button-focus-ring-shadow",
+   "value": "none",
+   "dark": "none"
+  }
  ]
 }

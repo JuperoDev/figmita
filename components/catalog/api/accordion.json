@@ -122,5 +122,143 @@
    "type": "(): VNode[]",
    "description": "Custom expand icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-accordion-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-accordion-panel-border-width",
+   "value": "0 0 1px 0"
+  },
+  {
+   "name": "--p-accordion-panel-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-accordion-header-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-accordion-header-hover-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-accordion-header-active-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-accordion-header-active-hover-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-accordion-header-padding",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-accordion-header-font-weight",
+   "value": "600"
+  },
+  {
+   "name": "--p-accordion-header-border-radius",
+   "value": "0"
+  },
+  {
+   "name": "--p-accordion-header-border-width",
+   "value": "0"
+  },
+  {
+   "name": "--p-accordion-header-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-accordion-header-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-accordion-header-hover-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-accordion-header-active-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-accordion-header-active-hover-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-accordion-header-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-accordion-header-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-accordion-header-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-accordion-header-focus-ring-offset",
+   "value": "-1px"
+  },
+  {
+   "name": "--p-accordion-header-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-accordion-header-toggle-icon-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-accordion-header-toggle-icon-hover-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-accordion-header-toggle-icon-active-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-accordion-header-toggle-icon-active-hover-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-accordion-header-first-top-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-accordion-header-first-border-width",
+   "value": "0"
+  },
+  {
+   "name": "--p-accordion-header-last-bottom-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-accordion-header-last-active-bottom-border-radius",
+   "value": "0"
+  },
+  {
+   "name": "--p-accordion-content-border-width",
+   "value": "0"
+  },
+  {
+   "name": "--p-accordion-content-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-accordion-content-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-accordion-content-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-accordion-content-padding",
+   "value": "0 1.125rem 1.125rem 1.125rem"
+  }
  ]
 }

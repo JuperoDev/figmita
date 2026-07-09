@@ -153,5 +153,163 @@
    "type": "(scope: { /** * Current value */ value: any; /** * Icon style class */ class: any; }): VNode[]",
    "description": "Custom icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-togglebutton-padding",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-togglebutton-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-togglebutton-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-togglebutton-font-weight",
+   "value": "500"
+  },
+  {
+   "name": "--p-togglebutton-disabled-background",
+   "value": "{form.field.disabled.background}"
+  },
+  {
+   "name": "--p-togglebutton-disabled-border-color",
+   "value": "{form.field.disabled.background}"
+  },
+  {
+   "name": "--p-togglebutton-disabled-color",
+   "value": "{form.field.disabled.color}"
+  },
+  {
+   "name": "--p-togglebutton-invalid-border-color",
+   "value": "{form.field.invalid.border.color}"
+  },
+  {
+   "name": "--p-togglebutton-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-togglebutton-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-togglebutton-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-togglebutton-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-togglebutton-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-togglebutton-transition-duration",
+   "value": "{form.field.transition.duration}"
+  },
+  {
+   "name": "--p-togglebutton-sm-font-size",
+   "value": "{form.field.sm.font.size}"
+  },
+  {
+   "name": "--p-togglebutton-sm-padding",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-togglebutton-lg-font-size",
+   "value": "{form.field.lg.font.size}"
+  },
+  {
+   "name": "--p-togglebutton-lg-padding",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-togglebutton-icon-disabled-color",
+   "value": "{form.field.disabled.color}"
+  },
+  {
+   "name": "--p-togglebutton-content-padding",
+   "value": "0.25rem 0.75rem"
+  },
+  {
+   "name": "--p-togglebutton-content-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-togglebutton-content-checked-shadow",
+   "value": "0px 1px 2px 0px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.04)"
+  },
+  {
+   "name": "--p-togglebutton-content-sm-padding",
+   "value": "0.25rem 0.75rem"
+  },
+  {
+   "name": "--p-togglebutton-content-lg-padding",
+   "value": "0.25rem 0.75rem"
+  },
+  {
+   "name": "--p-togglebutton-background",
+   "value": "{surface.100}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-togglebutton-checked-background",
+   "value": "{surface.100}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-togglebutton-hover-background",
+   "value": "{surface.100}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-togglebutton-border-color",
+   "value": "{surface.100}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-togglebutton-color",
+   "value": "{surface.500}",
+   "dark": "{surface.400}"
+  },
+  {
+   "name": "--p-togglebutton-hover-color",
+   "value": "{surface.700}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-togglebutton-checked-color",
+   "value": "{surface.900}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-togglebutton-checked-border-color",
+   "value": "{surface.100}",
+   "dark": "{surface.950}"
+  },
+  {
+   "name": "--p-togglebutton-content-checked-background",
+   "value": "{surface.0}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-togglebutton-icon-color",
+   "value": "{surface.500}",
+   "dark": "{surface.400}"
+  },
+  {
+   "name": "--p-togglebutton-icon-hover-color",
+   "value": "{surface.700}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-togglebutton-icon-checked-color",
+   "value": "{surface.900}",
+   "dark": "{surface.0}"
+  }
  ]
 }

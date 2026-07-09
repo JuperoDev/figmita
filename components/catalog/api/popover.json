@@ -80,5 +80,39 @@
    "type": "(scope: { /** * Close overlay panel function. */ closeCallback: () => void; /** * Close button keydown function. * @param {Event} event - Browser event */ keydownCallback: (event: Event) => void; }): VNode[]",
    "description": "Custom container slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-popover-background",
+   "value": "{overlay.popover.background}"
+  },
+  {
+   "name": "--p-popover-border-color",
+   "value": "{overlay.popover.border.color}"
+  },
+  {
+   "name": "--p-popover-color",
+   "value": "{overlay.popover.color}"
+  },
+  {
+   "name": "--p-popover-border-radius",
+   "value": "{overlay.popover.border.radius}"
+  },
+  {
+   "name": "--p-popover-shadow",
+   "value": "{overlay.popover.shadow}"
+  },
+  {
+   "name": "--p-popover-gutter",
+   "value": "10px"
+  },
+  {
+   "name": "--p-popover-arrow-offset",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-popover-content-padding",
+   "value": "{overlay.popover.padding}"
+  }
  ]
 }

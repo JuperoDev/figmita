@@ -38,5 +38,31 @@
    "type": "(): VNode[]",
    "description": "Custom end template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-toolbar-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-toolbar-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-toolbar-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-toolbar-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-toolbar-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-toolbar-padding",
+   "value": "0.75rem"
+  }
  ]
 }

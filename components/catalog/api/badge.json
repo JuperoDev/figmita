@@ -38,5 +38,141 @@
    "type": "(): VNode[]",
    "description": "Content can easily be customized with the default slot instead of using the built-in display."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-badge-border-radius",
+   "value": "{border.radius.md}"
+  },
+  {
+   "name": "--p-badge-padding",
+   "value": "0 0.5rem"
+  },
+  {
+   "name": "--p-badge-font-size",
+   "value": "0.75rem"
+  },
+  {
+   "name": "--p-badge-font-weight",
+   "value": "700"
+  },
+  {
+   "name": "--p-badge-min-width",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-badge-height",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-badge-dot-size",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-badge-sm-font-size",
+   "value": "0.625rem"
+  },
+  {
+   "name": "--p-badge-sm-min-width",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-badge-sm-height",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-badge-lg-font-size",
+   "value": "0.875rem"
+  },
+  {
+   "name": "--p-badge-lg-min-width",
+   "value": "1.75rem"
+  },
+  {
+   "name": "--p-badge-lg-height",
+   "value": "1.75rem"
+  },
+  {
+   "name": "--p-badge-xl-font-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-badge-xl-min-width",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-badge-xl-height",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-badge-primary-background",
+   "value": "{primary.color}",
+   "dark": "{primary.color}"
+  },
+  {
+   "name": "--p-badge-primary-color",
+   "value": "{primary.contrast.color}",
+   "dark": "{primary.contrast.color}"
+  },
+  {
+   "name": "--p-badge-secondary-background",
+   "value": "{surface.100}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-badge-secondary-color",
+   "value": "{surface.600}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-badge-success-background",
+   "value": "{green.500}",
+   "dark": "{green.400}"
+  },
+  {
+   "name": "--p-badge-success-color",
+   "value": "{surface.0}",
+   "dark": "{green.950}"
+  },
+  {
+   "name": "--p-badge-info-background",
+   "value": "{sky.500}",
+   "dark": "{sky.400}"
+  },
+  {
+   "name": "--p-badge-info-color",
+   "value": "{surface.0}",
+   "dark": "{sky.950}"
+  },
+  {
+   "name": "--p-badge-warn-background",
+   "value": "{orange.500}",
+   "dark": "{orange.400}"
+  },
+  {
+   "name": "--p-badge-warn-color",
+   "value": "{surface.0}",
+   "dark": "{orange.950}"
+  },
+  {
+   "name": "--p-badge-danger-background",
+   "value": "{red.500}",
+   "dark": "{red.400}"
+  },
+  {
+   "name": "--p-badge-danger-color",
+   "value": "{surface.0}",
+   "dark": "{red.950}"
+  },
+  {
+   "name": "--p-badge-contrast-background",
+   "value": "{surface.950}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-badge-contrast-color",
+   "value": "{surface.0}",
+   "dark": "{surface.950}"
+  }
  ]
 }

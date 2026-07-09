@@ -187,5 +187,111 @@
    "type": "(scope: { /** * Value of the component */ items: any; }): VNode[]",
    "description": "Custom list template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-dataview-border-color",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-dataview-border-width",
+   "value": "0"
+  },
+  {
+   "name": "--p-dataview-border-radius",
+   "value": "0"
+  },
+  {
+   "name": "--p-dataview-padding",
+   "value": "0"
+  },
+  {
+   "name": "--p-dataview-header-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-dataview-header-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-dataview-header-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-dataview-header-border-width",
+   "value": "0 0 1px 0"
+  },
+  {
+   "name": "--p-dataview-header-padding",
+   "value": "0.75rem 1rem"
+  },
+  {
+   "name": "--p-dataview-header-border-radius",
+   "value": "0"
+  },
+  {
+   "name": "--p-dataview-content-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-dataview-content-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-dataview-content-border-color",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-dataview-content-border-width",
+   "value": "0"
+  },
+  {
+   "name": "--p-dataview-content-padding",
+   "value": "0"
+  },
+  {
+   "name": "--p-dataview-content-border-radius",
+   "value": "0"
+  },
+  {
+   "name": "--p-dataview-footer-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-dataview-footer-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-dataview-footer-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-dataview-footer-border-width",
+   "value": "1px 0 0 0"
+  },
+  {
+   "name": "--p-dataview-footer-padding",
+   "value": "0.75rem 1rem"
+  },
+  {
+   "name": "--p-dataview-footer-border-radius",
+   "value": "0"
+  },
+  {
+   "name": "--p-dataview-paginator-top-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-dataview-paginator-top-border-width",
+   "value": "0 0 1px 0"
+  },
+  {
+   "name": "--p-dataview-paginator-bottom-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-dataview-paginator-bottom-border-width",
+   "value": "1px 0 0 0"
+  }
  ]
 }

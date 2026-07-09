@@ -54,5 +54,6 @@
    "type": "(): VNode[]",
    "description": "Custom scrolltop icon template."
   }
- ]
+ ],
+ "tokens": []
 }

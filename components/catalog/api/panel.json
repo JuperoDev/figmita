@@ -97,5 +97,63 @@
    "type": "(): VNode[]",
    "description": "Custom footer template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-panel-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-panel-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-panel-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-panel-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-panel-header-background",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-panel-header-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-panel-header-padding",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-panel-header-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-panel-header-border-width",
+   "value": "0"
+  },
+  {
+   "name": "--p-panel-header-border-radius",
+   "value": "0"
+  },
+  {
+   "name": "--p-panel-toggleable-header-padding",
+   "value": "0.375rem 1.125rem"
+  },
+  {
+   "name": "--p-panel-title-font-weight",
+   "value": "600"
+  },
+  {
+   "name": "--p-panel-content-padding",
+   "value": "0 1.125rem 1.125rem 1.125rem"
+  },
+  {
+   "name": "--p-panel-footer-padding",
+   "value": "0 1.125rem 1.125rem 1.125rem"
+  }
  ]
 }

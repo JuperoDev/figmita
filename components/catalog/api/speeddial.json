@@ -212,5 +212,15 @@
    "type": "(scope: { /** * Menuitem instance * @type {MenuItem} */ item: MenuItem; /** * Style class of the icon template */ class: any; }): VNode[]",
    "description": "Custom icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-speeddial-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-speeddial-transition-duration",
+   "value": "{transition.duration}"
+  }
  ]
 }

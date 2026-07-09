@@ -297,5 +297,55 @@
    "type": "(scope: { /** * Close dialog function. */ closeCallback: () => void; /** * Maximize/minimize dialog function. * @param {Event} event - Browser event */ maximizeCallback: (event: Event) => void; /** * Initialize drag function for custom container elements. * @param {Event} event - Browser event */ initDragCallback: (event: Event) => void; }): VNode[]",
    "description": "Custom container slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-dialog-background",
+   "value": "{overlay.modal.background}"
+  },
+  {
+   "name": "--p-dialog-border-color",
+   "value": "{overlay.modal.border.color}"
+  },
+  {
+   "name": "--p-dialog-color",
+   "value": "{overlay.modal.color}"
+  },
+  {
+   "name": "--p-dialog-border-radius",
+   "value": "{overlay.modal.border.radius}"
+  },
+  {
+   "name": "--p-dialog-shadow",
+   "value": "{overlay.modal.shadow}"
+  },
+  {
+   "name": "--p-dialog-header-padding",
+   "value": "{overlay.modal.padding}"
+  },
+  {
+   "name": "--p-dialog-header-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-dialog-title-font-size",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-dialog-title-font-weight",
+   "value": "600"
+  },
+  {
+   "name": "--p-dialog-content-padding",
+   "value": "0 {overlay.modal.padding} {overlay.modal.padding} {overlay.modal.padding}"
+  },
+  {
+   "name": "--p-dialog-footer-padding",
+   "value": "0 {overlay.modal.padding} {overlay.modal.padding} {overlay.modal.padding}"
+  },
+  {
+   "name": "--p-dialog-footer-gap",
+   "value": "0.5rem"
+  }
  ]
 }

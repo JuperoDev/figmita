@@ -40,5 +40,43 @@
    "type": "(): VNode[]",
    "description": "Default content slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-divider-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-divider-content-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-divider-content-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-divider-horizontal-margin",
+   "value": "1rem 0"
+  },
+  {
+   "name": "--p-divider-horizontal-padding",
+   "value": "0 1rem"
+  },
+  {
+   "name": "--p-divider-horizontal-content-padding",
+   "value": "0 0.5rem"
+  },
+  {
+   "name": "--p-divider-vertical-margin",
+   "value": "0 1rem"
+  },
+  {
+   "name": "--p-divider-vertical-padding",
+   "value": "0.5rem 0"
+  },
+  {
+   "name": "--p-divider-vertical-content-padding",
+   "value": "0.5rem 0"
+  }
  ]
 }

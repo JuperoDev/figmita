@@ -95,5 +95,175 @@
    "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Style class of the item icon element. */ class: any; }): VNode[]",
    "description": "Custom item icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-menubar-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-menubar-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-menubar-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-menubar-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-menubar-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-menubar-padding",
+   "value": "0.5rem 0.75rem"
+  },
+  {
+   "name": "--p-menubar-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-menubar-base-item-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-menubar-base-item-padding",
+   "value": "{navigation.item.padding}"
+  },
+  {
+   "name": "--p-menubar-item-focus-background",
+   "value": "{navigation.item.focus.background}"
+  },
+  {
+   "name": "--p-menubar-item-active-background",
+   "value": "{navigation.item.active.background}"
+  },
+  {
+   "name": "--p-menubar-item-color",
+   "value": "{navigation.item.color}"
+  },
+  {
+   "name": "--p-menubar-item-focus-color",
+   "value": "{navigation.item.focus.color}"
+  },
+  {
+   "name": "--p-menubar-item-active-color",
+   "value": "{navigation.item.active.color}"
+  },
+  {
+   "name": "--p-menubar-item-padding",
+   "value": "{navigation.item.padding}"
+  },
+  {
+   "name": "--p-menubar-item-border-radius",
+   "value": "{navigation.item.border.radius}"
+  },
+  {
+   "name": "--p-menubar-item-gap",
+   "value": "{navigation.item.gap}"
+  },
+  {
+   "name": "--p-menubar-item-icon-color",
+   "value": "{navigation.item.icon.color}"
+  },
+  {
+   "name": "--p-menubar-item-icon-focus-color",
+   "value": "{navigation.item.icon.focus.color}"
+  },
+  {
+   "name": "--p-menubar-item-icon-active-color",
+   "value": "{navigation.item.icon.active.color}"
+  },
+  {
+   "name": "--p-menubar-submenu-padding",
+   "value": "{navigation.list.padding}"
+  },
+  {
+   "name": "--p-menubar-submenu-gap",
+   "value": "{navigation.list.gap}"
+  },
+  {
+   "name": "--p-menubar-submenu-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-menubar-submenu-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-menubar-submenu-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-menubar-submenu-shadow",
+   "value": "{overlay.navigation.shadow}"
+  },
+  {
+   "name": "--p-menubar-submenu-mobile-indent",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-menubar-submenu-icon-size",
+   "value": "{navigation.submenu.icon.size}"
+  },
+  {
+   "name": "--p-menubar-submenu-icon-color",
+   "value": "{navigation.submenu.icon.color}"
+  },
+  {
+   "name": "--p-menubar-submenu-icon-focus-color",
+   "value": "{navigation.submenu.icon.focus.color}"
+  },
+  {
+   "name": "--p-menubar-submenu-icon-active-color",
+   "value": "{navigation.submenu.icon.active.color}"
+  },
+  {
+   "name": "--p-menubar-separator-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-menubar-mobile-button-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-menubar-mobile-button-size",
+   "value": "1.75rem"
+  },
+  {
+   "name": "--p-menubar-mobile-button-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-menubar-mobile-button-hover-color",
+   "value": "{text.hover.muted.color}"
+  },
+  {
+   "name": "--p-menubar-mobile-button-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-menubar-mobile-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-menubar-mobile-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-menubar-mobile-button-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-menubar-mobile-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-menubar-mobile-button-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  }
  ]
 }

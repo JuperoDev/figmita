@@ -306,5 +306,95 @@
    "type": "(scope: { /** * File to upload. */ files: File[]; }): VNode[]",
    "description": "Custom file label template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-fileupload-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-fileupload-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-fileupload-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-fileupload-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-fileupload-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-fileupload-header-background",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-fileupload-header-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-fileupload-header-padding",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-fileupload-header-border-color",
+   "value": "unset"
+  },
+  {
+   "name": "--p-fileupload-header-border-width",
+   "value": "0"
+  },
+  {
+   "name": "--p-fileupload-header-border-radius",
+   "value": "0"
+  },
+  {
+   "name": "--p-fileupload-header-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-fileupload-content-highlight-border-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-fileupload-content-padding",
+   "value": "0 1.125rem 1.125rem 1.125rem"
+  },
+  {
+   "name": "--p-fileupload-content-gap",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-fileupload-file-padding",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-fileupload-file-gap",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-fileupload-file-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-fileupload-file-info-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-fileupload-file-list-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-fileupload-progressbar-height",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-fileupload-basic-gap",
+   "value": "0.5rem"
+  }
  ]
 }

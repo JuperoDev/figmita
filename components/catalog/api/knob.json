@@ -166,5 +166,43 @@
    "description": "Callback to invoke when the value changes."
   }
  ],
- "slots": []
+ "slots": [],
+ "tokens": [
+  {
+   "name": "--p-knob-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-knob-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-knob-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-knob-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-knob-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-knob-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-knob-value-background",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-knob-range-background",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-knob-text-color",
+   "value": "{text.muted.color}"
+  }
+ ]
 }

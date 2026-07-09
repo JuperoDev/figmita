@@ -216,5 +216,19 @@
    "type": "(scope: { /** * Style class of the icon. */ class: string; }): VNode[]",
    "description": "Custom loading icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-virtualscroller-loader-mask-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-virtualscroller-loader-mask-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-virtualscroller-loader-icon-size",
+   "value": "2rem"
+  }
  ]
 }

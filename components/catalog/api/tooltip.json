@@ -73,5 +73,37 @@
   }
  ],
  "events": [],
- "slots": []
+ "slots": [],
+ "tokens": [
+  {
+   "name": "--p-tooltip-max-width",
+   "value": "12.5rem"
+  },
+  {
+   "name": "--p-tooltip-gutter",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-tooltip-shadow",
+   "value": "{overlay.popover.shadow}"
+  },
+  {
+   "name": "--p-tooltip-padding",
+   "value": "0.5rem 0.75rem"
+  },
+  {
+   "name": "--p-tooltip-border-radius",
+   "value": "{overlay.popover.border.radius}"
+  },
+  {
+   "name": "--p-tooltip-background",
+   "value": "{surface.700}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-tooltip-color",
+   "value": "{surface.0}",
+   "dark": "{surface.0}"
+  }
+ ]
 }

@@ -25,5 +25,39 @@
   }
  ],
  "events": [],
- "slots": []
+ "slots": [],
+ "tokens": [
+  {
+   "name": "--p-terminal-background",
+   "value": "{form.field.background}"
+  },
+  {
+   "name": "--p-terminal-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-terminal-color",
+   "value": "{form.field.color}"
+  },
+  {
+   "name": "--p-terminal-height",
+   "value": "18rem"
+  },
+  {
+   "name": "--p-terminal-padding",
+   "value": "{form.field.padding.y} {form.field.padding.x}"
+  },
+  {
+   "name": "--p-terminal-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-terminal-prompt-gap",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-terminal-command-response-margin",
+   "value": "2px 0"
+  }
+ ]
 }

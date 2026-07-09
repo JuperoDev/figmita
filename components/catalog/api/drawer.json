@@ -169,5 +169,43 @@
    "type": "(): VNode[]",
    "description": "Custom footer template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-drawer-background",
+   "value": "{overlay.modal.background}"
+  },
+  {
+   "name": "--p-drawer-border-color",
+   "value": "{overlay.modal.border.color}"
+  },
+  {
+   "name": "--p-drawer-color",
+   "value": "{overlay.modal.color}"
+  },
+  {
+   "name": "--p-drawer-shadow",
+   "value": "{overlay.modal.shadow}"
+  },
+  {
+   "name": "--p-drawer-header-padding",
+   "value": "{overlay.modal.padding}"
+  },
+  {
+   "name": "--p-drawer-title-font-size",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-drawer-title-font-weight",
+   "value": "600"
+  },
+  {
+   "name": "--p-drawer-content-padding",
+   "value": "0 {overlay.modal.padding} {overlay.modal.padding} {overlay.modal.padding}"
+  },
+  {
+   "name": "--p-drawer-footer-padding",
+   "value": "{overlay.modal.padding}"
+  }
  ]
 }

@@ -149,5 +149,66 @@
    "description": "Callback to invoke when input is cleared by the user."
   }
  ],
- "slots": []
+ "slots": [],
+ "tokens": [
+  {
+   "name": "--p-colorpicker-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-colorpicker-preview-width",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-colorpicker-preview-height",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-colorpicker-preview-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-colorpicker-preview-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-colorpicker-preview-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-colorpicker-preview-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-colorpicker-preview-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-colorpicker-preview-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-colorpicker-panel-shadow",
+   "value": "{overlay.popover.shadow}"
+  },
+  {
+   "name": "--p-colorpicker-panel-border-radius",
+   "value": "{overlay.popover.borderRadius}"
+  },
+  {
+   "name": "--p-colorpicker-panel-background",
+   "value": "{surface.800}",
+   "dark": "{surface.900}"
+  },
+  {
+   "name": "--p-colorpicker-panel-border-color",
+   "value": "{surface.900}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-colorpicker-handle-color",
+   "value": "{surface.0}",
+   "dark": "{surface.0}"
+  }
+ ]
 }

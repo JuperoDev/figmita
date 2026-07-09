@@ -20,5 +20,11 @@
    "type": "(): VNode[]",
    "description": "Default slot for content."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-iconfield-icon-color",
+   "value": "{form.field.icon.color}"
+  }
  ]
 }

@@ -65,5 +65,47 @@
    "type": "(scope: { /** * Close message function. */ closeCallback: () => void; }): VNode[]",
    "description": "Custom content template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-inplace-padding",
+   "value": "{form.field.padding.y} {form.field.padding.x}"
+  },
+  {
+   "name": "--p-inplace-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-inplace-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-inplace-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-inplace-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-inplace-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-inplace-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-inplace-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-inplace-display-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-inplace-display-hover-color",
+   "value": "{content.hover.color}"
+  }
  ]
 }

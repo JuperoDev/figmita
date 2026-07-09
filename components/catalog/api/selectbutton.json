@@ -152,5 +152,16 @@
    "type": "(scope: { /** * Option instance */ option: any; /** * Index of the option */ index: number; }): VNode[]",
    "description": "Custom content for each option."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-selectbutton-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-selectbutton-invalid-border-color",
+   "value": "{form.field.invalid.border.color}",
+   "dark": "{form.field.invalid.border.color}"
+  }
  ]
 }

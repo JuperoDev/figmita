@@ -147,5 +147,107 @@
    "type": "(): VNode[]",
    "description": "Custom end template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-tieredmenu-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-tieredmenu-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-tieredmenu-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-tieredmenu-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-tieredmenu-shadow",
+   "value": "{overlay.navigation.shadow}"
+  },
+  {
+   "name": "--p-tieredmenu-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-tieredmenu-list-padding",
+   "value": "{navigation.list.padding}"
+  },
+  {
+   "name": "--p-tieredmenu-list-gap",
+   "value": "{navigation.list.gap}"
+  },
+  {
+   "name": "--p-tieredmenu-item-focus-background",
+   "value": "{navigation.item.focus.background}"
+  },
+  {
+   "name": "--p-tieredmenu-item-active-background",
+   "value": "{navigation.item.active.background}"
+  },
+  {
+   "name": "--p-tieredmenu-item-color",
+   "value": "{navigation.item.color}"
+  },
+  {
+   "name": "--p-tieredmenu-item-focus-color",
+   "value": "{navigation.item.focus.color}"
+  },
+  {
+   "name": "--p-tieredmenu-item-active-color",
+   "value": "{navigation.item.active.color}"
+  },
+  {
+   "name": "--p-tieredmenu-item-padding",
+   "value": "{navigation.item.padding}"
+  },
+  {
+   "name": "--p-tieredmenu-item-border-radius",
+   "value": "{navigation.item.border.radius}"
+  },
+  {
+   "name": "--p-tieredmenu-item-gap",
+   "value": "{navigation.item.gap}"
+  },
+  {
+   "name": "--p-tieredmenu-item-icon-color",
+   "value": "{navigation.item.icon.color}"
+  },
+  {
+   "name": "--p-tieredmenu-item-icon-focus-color",
+   "value": "{navigation.item.icon.focus.color}"
+  },
+  {
+   "name": "--p-tieredmenu-item-icon-active-color",
+   "value": "{navigation.item.icon.active.color}"
+  },
+  {
+   "name": "--p-tieredmenu-submenu-mobile-indent",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-tieredmenu-submenu-icon-size",
+   "value": "{navigation.submenu.icon.size}"
+  },
+  {
+   "name": "--p-tieredmenu-submenu-icon-color",
+   "value": "{navigation.submenu.icon.color}"
+  },
+  {
+   "name": "--p-tieredmenu-submenu-icon-focus-color",
+   "value": "{navigation.submenu.icon.focus.color}"
+  },
+  {
+   "name": "--p-tieredmenu-submenu-icon-active-color",
+   "value": "{navigation.submenu.icon.active.color}"
+  },
+  {
+   "name": "--p-tieredmenu-separator-border-color",
+   "value": "{content.border.color}"
+  }
  ]
 }

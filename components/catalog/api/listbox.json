@@ -370,5 +370,128 @@
    "type": "(scope: { /** * Style class of the filter icon */ class: any; }): VNode[]",
    "description": "Custom filter icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-listbox-background",
+   "value": "{form.field.background}"
+  },
+  {
+   "name": "--p-listbox-disabled-background",
+   "value": "{form.field.disabled.background}"
+  },
+  {
+   "name": "--p-listbox-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-listbox-invalid-border-color",
+   "value": "{form.field.invalid.border.color}"
+  },
+  {
+   "name": "--p-listbox-color",
+   "value": "{form.field.color}"
+  },
+  {
+   "name": "--p-listbox-disabled-color",
+   "value": "{form.field.disabled.color}"
+  },
+  {
+   "name": "--p-listbox-shadow",
+   "value": "{form.field.shadow}"
+  },
+  {
+   "name": "--p-listbox-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-listbox-transition-duration",
+   "value": "{form.field.transition.duration}"
+  },
+  {
+   "name": "--p-listbox-list-padding",
+   "value": "{list.padding}"
+  },
+  {
+   "name": "--p-listbox-list-gap",
+   "value": "{list.gap}"
+  },
+  {
+   "name": "--p-listbox-list-header-padding",
+   "value": "{list.header.padding}"
+  },
+  {
+   "name": "--p-listbox-option-focus-background",
+   "value": "{list.option.focus.background}"
+  },
+  {
+   "name": "--p-listbox-option-selected-background",
+   "value": "{list.option.selected.background}"
+  },
+  {
+   "name": "--p-listbox-option-selected-focus-background",
+   "value": "{list.option.selected.focus.background}"
+  },
+  {
+   "name": "--p-listbox-option-color",
+   "value": "{list.option.color}"
+  },
+  {
+   "name": "--p-listbox-option-focus-color",
+   "value": "{list.option.focus.color}"
+  },
+  {
+   "name": "--p-listbox-option-selected-color",
+   "value": "{list.option.selected.color}"
+  },
+  {
+   "name": "--p-listbox-option-selected-focus-color",
+   "value": "{list.option.selected.focus.color}"
+  },
+  {
+   "name": "--p-listbox-option-padding",
+   "value": "{list.option.padding}"
+  },
+  {
+   "name": "--p-listbox-option-border-radius",
+   "value": "{list.option.border.radius}"
+  },
+  {
+   "name": "--p-listbox-option-group-background",
+   "value": "{list.option.group.background}"
+  },
+  {
+   "name": "--p-listbox-option-group-color",
+   "value": "{list.option.group.color}"
+  },
+  {
+   "name": "--p-listbox-option-group-font-weight",
+   "value": "{list.option.group.font.weight}"
+  },
+  {
+   "name": "--p-listbox-option-group-padding",
+   "value": "{list.option.group.padding}"
+  },
+  {
+   "name": "--p-listbox-checkmark-color",
+   "value": "{list.option.color}"
+  },
+  {
+   "name": "--p-listbox-checkmark-gutter-start",
+   "value": "-0.375rem"
+  },
+  {
+   "name": "--p-listbox-checkmark-gutter-end",
+   "value": "0.375rem"
+  },
+  {
+   "name": "--p-listbox-empty-message-padding",
+   "value": "{list.option.padding}"
+  },
+  {
+   "name": "--p-listbox-option-striped-background",
+   "value": "{surface.50}",
+   "dark": "{surface.900}"
+  }
  ]
 }

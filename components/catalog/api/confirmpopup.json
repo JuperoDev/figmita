@@ -50,5 +50,59 @@
    "type": "(scope: { /** * Message of the component */ message: any; /** * Accept function of the component */ acceptCallback: () => void; /** * Reject function of the component */ rejectCallback: () => void; }): VNode[]",
    "description": "Custom container slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-confirmpopup-background",
+   "value": "{overlay.popover.background}"
+  },
+  {
+   "name": "--p-confirmpopup-border-color",
+   "value": "{overlay.popover.border.color}"
+  },
+  {
+   "name": "--p-confirmpopup-color",
+   "value": "{overlay.popover.color}"
+  },
+  {
+   "name": "--p-confirmpopup-border-radius",
+   "value": "{overlay.popover.border.radius}"
+  },
+  {
+   "name": "--p-confirmpopup-shadow",
+   "value": "{overlay.popover.shadow}"
+  },
+  {
+   "name": "--p-confirmpopup-gutter",
+   "value": "10px"
+  },
+  {
+   "name": "--p-confirmpopup-arrow-offset",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-confirmpopup-content-padding",
+   "value": "{overlay.popover.padding}"
+  },
+  {
+   "name": "--p-confirmpopup-content-gap",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-confirmpopup-icon-size",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-confirmpopup-icon-color",
+   "value": "{overlay.popover.color}"
+  },
+  {
+   "name": "--p-confirmpopup-footer-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-confirmpopup-footer-padding",
+   "value": "0 {overlay.popover.padding} {overlay.popover.padding} {overlay.popover.padding}"
+  }
  ]
 }

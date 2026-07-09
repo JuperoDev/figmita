@@ -121,5 +121,51 @@
    "type": "(scope: { /** * Option value */ value: number; /** * Style class of the icon. */ class: string; /** * Toggle function. * @param {Event} event - Browser event */ toggleCallback: (event: Event) => void; }): VNode[]",
    "description": "Custom off icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-rating-gap",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-rating-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-rating-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-rating-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-rating-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-rating-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-rating-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-rating-icon-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-rating-icon-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-rating-icon-hover-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-rating-icon-active-color",
+   "value": "{primary.color}"
+  }
  ]
 }

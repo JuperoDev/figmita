@@ -70,5 +70,83 @@
    "type": "(scope: { /** * Remove icon click event * @param {Event} event - Browser event */ removeCallback: (event: Event) => void; /** * Remove icon keydown event * @param {Event} event - Browser event */ keydownCallback: (event: Event) => void; }): VNode[]",
    "description": "Custom remove icon template of chip component."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-chip-border-radius",
+   "value": "16px"
+  },
+  {
+   "name": "--p-chip-padding-x",
+   "value": "0.75rem"
+  },
+  {
+   "name": "--p-chip-padding-y",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-chip-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-chip-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-chip-image-width",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-chip-image-height",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-chip-icon-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-chip-remove-icon-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-chip-remove-icon-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-chip-remove-icon-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-chip-remove-icon-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-chip-remove-icon-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-chip-remove-icon-focus-ring-shadow",
+   "value": "{form.field.focus.ring.shadow}"
+  },
+  {
+   "name": "--p-chip-background",
+   "value": "{surface.100}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-chip-color",
+   "value": "{surface.800}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-chip-icon-color",
+   "value": "{surface.800}",
+   "dark": "{surface.0}"
+  },
+  {
+   "name": "--p-chip-remove-icon-color",
+   "value": "{surface.800}",
+   "dark": "{surface.0}"
+  }
  ]
 }

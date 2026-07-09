@@ -20,5 +20,31 @@
    "type": "(): VNode[]",
    "description": "Custom default template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-inputgroup-addon-background",
+   "value": "{form.field.background}"
+  },
+  {
+   "name": "--p-inputgroup-addon-border-color",
+   "value": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-inputgroup-addon-color",
+   "value": "{form.field.icon.color}"
+  },
+  {
+   "name": "--p-inputgroup-addon-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-inputgroup-addon-padding",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-inputgroup-addon-min-width",
+   "value": "2.5rem"
+  }
  ]
 }

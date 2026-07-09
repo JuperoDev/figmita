@@ -326,5 +326,15 @@
    "type": "(scope: { /** * Whether view change. */ viewChanged: boolean; }): VNode[]",
    "description": "Custom move all to source icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-picklist-gap",
+   "value": "1.125rem"
+  },
+  {
+   "name": "--p-picklist-controls-gap",
+   "value": "0.5rem"
+  }
  ]
 }

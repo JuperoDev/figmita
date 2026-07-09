@@ -147,5 +147,111 @@
    "type": "(scope: { /** * Style class of the original image element. */ class: any; /** * Style of the original image element. */ style: any; /** * Preview click function. */ previewCallback: () => void; }): VNode[]",
    "description": "Custom original template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-image-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-image-preview-icon-size",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-image-preview-mask-background",
+   "value": "{mask.background}"
+  },
+  {
+   "name": "--p-image-preview-mask-color",
+   "value": "{mask.color}"
+  },
+  {
+   "name": "--p-image-toolbar-position-left",
+   "value": "auto"
+  },
+  {
+   "name": "--p-image-toolbar-position-right",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-image-toolbar-position-top",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-image-toolbar-position-bottom",
+   "value": "auto"
+  },
+  {
+   "name": "--p-image-toolbar-blur",
+   "value": "8px"
+  },
+  {
+   "name": "--p-image-toolbar-background",
+   "value": "rgba(255,255,255,0.1)"
+  },
+  {
+   "name": "--p-image-toolbar-border-color",
+   "value": "rgba(255,255,255,0.2)"
+  },
+  {
+   "name": "--p-image-toolbar-border-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-image-toolbar-border-radius",
+   "value": "30px"
+  },
+  {
+   "name": "--p-image-toolbar-padding",
+   "value": ".5rem"
+  },
+  {
+   "name": "--p-image-toolbar-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-image-action-hover-background",
+   "value": "rgba(255,255,255,0.1)"
+  },
+  {
+   "name": "--p-image-action-color",
+   "value": "{surface.50}"
+  },
+  {
+   "name": "--p-image-action-hover-color",
+   "value": "{surface.0}"
+  },
+  {
+   "name": "--p-image-action-size",
+   "value": "3rem"
+  },
+  {
+   "name": "--p-image-action-icon-size",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-image-action-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-image-action-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-image-action-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-image-action-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-image-action-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-image-action-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  }
  ]
 }

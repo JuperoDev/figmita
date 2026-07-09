@@ -555,5 +555,293 @@
    "type": "(scope: { /** * Style class of the paginator jump to page dropdown icon. */ class: string; }): VNode[]",
    "description": "Custom paginatorjumptopagedropdownicon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-treetable-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-treetable-header-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-treetable-header-border-color",
+   "value": "{treetable.border.color}"
+  },
+  {
+   "name": "--p-treetable-header-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-treetable-header-border-width",
+   "value": "0 0 1px 0"
+  },
+  {
+   "name": "--p-treetable-header-padding",
+   "value": "0.75rem 1rem"
+  },
+  {
+   "name": "--p-treetable-header-cell-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-treetable-header-cell-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-treetable-header-cell-selected-background",
+   "value": "{highlight.background}"
+  },
+  {
+   "name": "--p-treetable-header-cell-border-color",
+   "value": "{treetable.border.color}"
+  },
+  {
+   "name": "--p-treetable-header-cell-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-treetable-header-cell-hover-color",
+   "value": "{content.hover.color}"
+  },
+  {
+   "name": "--p-treetable-header-cell-selected-color",
+   "value": "{highlight.color}"
+  },
+  {
+   "name": "--p-treetable-header-cell-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-treetable-header-cell-padding",
+   "value": "0.75rem 1rem"
+  },
+  {
+   "name": "--p-treetable-header-cell-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-treetable-header-cell-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-treetable-header-cell-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-treetable-header-cell-focus-ring-offset",
+   "value": "-1px"
+  },
+  {
+   "name": "--p-treetable-header-cell-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-treetable-column-title-font-weight",
+   "value": "600"
+  },
+  {
+   "name": "--p-treetable-row-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-treetable-row-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-treetable-row-selected-background",
+   "value": "{highlight.background}"
+  },
+  {
+   "name": "--p-treetable-row-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-treetable-row-hover-color",
+   "value": "{content.hover.color}"
+  },
+  {
+   "name": "--p-treetable-row-selected-color",
+   "value": "{highlight.color}"
+  },
+  {
+   "name": "--p-treetable-row-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-treetable-row-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-treetable-row-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-treetable-row-focus-ring-offset",
+   "value": "-1px"
+  },
+  {
+   "name": "--p-treetable-row-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-treetable-body-cell-border-color",
+   "value": "{treetable.border.color}"
+  },
+  {
+   "name": "--p-treetable-body-cell-padding",
+   "value": "0.75rem 1rem"
+  },
+  {
+   "name": "--p-treetable-body-cell-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-treetable-footer-cell-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-treetable-footer-cell-border-color",
+   "value": "{treetable.border.color}"
+  },
+  {
+   "name": "--p-treetable-footer-cell-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-treetable-footer-cell-padding",
+   "value": "0.75rem 1rem"
+  },
+  {
+   "name": "--p-treetable-column-footer-font-weight",
+   "value": "600"
+  },
+  {
+   "name": "--p-treetable-footer-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-treetable-footer-border-color",
+   "value": "{treetable.border.color}"
+  },
+  {
+   "name": "--p-treetable-footer-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-treetable-footer-border-width",
+   "value": "0 0 1px 0"
+  },
+  {
+   "name": "--p-treetable-footer-padding",
+   "value": "0.75rem 1rem"
+  },
+  {
+   "name": "--p-treetable-column-resizer-width",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-treetable-resize-indicator-width",
+   "value": "1px"
+  },
+  {
+   "name": "--p-treetable-resize-indicator-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-treetable-sort-icon-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-treetable-sort-icon-hover-color",
+   "value": "{text.hover.muted.color}"
+  },
+  {
+   "name": "--p-treetable-sort-icon-size",
+   "value": "0.875rem"
+  },
+  {
+   "name": "--p-treetable-loading-icon-size",
+   "value": "2rem"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-selected-hover-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-hover-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-selected-hover-color",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-size",
+   "value": "1.75rem"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-treetable-node-toggle-button-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-treetable-paginator-top-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-treetable-paginator-top-border-width",
+   "value": "0 0 1px 0"
+  },
+  {
+   "name": "--p-treetable-paginator-bottom-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-treetable-paginator-bottom-border-width",
+   "value": "0 0 1px 0"
+  },
+  {
+   "name": "--p-treetable-css",
+   "value": "\n    .p-treetable-mask.p-overlay-mask {\n        --px-mask-background: light-dark(rgba(255,255,255,0.5),rgba(0,0,0,0.3));\n    }\n"
+  },
+  {
+   "name": "--p-treetable-border-color",
+   "value": "{content.border.color}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-treetable-body-cell-selected-border-color",
+   "value": "{primary.100}",
+   "dark": "{primary.900}"
+  }
  ]
 }

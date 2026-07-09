@@ -162,5 +162,95 @@
    "type": "(scope: { /** * Index of first record */ first: number; /** * Index of last record */ last: number; /** * Number of rows to display in new page */ rows: number; /** * New page number */ page: number; /** * Total number of pages */ pageCount?: number; /** * Direct page links */ pageLinks?: number; /** * Total records */ totalRecords?: number; /** * First page function. * @param {Event} event - Browser event */ firstPageCallback: (event: Event) => void; /** * Last page function. * @param {Event} event - Browser event */ lastPageCallback: (event: Event) => void; /** * Previous page function. * @param {Event} event - Browser event */ prevPageCallback: (event: Event) => void; /** * Next page function. * @param {Event} event - Browser event */ nextPageCallback: (event: Event) => void; /** * Row change function. */ rowChangeCallback: (value: number) => void; /** * Page change function. */ changePageCallback: (value: number) => void; }): VNode[]",
    "description": "Custom container slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-paginator-padding",
+   "value": "0.5rem 1rem"
+  },
+  {
+   "name": "--p-paginator-gap",
+   "value": "0.25rem"
+  },
+  {
+   "name": "--p-paginator-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-paginator-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-paginator-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-paginator-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-paginator-nav-button-background",
+   "value": "transparent"
+  },
+  {
+   "name": "--p-paginator-nav-button-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-paginator-nav-button-selected-background",
+   "value": "{highlight.background}"
+  },
+  {
+   "name": "--p-paginator-nav-button-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-paginator-nav-button-hover-color",
+   "value": "{text.hover.muted.color}"
+  },
+  {
+   "name": "--p-paginator-nav-button-selected-color",
+   "value": "{highlight.color}"
+  },
+  {
+   "name": "--p-paginator-nav-button-width",
+   "value": "2.5rem"
+  },
+  {
+   "name": "--p-paginator-nav-button-height",
+   "value": "2.5rem"
+  },
+  {
+   "name": "--p-paginator-nav-button-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-paginator-nav-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-paginator-nav-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-paginator-nav-button-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-paginator-nav-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-paginator-nav-button-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-paginator-current-page-report-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-paginator-jump-to-page-input-max-width",
+   "value": "2.5rem"
+  }
  ]
 }

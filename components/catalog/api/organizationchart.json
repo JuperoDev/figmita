@@ -101,5 +101,115 @@
    "type": "(scope: { /** * Curent state of the node */ expanded: boolean; }): VNode[]",
    "description": "Custom toggler icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-organizationchart-gutter",
+   "value": "0.75rem"
+  },
+  {
+   "name": "--p-organizationchart-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-organizationchart-node-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-organizationchart-node-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-organizationchart-node-selected-background",
+   "value": "{highlight.background}"
+  },
+  {
+   "name": "--p-organizationchart-node-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-organizationchart-node-color",
+   "value": "{content.color}"
+  },
+  {
+   "name": "--p-organizationchart-node-selected-color",
+   "value": "{highlight.color}"
+  },
+  {
+   "name": "--p-organizationchart-node-hover-color",
+   "value": "{content.hover.color}"
+  },
+  {
+   "name": "--p-organizationchart-node-padding",
+   "value": "0.75rem 1rem"
+  },
+  {
+   "name": "--p-organizationchart-node-toggleable-padding",
+   "value": "0.75rem 1rem 1.25rem 1rem"
+  },
+  {
+   "name": "--p-organizationchart-node-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-hover-background",
+   "value": "{content.hover.background}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-border-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-hover-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-size",
+   "value": "1.5rem"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-border-radius",
+   "value": "50%"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-organizationchart-node-toggle-button-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-organizationchart-connector-color",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-organizationchart-connector-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-organizationchart-connector-height",
+   "value": "24px"
+  }
  ]
 }

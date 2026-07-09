@@ -85,5 +85,43 @@
    "type": "(scope: { /** * Current value of the component */ value: MeterItem[]; /** * Total percent of the metergroup items */ totalPercent: number; /** * Array of sequential sum of values of metergroup items */ percentages: number[]; }): VNode[]",
    "description": "Custom end template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-metergroup-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-metergroup-gap",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-metergroup-meters-background",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-metergroup-meters-size",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-metergroup-label-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-metergroup-label-marker-size",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-metergroup-label-icon-size",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-metergroup-label-list-vertical-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-metergroup-label-list-horizontal-gap",
+   "value": "1rem"
+  }
  ]
 }

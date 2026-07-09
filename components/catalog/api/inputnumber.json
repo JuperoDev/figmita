@@ -359,5 +359,68 @@
    "type": "(scope: { /** * Clear icon click function. * @param {Event} event - Browser event */ clearCallback: (event: Event) => void; }): VNode[]",
    "description": "Custom clear icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-inputnumber-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-inputnumber-button-width",
+   "value": "2.5rem"
+  },
+  {
+   "name": "--p-inputnumber-button-border-radius",
+   "value": "{form.field.border.radius}"
+  },
+  {
+   "name": "--p-inputnumber-button-vertical-padding",
+   "value": "{form.field.padding.y}"
+  },
+  {
+   "name": "--p-inputnumber-button-background",
+   "value": "transparent",
+   "dark": "transparent"
+  },
+  {
+   "name": "--p-inputnumber-button-hover-background",
+   "value": "{surface.100}",
+   "dark": "{surface.800}"
+  },
+  {
+   "name": "--p-inputnumber-button-active-background",
+   "value": "{surface.200}",
+   "dark": "{surface.700}"
+  },
+  {
+   "name": "--p-inputnumber-button-border-color",
+   "value": "{form.field.border.color}",
+   "dark": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-inputnumber-button-hover-border-color",
+   "value": "{form.field.border.color}",
+   "dark": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-inputnumber-button-active-border-color",
+   "value": "{form.field.border.color}",
+   "dark": "{form.field.border.color}"
+  },
+  {
+   "name": "--p-inputnumber-button-color",
+   "value": "{surface.400}",
+   "dark": "{surface.400}"
+  },
+  {
+   "name": "--p-inputnumber-button-hover-color",
+   "value": "{surface.500}",
+   "dark": "{surface.300}"
+  },
+  {
+   "name": "--p-inputnumber-button-active-color",
+   "value": "{surface.600}",
+   "dark": "{surface.200}"
+  }
  ]
 }

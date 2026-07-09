@@ -56,5 +56,71 @@
    "type": "(scope: { /** * Menuitem instance */ item: MenuItem; /** * Style class of the item icon element. */ class: any; }): VNode[]",
    "description": "Custom item icon template."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-breadcrumb-padding",
+   "value": "1rem"
+  },
+  {
+   "name": "--p-breadcrumb-background",
+   "value": "{content.background}"
+  },
+  {
+   "name": "--p-breadcrumb-gap",
+   "value": "0.5rem"
+  },
+  {
+   "name": "--p-breadcrumb-transition-duration",
+   "value": "{transition.duration}"
+  },
+  {
+   "name": "--p-breadcrumb-item-color",
+   "value": "{text.muted.color}"
+  },
+  {
+   "name": "--p-breadcrumb-item-hover-color",
+   "value": "{text.color}"
+  },
+  {
+   "name": "--p-breadcrumb-item-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-breadcrumb-item-gap",
+   "value": "{navigation.item.gap}"
+  },
+  {
+   "name": "--p-breadcrumb-item-icon-color",
+   "value": "{navigation.item.icon.color}"
+  },
+  {
+   "name": "--p-breadcrumb-item-icon-hover-color",
+   "value": "{navigation.item.icon.focus.color}"
+  },
+  {
+   "name": "--p-breadcrumb-item-focus-ring-width",
+   "value": "{focus.ring.width}"
+  },
+  {
+   "name": "--p-breadcrumb-item-focus-ring-style",
+   "value": "{focus.ring.style}"
+  },
+  {
+   "name": "--p-breadcrumb-item-focus-ring-color",
+   "value": "{focus.ring.color}"
+  },
+  {
+   "name": "--p-breadcrumb-item-focus-ring-offset",
+   "value": "{focus.ring.offset}"
+  },
+  {
+   "name": "--p-breadcrumb-item-focus-ring-shadow",
+   "value": "{focus.ring.shadow}"
+  },
+  {
+   "name": "--p-breadcrumb-separator-color",
+   "value": "{navigation.item.icon.color}"
+  }
  ]
 }

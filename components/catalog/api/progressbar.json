@@ -40,5 +40,35 @@
    "type": "(): VNode[]",
    "description": "Custom content slot."
   }
+ ],
+ "tokens": [
+  {
+   "name": "--p-progressbar-background",
+   "value": "{content.border.color}"
+  },
+  {
+   "name": "--p-progressbar-border-radius",
+   "value": "{content.border.radius}"
+  },
+  {
+   "name": "--p-progressbar-height",
+   "value": "1.25rem"
+  },
+  {
+   "name": "--p-progressbar-value-background",
+   "value": "{primary.color}"
+  },
+  {
+   "name": "--p-progressbar-label-color",
+   "value": "{primary.contrast.color}"
+  },
+  {
+   "name": "--p-progressbar-label-font-size",
+   "value": "0.75rem"
+  },
+  {
+   "name": "--p-progressbar-label-font-weight",
+   "value": "600"
+  }
  ]
 }
