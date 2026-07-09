@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
 
+  // Custom library components are compiled from pasted templates at runtime
+  vue: {
+    runtimeCompiler: true,
+  },
+
   modules: [
     '@pinia/nuxt',
     'nuxt-security',
@@ -35,5 +40,5 @@ export default defineNuxtConfig({
     ],
   },
 
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', 'primeflex/primeflex.css'],
 })

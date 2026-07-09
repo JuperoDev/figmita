@@ -5,6 +5,7 @@ import { gridCss } from '~/composables/useGridLayout.js'
 
 const { screens, activeScreen, startScreenId } = useScreens()
 const { addElement } = useElements()
+const { libComponents } = useLibrary()
 
 // Screens saved before borders/shadows/grids existed lack these fields;
 // grids from the short-lived column-guide era store cols as a number
@@ -254,6 +255,21 @@ function confirmAddButton() {
       <span>Text</span>
     </button>
   </div>
+
+  <template v-if="libComponents.length">
+    <div class="prop-hr" />
+    <p class="prop-section">My Library</p>
+    <div class="prime-list" style="padding-bottom:4px;">
+      <button
+        v-for="c in libComponents" :key="c.id"
+        class="prime-item"
+        @click="addElement('custom', { libId: c.id })"
+      >
+        <i class="pi pi-sparkles" style="color:#a78bfa;" />
+        <span>{{ c.name }}</span>
+      </button>
+    </div>
+  </template>
 
   <div class="prop-hr" />
   <p class="prop-section">PrimeVue Components</p>

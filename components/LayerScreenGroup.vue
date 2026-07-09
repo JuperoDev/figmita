@@ -13,8 +13,8 @@ const { panToIdx } = useCanvas()
 
 const vFocus = { mounted: el => nextTick(() => el.focus()) }
 
-const EL_ICON = { megamenu: 'pi-bars', confirmdialog: 'pi-shield', button: 'pi-mouse', prime: 'pi-prime', box: 'pi-stop', text: 'pi-align-left' }
-const EL_NAME = { megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box', text: 'Text' }
+const EL_ICON = { megamenu: 'pi-bars', confirmdialog: 'pi-shield', button: 'pi-mouse', prime: 'pi-prime', box: 'pi-stop', text: 'pi-align-left', group: 'pi-objects-column', custom: 'pi-sparkles' }
+const EL_NAME = { megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box', text: 'Text', group: 'Group', custom: 'Component' }
 
 const renamingElId = ref(null)
 
@@ -103,6 +103,15 @@ function setActiveScreen(id) {
           <i class="pi pi-stop-circle layer-ico interact-ico" />
           <span class="layer-name">{{ el.config.primaryBtn }}</span>
           <span class="ia-badge">{{ el.interaction.action }}</span>
+        </div>
+
+        <div
+          v-for="child in (el.type === 'group' ? el.children : [])"
+          :key="child.id"
+          class="layer-row child child2 group-child"
+        >
+          <i :class="['pi', EL_ICON[child.type] ?? 'pi-id-card', 'layer-ico']" style="color:#f59e0b;" />
+          <span class="layer-name">{{ child.name || EL_NAME[child.type] || 'Element' }}</span>
         </div>
       </template>
     </template>

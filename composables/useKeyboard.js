@@ -5,7 +5,7 @@ import { useCanvas } from './useCanvas.js'
 const PAN_STEP = 80
 
 export function useKeyboard() {
-  const { selectedEl, selectedSub, deleteEl } = useElements()
+  const { selectedEl, selectedSub, deleteEl, multiSel, groupSelection, ungroup, activeElement } = useElements()
   const { playMode, fakeAlert, startPlay, closeAlert } = usePlayMode()
   const { isSpaceDown, isHandTool, isDrawTool, panX, panY, zoomIn, zoomOut } = useCanvas()
 
@@ -21,8 +21,22 @@ export function useKeyboard() {
       else if (isDrawTool.value) isDrawTool.value = false
       else if (isHandTool.value) isHandTool.value = false
     }
-    if ((e.code === 'Delete' || e.code === 'Backspace') && selectedEl.value && !selectedSub.value)
-      deleteEl(selectedEl.value.screenId, selectedEl.value.elId)
+    if ((e.code === 'Delete' || e.code === 'Backspace') && selectedEl.value && !selectedSub.value) {
+      if (multiSel.value.ids.length > 1) {
+        const { screenId, ids } = multiSel.value
+        ids.slice().forEach(id => deleteEl(screenId, id))
+      } else {
+        deleteEl(selectedEl.value.screenId, selectedEl.value.elId)
+      }
+    }
+
+    // Ctrl/Cmd+G groups the multi-selection; on a group it ungroups
+    if ((e.ctrlKey || e.metaKey) && e.code === 'KeyG' && !playMode.value) {
+      e.preventDefault()
+      if (multiSel.value.ids.length > 1) groupSelection()
+      else if (activeElement.value?.type === 'group') ungroup(selectedEl.value.screenId, selectedEl.value.elId)
+      return
+    }
 
     if (playMode.value || e.ctrlKey || e.metaKey) return
 

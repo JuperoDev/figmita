@@ -17,6 +17,7 @@ const isDraggingEl = ref(false)
 const dragScId     = ref(null)
 const dragElId     = ref(null)
 const dragStart    = ref({ x: 0, y: 0, ox: 0, oy: 0 })
+const multiDragStarts = ref([]) // [{ elId, ox, oy }] when dragging a multi-selection
 const isResizingScreen = ref(false)
 const resizeScId        = ref(null)
 const resizeStart       = ref({ y: 0, oh: 0 })
@@ -27,7 +28,7 @@ const elResize     = ref(null) // { scId, elId, edges, x, y, ox, oy, ow, oh }
 
 export function useCanvas() {
   const { screens, activeScreenId } = useScreens()
-  const { selectedEl, selectedSub } = useElements()
+  const { selectedEl, selectedSub, multiSel, toggleMulti, isMultiSel } = useElements()
 
   const totalCanvasW = computed(() =>
     screens.value.length * SCREEN_W + (screens.value.length - 1) * SCREEN_GAP
@@ -196,7 +197,24 @@ export function useCanvas() {
     const sc = screens.value.find(s => s.id === scId)
     const el = sc?.elements.find(el => el.id === elId)
     if (!el) return
+    // Shift-click builds a multi-selection instead of dragging
+    if (e.shiftKey) {
+      toggleMulti(scId, elId)
+      e.stopPropagation()
+      e.preventDefault()
+      return
+    }
     activeScreenId.value = scId
+    // Dragging a member of the multi-selection moves the whole selection
+    if (isMultiSel(scId, elId)) {
+      multiDragStarts.value = multiSel.value.ids
+        .map(id => sc.elements.find(el => el.id === id))
+        .filter(Boolean)
+        .map(el => ({ elId: el.id, ox: el.pos.x, oy: el.pos.y }))
+    } else {
+      multiSel.value = { screenId: null, ids: [] }
+      multiDragStarts.value = []
+    }
     selectedEl.value     = { screenId: scId, elId }
     selectedSub.value    = null
     isDraggingEl.value   = true
@@ -225,10 +243,22 @@ export function useCanvas() {
       lastMouse.value = { x: e.clientX, y: e.clientY }
     } else if (isDraggingEl.value) {
       const sc = screens.value.find(s => s.id === dragScId.value)
-      const el = sc?.elements.find(e => e.id === dragElId.value)
-      if (el) {
-        el.pos.x = Math.round(dragStart.value.ox + (e.clientX - dragStart.value.x) / zoom.value)
-        el.pos.y = Math.round(dragStart.value.oy + (e.clientY - dragStart.value.y) / zoom.value)
+      const dx = (e.clientX - dragStart.value.x) / zoom.value
+      const dy = (e.clientY - dragStart.value.y) / zoom.value
+      if (multiDragStarts.value.length) {
+        for (const start of multiDragStarts.value) {
+          const el = sc?.elements.find(e => e.id === start.elId)
+          if (el) {
+            el.pos.x = Math.round(start.ox + dx)
+            el.pos.y = Math.round(start.oy + dy)
+          }
+        }
+      } else {
+        const el = sc?.elements.find(e => e.id === dragElId.value)
+        if (el) {
+          el.pos.x = Math.round(dragStart.value.ox + dx)
+          el.pos.y = Math.round(dragStart.value.oy + dy)
+        }
       }
     } else if (isResizingScreen.value) {
       const sc = screens.value.find(s => s.id === resizeScId.value)
@@ -272,6 +302,7 @@ export function useCanvas() {
     isResizingScreen.value = false
     isResizingEl.value = false
     elResize.value = null
+    multiDragStarts.value = []
   }
 
   return {

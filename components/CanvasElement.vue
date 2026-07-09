@@ -6,7 +6,7 @@ const props = defineProps({
   el: { type: Object, required: true },
 })
 
-const { isElSel, isSubSel, clickSub, clickEl } = useElements()
+const { isElSel, isSubSel, isMultiSel, clickSub, clickEl } = useElements()
 const { isDraggingEl, dragElId, onElMouseDown, onElResizeMouseDown } = useCanvas()
 const { rightTab } = useRightPanel()
 
@@ -31,8 +31,9 @@ const HANDLE_CURSOR = {
   <div
     class="el-anchor"
     :class="{
-      'el-sel':  isElSel(sc.id, el.id),
-      'sub-sel': isSubSel(sc.id, el.id),
+      'el-sel':    isElSel(sc.id, el.id),
+      'sub-sel':   isSubSel(sc.id, el.id),
+      'multi-sel': isMultiSel(sc.id, el.id),
     }"
     :style="{
       left:   el.pos.x + 'px',
@@ -93,6 +94,19 @@ const HANDLE_CURSOR = {
       :play-mode="false"
     />
 
+    <ElementsCustomMock
+      v-else-if="el.type === 'custom'"
+      :config="el.config"
+      :play-mode="false"
+    />
+
+    <ElementsAnyMock
+      v-else-if="el.type === 'group'"
+      :el="el"
+      :play-mode="false"
+      class="group-mock"
+    />
+
     <button class="el-pencil" title="Edit" @mousedown.stop @click.stop="editEl">
       <i class="pi pi-pencil" />
     </button>
@@ -119,6 +133,9 @@ const HANDLE_CURSOR = {
 .el-pencil:hover { background:#6d4fe0; }
 .el-anchor.el-sel  :deep(.box-mock) { outline:2px solid #7c5cfc; outline-offset:2px; }
 .el-anchor.el-sel  :deep(.text-mock) { outline:2px solid #7c5cfc; outline-offset:4px; border-radius:2px; }
+.el-anchor.el-sel  :deep(.custom-mock) { outline:2px solid #7c5cfc; outline-offset:4px; border-radius:2px; }
+.el-anchor.el-sel  > .group-mock { outline:2px dashed #f59e0b; outline-offset:6px; border-radius:2px; }
+.el-anchor.multi-sel > * { outline:2px dashed #38bdf8 !important; outline-offset:3px; border-radius:2px; }
 .handle { position:absolute; width:8px; height:8px; background:white; border:2px solid #7c5cfc; border-radius:1px; z-index:10; pointer-events:none; transform:translate(-50%,-50%); }
 .handle.grabby { pointer-events:auto; }
 .handle.tl{top:0;left:0}    .handle.tr{top:0;left:100%}

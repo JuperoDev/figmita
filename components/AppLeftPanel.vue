@@ -1,9 +1,11 @@
 <script setup>
-import { nextTick } from 'vue'
+import { ref, nextTick } from 'vue'
 
 const { screens, addScreen } = useScreens()
 const { clearSelection } = useElements()
 const { panToIdx } = useCanvas()
+
+const leftTab = ref('layers')
 
 function handleAddScreen() {
   const idx = addScreen()
@@ -15,11 +17,11 @@ function handleAddScreen() {
 <template>
   <aside class="side-panel left-panel">
     <div class="panel-tabs">
-      <button class="ptab active">Layers</button>
-      <button class="ptab">Assets</button>
+      <button :class="['ptab', leftTab === 'layers' && 'active']" @click="leftTab = 'layers'">Layers</button>
+      <button :class="['ptab', leftTab === 'assets' && 'active']" @click="leftTab = 'assets'">Assets</button>
     </div>
 
-    <div class="layers-scroll">
+    <div v-if="leftTab === 'layers'" class="layers-scroll">
       <LayerScreenGroup
         v-for="(sc, i) in screens"
         :key="sc.id"
@@ -30,6 +32,10 @@ function handleAddScreen() {
       <button class="add-screen-btn" @click="handleAddScreen">
         <i class="pi pi-plus" /> Add screen
       </button>
+    </div>
+
+    <div v-else class="layers-scroll">
+      <LibraryPanel />
     </div>
   </aside>
 </template>

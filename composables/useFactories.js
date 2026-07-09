@@ -148,12 +148,13 @@ export function makeElement(type) {
       : type === 'prime' ? makePrimeConfig()
       : type === 'box' ? makeBoxConfig()
       : type === 'text' ? makeTextConfig()
+      : type === 'custom' ? { libId: '' }
       : {},
     interaction: {
       // Prime elements are often interactive by themselves (dropdowns,
       // sliders...) and boxes/text are usually decoration, so they
       // start with no click interaction
-      action:                 ['prime', 'box', 'text'].includes(type) ? 'none' : 'alert',
+      action:                 ['prime', 'box', 'text', 'custom'].includes(type) ? 'none' : 'alert',
       alertText:              'Hello! 👋',
       navigateTo:             null,
       confirmTarget:          null,

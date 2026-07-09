@@ -55,40 +55,7 @@ const { screens } = useScreens()
                       :key="el.id"
                       :style="{ position: 'absolute', left: el.pos.x + 'px', top: el.pos.y + 'px' }"
                     >
-                      <ElementsCardMock
-                        v-if="el.type === 'card'"
-                        :config="el.config"
-                        :play-mode="true"
-                        @btn-click="handlePlayBtn(el)"
-                      />
-                      <ElementsMegaMenuMock
-                        v-else-if="el.type === 'megamenu'"
-                        :config="el.config"
-                      />
-                      <ElementsButtonMock
-                        v-else-if="el.type === 'button'"
-                        :config="el.config"
-                        :play-mode="true"
-                        @click="handlePlayBtn(el)"
-                      />
-                      <ElementsPrimeMock
-                        v-else-if="el.type === 'prime'"
-                        :config="el.config"
-                        :play-mode="true"
-                        @click="handlePlayBtn(el)"
-                      />
-                      <ElementsBoxMock
-                        v-else-if="el.type === 'box'"
-                        :config="el.config"
-                        :play-mode="true"
-                        @click="handlePlayBtn(el)"
-                      />
-                      <ElementsTextMock
-                        v-else-if="el.type === 'text'"
-                        :config="el.config"
-                        :play-mode="true"
-                        @click="handlePlayBtn(el)"
-                      />
+                      <ElementsAnyMock :el="el" :play-mode="true" @activate="handlePlayBtn" />
                     </div>
                   </div>
                 </div>
