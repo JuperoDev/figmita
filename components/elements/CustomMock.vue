@@ -53,7 +53,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="custom-mock" :class="{ 'cm-static': !playMode }" @click="onClick">
+  <div class="custom-mock" :class="[{ 'cm-static': !playMode }, lib ? `cc-${lib.id}` : '']" @click="onClick">
     <component :is="runtime" v-if="runtime" />
     <div v-else class="cm-broken">
       {{ lib ? 'Template failed to compile' : 'Missing library component' }}

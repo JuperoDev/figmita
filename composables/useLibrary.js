@@ -23,7 +23,7 @@ function load() {
 export function useLibrary() {
   load()
 
-  function saveComponent({ id, name, template, setup, style, styleLang, compiledCss }) {
+  function saveComponent({ id, name, template, setup, style, styleLang, scoped, compiledCss }) {
     const entry = {
       id: id || `lib-${uid()}`,
       name: name.trim() || 'Untitled',
@@ -31,6 +31,7 @@ export function useLibrary() {
       setup: setup || '',
       style: style || '',
       styleLang: styleLang || 'css',
+      scoped: !!scoped,
       compiledCss: compiledCss ?? style ?? '',
     }
     const i = libComponents.value.findIndex(c => c.id === entry.id)
