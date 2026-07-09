@@ -98,6 +98,7 @@ export function makePrimeConfig() {
   return {
     component: '',
     props:     {},
+    tokens:    {},
   }
 }
 

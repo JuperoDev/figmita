@@ -38,10 +38,14 @@ const bindings = computed(() => {
 })
 
 // Demos and some playgrounds size themselves to their container; the canvas
-// anchor has no width, so give fluid content a concrete one
+// anchor has no width, so give fluid content a concrete one. Per-element
+// design-token overrides ride along as inline custom properties — they win
+// over the :root-declared theme values for this element only.
 const wrapStyle = computed(() => {
-  if (!pg.value) return 'width: 420px'
-  return (pg.value.stageStyle || '').replace('100%', '420px')
+  const base = pg.value
+    ? (pg.value.stageStyle || '').replace('100%', '420px')
+    : 'width: 420px'
+  return [base, props.config.tokens || {}]
 })
 </script>
 
