@@ -1,10 +1,17 @@
 <script setup>
-const { zoomLabel, isHandTool, isDrawTool } = useCanvas()
+const { zoomLabel, isHandTool, isDrawTool, drawTool, setDrawTool } = useCanvas()
 const { playMode, startPlay } = usePlayMode()
 const { copyLink } = useShare()
 
-function toggleHand() { isHandTool.value = !isHandTool.value; isDrawTool.value = false }
-function toggleDraw() { isDrawTool.value = !isDrawTool.value; isHandTool.value = false }
+function toggleHand() { isHandTool.value = !isHandTool.value; drawTool.value = null }
+
+const DRAW_TOOLS = [
+  { kind: 'box',     icon: 'pi pi-stop',          title: 'Draw box (R)' },
+  { kind: 'ellipse', icon: 'pi pi-circle',        title: 'Draw ellipse (O)' },
+  { kind: 'polygon', icon: 'pi pi-star',          title: 'Draw polygon (Y)' },
+  { kind: 'pencil',  icon: 'pi pi-pencil',        title: 'Pencil — freehand (B)' },
+  { kind: 'pen',     icon: 'pi pi-pen-to-square', title: 'Pen — smoothed freehand (Shift+B)' },
+]
 </script>
 
 <template>
@@ -19,7 +26,7 @@ function toggleDraw() { isDrawTool.value = !isDrawTool.value; isHandTool.value =
       <button
         class="tool-btn" :class="{ active: !playMode && !isHandTool && !isDrawTool }"
         title="Select (Esc)"
-        @click="playMode = false; isHandTool = false; isDrawTool = false"
+        @click="playMode = false; isHandTool = false; drawTool = null"
       >
         <i class="pi pi-arrows-alt" />
       </button>
@@ -27,8 +34,12 @@ function toggleDraw() { isDrawTool.value = !isDrawTool.value; isHandTool.value =
         <i class="pi pi-hand" />
       </button>
       <div class="tool-sep" />
-      <button class="tool-btn" :class="{ active: isDrawTool }" title="Draw box (R)" @click="toggleDraw">
-        <i class="pi pi-stop" />
+      <button
+        v-for="t in DRAW_TOOLS" :key="t.kind"
+        class="tool-btn" :class="{ active: drawTool === t.kind }"
+        :title="t.title" @click="setDrawTool(t.kind)"
+      >
+        <i :class="t.icon" />
       </button>
       <div class="tool-sep" />
       <button

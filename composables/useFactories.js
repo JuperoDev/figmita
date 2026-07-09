@@ -106,17 +106,64 @@ export function makeBoxConfig() {
   return {
     w:           200,
     h:           120,
+    fillType:    'solid', // solid | gradient | image
     fill:        '#ffffff',
+    gradFrom:    '#7c5cfc',
+    gradTo:      '#34d399',
+    gradAngle:   135,
+    imageSrc:    '',
+    imageFit:    'cover',
     borderWidth: 1,
     borderColor: '#d1d5db',
     borderStyle: 'solid',
-    radius:      8,
+    sides:       { t: true, r: true, b: true, l: true },
+    radii:       { tl: 8, tr: 8, br: 8, bl: 8 },
     shadow:      'none',
     opacity:     100,
     text:        '',
     textColor:   '#374151',
     fontSize:    14,
     align:       'center',
+  }
+}
+
+const PLACEHOLDER_IMG = `data:image/svg+xml;utf8,${encodeURIComponent(
+  `<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200'>` +
+  `<rect width='100%' height='100%' fill='#cbd5e1'/>` +
+  `<path d='M60 150 L120 90 L170 130 L210 100 L260 150 Z' fill='#94a3b8'/>` +
+  `<circle cx='105' cy='65' r='18' fill='#94a3b8'/></svg>`,
+)}`
+
+export function makeImageConfig() {
+  return {
+    src:    PLACEHOLDER_IMG,
+    w:      320,
+    h:      200,
+    fit:    'cover',
+    radius: 8,
+    alt:    'Image',
+  }
+}
+
+export function makeShapeConfig(kind = 'ellipse') {
+  return {
+    kind, // ellipse | polygon
+    sides:       5,
+    w:           140,
+    h:           140,
+    fill:        '#e0e7ff',
+    stroke:      '#6366f1',
+    strokeWidth: 2,
+    opacity:     100,
+  }
+}
+
+export function makeDrawConfig() {
+  return {
+    points:      [],
+    stroke:      '#7c5cfc',
+    strokeWidth: 3,
+    smooth:      false,
   }
 }
 
@@ -133,7 +180,7 @@ export function makeTextConfig() {
   }
 }
 
-const ELEMENT_NAMES = { card: 'Card', megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box', text: 'Text' }
+const ELEMENT_NAMES = { card: 'Card', megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box', text: 'Text', image: 'Image', shape: 'Shape', draw: 'Drawing' }
 
 export function makeElement(type) {
   return {
@@ -149,12 +196,15 @@ export function makeElement(type) {
       : type === 'box' ? makeBoxConfig()
       : type === 'text' ? makeTextConfig()
       : type === 'custom' ? { libId: '' }
+      : type === 'image' ? makeImageConfig()
+      : type === 'shape' ? makeShapeConfig()
+      : type === 'draw' ? makeDrawConfig()
       : {},
     interaction: {
       // Prime elements are often interactive by themselves (dropdowns,
       // sliders...) and boxes/text are usually decoration, so they
       // start with no click interaction
-      action:                 ['prime', 'box', 'text', 'custom'].includes(type) ? 'none' : 'alert',
+      action:                 ['prime', 'box', 'text', 'custom', 'image', 'shape', 'draw'].includes(type) ? 'none' : 'alert',
       alertText:              'Hello! 👋',
       navigateTo:             null,
       confirmTarget:          null,

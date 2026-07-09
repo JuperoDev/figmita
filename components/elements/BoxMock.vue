@@ -21,12 +21,24 @@ const SHADOWS = {
 
 const boxStyle = computed(() => {
   const c = props.config
+  // Boxes drawn before per-side borders / per-corner radii existed
+  const sides = c.sides ?? { t: true, r: true, b: true, l: true }
+  const radii = c.radii ?? { tl: c.radius ?? 0, tr: c.radius ?? 0, br: c.radius ?? 0, bl: c.radius ?? 0 }
+  const edge = on => (on && c.borderWidth > 0 ? `${c.borderWidth}px ${c.borderStyle} ${c.borderColor}` : 'none')
+
+  let background = c.fill
+  if (c.fillType === 'gradient') background = `linear-gradient(${c.gradAngle ?? 135}deg, ${c.gradFrom}, ${c.gradTo})`
+  else if (c.fillType === 'image' && c.imageSrc) background = `url("${c.imageSrc}") center / ${c.imageFit ?? 'cover'} no-repeat`
+
   return {
     width:          c.w + 'px',
     height:         c.h + 'px',
-    background:     c.fill,
-    border:         c.borderWidth > 0 ? `${c.borderWidth}px ${c.borderStyle} ${c.borderColor}` : 'none',
-    borderRadius:   c.radius + 'px',
+    background,
+    borderTop:      edge(sides.t),
+    borderRight:    edge(sides.r),
+    borderBottom:   edge(sides.b),
+    borderLeft:     edge(sides.l),
+    borderRadius:   `${radii.tl}px ${radii.tr}px ${radii.br}px ${radii.bl}px`,
     boxShadow:      SHADOWS[c.shadow] ?? 'none',
     opacity:        (c.opacity ?? 100) / 100,
     color:          c.textColor,

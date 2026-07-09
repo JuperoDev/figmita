@@ -10,7 +10,7 @@ const props = defineProps({
 
 const { screens, activeScreenId, startScreenId } = useScreens()
 const { selectedEl, clearSelection } = useElements()
-const { screenLeft, onResizeHandleMouseDown, zoom, drawRect, onScreenDrawStart } = useCanvas()
+const { screenLeft, onResizeHandleMouseDown, zoom, drawRect, drawing, onScreenDrawStart } = useCanvas()
 const { playMode } = usePlayMode()
 
 const SCREEN_SHADOWS = {
@@ -59,10 +59,18 @@ const gridCellCount = computed(() =>
   (props.sc.grid?.cols?.length ?? 0) * (props.sc.grid?.rows?.length ?? 0))
 
 // While drawing on a gridded screen, preview the snapped cell area
+// (only box drawings snap; shapes preview as-is)
 const previewRect = computed(() => {
   const r = drawRect.value
   if (!r || r.scId !== props.sc.id) return null
-  return gridStyle.value ? snapRectToGrid(props.sc, r) : r
+  return r.kind === 'box' && gridStyle.value ? snapRectToGrid(props.sc, r) : r
+})
+
+// Freehand stroke preview while the pencil/pen is down on this screen
+const previewStroke = computed(() => {
+  const d = drawing.value
+  if (!d?.points || d.scId !== props.sc.id) return null
+  return d.points.map(p => `${p.x},${p.y}`).join(' ')
 })
 
 function onScreenMouseDown(e) {
@@ -122,12 +130,18 @@ function setActiveScreen(id) {
         />
       </div>
 
-      <!-- Rubber-band preview while drawing a box (snapped to grid cells) -->
+      <!-- Rubber-band preview while drawing (snapped to grid cells for boxes) -->
       <div
         v-if="previewRect"
         class="draw-preview"
+        :class="{ 'draw-preview-ellipse': previewRect.kind === 'ellipse' }"
         :style="{ left: previewRect.x + 'px', top: previewRect.y + 'px', width: previewRect.w + 'px', height: previewRect.h + 'px' }"
       />
+
+      <!-- Freehand stroke preview -->
+      <svg v-if="previewStroke" class="stroke-preview">
+        <polyline :points="previewStroke" fill="none" stroke="#7c5cfc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
     </div>
 
     <div
@@ -156,4 +170,6 @@ function setActiveScreen(id) {
 .layout-grid { position:absolute; inset:0; display:grid; pointer-events:none; z-index:40; }
 .layout-cell { box-sizing:border-box; border-radius:2px; }
 .draw-preview { position:absolute; background:rgba(124,92,252,.15); border:1px solid #7c5cfc; box-sizing:border-box; pointer-events:none; z-index:60; }
+.draw-preview-ellipse { border-radius:50%; }
+.stroke-preview { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:60; overflow:visible; }
 </style>

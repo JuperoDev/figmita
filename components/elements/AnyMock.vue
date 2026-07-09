@@ -53,6 +53,24 @@ const fire = el => props.playMode && emit('activate', el)
     :play-mode="playMode"
     @click="fire(el)"
   />
+  <ElementsImageMock
+    v-else-if="el.type === 'image'"
+    :config="el.config"
+    :play-mode="playMode"
+    @click="fire(el)"
+  />
+  <ElementsShapeMock
+    v-else-if="el.type === 'shape'"
+    :config="el.config"
+    :play-mode="playMode"
+    @click="fire(el)"
+  />
+  <ElementsDrawMock
+    v-else-if="el.type === 'draw'"
+    :config="el.config"
+    :play-mode="playMode"
+    @click="fire(el)"
+  />
   <div v-else-if="el.type === 'group'" class="group-frame">
     <div
       v-for="child in el.children"

@@ -16,7 +16,7 @@ const hasOwnInteractions = computed(() => activeElement.value?.type === 'button'
 watch([selectedEl, selectedSub, activeScreenId], () => {
   if (selectedSub.value === 'btn')  rightTab.value = 'interactions'
   else if (activeElement.value?.type === 'prime') rightTab.value = 'props'
-  else if (['box', 'text'].includes(activeElement.value?.type)) rightTab.value = 'design'
+  else if (['box', 'text', 'image', 'shape', 'draw'].includes(activeElement.value?.type)) rightTab.value = 'design'
   else if (selectedEl.value)        rightTab.value = hasOwnInteractions.value ? 'interactions' : 'design'
   else                              rightTab.value = 'screen'
 })
@@ -92,15 +92,20 @@ watch([selectedEl, selectedSub, activeScreenId], () => {
       <PanelJsonTab         v-if="rightTab === 'json'" />
     </template>
 
-    <!-- Box / Text elements: Design / Interact / JSON -->
-    <template v-else-if="['box', 'text'].includes(activeElement?.type)">
+    <!-- Drawn/primitive elements: Design / Interact / JSON -->
+    <template v-else-if="['box', 'text', 'image', 'shape', 'draw'].includes(activeElement?.type)">
       <div class="panel-tabs">
         <button :class="['ptab', rightTab === 'design' && 'active']" @click="rightTab = 'design'">Design</button>
         <button :class="['ptab', rightTab === 'interactions' && 'active']" @click="rightTab = 'interactions'">Interact</button>
         <button :class="['ptab', rightTab === 'json'  && 'active']" @click="rightTab = 'json'">JSON</button>
       </div>
-      <PanelBoxTab          v-if="rightTab === 'design' && activeElement.type === 'box'" />
-      <PanelTextTab         v-if="rightTab === 'design' && activeElement.type === 'text'" />
+      <template v-if="rightTab === 'design'">
+        <PanelBoxTab   v-if="activeElement.type === 'box'" />
+        <PanelTextTab  v-else-if="activeElement.type === 'text'" />
+        <PanelImageTab v-else-if="activeElement.type === 'image'" />
+        <PanelShapeTab v-else-if="activeElement.type === 'shape'" />
+        <PanelDrawTab  v-else-if="activeElement.type === 'draw'" />
+      </template>
       <PanelInteractionsTab v-if="rightTab === 'interactions'" />
       <PanelJsonTab         v-if="rightTab === 'json'" />
     </template>

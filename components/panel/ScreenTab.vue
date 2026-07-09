@@ -97,23 +97,15 @@ function confirmAddMegaMenu() {
   showMegaMenuDialog.value = false
 }
 
-const showButtonDialog = ref(false)
-const buttonLabelText   = ref('')
+const { drawTool, setDrawTool } = useCanvas()
 
-function nextButtonNumber() {
-  return screens.value.flatMap(s => s.elements).filter(e => e.type === 'button').length + 1
-}
-
-function openButtonDialog() {
-  buttonLabelText.value = ''
-  showButtonDialog.value = true
-}
-
-function confirmAddButton() {
-  const label = buttonLabelText.value.trim() || `Button ${nextButtonNumber()}`
-  addElement('button', { label })
-  showButtonDialog.value = false
-}
+const DRAW_PRESETS = [
+  { kind: 'box',     icon: 'pi pi-stop',          label: 'Box',     key: 'R' },
+  { kind: 'ellipse', icon: 'pi pi-circle',        label: 'Ellipse', key: 'O' },
+  { kind: 'polygon', icon: 'pi pi-star',          label: 'Polygon', key: 'Y' },
+  { kind: 'pencil',  icon: 'pi pi-pencil',        label: 'Pencil',  key: 'B' },
+  { kind: 'pen',     icon: 'pi pi-pen-to-square', label: 'Pen',     key: '⇧B' },
+]
 </script>
 
 <template>
@@ -228,33 +220,33 @@ function confirmAddButton() {
   </div>
 
   <div class="prop-hr" />
-  <p class="prop-section">Add Component</p>
+  <p class="prop-section">Add Presets</p>
   <div class="comp-palette">
-    <button class="comp-btn" @click="addElement('card')">
-      <i class="pi pi-id-card" style="font-size:1.3rem;" />
-      <span>Card</span>
-    </button>
-    <button class="comp-btn" @click="openButtonDialog">
-      <i class="pi pi-mouse" style="font-size:1.3rem;" />
-      <span>Button</span>
-    </button>
     <button class="comp-btn" @click="openMegaMenuDialog">
       <i class="pi pi-bars" style="font-size:1.3rem;" />
       <span>Mega Menu</span>
-    </button>
-    <button class="comp-btn" @click="addElement('confirmdialog')">
-      <i class="pi pi-shield" style="font-size:1.3rem;" />
-      <span>Confirm Dialog</span>
-    </button>
-    <button class="comp-btn" title="Or press R and draw" @click="addElement('box')">
-      <i class="pi pi-stop" style="font-size:1.3rem;" />
-      <span>Box</span>
     </button>
     <button class="comp-btn" @click="addElement('text')">
       <i class="pi pi-align-left" style="font-size:1.3rem;" />
       <span>Text</span>
     </button>
+    <button class="comp-btn" @click="addElement('image')">
+      <i class="pi pi-image" style="font-size:1.3rem;" />
+      <span>Image</span>
+    </button>
+    <button
+      v-for="t in DRAW_PRESETS" :key="t.kind"
+      class="comp-btn" :class="{ 'comp-btn-active': drawTool === t.kind }"
+      :title="`Activate, then draw on a screen (${t.key})`"
+      @click="setDrawTool(t.kind)"
+    >
+      <i :class="t.icon" style="font-size:1.3rem;" />
+      <span>{{ t.label }}</span>
+    </button>
   </div>
+  <p v-if="drawTool" class="hint-text" style="padding:4px 12px 0;">
+    Drag on a screen to draw. <kbd>Esc</kbd> cancels.
+  </p>
 
   <template v-if="libComponents.length">
     <div class="prop-hr" />
@@ -315,25 +307,6 @@ function confirmAddButton() {
     </template>
   </Dialog>
 
-  <Dialog
-    v-model:visible="showButtonDialog"
-    header="Add Button"
-    modal
-    :style="{ width: '280px' }"
-  >
-    <p class="dlg-hint">What should the button say? Leave blank to use "Button {{ nextButtonNumber() }}".</p>
-    <input
-      class="ce-input"
-      v-model="buttonLabelText"
-      :placeholder="`Button ${nextButtonNumber()}`"
-      autofocus
-      @keydown.enter="confirmAddButton"
-    />
-    <template #footer>
-      <button class="dlg-btn secondary" @click="showButtonDialog = false">Cancel</button>
-      <button class="dlg-btn primary" @click="confirmAddButton">Create</button>
-    </template>
-  </Dialog>
 </template>
 
 <style scoped>
@@ -370,6 +343,8 @@ function confirmAddButton() {
 .comp-palette { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0 12px; }
 .comp-btn { display:flex; flex-direction:column; align-items:center; gap:6px; padding:14px 8px; background:#1e1e1e; border:1px solid #333; border-radius:8px; color:#ccc; cursor:pointer; font-size:11px; font-family:inherit; transition:all .15s; }
 .comp-btn:hover { border-color:#7c5cfc; color:#a78bfa; background:rgba(124,92,252,.08); }
+.comp-btn-active { border-color:#7c5cfc; color:#fff; background:#3d3075; }
+.hint-text kbd { background:#333; border:1px solid #444; border-radius:3px; padding:0 4px; font-size:10px; font-family:monospace; color:#ccc; }
 .prime-list { padding:0 12px 12px; }
 .prime-cat { font-size:9px; font-weight:700; color:#555; text-transform:uppercase; letter-spacing:.08em; margin:10px 0 3px; padding:0 2px; }
 .prime-item { display:flex; align-items:center; gap:8px; width:100%; padding:5px 8px; background:transparent; border:none; border-radius:5px; color:#bbb; font-size:12px; cursor:pointer; font-family:inherit; text-align:left; transition:all .12s; }

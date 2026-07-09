@@ -21,14 +21,21 @@ const multiDragStarts = ref([]) // [{ elId, ox, oy }] when dragging a multi-sele
 const isResizingScreen = ref(false)
 const resizeScId        = ref(null)
 const resizeStart       = ref({ y: 0, oh: 0 })
-const isDrawTool   = ref(false)
-const drawing      = ref(null) // { scId, x0, y0, x1, y1 }
+const drawTool     = ref(null) // null | 'box' | 'ellipse' | 'polygon' | 'pencil' | 'pen'
+const drawing      = ref(null) // { kind, scId, x0, y0, x1, y1 } or { kind, scId, points }
 const isResizingEl = ref(false)
 const elResize     = ref(null) // { scId, elId, edges, x, y, ox, oy, ow, oh }
 
 export function useCanvas() {
   const { screens, activeScreenId } = useScreens()
   const { selectedEl, selectedSub, multiSel, toggleMulti, isMultiSel } = useElements()
+
+  const isDrawTool = computed(() => drawTool.value !== null)
+
+  function setDrawTool(kind) {
+    drawTool.value = drawTool.value === kind ? null : kind
+    if (drawTool.value) isHandTool.value = false
+  }
 
   const totalCanvasW = computed(() =>
     screens.value.length * SCREEN_W + (screens.value.length - 1) * SCREEN_GAP
@@ -132,22 +139,27 @@ export function useCanvas() {
     }
   }
 
-  // Draw tool: mousedown on a screen starts a rubber-band box
+  // Draw tools: mousedown on a screen starts a rubber-band shape or a
+  // freehand stroke, depending on the active tool
   function onScreenDrawStart(e, scId, idx) {
     if (!isDrawTool.value || e.button !== 0) return false
     const { x, y } = toScreenCoords(e, idx)
     activeScreenId.value = scId
-    drawing.value = { scId, x0: x, y0: y, x1: x, y1: y }
+    const kind = drawTool.value
+    drawing.value = ['pencil', 'pen'].includes(kind)
+      ? { kind, scId, points: [{ x, y }] }
+      : { kind, scId, x0: x, y0: y, x1: x, y1: y }
     e.stopPropagation()
     e.preventDefault()
     return true
   }
 
   const drawRect = computed(() => {
-    if (!drawing.value) return null
     const d = drawing.value
+    if (!d || d.points) return null
     return {
       scId: d.scId,
+      kind: d.kind,
       x: Math.round(Math.min(d.x0, d.x1)),
       y: Math.round(Math.min(d.y0, d.y1)),
       w: Math.round(Math.abs(d.x1 - d.x0)),
@@ -155,24 +167,53 @@ export function useCanvas() {
     }
   })
 
+  function countType(type) {
+    return screens.value.flatMap(s => s.elements).filter(e => e.type === type).length + 1
+  }
+
   function commitDrawing() {
-    let r = drawRect.value
+    const d = drawing.value
     drawing.value = null
-    if (!r) return
-    const sc = screens.value.find(s => s.id === r.scId)
+    if (!d) return
+    const sc = screens.value.find(s => s.id === d.scId)
     if (!sc) return
-    // With a visible layout grid, drawn boxes snap to the covered cells —
-    // even a click-sized drag fills its cell (cssgridgenerator-style)
-    if (sc.grid?.visible && Array.isArray(sc.grid.cols)) r = snapRectToGrid(sc, r)
-    if (r.w < 8 || r.h < 8) return
-    const el = makeElement('box')
-    el.name = `Box ${screens.value.flatMap(s => s.elements).filter(e => e.type === 'box').length + 1}`
-    el.pos = { x: r.x, y: r.y }
-    el.config.w = r.w
-    el.config.h = r.h
+    let el = null
+
+    if (d.points) {
+      // freehand stroke → 'draw' element, points relative to their bbox
+      const xs = d.points.map(p => p.x)
+      const ys = d.points.map(p => p.y)
+      const minX = Math.min(...xs)
+      const minY = Math.min(...ys)
+      if (d.points.length < 3 || (Math.max(...xs) - minX < 4 && Math.max(...ys) - minY < 4)) return
+      el = makeElement('draw')
+      el.name = `Drawing ${countType('draw')}`
+      el.pos = { x: Math.round(minX), y: Math.round(minY) }
+      el.config.points = d.points.map(p => ({ x: Math.round(p.x - minX), y: Math.round(p.y - minY) }))
+      el.config.smooth = d.kind === 'pen'
+    } else {
+      let r = drawRect.value ?? d
+      // With a visible layout grid, drawn boxes snap to the covered cells —
+      // even a click-sized drag fills its cell (cssgridgenerator-style)
+      r = { scId: d.scId, x: Math.round(Math.min(d.x0, d.x1)), y: Math.round(Math.min(d.y0, d.y1)), w: Math.round(Math.abs(d.x1 - d.x0)), h: Math.round(Math.abs(d.y1 - d.y0)) }
+      if (d.kind === 'box' && sc.grid?.visible && Array.isArray(sc.grid.cols)) r = snapRectToGrid(sc, r)
+      if (r.w < 8 || r.h < 8) return
+      if (d.kind === 'box') {
+        el = makeElement('box')
+        el.name = `Box ${countType('box')}`
+      } else {
+        el = makeElement('shape')
+        el.config.kind = d.kind
+        el.name = `${d.kind === 'ellipse' ? 'Ellipse' : 'Polygon'} ${countType('shape')}`
+      }
+      el.pos = { x: r.x, y: r.y }
+      el.config.w = r.w
+      el.config.h = r.h
+    }
+
     sc.elements.push(el)
     selectedEl.value = { screenId: sc.id, elId: el.id }
-    isDrawTool.value = false
+    drawTool.value = null
   }
 
   // Resizable elements (boxes): drag any handle; `edges` is e.g. 'br', 'tm'
@@ -269,8 +310,12 @@ export function useCanvas() {
     } else if (drawing.value) {
       const idx = screens.value.findIndex(s => s.id === drawing.value.scId)
       const { x, y } = toScreenCoords(e, idx)
-      drawing.value.x1 = x
-      drawing.value.y1 = y
+      if (drawing.value.points) {
+        drawing.value.points.push({ x, y })
+      } else {
+        drawing.value.x1 = x
+        drawing.value.y1 = y
+      }
     } else if (isResizingEl.value && elResize.value) {
       const r = elResize.value
       const sc = screens.value.find(s => s.id === r.scId)
@@ -312,6 +357,6 @@ export function useCanvas() {
     screenLeft, handleWheel, zoomIn, zoomOut, fitToView, panToIdx,
     onCanvasMouseDown, onElMouseDown, onMouseMove, onMouseUp,
     isResizingScreen, onResizeHandleMouseDown,
-    isDrawTool, drawRect, onScreenDrawStart, onElResizeMouseDown,
+    isDrawTool, drawTool, setDrawTool, drawing, drawRect, onScreenDrawStart, onElResizeMouseDown,
   }
 }

@@ -14,12 +14,12 @@ const { rightTab } = useRightPanel()
 function editEl() {
   clickEl(props.sc.id, props.el.id)
   rightTab.value = props.el.type === 'prime' ? 'props'
-    : ['box', 'text'].includes(props.el.type) ? 'design'
+    : ['box', 'text', 'image', 'shape', 'draw'].includes(props.el.type) ? 'design'
     : 'content'
 }
 
-// Boxes are freely resizable via their selection handles
-const resizable = computed(() => props.el.type === 'box')
+// Boxes, images, and shapes are freely resizable via their selection handles
+const resizable = computed(() => ['box', 'image', 'shape'].includes(props.el.type))
 const HANDLE_EDGES = { tl: 'tl', tr: 'tr', bl: 'bl', br: 'br', tm: 't', bm: 'b', ml: 'l', mr: 'r' }
 const HANDLE_CURSOR = {
   tl: 'nwse-resize', br: 'nwse-resize', tr: 'nesw-resize', bl: 'nesw-resize',
@@ -94,6 +94,24 @@ const HANDLE_CURSOR = {
       :play-mode="false"
     />
 
+    <ElementsImageMock
+      v-else-if="el.type === 'image'"
+      :config="el.config"
+      :play-mode="false"
+    />
+
+    <ElementsShapeMock
+      v-else-if="el.type === 'shape'"
+      :config="el.config"
+      :play-mode="false"
+    />
+
+    <ElementsDrawMock
+      v-else-if="el.type === 'draw'"
+      :config="el.config"
+      :play-mode="false"
+    />
+
     <ElementsCustomMock
       v-else-if="el.type === 'custom'"
       :config="el.config"
@@ -132,6 +150,7 @@ const HANDLE_CURSOR = {
 .el-anchor:hover .el-pencil, .el-anchor.el-sel .el-pencil { opacity:1; pointer-events:auto; }
 .el-pencil:hover { background:#6d4fe0; }
 .el-anchor.el-sel  :deep(.box-mock) { outline:2px solid #7c5cfc; outline-offset:2px; }
+.el-anchor.el-sel  :deep(.image-mock), .el-anchor.el-sel :deep(.shape-mock), .el-anchor.el-sel :deep(.draw-mock) { outline:2px solid #7c5cfc; outline-offset:2px; }
 .el-anchor.el-sel  :deep(.text-mock) { outline:2px solid #7c5cfc; outline-offset:4px; border-radius:2px; }
 .el-anchor.el-sel  :deep(.custom-mock) { outline:2px solid #7c5cfc; outline-offset:4px; border-radius:2px; }
 .el-anchor.el-sel  > .group-mock { outline:2px dashed #f59e0b; outline-offset:6px; border-radius:2px; }
