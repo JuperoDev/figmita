@@ -56,24 +56,48 @@ const pgBindings = computed(() => {
   return b
 })
 
+// Splits a union type on top-level `|` only (not inside parens/generics)
+function splitUnion(t) {
+  const parts = []
+  let depth = 0
+  let cur = ''
+  for (let i = 0; i < t.length; i++) {
+    const ch = t[i]
+    if ('({[<'.includes(ch)) depth++
+    else if (')}]'.includes(ch)) depth--
+    else if (ch === '>' && t[i - 1] !== '=') depth--
+    if (ch === '|' && depth === 0) { parts.push(cur.trim()); cur = '' }
+    else cur += ch
+  }
+  parts.push(cur.trim())
+  return parts.filter(Boolean)
+}
+
 // Maps an extracted TypeScript prop type to an editable control, if possible
 function controlFor(p) {
-  const t = p.type.trim()
-  if (t === 'boolean') return { kind: 'bool' }
-  if (t === 'number') return { kind: 'number' }
-  if (t === 'string' || t === 'string | number' || t === 'number | string') return { kind: 'text' }
+  let t = p.type.trim()
   const hinted = t.match(/^HintedString<(.+)>$/)
-  const parts = (hinted ? hinted[1] : t).split('|').map(s => s.trim())
+  if (hinted) t = hinted[1]
+  const parts = splitUnion(t)
   if (parts.length > 1 && parts.every(s => /^'[^']*'$/.test(s))) {
     return { kind: 'select', options: parts.map(s => s.slice(1, -1)), editable: !!hinted }
   }
+  if (parts.length === 1 && parts[0] === 'boolean') return { kind: 'bool' }
+  if (parts.length === 1 && parts[0] === 'number') return { kind: 'number' }
+  if (parts.includes('string')) return { kind: 'text' }
   return null
 }
+
+// Props that can't visibly change the component — documented in the API
+// table below, but noise as playground controls
+const invisibleProps = new Set(['tabindex', 'name', 'id', 'autocomplete', 'defaultValue',
+  'formControl', 'inputId', 'inputClass', 'inputStyle', 'panelClass', 'panelStyle',
+  'overlayClass', 'overlayStyle', 'maskClass', 'ariaLabel', 'ariaLabelledby'])
 
 const controls = computed(() => {
   if (!pg.value) return []
   return visibleProps.value
-    .filter(p => p.name !== 'modelValue')
+    .filter(p => p.name !== 'modelValue' && !invisibleProps.has(p.name) && !p.name.startsWith('aria'))
     .map(p => ({ ...p, control: controlFor(p) }))
     .filter(p => p.control)
 })
