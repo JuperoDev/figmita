@@ -30,4 +30,6 @@ const { screens } = useScreens()
 .cursor-grab      { cursor:grab !important; }
 .cursor-grabbing  { cursor:grabbing !important; }
 .cursor-ns-resize { cursor:ns-resize !important; }
+.cursor-crosshair { cursor:crosshair !important; }
+.cursor-crosshair :deep(.el-anchor) { cursor:crosshair !important; }
 </style>

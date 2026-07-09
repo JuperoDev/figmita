@@ -1,17 +1,29 @@
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   sc: { type: Object, required: true },
   el: { type: Object, required: true },
 })
 
 const { isElSel, isSubSel, clickSub, clickEl } = useElements()
-const { isDraggingEl, dragElId, onElMouseDown } = useCanvas()
+const { isDraggingEl, dragElId, onElMouseDown, onElResizeMouseDown } = useCanvas()
 const { rightTab } = useRightPanel()
 
 // Pencil: select the element and jump straight to its editor in the panel
 function editEl() {
   clickEl(props.sc.id, props.el.id)
-  rightTab.value = props.el.type === 'prime' ? 'props' : 'content'
+  rightTab.value = props.el.type === 'prime' ? 'props'
+    : props.el.type === 'box' ? 'design'
+    : 'content'
+}
+
+// Boxes are freely resizable via their selection handles
+const resizable = computed(() => props.el.type === 'box')
+const HANDLE_EDGES = { tl: 'tl', tr: 'tr', bl: 'bl', br: 'br', tm: 't', bm: 'b', ml: 'l', mr: 'r' }
+const HANDLE_CURSOR = {
+  tl: 'nwse-resize', br: 'nwse-resize', tr: 'nesw-resize', bl: 'nesw-resize',
+  tm: 'ns-resize', bm: 'ns-resize', ml: 'ew-resize', mr: 'ew-resize',
 }
 </script>
 
@@ -30,10 +42,12 @@ function editEl() {
     @mousedown="onElMouseDown($event, sc.id, el.id)"
   >
     <template v-if="isElSel(sc.id, el.id) || isSubSel(sc.id, el.id)">
-      <span class="handle tl"/><span class="handle tr"/>
-      <span class="handle bl"/><span class="handle br"/>
-      <span class="handle tm"/><span class="handle bm"/>
-      <span class="handle ml"/><span class="handle mr"/>
+      <span
+        v-for="(edges, h) in HANDLE_EDGES" :key="h"
+        class="handle" :class="[h, { grabby: resizable }]"
+        :style="resizable ? { cursor: HANDLE_CURSOR[h] } : null"
+        @mousedown="resizable && onElResizeMouseDown($event, sc.id, el.id, edges)"
+      />
     </template>
 
     <ElementsCardMock
@@ -67,6 +81,12 @@ function editEl() {
       :play-mode="false"
     />
 
+    <ElementsBoxMock
+      v-else-if="el.type === 'box'"
+      :config="el.config"
+      :play-mode="false"
+    />
+
     <button class="el-pencil" title="Edit" @mousedown.stop @click.stop="editEl">
       <i class="pi pi-pencil" />
     </button>
@@ -91,7 +111,9 @@ function editEl() {
 }
 .el-anchor:hover .el-pencil, .el-anchor.el-sel .el-pencil { opacity:1; pointer-events:auto; }
 .el-pencil:hover { background:#6d4fe0; }
+.el-anchor.el-sel  :deep(.box-mock) { outline:2px solid #7c5cfc; outline-offset:2px; }
 .handle { position:absolute; width:8px; height:8px; background:white; border:2px solid #7c5cfc; border-radius:1px; z-index:10; pointer-events:none; transform:translate(-50%,-50%); }
+.handle.grabby { pointer-events:auto; }
 .handle.tl{top:0;left:0}    .handle.tr{top:0;left:100%}
 .handle.bl{top:100%;left:0} .handle.br{top:100%;left:100%}
 .handle.tm{top:0;left:50%}  .handle.bm{top:100%;left:50%}

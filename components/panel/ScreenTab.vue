@@ -1,9 +1,25 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 import { categories } from '~/components/catalog/registry'
 
 const { screens, activeScreen, startScreenId } = useScreens()
 const { addElement } = useElements()
+
+// Screens saved before borders/shadows/grids existed lack these fields
+watchEffect(() => {
+  const s = activeScreen.value
+  if (!s) return
+  s.border ??= { width: 0, color: '#111827' }
+  s.shadow ??= 'default'
+  s.grid   ??= { visible: false, cols: 12, gutter: 16, margin: 24, color: '#7c5cfc' }
+})
+
+const shadowOptions = [
+  { value: 'none',    label: 'None' },
+  { value: 'soft',    label: 'Soft' },
+  { value: 'default', label: 'Default' },
+  { value: 'strong',  label: 'Strong' },
+]
 
 const primeQuery = ref('')
 const filteredPrime = computed(() => {
@@ -68,6 +84,61 @@ function confirmAddButton() {
       <span class="color-hex-val">{{ activeScreen.bg }}</span>
     </div>
   </div>
+
+  <template v-if="activeScreen.border && activeScreen.grid">
+    <div class="prop-hr" />
+    <p class="prop-section">Border</p>
+    <div class="ce-field two-col">
+      <div>
+        <label class="ce-label">Width</label>
+        <input type="number" class="ce-input" min="0" v-model.number="activeScreen.border.width" />
+      </div>
+      <div>
+        <label class="ce-label">Color</label>
+        <input type="color" v-model="activeScreen.border.color" class="color-native wide" />
+      </div>
+    </div>
+
+    <div class="prop-hr" />
+    <p class="prop-section">Shadow</p>
+    <div class="ce-field">
+      <select class="dark-select" v-model="activeScreen.shadow">
+        <option v-for="o in shadowOptions" :key="o.value" :value="o.value">{{ o.label }}</option>
+      </select>
+    </div>
+
+    <div class="prop-hr" />
+    <p class="prop-section">Layout Grid</p>
+    <div class="ce-field">
+      <label class="grid-toggle">
+        <input type="checkbox" v-model="activeScreen.grid.visible" />
+        <span>Show column grid</span>
+      </label>
+    </div>
+    <template v-if="activeScreen.grid.visible">
+      <div class="ce-field two-col">
+        <div>
+          <label class="ce-label">Columns</label>
+          <input type="number" class="ce-input" min="1" max="24" v-model.number="activeScreen.grid.cols" />
+        </div>
+        <div>
+          <label class="ce-label">Gutter</label>
+          <input type="number" class="ce-input" min="0" v-model.number="activeScreen.grid.gutter" />
+        </div>
+      </div>
+      <div class="ce-field two-col">
+        <div>
+          <label class="ce-label">Margin</label>
+          <input type="number" class="ce-input" min="0" v-model.number="activeScreen.grid.margin" />
+        </div>
+        <div>
+          <label class="ce-label">Color</label>
+          <input type="color" v-model="activeScreen.grid.color" class="color-native wide" />
+        </div>
+      </div>
+      <p class="hint-text" style="padding:0 12px;">Guides only — hidden in play mode.</p>
+    </template>
+  </template>
 
   <div class="prop-hr" />
   <p class="prop-section">Prototype</p>
@@ -187,6 +258,12 @@ function confirmAddButton() {
 .color-native { width:28px; height:28px; padding:0; border:1px solid #444; border-radius:4px; cursor:pointer; background:none; -webkit-appearance:none; }
 .color-native::-webkit-color-swatch-wrapper { padding:2px; }
 .color-native::-webkit-color-swatch { border:none; border-radius:3px; }
+.color-native.wide { width:100%; height:28px; }
+.ce-field.two-col { display:flex; gap:8px; }
+.ce-field.two-col > div { flex:1; min-width:0; }
+.grid-toggle { display:flex; align-items:center; gap:8px; font-size:12px; color:#ccc; cursor:pointer; }
+.grid-toggle input { accent-color:#7c5cfc; cursor:pointer; margin:0; }
+.hint-text { font-size:10px; color:#555; margin:2px 0 0; }
 .color-hex-val { font-size:12px; color:#aaa; font-family:monospace; }
 .entry-badge { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; cursor:pointer; border:1px solid #333; background:#1e1e1e; transition:all .15s; }
 .entry-badge:hover { border-color:#555; }

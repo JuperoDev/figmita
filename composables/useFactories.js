@@ -102,7 +102,25 @@ export function makePrimeConfig() {
   }
 }
 
-const ELEMENT_NAMES = { card: 'Card', megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button' }
+export function makeBoxConfig() {
+  return {
+    w:           200,
+    h:           120,
+    fill:        '#ffffff',
+    borderWidth: 1,
+    borderColor: '#d1d5db',
+    borderStyle: 'solid',
+    radius:      8,
+    shadow:      'none',
+    opacity:     100,
+    text:        '',
+    textColor:   '#374151',
+    fontSize:    14,
+    align:       'center',
+  }
+}
+
+const ELEMENT_NAMES = { card: 'Card', megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box' }
 
 export function makeElement(type) {
   return {
@@ -115,11 +133,13 @@ export function makeElement(type) {
       : type === 'confirmdialog' ? makeConfirmDialogConfig()
       : type === 'button' ? makeButtonConfig()
       : type === 'prime' ? makePrimeConfig()
+      : type === 'box' ? makeBoxConfig()
       : {},
     interaction: {
       // Prime elements are often interactive by themselves (dropdowns,
-      // sliders...), so they start with no click interaction
-      action:                 type === 'prime' ? 'none' : 'alert',
+      // sliders...) and boxes are usually decoration, so they start
+      // with no click interaction
+      action:                 type === 'prime' || type === 'box' ? 'none' : 'alert',
       alertText:              'Hello! 👋',
       navigateTo:             null,
       confirmTarget:          null,
@@ -134,6 +154,9 @@ export function makeScreen(name) {
     name,
     bg:       '#f3f4f6',
     height:   SCREEN_H,
+    border:   { width: 0, color: '#111827' },
+    shadow:   'default',
+    grid:     { visible: false, cols: 12, gutter: 16, margin: 24, color: '#7c5cfc' },
     elements: [],
   }
 }

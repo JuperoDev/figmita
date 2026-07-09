@@ -1,5 +1,5 @@
 <script setup>
-import { nextTick } from 'vue'
+import { ref, nextTick } from 'vue'
 
 const props = defineProps({
   sc:      { type: Object,  required: true },
@@ -13,8 +13,10 @@ const { panToIdx } = useCanvas()
 
 const vFocus = { mounted: el => nextTick(() => el.focus()) }
 
-const EL_ICON = { megamenu: 'pi-bars', confirmdialog: 'pi-shield', button: 'pi-mouse', prime: 'pi-prime' }
-const EL_NAME = { megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button' }
+const EL_ICON = { megamenu: 'pi-bars', confirmdialog: 'pi-shield', button: 'pi-mouse', prime: 'pi-prime', box: 'pi-stop' }
+const EL_NAME = { megamenu: 'Mega Menu', confirmdialog: 'Confirm Dialog', button: 'Button', box: 'Box' }
+
+const renamingElId = ref(null)
 
 function setActiveScreen(id) {
   activeScreenId.value = id
@@ -72,7 +74,21 @@ function setActiveScreen(id) {
           @click="clickEl(sc.id, el.id)"
         >
           <i :class="['pi', EL_ICON[el.type] ?? 'pi-id-card', 'layer-ico', 'component-ico']" />
-          <span class="layer-name">{{ el.name || EL_NAME[el.type] || 'Card' }}</span>
+          <span
+            v-if="renamingElId !== el.id"
+            class="layer-name"
+            @dblclick.stop="renamingElId = el.id"
+          >{{ el.name || EL_NAME[el.type] || 'Card' }}</span>
+          <input
+            v-else
+            v-focus
+            class="rename-input"
+            :value="el.name"
+            @blur="e => { el.name = e.target.value.trim() || el.name; renamingElId = null }"
+            @keydown.enter="e => { el.name = e.target.value.trim() || el.name; renamingElId = null }"
+            @keydown.escape="renamingElId = null"
+            @click.stop
+          />
           <button class="layer-del" @click.stop="deleteEl(sc.id, el.id)">
             <i class="pi pi-times" />
           </button>

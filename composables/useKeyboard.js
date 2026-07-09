@@ -7,16 +7,18 @@ const PAN_STEP = 80
 export function useKeyboard() {
   const { selectedEl, selectedSub, deleteEl } = useElements()
   const { playMode, fakeAlert, startPlay, closeAlert } = usePlayMode()
-  const { isSpaceDown, isHandTool, panX, panY, zoomIn, zoomOut } = useCanvas()
+  const { isSpaceDown, isHandTool, isDrawTool, panX, panY, zoomIn, zoomOut } = useCanvas()
 
   function onKeyDown(e) {
     if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return
     if (e.code === 'Space') { isSpaceDown.value = true; e.preventDefault() }
-    if (e.code === 'KeyH')  { isHandTool.value = !isHandTool.value }
+    if (e.code === 'KeyH')  { isHandTool.value = !isHandTool.value; isDrawTool.value = false }
+    if (e.code === 'KeyR')  { isDrawTool.value = !isDrawTool.value; isHandTool.value = false }
     if (e.code === 'KeyP')  { playMode.value ? (playMode.value = false) : startPlay() }
     if (e.code === 'Escape') {
       if (fakeAlert.value.visible) closeAlert()
       else if (playMode.value) playMode.value = false
+      else if (isDrawTool.value) isDrawTool.value = false
       else if (isHandTool.value) isHandTool.value = false
     }
     if ((e.code === 'Delete' || e.code === 'Backspace') && selectedEl.value && !selectedSub.value)

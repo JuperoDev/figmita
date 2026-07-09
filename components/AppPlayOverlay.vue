@@ -40,7 +40,10 @@ const { screens } = useScreens()
                 >
                   <div
                     class="play-screen-content"
-                    :style="{ width: SCREEN_W + 'px', height: (playScreen.height ?? SCREEN_H) + 'px', background: playScreen.bg }"
+                    :style="{
+                      width: SCREEN_W + 'px', height: (playScreen.height ?? SCREEN_H) + 'px', background: playScreen.bg,
+                      boxShadow: playScreen.border?.width > 0 ? `inset 0 0 0 ${playScreen.border.width}px ${playScreen.border.color}` : undefined,
+                    }"
                   >
                     <div v-if="playScreen.elements.length === 0" class="play-empty">
                       <i class="pi pi-layout" style="font-size:2rem;opacity:.3;" />
@@ -70,6 +73,12 @@ const { screens } = useScreens()
                       />
                       <ElementsPrimeMock
                         v-else-if="el.type === 'prime'"
+                        :config="el.config"
+                        :play-mode="true"
+                        @click="handlePlayBtn(el)"
+                      />
+                      <ElementsBoxMock
+                        v-else-if="el.type === 'box'"
                         :config="el.config"
                         :play-mode="true"
                         @click="handlePlayBtn(el)"

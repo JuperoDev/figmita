@@ -1,7 +1,10 @@
 <script setup>
-const { zoomLabel } = useCanvas()
+const { zoomLabel, isHandTool, isDrawTool } = useCanvas()
 const { playMode, startPlay } = usePlayMode()
 const { copyLink } = useShare()
+
+function toggleHand() { isHandTool.value = !isHandTool.value; isDrawTool.value = false }
+function toggleDraw() { isDrawTool.value = !isDrawTool.value; isHandTool.value = false }
 </script>
 
 <template>
@@ -13,13 +16,20 @@ const { copyLink } = useShare()
     </div>
 
     <div class="toolbar">
-      <button class="tool-btn" :class="{ active: !playMode }" @click="playMode = false">
+      <button
+        class="tool-btn" :class="{ active: !playMode && !isHandTool && !isDrawTool }"
+        title="Select (Esc)"
+        @click="playMode = false; isHandTool = false; isDrawTool = false"
+      >
         <i class="pi pi-arrows-alt" />
       </button>
-      <button class="tool-btn"><i class="pi pi-hand" /></button>
+      <button class="tool-btn" :class="{ active: isHandTool }" title="Hand tool (H)" @click="toggleHand">
+        <i class="pi pi-hand" />
+      </button>
       <div class="tool-sep" />
-      <button class="tool-btn"><i class="pi pi-stop" /></button>
-      <button class="tool-btn"><i class="pi pi-box" /></button>
+      <button class="tool-btn" :class="{ active: isDrawTool }" title="Draw box (R)" @click="toggleDraw">
+        <i class="pi pi-stop" />
+      </button>
       <div class="tool-sep" />
       <button
         class="play-btn"

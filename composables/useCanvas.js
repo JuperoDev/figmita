@@ -2,6 +2,7 @@ import { ref, computed } from 'vue'
 import { SCREEN_W, SCREEN_H, SCREEN_GAP } from './useConstants.js'
 import { useScreens } from './useScreens.js'
 import { useElements } from './useElements.js'
+import { makeElement } from './useFactories.js'
 
 const canvasRef    = ref(null)
 const zoom         = ref(1)
@@ -18,6 +19,10 @@ const dragStart    = ref({ x: 0, y: 0, ox: 0, oy: 0 })
 const isResizingScreen = ref(false)
 const resizeScId        = ref(null)
 const resizeStart       = ref({ y: 0, oh: 0 })
+const isDrawTool   = ref(false)
+const drawing      = ref(null) // { scId, x0, y0, x1, y1 }
+const isResizingEl = ref(false)
+const elResize     = ref(null) // { scId, elId, edges, x, y, ox, oy, ow, oh }
 
 export function useCanvas() {
   const { screens, activeScreenId } = useScreens()
@@ -37,6 +42,7 @@ export function useCanvas() {
 
   const zoomLabel   = computed(() => `${Math.round(zoom.value * 100)}%`)
   const cursorClass = computed(() =>
+    isDrawTool.value ? 'cursor-crosshair' :
     isResizingScreen.value ? 'cursor-ns-resize' :
     isPanning.value ? 'cursor-grabbing' : (isSpaceDown.value || isHandTool.value) ? 'cursor-grab' : ''
   )
@@ -115,7 +121,72 @@ export function useCanvas() {
     }
   }
 
+  // Converts a mouse event to coordinates local to screen `idx`
+  function toScreenCoords(e, idx) {
+    const rect = canvasRef.value.getBoundingClientRect()
+    return {
+      x: (e.clientX - rect.left - panX.value) / zoom.value - screenLeft(idx),
+      y: (e.clientY - rect.top  - panY.value) / zoom.value,
+    }
+  }
+
+  // Draw tool: mousedown on a screen starts a rubber-band box
+  function onScreenDrawStart(e, scId, idx) {
+    if (!isDrawTool.value || e.button !== 0) return false
+    const { x, y } = toScreenCoords(e, idx)
+    activeScreenId.value = scId
+    drawing.value = { scId, x0: x, y0: y, x1: x, y1: y }
+    e.stopPropagation()
+    e.preventDefault()
+    return true
+  }
+
+  const drawRect = computed(() => {
+    if (!drawing.value) return null
+    const d = drawing.value
+    return {
+      scId: d.scId,
+      x: Math.round(Math.min(d.x0, d.x1)),
+      y: Math.round(Math.min(d.y0, d.y1)),
+      w: Math.round(Math.abs(d.x1 - d.x0)),
+      h: Math.round(Math.abs(d.y1 - d.y0)),
+    }
+  })
+
+  function commitDrawing() {
+    const r = drawRect.value
+    drawing.value = null
+    if (!r || r.w < 8 || r.h < 8) return
+    const sc = screens.value.find(s => s.id === r.scId)
+    if (!sc) return
+    const el = makeElement('box')
+    el.name = `Box ${screens.value.flatMap(s => s.elements).filter(e => e.type === 'box').length + 1}`
+    el.pos = { x: r.x, y: r.y }
+    el.config.w = r.w
+    el.config.h = r.h
+    sc.elements.push(el)
+    selectedEl.value = { screenId: sc.id, elId: el.id }
+    isDrawTool.value = false
+  }
+
+  // Resizable elements (boxes): drag any handle; `edges` is e.g. 'br', 'tm'
+  function onElResizeMouseDown(e, scId, elId, edges) {
+    if (e.button !== 0) return
+    const sc = screens.value.find(s => s.id === scId)
+    const el = sc?.elements.find(el => el.id === elId)
+    if (!el) return
+    isResizingEl.value = true
+    elResize.value = {
+      scId, elId, edges,
+      x: e.clientX, y: e.clientY,
+      ox: el.pos.x, oy: el.pos.y, ow: el.config.w, oh: el.config.h,
+    }
+    e.stopPropagation()
+    e.preventDefault()
+  }
+
   function onElMouseDown(e, scId, elId) {
+    if (isDrawTool.value) return // let the event bubble to the screen so drawing works over elements
     if (e.button !== 0 || isSpaceDown.value || isHandTool.value) return
     const sc = screens.value.find(s => s.id === scId)
     const el = sc?.elements.find(el => el.id === elId)
@@ -160,10 +231,43 @@ export function useCanvas() {
         const dy = (e.clientY - resizeStart.value.y) / zoom.value
         sc.height = Math.max(SCREEN_H, Math.round(resizeStart.value.oh + dy))
       }
+    } else if (drawing.value) {
+      const idx = screens.value.findIndex(s => s.id === drawing.value.scId)
+      const { x, y } = toScreenCoords(e, idx)
+      drawing.value.x1 = x
+      drawing.value.y1 = y
+    } else if (isResizingEl.value && elResize.value) {
+      const r = elResize.value
+      const sc = screens.value.find(s => s.id === r.scId)
+      const el = sc?.elements.find(e => e.id === r.elId)
+      if (el) {
+        const dx = (e.clientX - r.x) / zoom.value
+        const dy = (e.clientY - r.y) / zoom.value
+        const MIN = 8
+        if (r.edges.includes('l')) {
+          const w = Math.max(MIN, Math.round(r.ow - dx))
+          el.pos.x = Math.round(r.ox + r.ow - w)
+          el.config.w = w
+        }
+        if (r.edges.includes('r')) el.config.w = Math.max(MIN, Math.round(r.ow + dx))
+        if (r.edges.includes('t')) {
+          const h = Math.max(MIN, Math.round(r.oh - dy))
+          el.pos.y = Math.round(r.oy + r.oh - h)
+          el.config.h = h
+        }
+        if (r.edges.includes('b')) el.config.h = Math.max(MIN, Math.round(r.oh + dy))
+      }
     }
   }
 
-  function onMouseUp() { isPanning.value = false; isDraggingEl.value = false; isResizingScreen.value = false }
+  function onMouseUp() {
+    if (drawing.value) commitDrawing()
+    isPanning.value = false
+    isDraggingEl.value = false
+    isResizingScreen.value = false
+    isResizingEl.value = false
+    elResize.value = null
+  }
 
   return {
     canvasRef, zoom, panX, panY, isPanning, isSpaceDown, isHandTool,
@@ -172,5 +276,6 @@ export function useCanvas() {
     screenLeft, handleWheel, zoomIn, zoomOut, fitToView, panToIdx,
     onCanvasMouseDown, onElMouseDown, onMouseMove, onMouseUp,
     isResizingScreen, onResizeHandleMouseDown,
+    isDrawTool, drawRect, onScreenDrawStart, onElResizeMouseDown,
   }
 }
